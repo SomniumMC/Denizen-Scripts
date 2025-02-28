@@ -24,7 +24,7 @@ Butchery_Rewards:
     #- narrate "this corpse is for <[mob]>"
     - take item:<[item]> quantity:1
     - run Cooking_Sound_Cutting_Board
-    - run SKILL_LEVEL_TASK def:<player>|Butchery|5|Strength
+    #- run SKILL_LEVEL_TASK def:<player>|Butchery|5|Strength
     - choose <[mob]>:
       - case cow:
         - drop item:<proc[apply_info_proc].context[<item[Cooking_Raw_Beef]>]> <context.entity.location> quantity:<util.random.int[1].to[3]>

@@ -162,7 +162,7 @@ update_item_task:
   #  - define test t
   - if !<[2].has_flag[appraised]> && <[test]||null> != null:
     - inventory adjust slot:<[3]> flag:appraised:1 destination:<[1].inventory>
-    - run SKILL_LEVEL_TASK def:<[1]>|Appraisal|<[2].quantity>|Intelligence
+    #- run SKILL_LEVEL_TASK def:<[1]>|Appraisal|<[2].quantity>|Intelligence
   - inventory adjust slot:<[3]> lore:<[lore]> destination:<[1].inventory>
 
 Attributes_Lore_Proc:

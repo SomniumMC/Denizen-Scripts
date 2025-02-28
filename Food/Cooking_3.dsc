@@ -1062,7 +1062,7 @@ Cooking_Recipe_Task:
       - else <[2]> !in <player.flag[Recipe]>:
         - if <player.inventory.contains_item[paper]>:
           - take item:paper quantity:1
-          - run Cooking_Recipe_Display
+          #- run Cooking_Recipe_Display
           - give item:<item[Cookingrecipe].with_flag[Recipe:<[2]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><[2].replace_text[_].with[ ]> <white>Recipe.]>
         - else:
           - narrate targets:<[1]> "<red>An error has occured, a recipe has not been generated."
