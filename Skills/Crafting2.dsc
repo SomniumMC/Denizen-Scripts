@@ -35,7 +35,7 @@ Crafting_Place_Event:
         on player places Crafting_Anvil:
         - define location <context.location>
         - spawn item_display[item=Crafting_Anvil;scale=2,2,2] <[location].center.with_yaw[<player.location.yaw.round_to_precision[45]>].above[0.5]> save:anvil
-        - run Crafting_Station_Setup def.location:<[location]> def.item:<context.item_in_hand> def.model:<entry[anvil].spawned_entity>
+        - run Crafting_Station_Setup def.location:<[location]> def.item:<context.item_in_hand> def.scale:0.7,1 def.model:<entry[anvil].spawned_entity>
         - modifyblock <[location]> barrier
 
         #- take item:Crafting_Anvil
