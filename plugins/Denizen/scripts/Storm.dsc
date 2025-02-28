@@ -10,7 +10,7 @@ Storm_Scheduler:
     - if <util.time_now.day_of_week> == 7:
       - run Storm_Starter
 
-Storm_Effect_Check:
+Storm_Player_Check:
     type: world
     debug: false
     events:
@@ -72,11 +72,3 @@ Storm_Effect:
       - playeffect effect:dust special_data:5|white at:<[player].eye_location> quantity:20 targets:<[player]> offset:2.0
       - wait 5t
     - hurt <[player]> 1 cause:SUICIDE
-    #- remove <[storm_data].get[display]>
-    #- spawn text_display <[player].location> save:storm_display
-    #- define storm_display <entry[storm_display].spawned_entity>
-    #- flag <[player]> storm.display:<[storm_display]>
-    #- attach <[storm_display]> to:<[player]> relative offset:0,1,0
-    ##- teleport <[storm_display]> <[storm_display].location.below[0.5]>
-    #- adjust <[storm_display]> text:<&sp.repeat[20]><n><empty>
-    #- adjust <[storm_display]> background_color:white
