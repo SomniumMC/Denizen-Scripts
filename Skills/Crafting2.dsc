@@ -59,6 +59,11 @@ Crafting_Place_Event:
         - run Crafting_Station_Setup def.location:<[location]> def.item:<context.item_in_hand> def.model:<entry[agriculture_station].spawned_entity>
         - modifyblock <[location]> barrier
 
+        on player places Crafting_Masonry_Station:
+        - define location <context.location>
+        - spawn item_display[item=Crafting_Agriculture_Station;scale=1,1,1] <[location].center.with_yaw[<player.location.yaw.round_to_precision[45]>]> save:agriculture_station
+        - run Crafting_Station_Setup def.location:<[location]> def.item:<context.item_in_hand> def.model:<entry[agriculture_station].spawned_entity>
+        - modifyblock <[location]> barrier
 
 Crafting_Start_Event:
   type: world
@@ -90,6 +95,8 @@ Crafting_Start_Event:
           - define skill carpentry
         - case agriculture_station:
           - define skill farming
+        - case masonry_station:
+          - define skill masonry
       - flag <player> crafting.skill:<[skill]>
       - inventory open d:Crafting_Category_Select_GUI
     on player clicks item in Crafting_Category_Select_GUI:
@@ -196,6 +203,9 @@ Crafting_Station_Push:
     - case agriculture_station:
       - define offset_y:0.5
       - define offset_x:0.5
+    - case masonry_station:
+      - define offset_y:0.5
+      - define offset_x:0.5
   - define station_model <[station].flag[workstation].get[model]>
   - spawn Crafting_Minigame_Textdisplay <[station_model].location.center.with_yaw[<[station_model].location.yaw.round_to_precision[45].add[180]>].above[<[offset_y]>].forward[<[offset_x]>]> save:progress_display
   - flag <[station]> workstation.crafting.progress_display:<entry[progress_display].spawned_entity>
@@ -226,6 +236,9 @@ Crafting_Minigame_Spawn:
       - define offset_y:0.5
       - define offset_x:0.5
     - case agriculture_station:
+      - define offset_y:0.5
+      - define offset_x:0.5
+    - case masonry_station:
       - define offset_y:0.5
       - define offset_x:0.5
 
@@ -660,6 +673,14 @@ Crafting_Carpentry_Bench:
         - air|*planks|air
         - *planks|*planks|*planks
 
+Crafting_Masonry_Station:
+    type: item
+    material: string
+    display name: <red>Agriculture Station
+    mechanisms:
+      components_patch:
+        item_model: string:minecraft:stonecutter
+
 Crafting_MissingWorkbench:
     type: item
     material: red_concrete
@@ -871,3 +892,12 @@ Crafting_Icon_Seeds:
     category: seeds
   lore:
   - <white>Grow your own crops
+
+Crafting_Icon_Masonry_Blocks:
+  type: item
+  material: stone_bricks
+  display name: <red>Masonry Blocks
+  flags:
+    category: masonry_blocks
+  lore:
+  - <white>Prepare materials for crafting masonry blocks

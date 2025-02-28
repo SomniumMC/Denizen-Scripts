@@ -76,7 +76,7 @@ Master_Pickup_Data:
     #iron_nugget: blast_iron_nugget
     #copper_ingot: blast_copper_ingot
 
-    fishing_rod: crafted_fishing_rod
+    fishing_rod: crafted_wooden_fishing_rod
     bow: crafted_bow
 
 #Conversion_Exceptions:

@@ -177,6 +177,10 @@ Crafting_Master_Data:
         - oak_planks-5
         - composter-1
         - new_wheat-2
+        Crafting_Masonry_Station-1:
+        - oak_planks-5
+        - stonecutter-1
+        - stone-2
       wooden_materials:
         tool_rod-1:
         - stick-1
@@ -268,4 +272,9 @@ Crafting_Master_Data:
         - new_pumpkin-1
         seeds_apple-1:
         - new_apple-2
+    masonry:
+      masonry_blocks:
+        packed_mud-16:
+        - new_wheat-4
+        - mud-12
 
