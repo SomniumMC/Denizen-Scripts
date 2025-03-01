@@ -91,6 +91,9 @@ NPC_DialogTree_Blacksmith_Satus:
           target: player
           flag: quest.tutorial_beginnings.stage
           value: 7
+        give:
+          item: iron_ingot
+          quantity: 1
     chat7:
       dialog: <green>Good work! Here's a little something for your trouble.
       option1:

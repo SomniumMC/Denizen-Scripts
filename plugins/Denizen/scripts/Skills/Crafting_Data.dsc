@@ -33,6 +33,10 @@ Crafting_Master_Data:
         - slate_silver_ingot-4
       # Test Recipes
       weapons:
+      # Tutorial Dagger
+        blast_iron_dagger-1:
+        - iron_ingot-1
+        - tool_rod-1
       # Steel
         steel_sword-1:
         - steel_ingot-2
