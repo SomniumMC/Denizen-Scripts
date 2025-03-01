@@ -57,6 +57,9 @@ Master_Pickup_Data:
     pumpkin: new_pumpkin
     melon: new_melon
 
+    egg: new_egg
+    sugar: new_sugar
+
     #iron_pickaxe: crafted_blast_iron_pickaxe
     #iron_shovel: crafted_blast_iron_shovel
     #iron_axe: crafted_blast_iron_axe
