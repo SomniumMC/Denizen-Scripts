@@ -25,7 +25,7 @@ NPC_DialogTree_Nyomi:
           flag: dialog_nyomi.race
           value: aquired
       option3:
-        text: Chief officer? First task?
+        text: Chief officer? First task?<gold>(Tutorial)
         type: chatting
         key: chat4
         req_flag:
@@ -78,6 +78,6 @@ Nyomi_race_Events:
         - if <player.flag[chatting]> == nyomi:
           - run NPC_Chat def.npc:Nyomi def.type:chatting def.data:<script[NPC_DialogTree_Nyomi].data_key[chat2]>
         on player enters tutorial_race_check:
-        - if !<player.has_flag[dialog_nyomi.race]>:
+        - if !<player.flag[quest.tutorial_beginnings.stage]> >= 1:
           - teleport <player> <location[tutorial_race_check_tele]>
           - narrate "<white><&lb>Nyomi<&rb> - <green>Hey I'm not letting you leave here before we have a chat!"
