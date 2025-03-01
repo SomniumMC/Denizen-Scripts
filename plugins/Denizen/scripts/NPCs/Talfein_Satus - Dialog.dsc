@@ -1,9 +1,9 @@
 # This file houses the dialog tree for the following NPC:
-## Talfein
+## Talfein_Satus
 
 # First Created: 2/28/2025
 
-NPC_DialogTree_Talfein:
+NPC_DialogTree_Talfein_Satus:
   type: data
   welcome:
     dialog: <green>Ah, hello there! I'm Talfein, the chef of this tavern.
