@@ -78,6 +78,6 @@ Nyomi_race_Events:
         - if <player.flag[chatting]> == nyomi:
           - run NPC_Chat def.npc:Nyomi def.type:chatting def.data:<script[NPC_DialogTree_Nyomi].data_key[chat2]>
         on player enters tutorial_race_check:
-        - if !<player.flag[quest.tutorial_beginnings.stage]> >= 1:
+        - if !<player.has_flag[quest.tutorial_beginnings.stage]>:
           - teleport <player> <location[tutorial_race_check_tele]>
           - narrate "<white><&lb>Nyomi<&rb> - <green>Hey I'm not letting you leave here before we have a chat!"
