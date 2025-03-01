@@ -30,7 +30,7 @@ NPC_DialogTree_Rhea:
       dialog: <green>Good! Can you deliver this to Ayla, the innkeeper? Tavern's called the Crowned Crow, It's on second avenue.
       option1:
         text: <white>I'll certainly get on that!
-        type: end
+        type: quest_progress
         flag:
           target: player
           flag: quest.tutorial_beginnings.stage
