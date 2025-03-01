@@ -31,3 +31,6 @@ Quest_Data_Tutorial_Beginnings:
     8:
       description: <green>Deliver the iron dagger to the Blacksmith.
       progress: 8/?
+    9:
+      description: <red>That's as far as the quest goes for now. Head down to the docks and talk to the Ferryman to leave the island.
+      progress: 9/?
