@@ -767,7 +767,7 @@ Cooking_Main_Event:
           - remove <[interaction].flag[ingredient_map].get[<[slot]>].get[ingredient_model]>
           - if <[interaction].flag[ingredient_map].get[<[slot]>].get[quantity]||null> != null:
             - remove <[interaction].flag[ingredient_map].get[<[slot]>].get[quantity_display]>
-          - drop item:<[data].get[ingredient]> <[interaction].location> quantity:<[interaction].flag[ingredient_map].get[<[slot]>].get[quantity]||1>
+          #- drop item:<[data].get[ingredient]> <[interaction].location> quantity:<[interaction].flag[ingredient_map].get[<[slot]>].get[quantity]||1>
           - flag <[interaction]> ingredient_map.<[slot]>:<empty>
           - if <[slot]> == slot1:
             - flag <[interaction]> status:ready
