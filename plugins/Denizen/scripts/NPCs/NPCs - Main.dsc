@@ -115,6 +115,9 @@ NPC_Chat:
         - flag <player> chatting:<empty>
         #- define quest_data 
         - narrate "<gold><italic>You have finished the Quest: <script[quest_data_<[data]>].data_key[quest_name].parsed>!"
+      - case quest_progress:
+        - flag <player> chatting:<empty>
+        - narrate "<gold><italic>You have progressed in your current Quest."
       - case inventory:
         - inventory open d:<[data]>
       - case teleport:

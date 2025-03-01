@@ -13,7 +13,7 @@ NPC_DialogTree_Rhea:
         type: chatting
         key: chat1
       option2:
-        text: <white>Yes I am ready!
+        text: <white>Yes I am ready!<gold>(Tutorial)
         type: chatting
         key: chat2
         req_flag:
