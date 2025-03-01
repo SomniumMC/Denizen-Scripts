@@ -2,6 +2,137 @@
 
 # First Created 11/25/2024
 
+
+#Data Defined
+Currency_Data:
+    type: data
+    1:
+      base_value: 1
+    2:
+      base_value: 64
+      1-2: 64
+    3:
+      base_value: 4096
+      1-3: 4096
+      2-3: 100
+    4:
+      base_value: 262144
+      1-4: 262144
+      2-4: 4096
+      3-4: 64
+
+#GUI
+Coinpurse_GUI:
+    type: inventory
+    inventory: hopper
+    title: <green>Coin Purse
+    gui: true
+    procedural items:
+    - define purse_item <player.item_in_hand>
+    - definemap contents:
+        currency1: <[purse_item].flag[currency1]>
+        currency2: <[purse_item].flag[currency2]>
+        currency3: <[purse_item].flag[currency3]>
+        currency4: <[purse_item].flag[currency4]>
+    - define result <list>
+    - foreach <list[currency1|currency2|currency3|currency4]> as:currency:
+      - define item <item[brick]>
+      - adjust def:item custom_model_data:<item[<[currency]>].custom_model_data>
+      - adjust def:item display:<item[<[currency]>].display>
+      - adjust def:item flag:currency_button:<[currency]>
+      - adjust def:item flag:stored:<[contents].get[<[currency]>]>
+
+      - adjust def:item lore:<white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>deposit<&sp><gold>1<&sp><white>coin.<n><white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>withdraw<&sp><gold>1<&sp><white>coin.<n><red>Hold<&sp><white><&lt><light_purple>Shift<white><&gt><&sp><red>to<&sp>change<&sp>to<&sp><gold>64<n><gold>Current<&sp>Amount<&co><&sp><light_purple><[contents].get[<[currency]>]>/300
+
+      - define result:->:<[item]>
+
+    #- define result:->:<item[brick]>
+    - determine <[result]>
+    slots:
+    - [] [] [] [] [GUINull]
+
+#Items Defined
+
+Currency1:
+    type: item
+    material: brick
+    display name: <element[Copper Crus].color[#f2963a]>
+    mechanisms:
+      custom_model_data: 35001
+    flags:
+      value: 1
+      currency: 1
+Currency2:
+    type: item
+    material: brick
+    display name: <element[Silver Crus].color[#918c87]>
+    mechanisms:
+      custom_model_data: 35002
+    flags:
+      value: 100
+      currency: 2
+Currency3:
+    type: item
+    material: brick
+    display name: <element[Gold Crus].color[#c2ae00]>
+    mechanisms:
+      custom_model_data: 35003
+    flags:
+      value: 1000
+      currency: 3
+Currency4:
+    type: item
+    material: brick
+    display name: <element[Platinum Crus].color[#93dbda]>
+    mechanisms:
+      custom_model_data: 35004
+    flags:
+      value: 1000
+      currency: 4
+
+
+Coinpurse:
+    type: item
+    material: piglin_banner_pattern
+    display name: <green>Coin Purse
+    mechanisms:
+      components_patch:
+        item_model: string:materials:currency/coinpurse
+    flags:
+      currency1: 0
+      currency2: 0
+      currency3: 0
+      currency4: 0
+      total: 0
+    lore:
+    - <yellow>Can hold 300 of each coin type
+    - <yellow>Automatically collects any coins that you pickup
+    - <green>Stored Amount<white><&co><&sp><element[C].color[#f2963a]><gray>0<&sp><element[S].color[#918c87]><gray>0<&sp><element[G].color[#c2ae00]><gray>0<&sp><element[P].color[#93dbda]><gray>0
+
+
+#Main Assisting Tasks
+CoinPurse_Update_Task:
+    type: task
+    definitions: currency1|currency2|currency3|currency4|slot|inventory
+    script:
+    #- narrate <[currency1]>
+    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency1:<[currency1]>
+    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency2:<[currency2]>
+    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency3:<[currency3]>
+    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency4:<[currency4]>
+    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> lore:<[inventory].if_null[<player.inventory>].slot[<[slot]>].lore.set[<green>Stored Amount<white><&co><&sp><element[C].color[#f2963a]><gray><[currency1]><&sp><element[S].color[#918c87]><gray><[currency2]><&sp><element[G].color[#c2ae00]><gray><[currency3]><&sp><element[P].color[#93dbda]><gray><[currency4]>].at[3]>
+
+CoinPurse_Max_Check:
+  type: procedure
+  definitions: current
+  script:
+  - determine true
+
+
+# Start of Main Scripting
+# 
+#
+# The below script detects if a player has picked up currency then handles storing it in the players purse if they have one. 
 Currency_Pickup_Event:
     type: world
     events:
@@ -39,7 +170,7 @@ Currency_Pickup_Event:
           - if <[currency_adjust]> != 300:
             - determine item:air
 
-
+# Purse Gui Handler. 
 Currency_Purse_Event:
     type: world
     events:
@@ -137,130 +268,29 @@ Currency_Purse_Event:
 
         - run CoinPurse_Update_Task defmap:<[currencies]> def.slot:hand
 
-CoinPurse_Update_Task:
-    type: task
-    definitions: currency1|currency2|currency3|currency4|slot|inventory
-    script:
-    #- narrate <[currency1]>
-    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency1:<[currency1]>
-    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency2:<[currency2]>
-    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency3:<[currency3]>
-    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> flag:currency4:<[currency4]>
-    - inventory adjust slot:<[slot]> destination:<[inventory].if_null[<player.inventory>]> lore:<[inventory].if_null[<player.inventory>].slot[<[slot]>].lore.set[<green>Stored Amount<white><&co><&sp><element[C].color[#f2963a]><gray><[currency1]><&sp><element[S].color[#918c87]><gray><[currency2]><&sp><element[G].color[#c2ae00]><gray><[currency3]><&sp><element[P].color[#93dbda]><gray><[currency4]>].at[3]>
-
-CoinPurse_Max_Check:
-  type: procedure
-  definitions: current
-  script:
-  - determine true
 
 
-Currency_Data:
-    type: data
-    1:
-      base_value: 1
-    2:
-      base_value: 64
-      1-2: 64
-    3:
-      base_value: 4096
-      1-3: 4096
-      2-3: 100
-    4:
-      base_value: 262144
-      1-4: 262144
-      2-4: 4096
-      3-4: 64
-
-
-Currency1:
-    type: item
-    material: brick
-    display name: <element[Copper Crus].color[#f2963a]>
-    mechanisms:
-      custom_model_data: 35001
-    flags:
-      value: 1
-      currency: 1
-Currency2:
-    type: item
-    material: brick
-    display name: <element[Silver Crus].color[#918c87]>
-    mechanisms:
-      custom_model_data: 35002
-    flags:
-      value: 100
-      currency: 2
-Currency3:
-    type: item
-    material: brick
-    display name: <element[Gold Crus].color[#c2ae00]>
-    mechanisms:
-      custom_model_data: 35003
-    flags:
-      value: 1000
-      currency: 3
-Currency4:
-    type: item
-    material: brick
-    display name: <element[Platinum Crus].color[#93dbda]>
-    mechanisms:
-      custom_model_data: 35004
-    flags:
-      value: 1000
-      currency: 4
-
-
-Coinpurse_GUI:
-    type: inventory
-    inventory: hopper
-    title: <green>Coin Purse
-    gui: true
-    procedural items:
-    - define purse_item <player.item_in_hand>
-    - definemap contents:
-        currency1: <[purse_item].flag[currency1]>
-        currency2: <[purse_item].flag[currency2]>
-        currency3: <[purse_item].flag[currency3]>
-        currency4: <[purse_item].flag[currency4]>
-    - define result <list>
-    - foreach <list[currency1|currency2|currency3|currency4]> as:currency:
-      - define item <item[brick]>
-      - adjust def:item custom_model_data:<item[<[currency]>].custom_model_data>
-      - adjust def:item display:<item[<[currency]>].display>
-      - adjust def:item flag:currency_button:<[currency]>
-      - adjust def:item flag:stored:<[contents].get[<[currency]>]>
-
-      - adjust def:item lore:<white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>deposit<&sp><gold>1<&sp><white>coin.<n><white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>withdraw<&sp><gold>1<&sp><white>coin.<n><red>Hold<&sp><white><&lt><light_purple>Shift<white><&gt><&sp><red>to<&sp>change<&sp>to<&sp><gold>64<n><gold>Current<&sp>Amount<&co><&sp><light_purple><[contents].get[<[currency]>]>/300
-
-      - define result:->:<[item]>
-
-    #- define result:->:<item[brick]>
-    - determine <[result]>
-    slots:
-    - [] [] [] [] [GUINull]
-
-Coinpurse:
-    type: item
-    material: piglin_banner_pattern
-    display name: <green>Coin Purse
-    mechanisms:
-      components_patch:
-        item_model: string:materials:currency/coinpurse
-    flags:
-      currency1: 0
-      currency2: 0
-      currency3: 0
-      currency4: 0
-      total: 0
-    lore:
-    - <yellow>Can hold 300 of each coin type
-    - <yellow>Automatically collects any coins that you pickup
-    - <green>Stored Amount<white><&co><&sp><element[C].color[#f2963a]><gray>0<&sp><element[S].color[#918c87]><gray>0<&sp><element[G].color[#c2ae00]><gray>0<&sp><element[P].color[#93dbda]><gray>0
 
 
 ## Banking Scripts
 
+#Defined Banking Items
+Bank_Coinpurse:
+  type: item
+  material: piglin_banner_pattern
+  display name: <green>Currency Storage & Exchange
+  mechanisms:
+    components_patch:
+        item_model: string:materials:currency/coinpurse
+  lore:
+  - <white>Press this to open the currency menu
+
+Bank_Vault:
+  type: item
+  material: chest
+  display name: <light_purple>Bank Vault<white><&co><&sp><gold>
+
+#Gui And Inventories
 Bank_GUI:
   type: inventory
   inventory: chest
@@ -287,33 +317,6 @@ Bank_GUI:
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
-Bank_Coinpurse:
-  type: item
-  material: piglin_banner_pattern
-  display name: <green>Currency Storage & Exchange
-  mechanisms:
-    components_patch:
-        item_model: string:materials:currency/coinpurse
-  lore:
-  - <white>Press this to open the currency menu
-
-Bank_Vault:
-  type: item
-  material: chest
-  display name: <light_purple>Bank Vault<white><&co><&sp><gold>
-
-Bank_Account_Create:
-  type: task
-  script:
-  - define bank_location <player.flag[bank_location]>
-  - definemap vault_data:
-      display: <light_purple>Bank Vault<white><&co><&sp><gold>1
-      contents: <list[<empty>]>
-  - flag <player> bank.<[bank_location]>.vaults.vault1:<[vault_data]>
-  - if <player.flag[bank.currency]||null> == null:
-    - flag <player> bank.currency:0
-
-  - narrate "<gold><italic>Your bank account has been created at<white>: <green><[bank_location].to_titlecase>"
 
 Bank_Vault_Storage:
   type: inventory
@@ -356,8 +359,67 @@ Bank_Currency_Storage:
   - [GUINULL] [GUINULL] [] [] [] [] [player_purse] [GUINULL] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
+#Assisting Scripts/tasks
+Bank_Account_Create:
+  type: task
+  script:
+  - define bank_location <player.flag[bank_location]>
+  - definemap vault_data:
+      display: <light_purple>Bank Vault<white><&co><&sp><gold>1
+      contents: <list[<empty>]>
+  - flag <player> bank.<[bank_location]>.vaults.vault1:<[vault_data]>
+  - if <player.flag[bank.currency]||null> == null:
+    - flag <player> bank.currency:0
+
+  - narrate "<gold><italic>Your bank account has been created at<white>: <green><[bank_location].to_titlecase>"
+
+Bank_Currency_Update:
+  type: task
+  definitions: total_stored
+  script:
+  - define totals_item <item[gold_ingot]>
+  - adjust def:totals_item display:<yellow>Total<&sp>Stored<white><&co><&sp><gold><bold><[total_stored]>
+  - adjust def:totals_item flag:total_stored:<[total_stored]>
+  - inventory set o:<[totals_item]> slot:5 destination:<player.open_inventory>
+
+  - definemap currency_slots:
+      currency1: 12
+      currency2: 13
+      currency3: 14
+      currency4: 15
+  - definemap currency_amounts:
+      currency1: <script[currency_data].data_key[1].get[base_value]>
+      currency2: <script[currency_data].data_key[2].get[base_value]>
+      currency3: <script[currency_data].data_key[3].get[base_value]>
+      currency4: <script[currency_data].data_key[4].get[base_value]>
+
+  - define mod_amount <[total_stored]>
+  - foreach <list[currency4|currency3|currency2|currency1]> as:currency:
+    - if <[mod_amount]> >= <[currency_amounts].get[<[currency]>]>:
+      - define div_amount <[mod_amount].div[<[currency_amounts].get[<[currency]>]>].round_down_to_precision[1]>
+      - define mod_amount <[mod_amount].mod[<[currency_amounts].get[<[currency]>]>]>
+      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> quantity:<[div_amount]>
+      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> flag:stored:<[div_amount]>
+      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> lore:<white>Current<&sp>Balance<&co><&sp><yellow><[div_amount]><n><white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>deposit<&sp><gold>1<&sp><white>coin.<n><white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>withdraw<&sp><gold>1<&sp><white>coin.<n><red>Hold<&sp><white><&lt><light_purple>Shift<white><&gt><&sp><red>to<&sp>change<&sp>to<&sp><gold>64
+    - else:
+      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> quantity:1
+      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> lore:<white>Current<&sp>Balance<&co><&sp><yellow>0<n><white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>deposit<&sp><gold>1<&sp><white>coin.<n><white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>withdraw<&sp><gold>1<&sp><white>coin.<n><red>Hold<&sp><white><&lt><light_purple>Shift<white><&gt><&sp><red>to<&sp>change<&sp>to<&sp><gold>64
+
+  #- if <[total_stored]> >= <[currency_amounts].get[currency4]>:
+  #  - define div_amount <[total_stored].div[<[currency_amounts].get[currency4]>].round_down_to_precision[1]>
+  #  - define mod_amount <[total_stored].mod[<[currency_amounts].get[currency4]>]>
+  #
+
+  #- else if <[total_stored]> >= <script[currency_data].data_key[3].get[base_value]>:
+#
+  #- else if <[total_stored]> >= <script[currency_data].data_key[2].get[base_value]>:
 
 
+
+
+#Main Banking Scripts
+#
+#Handles Gui
 Bank_Event:
   type: world
   events:
@@ -448,44 +510,4 @@ Bank_Event:
     - run CoinPurse_Update_Task defmap:<[currencies]> def.slot:<[purse_slot]>
     - flag player bank.currency:<context.inventory.slot[5].flag[total_stored]>
 
-Bank_Currency_Update:
-  type: task
-  definitions: total_stored
-  script:
-  - define totals_item <item[gold_ingot]>
-  - adjust def:totals_item display:<yellow>Total<&sp>Stored<white><&co><&sp><gold><bold><[total_stored]>
-  - adjust def:totals_item flag:total_stored:<[total_stored]>
-  - inventory set o:<[totals_item]> slot:5 destination:<player.open_inventory>
-
-  - definemap currency_slots:
-      currency1: 12
-      currency2: 13
-      currency3: 14
-      currency4: 15
-  - definemap currency_amounts:
-      currency1: <script[currency_data].data_key[1].get[base_value]>
-      currency2: <script[currency_data].data_key[2].get[base_value]>
-      currency3: <script[currency_data].data_key[3].get[base_value]>
-      currency4: <script[currency_data].data_key[4].get[base_value]>
-
-  - define mod_amount <[total_stored]>
-  - foreach <list[currency4|currency3|currency2|currency1]> as:currency:
-    - if <[mod_amount]> >= <[currency_amounts].get[<[currency]>]>:
-      - define div_amount <[mod_amount].div[<[currency_amounts].get[<[currency]>]>].round_down_to_precision[1]>
-      - define mod_amount <[mod_amount].mod[<[currency_amounts].get[<[currency]>]>]>
-      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> quantity:<[div_amount]>
-      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> flag:stored:<[div_amount]>
-      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> lore:<white>Current<&sp>Balance<&co><&sp><yellow><[div_amount]><n><white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>deposit<&sp><gold>1<&sp><white>coin.<n><white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>withdraw<&sp><gold>1<&sp><white>coin.<n><red>Hold<&sp><white><&lt><light_purple>Shift<white><&gt><&sp><red>to<&sp>change<&sp>to<&sp><gold>64
-    - else:
-      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> quantity:1
-      - inventory adjust slot:<[currency_slots].get[<[currency]>]> destination:<player.open_inventory> lore:<white>Current<&sp>Balance<&co><&sp><yellow>0<n><white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>deposit<&sp><gold>1<&sp><white>coin.<n><white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>withdraw<&sp><gold>1<&sp><white>coin.<n><red>Hold<&sp><white><&lt><light_purple>Shift<white><&gt><&sp><red>to<&sp>change<&sp>to<&sp><gold>64
-
-  #- if <[total_stored]> >= <[currency_amounts].get[currency4]>:
-  #  - define div_amount <[total_stored].div[<[currency_amounts].get[currency4]>].round_down_to_precision[1]>
-  #  - define mod_amount <[total_stored].mod[<[currency_amounts].get[currency4]>]>
-  #
-
-  #- else if <[total_stored]> >= <script[currency_data].data_key[3].get[base_value]>:
-#
-  #- else if <[total_stored]> >= <script[currency_data].data_key[2].get[base_value]>:
 
