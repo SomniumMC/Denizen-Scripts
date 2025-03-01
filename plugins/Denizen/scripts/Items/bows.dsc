@@ -32,10 +32,10 @@ Crafted_Bow:
       skill_base: Carpentry
       level: 1
       recipe: string_3|stick_3
-    recipes:
-      1:
-        type: shaped
-        input:
-        - air|stick|string
-        - stick|air|string
-        - air|stick|string
+    #recipes:
+    #  1:
+    #    type: shaped
+    #    input:
+    #    - air|stick|string
+    #    - stick|air|string
+    #    - air|stick|string
