@@ -7,7 +7,7 @@ NPC_DialogTree_Nyomi:
     type: data
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
     welcome:
-      dialog: <green>Someone sure can sleep, huh? The ship's already docked at Satus! The Chief Officer has your first task once you've gathered your... belongings.
+      dialog: <green>Someone sure can sleep, huh? The ship's already docked at Satus! The Chief Officer has your first task once you've gathered your... belongings.<n><gold>((You can click on the options in chat to select what to say))
       option1:
         text: <white>Wait where am I?
         type: chatting
