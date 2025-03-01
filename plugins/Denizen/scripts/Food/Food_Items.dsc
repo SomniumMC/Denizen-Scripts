@@ -19,7 +19,7 @@ Fresh_Milk:
       1:
         type: shapeless
         input: milk_bucket
-        output: 4
+        output_quantity: 4
 BUTTER:
     type: item
     material: BRICK
@@ -2230,7 +2230,7 @@ Fresh_Water:
       1:
         type: shapeless
         input: water_bucket
-        output: 4
+        output_quantity: 4
 COOKING_OIL:
     type: item
     material: BRICK
