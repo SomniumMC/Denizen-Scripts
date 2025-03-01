@@ -64,7 +64,12 @@ NPC_DialogTree_Nyomi:
       dialog: <green>You can find Rhea on the main deck, can't miss her! She probably has a delivery task for you. How else were you going to pay for your passage, huh? I've seen your bags... if you could call them that...
       option1:
         text: <white>Thanks for pointing me in the right direction!
-        type: end
+        type: quest_start
+        key: tutorial_beginnings
+        flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 1
 
 Nyomi_race_Events:
     type: world

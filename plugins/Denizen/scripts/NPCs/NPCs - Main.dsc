@@ -148,6 +148,9 @@ NPC_Chat_Command:
     - if <[chat_data].get[task]||null> != null:
       - run <[chat_data].get[task].get[key]>
 
+    - if <[chat_data].get[give]||null> != null:
+      - give item:<[chat_data].get[give].get[item]> quantity:<[chat_data].get[give].get[quantity]>
+
     - define data <script[NPC_DialogTree_<[npc]>].data_key[<[key]>]||null>
     - define npc_display <script[NPC_DialogTree_<[npc]>].data_key[display].parsed.if_null[<[npc].replace[_].with[ ]>]>
     - if <[data]||null> == null:
