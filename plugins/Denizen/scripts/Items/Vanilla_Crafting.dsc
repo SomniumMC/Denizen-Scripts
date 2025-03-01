@@ -74,7 +74,7 @@ Vanilla_Iron_Ingot_From_Block:
 
 Vanilla_Copper_Block:
     type: item
-    material: iron_block
+    material: copper_block
     recipes:
       1:
         type: shaped
