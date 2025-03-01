@@ -346,3 +346,16 @@ SStorage_Materials:
     type: item
     material: Leather
     display name: <green>Materials
+
+
+
+Staff_Switch:
+    type: command
+    description: This script is for staff to switch from player mode to staff mode and vice versa
+    name: staffswitch
+    usage: /staffswitch
+    permission: dscript.staffswitch
+    aliases:
+    - sswitch
+    script:
+      - narrate <player.luckperms_primary_group>
