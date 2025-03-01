@@ -61,8 +61,8 @@ Crafting_Place_Event:
 
         on player places Crafting_Masonry_Station:
         - define location <context.location>
-        - spawn item_display[item=Crafting_Agriculture_Station;scale=1,1,1] <[location].center.with_yaw[<player.location.yaw.round_to_precision[45]>]> save:agriculture_station
-        - run Crafting_Station_Setup def.location:<[location]> def.item:<context.item_in_hand> def.model:<entry[agriculture_station].spawned_entity>
+        - spawn item_display[item=Crafting_Masonry_Station;scale=1,1,1] <[location].center.with_yaw[<player.location.yaw.round_to_precision[45]>]> save:Masonry_station
+        - run Crafting_Station_Setup def.location:<[location]> def.item:<context.item_in_hand> def.model:<entry[Masonry_station].spawned_entity>
         - modifyblock <[location]> barrier
 
 Crafting_Start_Event:
@@ -676,7 +676,7 @@ Crafting_Carpentry_Bench:
 Crafting_Masonry_Station:
     type: item
     material: string
-    display name: <red>Agriculture Station
+    display name: <red>Masonry Station
     mechanisms:
       components_patch:
         item_model: string:minecraft:stonecutter
