@@ -15,6 +15,11 @@ Fresh_Milk:
       dairy: true
     lore:
     - <green>A pail of fresh milk perfect for cheese making or butter!
+    recipes:
+      1:
+        type: shapeless
+        input: milk_bucket
+        quantity: 4
 BUTTER:
     type: item
     material: BRICK
@@ -947,6 +952,20 @@ Large_Cake:
 
 
 # Protein
+New_Egg:
+    type: item
+    material: brick
+    mechanisms:
+      components_patch:
+        item_model: string:minecraft:egg
+    display name: <white>Cooking Egg
+    flags:
+      Cooking_ID: New_Egg
+      Cooking_Tag: egg
+      Protein: true
+    lore:
+    - <gold>A fresh egg, it is a good source of protein.
+
 COOKING_RAW_CHICKEN:
     type: item
     material: TROPICAL_FISH
@@ -2207,6 +2226,11 @@ Fresh_Water:
     display name: <white>Fresh Water
     lore:
     - <green>A pail of fresh water ready for cooking! Or to put out fire in a pinch.
+    recipes:
+      1:
+        type: shapeless
+        input: water_bucket
+        quantity: 4
 COOKING_OIL:
     type: item
     material: BRICK
