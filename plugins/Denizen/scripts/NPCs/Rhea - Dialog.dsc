@@ -7,7 +7,7 @@ NPC_DialogTree_Rhea:
     type: data
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
     welcome:
-      dialog: <green>Good eve, Storm-sodden! Are you ready for your delivery task?
+      dialog: <green>Good eve, Storm-sodden! Are you here for your delivery task?
       option1:
         text: <white>Storm-sodden?
         type: chatting
@@ -19,7 +19,7 @@ NPC_DialogTree_Rhea:
         req_flag:
           target: player
           flag: quest.tutorial_beginnings.stage
-          value: 2
+          value: 1
     chat1:
       dialog: <green>Don't get ruffled now, I'm jesting.
       option1:
