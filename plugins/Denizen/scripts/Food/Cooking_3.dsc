@@ -599,11 +599,11 @@ Cooking_Master_Data:
       - butter-1
       - new_potato-1
       - cooking_cooked_pork-1
-      - egg-1
+      - new_egg-1
       - skillet
       sugar_cookie-4:
       - flour-1
-      - egg-1
+      - new_egg-1
       - butter-1
       - new_sugar-2
       - bakeware
@@ -699,9 +699,9 @@ Cooking_Master_Data:
       - new_bread-1
       - mayonnaise-1
       - skillet
-      bacon_and_eggs-1:
+      bacon_and_new_eggs-1:
       - cooking_raw_pork-1
-      - egg-1
+      - new_egg-1
       - skillet
       ground_fish-1:
       - cooking_raw_fish-1
@@ -743,17 +743,17 @@ Cooking_Master_Data:
       - bowl-1
       - cooking_pot
       mayonnaise-1:
-      - egg-1
+      - new_egg-1
       - cooking_oil-1
       - juicer
-      boiled_egg-1:
-      - egg-1
+      boiled_new_egg-1:
+      - new_egg-1
       - cooking_pot
-      fried_egg-1:
-      - egg-1
+      fried_new_egg-1:
+      - new_egg-1
       - skillet
-      scrambled_egg-1:
-      - egg-1
+      scrambled_new_egg-1:
+      - new_egg-1
       - fresh_milk-1
       - cooking_salt-1
       pot_roast-1:
@@ -819,7 +819,7 @@ Cooking_Master_Data:
       - cooking_pot
       new_pumpkin_pie-1:
       - new_pumpkin-1
-      - egg-1
+      - new_egg-1
       - new_sugar-1
       - bakeware
       pumpkin_soup-1:
@@ -960,7 +960,7 @@ Cooking_Master_Data:
       - mixing_bowl
       Sauce_Stew_Base-1:
       - cooking_salt-1
-      - egg-1
+      - new_egg-1
       - mixing_bowl
       Broth_Stew_Base-1:
       - stock-1
@@ -1470,7 +1470,7 @@ Cooking_Guide_Bookscript:
     - <gold><bold>Flour:<n><n><white><black>To make flour, you need to collect up some grain from your proceeds in farming. Placing it on your cooking station and selecting your <gold><bold>Mortar and Pestle<white><black> then simply grinding it will result in this powdery mess.<n>       -----<&gt><n>      <Gold><bold>Dough
     - <gold><bold>Dough:<n><n><white><black>Combining <green>three<white><black> of your <green>flour<white><black> you have with a portion of <green>salt<white><black>, <green>water<white><black> and mixing it into a <gold><bold>Mixing Bowl<white><black> will result in a glob of Dough which can be used in other recipes, but finally your bread itself.<n>       -----<&gt><n>      <Gold><bold>Bread
     - <gold><bold>Bread:<n><n><white><black>Sure you could use this dough ball in recipes for complex food like Pies, but you could just as easily stick it right into the furnace below your station just like your meats. Wait a little and pop! Out comes a steamy hot bread loaf!
-    - Recipes each have their basic steps to aquire the end products. For example, <green>three flour<white><black>, <green>milk<white><black>, and an <green>egg<white><black> will result in <gold><bold>Batter<white><black> for cakes and muffins! Most of the fun with cooking is experimentation!
+    - Recipes each have their basic steps to aquire the end products. For example, <green>three flour<white><black>, <green>milk<white><black>, and an <green>new_egg<white><black> will result in <gold><bold>Batter<white><black> for cakes and muffins! Most of the fun with cooking is experimentation!
     - While I last just stated recipes can be complex, they could also be simple too! Simply take <gold><bold>Crackers<white><black> as an example, <green>three flour<white><black> and <green>one salt<white><black> being cooked with <gold><bold>Bakeware<white><black> gives you four servings that can be taken with you on adventures!
 
 
@@ -1741,7 +1741,7 @@ Cooking_Math_Data:
     - cooking_raw_rabbit
     - cooking_raw_horse
     - cooking_raw_goat
-    - egg
+    - new_egg
     - bone
   cooked_meat:
     - cooking_cooked_pork
