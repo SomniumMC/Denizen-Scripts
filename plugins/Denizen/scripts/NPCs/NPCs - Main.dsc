@@ -54,6 +54,9 @@ NPC_ID_Storage:
 
     41: Librarian_Satus
 
+    45: Ayla
+    46: Talfein_Satus
+
 NPC_Chat:
     type: task
     definitions: data|type|npc|npc_display
