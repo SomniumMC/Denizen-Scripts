@@ -16,9 +16,10 @@ NPC_DialogTree_Rhea:
         text: <white>Yes I am ready!
         type: chatting
         key: chat2
-        deny_has_flag:
+        req_flag:
           target: player
           flag: quest.tutorial_beginnings.stage
+          value: 2
     chat1:
       dialog: <green>Don't get ruffled now, I'm jesting.
       option1:
@@ -29,18 +30,17 @@ NPC_DialogTree_Rhea:
       dialog: <green>Good! Can you deliver this to Ayla, the innkeeper? Tavern's called the Crowned Crow, It's on second avenue.
       option1:
         text: <white>I'll certainly get on that!
-        type: quest_start
-        key: tutorial_beginnings
+        type: end
         flag:
           target: player
           flag: quest.tutorial_beginnings.stage
-          value: 1
+          value: 2
 
 NPC_Rhea_Events:
     type: world
     events:
       on player exits tutorial_quest_check:
-      - if !<player.has_flag[quest.tutorial_beginnings.stage]>:
+      - if <player.flag[quest.tutorial_beginnings.stage]> <= 1:
         - teleport <player> <location[tutorial_quest_check_tele]>
         - narrate "<white><&lb>Rhea<&rb> - <green>Hey I'm not letting you leave here before we have a chat!"
 #tutorial_race_check_tele
