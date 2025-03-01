@@ -58,33 +58,29 @@
 #      level: 10
 #      recipe: bronze_ingot_1|tool_rod_1
 #
-#Blast_Iron_Dagger:
-#    type: item
-#    material: iron_sword
-#    mechanisms:
-#     custom_model_data: 10010
-#     unbreakable: true
-#     hides: unbreakable|attributes
-#     attribute_modifiers:
-#        GENERIC_ATTACK_DAMAGE:
-#          1:
-#            operation: add_number
-#            amount: 6
-#            slot: hand
-#        GENERIC_ATTACK_SPEED:
-#           1:
-#             operation: add_number
-#             amount: -2.4
-#             slot: hand
-#    display name: <gold>Blast Iron Dagger
-#    flags:
-#      lore: <gold>A basic iron dagger.
-#      durability1: 270
-#      slashing: 4
-#      damage_type: Slashing
-#      skill_base: Blacksmithing
-#      level: 20
-#      recipe: blast_iron_ingot_1|tool_rod_1
+Blast_Iron_Dagger:
+    type: item
+    material: iron_sword
+    mechanisms:
+     components_patch:
+        item_model: string:weapons:stainless_steel_dagger
+     unbreakable: true
+     hides: unbreakable|attributes
+     attribute_modifiers:
+        GENERIC_ATTACK_DAMAGE:
+          1:
+            operation: add_number
+            amount: 3
+            slot: hand
+        GENERIC_ATTACK_SPEED:
+           1:
+             operation: add_number
+             amount: -2.4
+             slot: hand
+    display name: <gold>Blast Iron Dagger
+    flags:
+      lore: <gold>A basic iron dagger.
+      durability1: 100
 
 Steel_Dagger:
     type: item

@@ -15,6 +15,40 @@ NPC_DialogTree_Blacksmith_Satus:
         text: <red>Shop
         type: shop
         key: Blacksmith_inventory
+      option3:
+        text: <white>Talfein sent me to let you know the shipment arrived, is there anything you need help with?<gold>(Tutorial)
+        type: chatting
+        key: chat4
+        req_flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 6
+      option4:
+        text: <white>I made the iron dagger you asked for.
+        type: chatting
+        key: chat7
+        req_flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 7
+        req_item:
+          item: blast_iron_dagger
+          quantity: 1
+        take:
+          item: blast_iron_dagger
+          quantity: 1
+        flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 8
+        option5:
+          text: <white>What should I do now?
+          type: chatting
+          key: chat8
+          req_flag:
+            target: player
+            flag: quest.tutorial_beginnings.stage
+            value: 8
     chat1:
       dialog: <green>Is it about metal? Ask yer question!
       option1:
@@ -38,3 +72,43 @@ NPC_DialogTree_Blacksmith_Satus:
       option1:
         text: <white>Thanks for letting me know!
         type: end
+
+    chat4:
+      dialog: <green>Good, good. I'll get to it when I can. Can you make me an iron dagger? I need to see if you can follow instructions. Here's a tool rod to get you started.
+      option1:
+        text: <white>Alright, how do I make it?
+        type: chatting
+        key: chat6
+        give:
+          item: tool_rod
+          quantity: 1
+    chat6:
+      dialog: <green>First, you'll want to go over to that workbench next to me. Select the anvil and select weapons. You'll see the dagger recipe in there. Head over to the anvil when you're ready.<n><green>Don't forget to only hit the green areas or you'll ruin the craft!
+      option1:
+        text: <white>Alright, I'll go do that.
+        type: end
+        flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 7
+        give:
+          item: iron_ingot
+          quantity: 1
+    chat7:
+      dialog: <green>Good work! Here's a little something for your trouble.
+      option1:
+        text: <white>Thank you, but where do I deposit this?
+        give:
+          item: currency2
+          quantity: 1
+        type: chatting
+        key: chat8
+    chat8:
+      dialog: <green>Just head on over to the bank at the back of town, the fellow there can help you with an account.
+      option1:
+        text: <white>Alright, I'll go do that.
+        type: quest_progress
+        flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 9
