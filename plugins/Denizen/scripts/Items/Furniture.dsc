@@ -393,7 +393,7 @@ Assemble_Display_Stand:
     type: task
     definitions: location|item|player|yaw
     script:
-    - spawn ITEM_DISPLAY[item=display_stand;scale=1,1,1] <[location].center.above[0.5]> save:furniture_entity
+    - spawn ITEM_DISPLAY[item=furniture_display_stand;scale=1,1,1] <[location].center.above[0.5]> save:furniture_entity
     - spawn block_display[material=stone_brick_slab] <[location]> save:slab
     - foreach <list[<[location]>]> as:loc:
       - if <[loc].material.name> == air:
