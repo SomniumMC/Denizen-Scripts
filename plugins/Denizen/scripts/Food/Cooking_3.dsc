@@ -746,13 +746,13 @@ Cooking_Master_Data:
       - new_egg-1
       - cooking_oil-1
       - juicer
-      boiled_new_egg-1:
+      boiled_egg-1:
       - new_egg-1
       - cooking_pot
-      fried_new_egg-1:
+      fried_egg-1:
       - new_egg-1
       - skillet
-      scrambled_new_egg-1:
+      scrambled_egg-1:
       - new_egg-1
       - fresh_milk-1
       - cooking_salt-1
