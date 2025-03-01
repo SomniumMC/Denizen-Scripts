@@ -62,6 +62,37 @@ Vanilla_Iron_Block:
         - iron_ingot|iron_ingot
     no_id: true
 
+Vanilla_Iron_Ingot_From_Block:
+    type: item
+    material: iron_ingot
+    recipes:
+      1:
+        type: shapeless
+        input: iron_block
+        output_quantity: 4
+    no_id: true
+
+Vanilla_Copper_Block:
+    type: item
+    material: iron_block
+    recipes:
+      1:
+        type: shaped
+        input:
+        - copper_ingot|copper_ingot
+        - copper_ingot|copper_ingot
+    no_id: true
+
+Vanilla_Copper_From_Block:
+    type: item
+    material: copper_ingot
+    recipes:
+      1:
+        type: shapeless
+        input: copper_block
+        output_quantity: 4
+    no_id: true
+
 Vanilla_Copper_Ingot:
     type: item
     material: copper_ingot
