@@ -901,6 +901,7 @@ Town_Flag_Cleanup:
     - remove <[entity]>
   - remove <[flag]>
   - flag server town_active_flags:<-:<[flag]>
+  - flag server town.<player.flag[town.name]>.claiming:!
 
 Town_Flag_Claim:
   type: task
