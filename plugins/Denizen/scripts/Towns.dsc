@@ -901,19 +901,19 @@ Town_Flag_Cleanup:
     - remove <[entity]>
   - remove <[flag]>
   - flag server town_active_flags:<-:<[flag]>
-  - flag server town.<player.flag[town.name]>.claiming:!
+  - flag server town.<[flag].flag[holder].flag[town.name]>.claiming:!
 
 Town_Flag_Claim:
   type: task
   definitions: flag
   script:
-  - teleport <player> <[flag].location>
+  - teleport <[flag].flag[holder]> <[flag].location>
   - narrate "<light_purple>The magic of the flag whisks you back!"
   - wait 0.5s
   - execute "town claim" as_op
   - flag server town.<[flag].flag[town_name]>.current_claims:++
   - run Town_Flag_Cleanup def:<[flag]>
-  - narrate targets:<player.location.find_players_within[100]> "<gold><bold><player.flag[town.name]><aqua>, has claimed a chunk!"
+  - narrate targets:<player.location.find_players_within[100]> "<gold><bold><[flag].flag[holder].flag[town.name]><aqua>, has claimed a chunk!"
 
 
 Town_Claim_Interaction:
