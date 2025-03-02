@@ -144,6 +144,9 @@ Crafting_Master_Data:
       ores:
         raw_tin-1:
         - diorite-5
+        slime_ball-1:
+        - dough-2
+        - fresh_water-3
     tailoring:
       leather_armor:
         tailored_leather_helmet-1:
@@ -258,6 +261,11 @@ Crafting_Master_Data:
         skillet-1:
         - iron_ingot-2
         - stick-1
+        cooking_link_tool:
+        - stick-1
+        - string-1
+        - iron_ingot-1
+        - redstone-4
     farming:
       farming_storage:
         new_hay_block:
