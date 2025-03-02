@@ -59,6 +59,9 @@ Lock_Event_Main:
           - flag server unlocked_blocks_broken:->:<context.location>
         - else:
           - determine cancelled
+        on player places chest:
+        - if <context.location.find_blocks_flagged[locked].within[1]>:
+          - determine cancelled
 
 Keyring_Event:
     type: world
