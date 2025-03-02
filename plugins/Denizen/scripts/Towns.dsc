@@ -853,7 +853,7 @@ Town_Flag_Finisher:
       - stop
     - foreach <server.flag[town_active_flags]> as:entry:
       - flag <[entry]> time:++
-      - if <[entry].flag[time]> >= 30:
+      - if <[entry].flag[time]> >= 1800:
         - run Town_Flag_Claim def:<[entry]> player:<server.match_player[<[entry].flag[holder]>]>
 
     on player right clicks Town_Claim_Interaction:
@@ -866,7 +866,7 @@ Town_Flag_Finisher:
     - define flag <player.open_inventory.slot[11].flag[flag_data]>
     - run Town_Flag_Cleanup def:<[flag]>
     - inventory close
-    - narrate targets:<player.location.find_players_within[100]> "<gold><bold><player.flag[town.name]><aqua>, has aborted the claim!"
+    - narrate targets:<player.location.find_players_within[100]> "<gold><bold><player.flag[town.name].if_null[<player.name>]><aqua>, has aborted the claim!"
 
 
 Town_Flag_Inventory:
