@@ -11,6 +11,8 @@ Master_Pickup_Event:
         - define quantity <[item].quantity>
         - if <[item].material.name> == bow:
           - determine cancelled
+        - if <[item].material.name> == trident:
+          - determine cancelled
         - if <[item].material.name> in <script[Master_Pickup_Data].list_keys>:
           - if <[item].script.name||null> == null:
             #- narrate true
