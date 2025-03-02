@@ -23,6 +23,9 @@ Storm_Player_Check:
       - if <server.flag[storm.stage]> in <list[started|danger]>:
         - foreach <server.online_players> as:__player:
           - run Storm_Check def.player:<player>
+      on player respawns:
+      - if <server.flag[storm.stage]> in <list[started|danger]>:
+        - determine <location[Satus_Bunker_Respawn]>
 
 Storm_Starter:
   type: task
@@ -33,9 +36,10 @@ Storm_Starter:
       - playsound sound:block.bell.use <player> sound_category:blocks pitch:0.7
     - wait 1s
   - flag server storm.stage:warning
-  - wait 1m
+  - modifyblock <cuboid[bunker_door_satus]> air
+  - wait 15m
   - flag server storm.stage:started
-  - wait 0.5m
+  - wait 2m
   - flag server storm.stage:danger
   - wait 1m
   - foreach <server.flag[somni].keys> as:somni_name:
@@ -47,6 +51,8 @@ Storm_Starter:
       - wait 1m
   - flag server storm.stage:finished
   - announce "<gold>The world is once more bathed in cleansing energy as the Storm has ended."
+  - wait 20m
+  - modifyblock <cuboid[bunker_door_satus]> iron_trapdoor[switched=true;direction=south]
 
 Storm_Check:
     type: task
