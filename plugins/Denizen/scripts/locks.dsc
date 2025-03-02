@@ -42,8 +42,12 @@ Lock_Event_Main:
         - define lock_data <context.location.flag[locked]>
         - if <player.item_in_offhand.script.name> == lock_key && <player.item_in_offhand.flag[key_id]> == <[lock_data].get[id]>:
           - flag <context.location> locked:!
+          - if <[lock_data].get[display].if_null[null]> != null:
+            - remove <context.location.flag[locked].get[display]>
           - if <context.location.other_block||null> != null:
             - flag <context.location.other_block> locked:!
+            - if <context.location.other_block.flag[locked].get[display].if_null[null]> != null:
+              - remove <context.location.flag[locked].get[display]>
         - else if <[lock_data].get[state]> == broken:
           - flag server unlocked_blocks_broken:->:<context.location>
         - else:
@@ -240,7 +244,7 @@ Lock_Picking_Reset:
         - foreach next
       - else:
         - inventory adjust slot:<[pin_slot]> flag:state:down destination:<player.open_inventory>
-        - inventory adjust slot:<[pin_slot]> custom_model_data:30001 destination:<player.open_inventory>
+        - inventory adjust slot:<[pin_slot]> components_patch:[minecraft:item_model=string:lockpicking:lock_pin_down] destination:<player.open_inventory>
     - inventory adjust slot:36 flag:current_combo:<empty> destination:<player.open_inventory>
     - inventory adjust slot:36 flag:current_position:<empty> destination:<player.open_inventory>
     - adjust <player> item_on_cursor:air
@@ -270,7 +274,7 @@ Lock_Picking_Success:
     - if <player.flag[lockpicking_target].flag[locked].get[display].if_null[null]> == null:
       - remove <player.flag[lockpicking_target].other_block.flag[locked].get[display]>
       - flag <player.flag[lockpicking_target].other_block> locked.display:!
-    - else if:
+    - else:
       - remove <player.flag[lockpicking_target].flag[locked].get[display]>
       - flag <player.flag[lockpicking_target]> locked.display:!
     - if <player.flag[lockpicking_target].other_block||null> != null:
