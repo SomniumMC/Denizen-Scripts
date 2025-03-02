@@ -544,6 +544,9 @@ Cooking_Kitchen_Furniture_Events:
     - define location <context.location>
     - define furniture_type <[location].flag[cooking_furniture.type]>
 
+    - if <[furniture_type]> == sink:
+      - drop item:fresh_water <[location].above[1].center>
+
     - if <player.is_sneaking> && <[location].has_flag[cooking_tool]> && <[item].material.name> == air:
       - if <[location].flag[cooking_tool.interaction].flag[status]> == ready:
         - remove <[location].flag[cooking_tool.model]>
