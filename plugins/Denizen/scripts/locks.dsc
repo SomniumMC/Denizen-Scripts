@@ -45,13 +45,13 @@ Lock_Event_Main:
         on player breaks block location_flagged:locked:
         - define lock_data <context.location.flag[locked]>
         - if <player.item_in_offhand.script.name> == lock_key && <player.item_in_offhand.flag[key_id]> == <[lock_data].get[id]>:
-          - flag <context.location> locked:!
           - if <[lock_data].get[display].if_null[null]> != null:
             - remove <context.location.flag[locked].get[display]>
           - if <context.location.other_block||null> != null:
             - flag <context.location.other_block> locked:!
             - if <context.location.other_block.flag[locked].get[display].if_null[null]> != null:
               - remove <context.location.flag[locked].get[display]>
+          - flag <context.location> locked:!
         - else if <[lock_data].get[state]> == broken:
           - flag <context.location> locked:!
           - if <[lock_data].get[display].if_null[null]> != null:
@@ -134,7 +134,7 @@ Lock_New:
         - flag <[location]> locked.<[key]>:<[lock_data].get[<[key]>]>
     - define key <item[lock_key].with_flag[key_id]>
     - adjust def:key flag:key_id:<[id]>
-    - adjust def:key lore:"<yellow>Key<&sp>Id<&co><&sp><[id]>"
+    - adjust def:key lore:<yellow>Key<&sp>Id<&co><&sp><white><bold><[id]>
     - give item:<[key]>
 
 Lock_Existing:
