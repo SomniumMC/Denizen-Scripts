@@ -27,24 +27,31 @@ Lock_Event_Main:
         - if <context.item.script.name||air> == basic_lock:
           - if !<[location].has_flag[locked]> && <player.item_in_offhand.script.name||air> != lock_key:
             - run Lock_New def.lock:basic def.location:<[location]>
+            - take item:basic_lock quantity:1
           - else if <player.item_in_offhand.script.name||air> == lock_key:
             - define id <player.item_in_offhand.flag[key_id]>
             - run Lock_Existing def.lock:basic def.id:<[id]> def.location:<[location]>
+            - take item:basic_lock quantity:1
         - if <context.item.script.name||air> == advanced_lock:
           - if !<[location].has_flag[locked]> && <player.item_in_offhand.script.name||air> != lock_key:
             - run Lock_New def.lock:advanced def.location:<[location]>
+            - take item:advanced_lock quantity:1
           - else if <player.item_in_offhand.script.name||air> == lock_key:
             - define id <player.item_in_offhand.flag[key_id]>
             - run Lock_Existing def.lock:advanced def.id:<[id]> def.location:<[location]>
+            - take item:advanced_lock quantity:1
         - if <context.item.script.name||air> == blessed_lock:
           - if !<[location].has_flag[locked]> && <player.item_in_offhand.script.name||air> != lock_key:
             - run Lock_New def.lock:blessed def.location:<[location]>
+            - take item:blessed_lock quantity:1
           - else if <player.item_in_offhand.script.name||air> == lock_key:
             - define id <player.item_in_offhand.flag[key_id]>
             - run Lock_Existing def.lock:blessed def.id:<[id]> def.location:<[location]>
+            - take item:blessed_lock quantity:1
         on player breaks block location_flagged:locked:
         - define lock_data <context.location.flag[locked]>
         - if <player.item_in_offhand.script.name> == lock_key && <player.item_in_offhand.flag[key_id]> == <[lock_data].get[id]>:
+          - drop item:<[lock_data].get[type]>_lock <context.location.center>
           - if <[lock_data].get[display].if_null[null]> != null:
             - remove <context.location.flag[locked].get[display]>
           - if <context.location.other_block||null> != null:
