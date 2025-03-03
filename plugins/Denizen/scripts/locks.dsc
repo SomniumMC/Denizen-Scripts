@@ -11,6 +11,10 @@ Lock_Event_Main:
           - stop
         - if <context.item.script.name||air> != lockpick:
           - if <context.location.flag[locked.state]> == locked:
+            - if <player.is_sneaking>:
+              - determine passively cancelled
+              - playsound sound:block_chest_locked <player.location> sound_category:blocks
+              - narrate "<gold>Chest Id<&co><&sp><white><context.location.flag[locked.id]>"
             - determine passively cancelled
             - playsound sound:block_chest_locked <player.location> sound_category:blocks
         - else:
@@ -130,6 +134,7 @@ Lock_New:
         - flag <[location]> locked.<[key]>:<[lock_data].get[<[key]>]>
     - define key <item[lock_key].with_flag[key_id]>
     - adjust def:key flag:key_id:<[id]>
+    - adjust def:key lore:"<yellow>Key<&sp>Id<&co><&sp><[id]>"
     - give item:<[key]>
 
 Lock_Existing:
