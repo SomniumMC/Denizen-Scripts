@@ -113,6 +113,8 @@ Town_Form_Task:
 
     - execute "town toggle open on" as_op
     - execute "town toggle pvp on" as_op
+    - execute "town set itemuse on" as_op
+    - execute "town set switch on" as_op
 
 
 Town_Deed:
