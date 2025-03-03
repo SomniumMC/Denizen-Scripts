@@ -18,7 +18,9 @@ Mining_Main_Event:
           - case gold_ore:
             - define xp 5
           - case diamond_ore:
-            - determine raw_silver
+            - define item <item[raw_silver]>
+            - adjust def:item quantity:<util.random.int[1].to[3]>
+            - determine <[item]>
           - case emerald_ore:
             - determine Geode
           - case deepslate_coal_ore
@@ -29,7 +31,9 @@ Mining_Main_Event:
           - case deepslate_gold_ore:
             - define xp 5
           - case deepslate_diamond_ore:
-            - determine raw_silver
+            - define item <item[raw_silver]>
+            - adjust def:item quantity:<util.random.int[1].to[3]>
+            - determine <[item]>
           - case deepslate_emerald_ore:
             - determine Geode
         - if <[xp]||null> != null:
