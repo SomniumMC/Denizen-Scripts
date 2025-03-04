@@ -19,3 +19,4 @@ SomniData_Ruined_City:
       type: mobspawner
       pos1: 63|14|-50
       id: ruinedcityspawner1
+      health: 10
