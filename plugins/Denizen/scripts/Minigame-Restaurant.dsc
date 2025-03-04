@@ -415,7 +415,7 @@ Cooking_Kitchen_Furniture_Events:
       - define item <player.item_in_offhand>
       #- define center <[location].center>
       - define player_yaw <player.eye_location.yaw.round_to_precision[90]>
-      - modifyblock <[location]> cyan_stained_glass_pane
+      - modifyblock <[location]> cyan_stained_glass
       #- define yaw_mod <[center].with_yaw[<proc[Cooking_Reverse_Facer_Proc].context[<[player_yaw]>]>]>
       - spawn item_display[item=barrel] <[location].center.with_pitch[90].with_yaw[<player.location.yaw.round_to_precision[90].add[180]>]> save:storage_model
       - spawn text_display <[location].center.with_yaw[<player.location.yaw.round_to_precision[90].add[180]>].forward[0.51]> save:text_display
