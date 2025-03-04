@@ -52,7 +52,7 @@ Storm_Starter:
   - flag server storm.stage:finished
   - announce "<gold>The world is once more bathed in cleansing energy as the Storm has ended."
   - wait 20m
-  - modifyblock <cuboid[bunker_door_satus]> iron_trapdoor[switched=true;direction=south]
+  - modifyblock <cuboid[bunker_door_satus]> oak_fence[faces=east|west]
 
 Storm_Check:
     type: task
