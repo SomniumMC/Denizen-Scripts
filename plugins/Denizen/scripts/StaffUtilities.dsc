@@ -367,7 +367,7 @@ Staff_Switch:
         - inventory clear <player>
       - else:
         - flag <player> staff_switch:!
-        - adjust <player> gamemode:creative
+        - adjust <player> gamemode:survival
         - narrate "<red>Staff Mode Disabled"
         - inventory clear <player>
         - inventory set o:<player.flag[temp_inventory]> destination:<player.inventory>
