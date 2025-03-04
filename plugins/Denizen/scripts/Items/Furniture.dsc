@@ -107,7 +107,7 @@ Staff_Place_Event:
       - run Staff_Place_Task def.slot:offhand
     on player right clicks Furniture_Interaction with:staff_place_tool priority:-20:
     - ratelimit <player> 5t
-    - flag <player> staff_place_entity:<context.entity> expire:10s
+    - flag <player> staff_place_entity:<context.entity> expire:30s
     - inventory open d:Staff_Place_GUI
     on player clicks item in Staff_Place_GUI:
     - define item <context.item>
@@ -183,7 +183,7 @@ Staff_Place_Event:
       - define z_adjustment:<[z_adjustment].mul[0.1]>
     - choose <[type]>:
       - case scale:
-        - adjust <[model]> scale:<[scale_x].add[<[x_adjustment]>]>,<[scale_y].add[<[y_adjustment]>]>,<[scale_z].add[<[z_adjustment]>]>
+        - adjust <[model]> scale:<[scale_x].add[<[x_adjustment]>].round_to[0.1]>,<[scale_y].add[<[y_adjustment]>].round_to[0.1]>,<[scale_z].add[<[z_adjustment]>].round_to[0.1]>
       - case teleport:
         - if <[x_adjustment]> != 0:
           - teleport <[model]> <[model].location.left[<[x_adjustment]>]>
