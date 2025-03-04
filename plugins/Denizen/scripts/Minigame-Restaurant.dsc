@@ -6,6 +6,7 @@
 
 Cooking_Storage_Event:
   type: world
+  debug: false
   events:
     on player right clicks Cooking_Storage_Interaction:
     - ratelimit <player> 5t
@@ -38,6 +39,7 @@ Cooking_Storage_Event:
 
 Cooking_Storage_Display_Create:
     type: task
+    debug: false
     definitions: item|location
     script:
     - define center <[location].center>
@@ -60,6 +62,7 @@ Cooking_Storage_Display_Create:
 
 Cooking_Storage_Interaction:
   type: entity
+  debug: false
   entity_type: interaction
   mechanisms:
     height: 0.90
@@ -67,6 +70,7 @@ Cooking_Storage_Interaction:
 
 Cooking_Reverse_Facer_Proc:
   type: procedure
+  debug: false
   definitions: player_yaw
   script:
   - if <[player_yaw]> == 360 || <[player_yaw]> == 0:
@@ -80,6 +84,7 @@ Cooking_Reverse_Facer_Proc:
 
 Cooking_Facer_Proc:
   type: procedure
+  debug: false
   definitions: player_yaw
   script:
   - if <[player_yaw]> == 360 || <[player_yaw]> == 0:
@@ -94,6 +99,7 @@ Cooking_Facer_Proc:
 
 Restaurant_Furniture_Event:
   type: world
+  debug: false
   events:
     on player holds item item:Restaurant_Table_Kit:
     - define cuboid <cuboid[Restaurant_Dining_Floor]>
@@ -208,6 +214,7 @@ Restaurant_Furniture_Event:
 
 Restaurant_Table_Interaction:
   type: entity
+  debug: false
   entity_type: interaction
   mechanisms:
     height: 1.1
@@ -215,6 +222,7 @@ Restaurant_Table_Interaction:
 
 Restaurant_Chair_Interaction:
   type: entity
+  debug: false
   entity_type: interaction
   mechanisms:
     height: 1
@@ -244,6 +252,7 @@ Restaurant_Chair_Kit:
 
 Restaurant_Furniture_Data:
   type: data
+  debug: false
   chair:
     1x1:
       crude:
@@ -256,6 +265,7 @@ Restaurant_Furniture_Data:
 
 Restaurant_Patron_Spawn:
   type: task
+  debug: false
   definitions: patron
   script:
   - spawn <[patron]> <server.flag[restaurant_patron_spawns].random>
@@ -263,6 +273,7 @@ Restaurant_Patron_Spawn:
 
 Restaurant_Patron_Seating:
   type: task
+  debug: false
   definitions: patron|table
   script:
   - define chairs <[table].flag[chair_list]>
@@ -286,6 +297,7 @@ Restaurant_Patron_Seating:
 
 Restaurant_Patron_Interact:
   type: world
+  debug: false
   events:
     on player damages npc ignorecancelled:true in:restaurant_entrance:
     - define patron <context.entity>
@@ -300,10 +312,12 @@ Restaurant_Patron_Interact:
 
 Restaurant_Patron_Data:
   type: data
+  debug: false
   full_list: 2|3|4|5
 
 Restaurant_Counter_Interact_Event:
   type: world
+  debug: false
   events:
     on player right clicks block location_flagged:restaurant_plate_counter:
     - ratelimit <player> 5t
@@ -385,11 +399,11 @@ Restaurant_Counter_Interact_Event:
 
 Cooking_Kitchen_Furniture_Events:
   type: world
+  debug: false
   events:
     on player places Cooking_Storage_Block:
-    - determine passively cancelled
     - ratelimit <player> 5t
-    - define location <context.location.above[1]>
+    - define location <context.location>
 
     - define central <context.location.center.with_facing_direction>
 
@@ -401,7 +415,7 @@ Cooking_Kitchen_Furniture_Events:
       - define item <player.item_in_offhand>
       #- define center <[location].center>
       - define player_yaw <player.eye_location.yaw.round_to_precision[90]>
-      - modifyblock <[location]> barrier
+      - modifyblock <[location]> cyan_stained_glass_pane
       #- define yaw_mod <[center].with_yaw[<proc[Cooking_Reverse_Facer_Proc].context[<[player_yaw]>]>]>
       - spawn item_display[item=barrel] <[location].center.with_pitch[90].with_yaw[<player.location.yaw.round_to_precision[90].add[180]>]> save:storage_model
       - spawn text_display <[location].center.with_yaw[<player.location.yaw.round_to_precision[90].add[180]>].forward[0.51]> save:text_display
@@ -600,17 +614,20 @@ Cooking_Kitchen_Furniture_Events:
 
 Cooking_Storage_Block:
   type: item
-  material: rabbit_foot
+  debug: false
+  material: string
   display name: <gold>Cooking Storage
 
 Restaurant_Plate_Rack_Interaction:
   type: entity
+  debug: false
   entity_type: interaction
   #mechanisms:
     #mech: value
 
 Restaurant_Plate_Rack:
   type: item
+  debug: false
   material: string
   display name: <green>Plate Rack
   mechanisms:
@@ -619,6 +636,7 @@ Restaurant_Plate_Rack:
 
 Restaurant_Plate:
   type: item
+  debug: false
   material: brick
   display name: <gray>Empty Plate
   mechanisms:
@@ -626,6 +644,7 @@ Restaurant_Plate:
 
 Cooking_Sink:
   type: item
+  debug: false
   material: string
   display name: <green>Sink
   mechanisms:
@@ -636,6 +655,7 @@ Cooking_Sink:
 
 Cooking_Oven:
   type: item
+  debug: false
   material: string
   display name: <green>Oven
   mechanisms:
@@ -646,6 +666,7 @@ Cooking_Oven:
 
 Cooking_Oven_Burner:
   type: item
+  debug: false
   material: rabbit_foot
   display name: <green>Oven Burner
   mechanisms:
@@ -657,6 +678,7 @@ Cooking_Oven_Burner:
 
 Cooking_Counter:
   type: item
+  debug: false
   material: string
   display name: <green>Counter
   mechanisms:
@@ -667,6 +689,7 @@ Cooking_Counter:
 
 Cooking_Middle_Counter:
   type: item
+  debug: false
   material: string
   display name: <green>Middle Cabinet
   mechanisms:
@@ -678,6 +701,7 @@ Cooking_Middle_Counter:
 
 Cooking_Interact:
   type: entity
+  debug: false
   entity_type: interaction
   mechanisms:
     height: 0.5
@@ -685,6 +709,7 @@ Cooking_Interact:
 
 Cooking_Tool_Setup:
   type: task
+  debug: false
   definitions: interaction|tool
   script:
   - definemap ingredient_map:
@@ -701,6 +726,7 @@ Cooking_Tool_Setup:
 
 Cooking_Main_Event:
   type: world
+  debug: false
   events:
     on player right clicks Cooking_Interact:
     - ratelimit <player> 5t
@@ -804,6 +830,7 @@ Cooking_Main_Event:
 
 Cooking_Ingredient_Stacking:
   type: task
+  debug: false
   definitions: item|ingredient_map|interaction|location_mods|slot
   script:
 
@@ -818,6 +845,7 @@ Cooking_Ingredient_Stacking:
 
 Cooking_Recipe_GUI:
   type: inventory
+  debug: false
   inventory: chest
   gui: true
   procedural items:
@@ -844,6 +872,7 @@ Cooking_Recipe_GUI:
 
 Cooking_4_Craft:
     type: world
+    debug: false
     events:
       on player clicks item in Cooking_Recipe_GUI:
       - if <context.item.script.name> !in <list[CookingButtonL|CookingNull|CookingReturn|CookingButtonR]>:
@@ -950,6 +979,7 @@ Cooking_Link_Tool:
 
 Cooking_Link_Event:
   type: world
+  debug: false
   events:
     on player left clicks block with:Cooking_Link_Tool:
     - determine passively cancelled
