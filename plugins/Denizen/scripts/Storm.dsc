@@ -29,6 +29,7 @@ Storm_Player_Check:
 
 Storm_Starter:
   type: task
+  debug: false
   script:
   - announce "<red><bold>Bells can be heard ringing in the distance while the skys start turning for the worst."
   - repeat 5:
@@ -56,6 +57,7 @@ Storm_Starter:
 
 Storm_Check:
     type: task
+    debug: false
     definitions: player
     script:
     - if <player.has_flag[storm]>:
@@ -71,6 +73,7 @@ Storm_Check:
 
 Storm_Effect:
     type: task
+    debug: false
     definitions: player
     script:
     - define storm_data <[player].flag[storm]>
