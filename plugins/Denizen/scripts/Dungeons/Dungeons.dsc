@@ -119,8 +119,8 @@ SomniMobSpawner:
     #- narrate <[pos1]>
     - adjust <[spawner]> enable
     - adjust <[spawner]> spawn
-    - spawn item_display[item=Dungeon_Spawner] <[pos1]> save:spawner_entity
-    - spawn dungeon_spawner_interaction <[pos1].below[0.5]> save:interaction_entity
+    - spawn item_display[item=Dungeon_Spawner] <[pos1].center> save:spawner_entity
+    - spawn dungeon_spawner_interaction <[pos1].center.below[0.5]> save:interaction_entity
     - flag <entry[interaction_entity].spawned_entity> spawner_entity:<entry[spawner_entity].spawned_entity>
     - flag <entry[interaction_entity].spawned_entity> health:<[health]>
 

@@ -17,5 +17,5 @@ SomniData_Ruined_City:
       somni: Ruined_City
     spawner1:
       type: mobspawner
-      pos1: 61|11|-53
+      pos1: 63|14|-50
       id: ruinedcityspawner1
