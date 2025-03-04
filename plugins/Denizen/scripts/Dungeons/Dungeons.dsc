@@ -42,12 +42,12 @@ SomniReset:
     #  - if <script[SomniData_<[somni]>].data_key[<[key]>.type]> == furniture:
     #    - define origin <location[<script[SomniData_<[somni]>].data_key[origin]>]>
     #    #- run Furniture_Faker_Cleanup def.location:<proc[SomniLocationProc].context[<script[SomniData_<[somni]>].data_key[<[key]>.pos1]>].unescaped.parsed>
-    - modifyblock air <location[<[pos1]>].to_cuboid[<location[<[pos2]>]>]> no_physics
+    - modifyblock air <cuboid[<script[SomniData_<[somni]>].data_key[area]>]> no_physics
     - wait 10t
     - define origin <location[<script[SomniData_<[somni]>].data_key[origin]>]>
 
     - schematic load name:<[somni]>
-    - schematic paste name:<[somni]> <[origin]>
+    - schematic paste name:<[somni]> <[origin].with_yaw[!]>
     - foreach <script[SomniData_<[somni]>].list_keys.exclude[origin|type|pos2|area|chunks]> as:key:
       #- if <[key]> == origin || <[key]> == type:
       #  - foreach next
