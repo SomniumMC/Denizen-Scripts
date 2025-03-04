@@ -358,4 +358,27 @@ Staff_Switch:
     aliases:
     - sswitch
     script:
-      - narrate <player.luckperms_primary_group>
+      #- narrate <player.luckperms_primary_group>
+      - if !<player.has_flag[staff_switch]>:
+        - flag <player> staff_switch
+        - narrate "<green>Staff Mode Enabled"
+        - adjust <player> gamemode:creative
+      - else:
+        - flag <player> staff_switch:!
+        - adjust <player> gamemode:creative
+        - narrate "<red>Staff Mode Disabled"
+
+Staff_Switch_Event:
+  type: world
+  debug: true
+  events:
+    on player drops item:
+    - if <player.has_flag[staff_switch]>:
+      - determine cancelled
+    on player opens chest:
+    - if <player.has_flag[staff_switch]>:
+      - determine cancelled
+    on player opens barrel:
+    - if <player.has_flag[staff_switch]>:
+      - determine cancelled
+   # - narrate "Nice <context.material>"
