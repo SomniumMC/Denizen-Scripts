@@ -363,10 +363,14 @@ Staff_Switch:
         - flag <player> staff_switch
         - narrate "<green>Staff Mode Enabled"
         - adjust <player> gamemode:creative
+        - flag <player> temp_inventory:<player.inventory.list_contents>
+        - inventory clear <player>
       - else:
         - flag <player> staff_switch:!
         - adjust <player> gamemode:creative
         - narrate "<red>Staff Mode Disabled"
+        - inventory clear <player>
+        - inventory set o:<player.flag[temp_inventory]> destination:<player.inventory>
 
 Staff_Switch_Event:
   type: world
@@ -379,6 +383,15 @@ Staff_Switch_Event:
     - if <player.has_flag[staff_switch]>:
       - determine cancelled
     on player opens barrel:
+    - if <player.has_flag[staff_switch]>:
+      - determine cancelled
+    on player opens enderchest:
+    - if <player.has_flag[staff_switch]>:
+      - determine cancelled
+    on player opens shulker_box:
+    - if <player.has_flag[staff_switch]>:
+      - determine cancelled
+    on player opens furnace:
     - if <player.has_flag[staff_switch]>:
       - determine cancelled
    # - narrate "Nice <context.material>"
