@@ -110,15 +110,19 @@ SomniMob:
       - mythicspawn <[mythicmob]> <[pos1]> save:mob
       - adjust <entry[mob].spawned_entity> force_no_persist:false
 
-SomniEnableSpawner:
+SomniMobSpawner:
     type: task
-    definitions: pos1|origin|id
+    definitions: pos1|origin|id|health
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - define spawner <mythicspawner[<[id]>]>
     #- narrate <[pos1]>
     - adjust <[spawner]> enable
     - adjust <[spawner]> spawn
+    - spawn item_display[item=Dungeon_Spawner] <[pos1]> save:spawner_entity
+    - spawn dungeon_spawner_interaction <[pos1].below[0.5]> save:interaction_entity
+    - flag <entry[interaction_entity].spawned_entity> spawner_entity:<entry[spawner_entity].spawned_entity>
+    - flag <entry[interaction_entity].spawned_entity> health:<[health]>
 
 SomniBreakable:
     type: task
@@ -428,6 +432,7 @@ SomniProtection:
 
 SomniProtectionClear:
     type: task
+    debug: false
     definitions: area|location|core|stabilizer|interaction|somni
     script:
     - remove <[interaction]>
@@ -450,6 +455,7 @@ SomniProtectionClear:
 
 SomniReturnPortal_Event:
   type: world
+  debug: false
   events:
     on player enters Testschem_Exit:
     - define exit_location <script[SomniData_TestSchem].data_key[exit.exit_override]||null>
@@ -464,7 +470,25 @@ SomniReturnPortal_Event:
     - teleport <player> <location[<[exit_location]>]>
     - narrate "<light_purple><italic>You can once again hear your own thoughts as the spiritual haze fades from your mind."
 
-
+SomniMob_Spawner_Event:
+  type: world
+  #debug: false
+  events:
+    on player damages Dungeon_Spawner_Interaction:
+    - define entity <context.entity>
+    - define health <[entity].flag[health]>
+    - if <[health].sub[<context.damage>]> <= 0:
+      - define spawner <[entity].flag[spawner_entity]>
+      - adjust <[spawner]> disable
+      - playsound sound:block.glass.break <[entity].location> sound_category:blocks
+      - remove <[entity]>
+      - remove <[spawner]>
+    - else:
+      - define newhealth <[health].sub[<context.damage>]>
+      - flag <[entity]> health:<[newhealth]>
+      - playeffect effect:block at:<[entity].location.above[1]> special_data:iron_block quantity:10
+      - playsound sound:block.glass.place <[entity].location> sound_category:blocks
+      #- narrate "<white><bold>The spawner shatters upon your touch releasing its protection of the Somni."
 
 Dungeon_Core_Interaction:
     type: entity
@@ -494,6 +518,21 @@ Dungeon_Return_Portal:
     display name: <red><bold>Dungeon Return Portal
     mechanisms:
       custom_model_data: 303
+
+Dungeon_Spawner:
+    type: item
+    material: string
+    display name: <red><bold>Dungeon Spawner
+    mechanisms:
+      components_patch:
+        item_model: string:dungeons:fountain
+
+Dungeon_Spawner_Interaction:
+    type: entity
+    entity_type: interaction
+    mechanisms:
+        height: 1
+        width: 1
 
 Dungeon_Stone:
     type: item
