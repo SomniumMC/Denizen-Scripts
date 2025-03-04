@@ -358,4 +358,7 @@ Staff_Switch:
     aliases:
     - sswitch
     script:
-      - narrate <player.luckperms_primary_group>
+      - define primarygroup <player.luckperms_primary_group>
+      - if primarygroup.haspermission[dscript.staffswitch.dev]:
+        - execute as_server "lp user <player.name> parent remove <[primarygroup]>"
+        - execute as_server "lp user <player.name> parent add default"
