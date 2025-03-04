@@ -47,7 +47,7 @@ SomniReset:
     - define origin <location[<script[SomniData_<[somni]>].data_key[origin]>]>
 
     - schematic load name:<[somni]>
-    - schematic paste name:<[somni]> <[origin]>
+    - schematic paste name:<[somni]> <[origin].with_yaw[!]>
     - foreach <script[SomniData_<[somni]>].list_keys.exclude[origin|type|pos2|area|chunks]> as:key:
       #- if <[key]> == origin || <[key]> == type:
       #  - foreach next
