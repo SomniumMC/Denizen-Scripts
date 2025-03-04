@@ -712,7 +712,7 @@ Config_Wrench:
     display name: <yellow>Configuration Wrench
     mechanisms:
       components_patch:
-        item_model: string:tools:spool_of_thread
+        item_model: string:tools:config_wrench
     recipes:
       1:
         type: shaped
