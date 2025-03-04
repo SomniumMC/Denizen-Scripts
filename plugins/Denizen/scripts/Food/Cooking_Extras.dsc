@@ -168,7 +168,7 @@ Yeast:
     Cooking_ID: Yeast
   mechanisms:
     components_patch:
-      item_model: minecraft:brick
+      item_model: cooking:ingredients/yeast
   Lore:
   - <gold>A mixture found in kitchens and used in various processes ranging from baking to alcohol brewing.
 
