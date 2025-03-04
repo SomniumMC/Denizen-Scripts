@@ -617,6 +617,9 @@ Cooking_Storage_Block:
   debug: false
   material: string
   display name: <gold>Cooking Storage
+  mechanisms:
+      components_patch:
+        item_model: string:minecraft:barrel
 
 Restaurant_Plate_Rack_Interaction:
   type: entity
