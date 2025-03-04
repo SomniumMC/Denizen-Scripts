@@ -406,6 +406,9 @@ Lock_Key:
     type: item
     material: brick
     display name: <gold>Key
+    mechanisms:
+      components_patch:
+        item_model: string:lockpicking:akey
 
 Key_Ring:
     type: item
@@ -421,6 +424,9 @@ Lockpick:
     type: item
     material: brick
     display name: <dark_gray>Lock Pick
+    mechanisms:
+      components_patch:
+        item_model: string:lockpicking:lockpick
 
 Lockpick_GUI:
     type: item
