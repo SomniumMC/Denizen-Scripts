@@ -50,7 +50,7 @@ Lock_Event_Main:
             - take item:blessed_lock quantity:1
         on player breaks block location_flagged:locked:
         - define lock_data <context.location.flag[locked]>
-        - if <player.item_in_offhand.script.name> == lock_key && <player.item_in_offhand.flag[key_id]> == <[lock_data].get[id]>:
+        - if <player.item_in_hand.script.name> == lock_key && <player.item_in_hand.flag[key_id]> == <[lock_data].get[id]>:
           - drop item:<[lock_data].get[type]>_lock <context.location.center>
           - if <[lock_data].get[display].if_null[null]> != null:
             - remove <context.location.flag[locked].get[display]>
@@ -127,16 +127,16 @@ Lock_New:
       - flag <[location]> locked.<[key]>:<[lock_data].get[<[key]>]>
     #- flag <[location]> locked.type:<[lock]>
     #- flag <[location]> locked.id:<[id]>
-    - if <[location].custom_name||null> == null || <[location].custom_name.to_list.last> == 八:
-      - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
-      - define yep
+    #- if <[location].custom_name||null> == null || <[location].custom_name.to_list.last> == 八:
+    #  - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
+    #  - define yep
 
     - spawn item_display[item=<[lock]>_lock] <[location].center.with_yaw[<proc[lock_facer_proc].context[<[location].material.direction>]>].forward[0.5]> save:lock_display
     - flag <[location]> locked.display:<entry[lock_display].spawned_entity>
     - if <[location].other_block||null> != null:
       - define location <[location].other_block>
-      - if <[yep]>:
-        - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
+      #- if <[yep]>:
+      #  - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
       - foreach <[lock_data].keys> as:key:
         - flag <[location]> locked.<[key]>:<[lock_data].get[<[key]>]>
     - define key <item[lock_key].with_flag[key_id]>
@@ -155,17 +155,17 @@ Lock_Existing:
         combo: <proc[Lock_Combo_Scramble].context[<[lock]>]>
     - foreach <[lock_data].keys> as:key:
       - flag <[location]> locked.<[key]>:<[lock_data].get[<[key]>]>
-    - if <[location].custom_name||null> == null || <[location].custom_name.to_list.last> == 八:
-      - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
-      - define yep
+    #- if <[location].custom_name||null> == null || <[location].custom_name.to_list.last> == 八:
+    #  - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
+    #  - define yep
 
     - spawn item_display[item=<[lock]>_lock] <[location].center.with_yaw[<proc[lock_facer_proc].context[<[location].material.direction>]>].forward[0.5]> save:lock_display
     - flag <[location]> locked.display:<entry[lock_display].spawned_entity>
 
     - if <[location].other_block||null> != null:
       - define location <[location].other_block>
-      - if <[yep]>:
-        - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
+      #- if <[yep]>:
+      #  - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>入
       - foreach <[lock_data].keys> as:key:
         - flag <[location]> locked.<[key]>:<[lock_data].get[<[key]>]>
 
