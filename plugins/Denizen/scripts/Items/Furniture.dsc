@@ -183,7 +183,7 @@ Staff_Place_Event:
       - define z_adjustment:<[z_adjustment].mul[0.1]>
     - choose <[type]>:
       - case scale:
-        - adjust <[model]> scale:<[scale_x].add[<[x_adjustment]>].round_to[0.1]>,<[scale_y].add[<[y_adjustment]>].round_to[0.1]>,<[scale_z].add[<[z_adjustment]>].round_to[0.1]>
+        - adjust <[model]> scale:<[scale_x].add[<[x_adjustment]>].round_to[2]>,<[scale_y].add[<[y_adjustment]>].round_to[2]>,<[scale_z].add[<[z_adjustment]>].round_to[2]>
       - case teleport:
         - if <[x_adjustment]> != 0:
           - teleport <[model]> <[model].location.left[<[x_adjustment]>]>
