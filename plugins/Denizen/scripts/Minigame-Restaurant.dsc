@@ -620,6 +620,8 @@ Cooking_Storage_Block:
   mechanisms:
       components_patch:
         item_model: string:minecraft:barrel
+  lore:
+  - <gold>Hold Ingredient in offhand when placing to select the storage label
 
 Restaurant_Plate_Rack_Interaction:
   type: entity
