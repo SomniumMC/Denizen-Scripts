@@ -4,6 +4,7 @@
 
 Crafting_Place_Event:
     type: world
+    debug: false
     events:
         on player places Crafting_Workbench:
         - define location <context.location>
@@ -67,6 +68,7 @@ Crafting_Place_Event:
 
 Crafting_Start_Event:
   type: world
+  debug: false
   events:
     on player right clicks Workbench_Interaction priority:-20:
     - ratelimit <player> 5t
@@ -120,6 +122,7 @@ Crafting_Start_Event:
 
 Crafting_Recipe_Task:
   type: task
+  debug: false
   definitions: item
   script:
   - define path <[item].flag[path]>
@@ -182,6 +185,7 @@ Crafting_Recipe_Task:
 
 Crafting_Station_Push:
   type: task
+  debug: false
   script:
   - define station <player.flag[crafting.selstation.location]>
   - define item <player.flag[crafting.item]>
@@ -218,6 +222,7 @@ Crafting_Station_Push:
     - run Crafting_Minigame_Spawn def.station_location:<[station]> def.station_type:<[station_type]>
 Crafting_Minigame_Spawn:
   type: task
+  debug: false
   definitions: station_location|station_type
   script:
   - define station_model <[station_location].flag[workstation].get[model]>
@@ -310,6 +315,7 @@ Crafting_Minigame_Delta_Event:
 
 Crafting_Minigame_Progress_Update:
   type: task
+  debug: false
   definitions: station_location|status
   script:
   - define station_data <[station_location].flag[workstation]>
@@ -340,6 +346,7 @@ Crafting_Minigame_Progress_Update:
 
 Crafting_Minigame_Cleanup:
   type: task
+  debug: false
   definitions: station_location
   script:
   - define station_data <[station_location].flag[workstation]>
@@ -434,6 +441,7 @@ Crafting_Recipe_Select_GUI:
 Crafting_Recipe_Proc:
   type: procedure
   definitions: path
+  debug: false
   script:
   - define ingredients <script[Crafting_Master_Data].data_key[<[path]>]>
   #- define tool <[ingredients].last.replace[_].with[ ].to_titlecase>
@@ -453,6 +461,7 @@ Crafting_Recipe_Proc:
 
 Crafting_Station_Setup:
     type: task
+    debug: false
     definitions: location|item|model|scale
     script:
     - spawn Crafting_Interaction[height=<[scale].before[,].if_null[<script[Crafting_Interaction].data_key[mechanisms.height]>]>;width=<[scale].after[,].if_null[<script[Crafting_Interaction].data_key[mechanisms.width]>]>] <[location].center.below[0.5]> save:interaction
@@ -465,6 +474,7 @@ Crafting_Station_Setup:
 
 Crafting_Config_Event:
     type: world
+    debug: false
     events:
         on player right clicks Workbench_Interaction with:Config_Wrench:
         - ratelimit <player> 5t
@@ -519,6 +529,7 @@ Crafting_Config_Event:
 Crafting_Configuration_GUI:
     type: inventory
     inventory: chest
+    debug: false
     title: <yellow>Configuration
     gui: true
     procedural items:
@@ -547,6 +558,7 @@ Crafting_Configuration_GUI:
 
 Crafting_Config_WorkstationCleanup:
     type: task
+    debug: false
     definitions: location
     script:
     - define station_data <[location].flag[workstation]>
@@ -560,6 +572,7 @@ Crafting_Config_WorkstationCleanup:
 
 Crafting_Config_WorkbenchCleanup:
     type: task
+    debug: false
     definitions: location
     script:
     - define station_data <[location].flag[workbench]>
