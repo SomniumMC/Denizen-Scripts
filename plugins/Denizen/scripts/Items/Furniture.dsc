@@ -271,7 +271,7 @@ Assemble_Crude_Chair:
     - define player_yaw <player.location.yaw>
     - spawn ITEM_DISPLAY[item=Furniture_Crude_Chair;scale=1,1,1] <[location].center> save:furniture_entity
     - look <entry[furniture_entity].spawned_entity> yaw:<[yaw]||<[player_yaw]>>
-    - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction
+    - spawn Furniture_Interaction[scale=0.7,0.7] <[location].center.below[0.5]> save:interaction
     - flag <entry[interaction].spawned_entity> furniture.entity:->:<entry[furniture_entity].spawned_entity>
     - flag <entry[interaction].spawned_entity> furniture.item:<[item].flag[assembles]>
     - flag <entry[interaction].spawned_entity> location:<[location]>
