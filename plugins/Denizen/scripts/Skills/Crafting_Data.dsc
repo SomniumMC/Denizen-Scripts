@@ -219,6 +219,10 @@ Crafting_Master_Data:
         cooking_oven_burner:
         - iron_ingot-1
         - charcoal-4
+        cooking_storage_block:
+        - oak_planks-5
+        - chest-1
+        - iron_ingot-4
         furniture_crude_chair-1:
         - oak_planks-4
         - stick-2
