@@ -46,7 +46,7 @@ Cooking_Storage_Display_Create:
     - define player_yaw <player.eye_location.yaw.round_to_precision[90]>
     - define yaw_mod <[center].with_yaw[<proc[Restaurant_Reverse_Facer_Proc].context[<[player_yaw]>]>]>
     - spawn text_display <[yaw_mod].forward[0.51]> save:text_display
-    - spawn item_display[item=cooking_storage_block;scale=0.3,0.3,0.001] <[yaw_mod].forward[0.51].down[0.25]> save:item
+    - spawn item_display[item=air;scale=0.3,0.3,0.001] <[yaw_mod].forward[0.51].down[0.25]> save:item
     - look <entry[item].spawned_entity> yaw:<[player_yaw]>
     - spawn Cooking_Storage_Interaction <[yaw_mod].forward[0.07].down[0.45]> save:interaction
     - flag <[location]> cooking_furniture.storage.text:<entry[text_display].spawned_entity>
@@ -418,7 +418,7 @@ Cooking_Kitchen_Furniture_Events:
       - define player_yaw <player.eye_location.yaw.round_to_precision[90]>
       - modifyblock <[location]> cyan_stained_glass
       #- define yaw_mod <[center].with_yaw[<proc[Cooking_Reverse_Facer_Proc].context[<[player_yaw]>]>]>
-      - spawn item_display[item=barrel] <[location].center.with_pitch[90].with_yaw[<player.location.yaw.round_to_precision[90].add[180]>]> save:storage_model
+      - spawn item_display[item=cooking_storage_block] <[location].center.with_pitch[90].with_yaw[<player.location.yaw.round_to_precision[90].add[180]>]> save:storage_model
       - spawn text_display <[location].center.with_yaw[<player.location.yaw.round_to_precision[90].add[180]>].forward[0.51]> save:text_display
       - spawn item_display[item=<[item]>;scale=0.3,0.3,0.001] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>].backward[0.51].down[0.25]> save:item
       ##- look <entry[item].spawned_entity> yaw:<[player_yaw]>
@@ -546,8 +546,9 @@ Cooking_Kitchen_Furniture_Events:
     - foreach <[location].flag[cooking_furniture.model]> as:display:
       - remove <[display]>
 
-    - if <[location].has_flag[cooking_furniture.storage_model]>:
-      - drop item:<[location].flag[cooking_furniture.storage_model]> <[location].center>
+    - if <[location].has_flag[cooking_furniture.model.storage_model]>:
+      - drop item:<[location].flag[cooking_furniture.model.storage_model].item> <[location].center>
+      - drop item:<[location].flag[cooking_furniture.storage].get[item_stored]> quantity:<[location].flag[cooking_furniture.storage].get[stored_amount]> <[location].center>
 
     - flag <[location]> cooking_furniture:!
     - if <[location].has_flag[cooking_tool]>:
