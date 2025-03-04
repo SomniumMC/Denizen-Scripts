@@ -117,6 +117,7 @@ Staff_Place_Event:
     - define scale_x <[model].scale.simple.before[,]>
     - define scale_y <[model].scale.simple.before_last[,].after_last[,]>
     - define scale_z <[model].scale.simple.after_last[,]>
+    - narrate <[model].scale.simple>
     - define x_adjustment 0
     - define y_adjustment 0
     - define z_adjustment 0
