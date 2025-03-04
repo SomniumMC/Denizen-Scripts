@@ -991,6 +991,9 @@ Cooking_Link_Tool:
   display name: <element[Cooking Link Tool].color[#ff9838]>
   lore:
   - <green>Selected<&sp>Link<White><&co><&sp><blue>Empty
+  mechanisms:
+    components_patch:
+      item_model: string:cooking:tools/link_tool
 
 Cooking_Link_Event:
   type: world
