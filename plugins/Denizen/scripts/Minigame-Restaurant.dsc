@@ -547,7 +547,7 @@ Cooking_Kitchen_Furniture_Events:
       - remove <[display]>
 
     - if <[location].has_flag[cooking_furniture.model.storage_model]>:
-      - drop item:<[location].flag[cooking_furniture.model.storage_model].item> <[location].center>
+      - drop item:cooking_storage_block <[location].center>
       - drop item:<[location].flag[cooking_furniture.storage].get[item_stored]> quantity:<[location].flag[cooking_furniture.storage].get[stored_amount]> <[location].center>
 
     - flag <[location]> cooking_furniture:!
