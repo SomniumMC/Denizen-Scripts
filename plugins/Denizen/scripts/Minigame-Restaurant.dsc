@@ -410,6 +410,7 @@ Cooking_Kitchen_Furniture_Events:
     #- run Cooking_Storage_Display_Create def.item:<player.item_in_offhand> def.location:<[location]>
     - if <player.item_in_offhand.material.name> == air:
       - narrate "<red>You must be holding an ingredient in your offhand!"
+      - determine cancelled
       - stop
     - else:
       - define item <player.item_in_offhand>
@@ -544,6 +545,10 @@ Cooking_Kitchen_Furniture_Events:
     - drop item:<[location].flag[cooking_furniture.model].item> <[location].center>
     - foreach <[location].flag[cooking_furniture.model]> as:display:
       - remove <[display]>
+
+    - if <[location].has_flag[cooking_furniture.storage_model]>:
+      - drop item:<[location].flag[cooking_furniture.storage_model]> <[location].center>
+
     - flag <[location]> cooking_furniture:!
     - if <[location].has_flag[cooking_tool]>:
       - remove <[location].flag[cooking_tool.model]>
@@ -559,7 +564,11 @@ Cooking_Kitchen_Furniture_Events:
     - define furniture_type <[location].flag[cooking_furniture.type]>
 
     - if <[furniture_type]> == sink:
-      - drop item:fresh_water <[location].above[1].center>
+      - if <player.item_in_hand.material.name> == bucket:
+        - take item:bucket quantity:1
+        - give item:water_bucket quantity:1
+      - else:
+        - drop item:fresh_water <[location].above[1].center>
 
     - if <player.is_sneaking> && <[location].has_flag[cooking_tool]> && <[item].material.name> == air:
       - if <[location].flag[cooking_tool.interaction].flag[status]> == ready:

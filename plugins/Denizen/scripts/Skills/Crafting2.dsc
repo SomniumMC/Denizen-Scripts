@@ -307,6 +307,11 @@ Crafting_Minigame_Delta_Event:
     - if <server.flag[crafting.projects]||null> == null || <server.flag[crafting.projects].is_empty>:
       - stop
     - foreach <server.flag[crafting.projects]> as:station:
+      - if !<[station].chunk.is_loaded>:
+        - flag server crafting.projects:<-:<[station]>
+        - stop
+        #- if <[station].flag[workstation.crafting.clickers].is_empty>:
+        #  - run Crafting_Minigame_Cleanup def:<[station]>
       - foreach <[station].flag[workstation.crafting.clickers]> as:clicker:
         - if <[clicker].flag[status]> == failed:
           - run Crafting_Minigame_Progress_Update def.station_location:<[station]> def.status:failure
