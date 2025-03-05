@@ -106,6 +106,6 @@ SomniData_Ruined_City:
 Ruined_City_Mob_Spawns:
     type: world
     events:
-        on RuinedVindicator spawns:
+        on mythicmob RuinedVindicator spawns:
         - define entity <context.entity>
         - adjust <[entity]> item_in_hand:<item[steel_axe]>
