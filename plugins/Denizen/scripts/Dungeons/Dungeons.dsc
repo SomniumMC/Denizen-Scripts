@@ -124,6 +124,7 @@ SomniMobSpawner:
     - flag <entry[interaction_entity].spawned_entity> spawner_entity:<entry[spawner_entity].spawned_entity>
     - flag <entry[interaction_entity].spawned_entity> health:<[health]>
     - flag <entry[interaction_entity].spawned_entity> somni:<[somni]>
+    - flag <entry[interaction_entity].spawned_entity> id:<[id]>
     - flag server somni.<[somni]>.spawners:->:<entry[interaction_entity].spawned_entity>
 
 SomniBreakable:
@@ -707,7 +708,7 @@ SomniMob_Spawner_Event:
     - define health <[entity].flag[health]>
     - if <[health].sub[<context.damage>]> <= 0:
       - define spawner <[entity].flag[spawner_entity]>
-      - adjust <[spawner]> disable
+      - adjust <mythicspawner[<[entity].flag[id]>]> disable
       - playsound sound:block.spawner.break <[entity].location> sound_category:blocks
       - flag server somni.<[entity].flag[somni]>.spawners:<-:<[entity]>
       - remove <[entity]>
