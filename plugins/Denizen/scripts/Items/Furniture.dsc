@@ -98,7 +98,7 @@ Staff_Place_Event:
   type: world
   events:
     on player places block using:off_hand priority:-20:
-    - if <player.item_in_hand.script.name> == staff_place_tool:
+    - if <player.item_in_hand.script.name.if_null[null]> == staff_place_tool:
       - determine cancelled
     on player right clicks block with:staff_place_tool priority:-20:
     - determine passively cancelled
