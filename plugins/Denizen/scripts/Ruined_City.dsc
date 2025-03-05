@@ -109,3 +109,17 @@ Ruined_City_Mob_Spawns:
         on mythicmob RuinedVindicator spawns:
         - define entity <context.entity>
         - adjust <[entity]> item_in_hand:<item[steel_sword]>
+        on mythicmob RuinedSkeleton spawns:
+        - define entity <context.entity>
+        - adjust <[entity]> item_in_hand:<item[bow]>
+        on mythicmob RuinedZombie spawns:
+        - define entity <context.entity>
+        - adjust <[entity]> item_in_hand:<item[stick]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> head:<item[crafted_leather_helmet]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> chest:<item[crafted_leather_chestplate]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> legs:<item[crafted_leather_leggings]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> boots:<item[crafted_leather_boots]>
