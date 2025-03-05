@@ -18,7 +18,7 @@ SomniData_Ruined_City:
   spawner1:
     type: mobspawner
     pos1: 63|14|-50
-    id: ruinedcityspawner1
+    id: ruinedcity1
     health: 10
     somni: ruined_city
   horsespawn1:
@@ -108,4 +108,4 @@ Ruined_City_Mob_Spawns:
     events:
         on mythicmob RuinedVindicator spawns:
         - define entity <context.entity>
-        - adjust <[entity]> item_in_hand:<item[steel_axe]>
+        - adjust <[entity]> item_in_hand:<item[steel_sword]>
