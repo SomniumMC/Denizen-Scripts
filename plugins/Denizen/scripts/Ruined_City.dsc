@@ -29,7 +29,7 @@ SomniData_Ruined_City:
     pos1: 106|11|-77
   lootchestgear1:
     type: chest
-    pos1: 105|11|-77
+    pos1: 21|13|-38
     facing: east
     table: ruinedcitygear
   lootchestgear2:
@@ -102,3 +102,10 @@ SomniData_Ruined_City:
     pos1: 97|2|-70
     facing: west
     table: ruinedcityvaluables
+
+Ruined_City_Mob_Spawns:
+    type: world
+    events:
+        on RuinedVindicator spawns:
+        - define entity <context.entity>
+        - adjust <[entity]> item_in_hand:<item[steel_axe]>
