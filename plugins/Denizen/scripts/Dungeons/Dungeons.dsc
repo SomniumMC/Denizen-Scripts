@@ -112,7 +112,7 @@ SomniMob:
 
 SomniMobSpawner:
     type: task
-    definitions: pos1|origin|id|health
+    definitions: pos1|origin|id|health|somni
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - define spawner <mythicspawner[<[id]>]>
@@ -123,6 +123,8 @@ SomniMobSpawner:
     - spawn dungeon_spawner_interaction <[pos1].center.below[0.5]> save:interaction_entity
     - flag <entry[interaction_entity].spawned_entity> spawner_entity:<entry[spawner_entity].spawned_entity>
     - flag <entry[interaction_entity].spawned_entity> health:<[health]>
+    - flag <entry[interaction_entity].spawned_entity> somni:<[somni]>
+    - flag server somni.<[somni]>.spawners:->:<entry[interaction_entity].spawned_entity>
 
 SomniBreakable:
     type: task
@@ -376,6 +378,228 @@ SomniLoot_Table:
           weight: 100
           quantity: 1-1
           info: apply
+    ruinedcitygear:
+      quantity: 1-2
+      items:
+        steel_sword:
+          weight: 10
+          quantity: 1-1
+          info: apply
+        iron_sword:
+          weight: 50
+          quantity: 1-1
+        leather_helmet:
+          weight: 100
+          quantity: 1-1
+        iron_helmet:
+          weight: 50
+          quantity: 1-1
+        steel_helmet:
+          weight: 10
+          quantity: 1-1
+          info: apply
+        leather_chestplate:
+          weight: 100
+          quantity: 1-1
+        iron_chestplate:
+          weight: 50
+          quantity: 1-1
+        steel_chestplate:
+          weight: 10
+          quantity: 1-1
+          info: apply
+        leather_leggings:
+          weight: 100
+          quantity: 1-1
+        iron_leggings:
+          weight: 50
+          quantity: 1-1
+        steel_leggings:
+          weight: 10
+          quantity: 1-1
+          info: apply
+        leather_boots:
+          weight: 100
+          quantity: 1-1
+        iron_boots:
+          weight: 50
+          quantity: 1-1
+        steel_boots:
+          weight: 10
+          quantity: 1-1
+          info: apply
+    ruinedcityfood:
+      quantity: 1-5
+      items:
+        new_apple:
+          weight: 100
+          quantity: 1-3
+          info: apply
+        new_bread:
+          weight: 100
+          quantity: 1-3
+          info: apply
+        new_carrot:
+          weight: 100
+          quantity: 1-3
+          info: apply
+        new_potato:
+          weight: 100
+          quantity: 1-3
+          info: apply
+        cooking_cooked_beef:
+          weight: 50
+          quantity: 1-2
+          info: apply
+        cooking_cooked_pork:
+          weight: 50
+          quantity: 1-2
+          info: apply
+        cooking_cooked_mutton:
+          weight: 50
+          quantity: 1-2
+          info: apply
+        cooking_cooked_chicken:
+          weight: 50
+          quantity: 1-2
+          info: apply
+        buttered_toast:
+          weight: 10
+          quantity: 1-3
+          info: apply
+        grilled_cheese:
+          weight: 10
+          quantity: 1-2
+          info: apply
+        yogurt:
+          weight: 10
+          quantity: 1-3
+          info: apply
+        apple_jelly:
+          weight: 10
+          quantity: 1-4
+          info: apply
+        pork_jerky:
+          weight: 5
+          quantity: 1-4
+          info: apply
+        beef_jerky:
+          weight: 5
+          quantity: 1-4
+          info: apply
+        mutton_jerky:
+          weight: 5
+          quantity: 1-4
+          info: apply
+        chicken_jerky:
+          weight: 5
+          quantity: 1-4
+          info: apply
+    ruinedcityblocks:
+      quantity: 1-4
+      items:
+        stone:
+          weight: 500
+          quantity: 1-64
+        cobblestone:
+          weight: 400
+          quantity: 1-64
+        oak_planks:
+          weight: 300
+          quantity: 1-64
+        birch_planks:
+          weight: 300
+          quantity: 1-64
+        spruce_planks:
+          weight: 300
+          quantity: 1-64
+        bricks:
+          weight: 200
+          quantity: 1-64
+        sandstone:
+          weight: 200
+          quantity: 1-64
+        glass:
+          weight: 100
+          quantity: 1-64
+        stone_bricks:
+          weight: 200
+          quantity: 1-64
+        quartz_block:
+          weight: 100
+          quantity: 1-64
+    ruinedcitymaterials:
+      quantity: 1-3
+      items:
+        stick:
+          weight: 500
+          quantity: 1-64
+        string:
+          weight: 400
+          quantity: 1-32
+        iron_ingot:
+          weight: 300
+          quantity: 1-16
+        leather:
+          weight: 200
+          quantity: 1-32
+        tool_rod:
+          weight: 50
+          quantity: 1-4
+        steel_ingot:
+          weight: 25
+          quantity: 1-2
+    ruinedcitytrash:
+      quantity: 1-7
+      items:
+        rotten_flesh:
+          weight: 200
+          quantity: 1-10
+        paper:
+          weight: 150
+          quantity: 1-10
+        bone:
+          weight: 100
+          quantity: 1-5
+        spider_eye:
+          weight: 50
+          quantity: 1-3
+        string:
+          weight: 75
+          quantity: 1-5
+        dirt:
+          weight: 300
+          quantity: 1-64
+        gravel:
+          weight: 250
+          quantity: 1-64
+        wooden_shovel:
+          weight: 25
+          quantity: 1-1
+    ruinedcityvaluables:
+      quantity: 1-2
+      items:
+        gold_ingot:
+          weight: 50
+          quantity: 1-3
+        iron_block:
+          weight: 50
+          quantity: 1-3
+        gold_block:
+          weight: 30
+          quantity: 1-1
+        steel_ingot:
+          weight: 25
+          quantity: 1-2
+        raw_silver:
+          weight: 15
+          quantity: 1-2
+        high_carbon_raw_iron:
+          weight: 10
+          quantity: 1-2
+        geode:
+          weight: 5
+          quantity: 1-1
 
 #testproc:
 #    type: procedure
@@ -452,6 +676,10 @@ SomniProtectionClear:
     - foreach <script[SomniData_<[somni]>].list_keys.exclude[type|origin]> as:entry:
       - if <script[SomniData_<[somni]>].data_key[<[entry]>.type]> == enablespawner:
         - adjust <mythicspawner[<script[SomniData_<[somni]>].data_key[<[entry]>].get[id]>]> disable
+    - foreach <server.flag[somni.<[somni]>.spawners]> as:spawner:
+      - remove <[spawner].flag[spawner_entity]>
+      - remove <[spawner]>
+      - flag server somni.<[somni]>.spawners:<-:<[spawner]>
 
 SomniReturnPortal_Event:
   type: world
@@ -480,15 +708,15 @@ SomniMob_Spawner_Event:
     - if <[health].sub[<context.damage>]> <= 0:
       - define spawner <[entity].flag[spawner_entity]>
       - adjust <[spawner]> disable
-      - playsound sound:block.glass.break <[entity].location> sound_category:blocks
+      - playsound sound:block.spawner.break <[entity].location> sound_category:blocks
+      - flag server somni.<[entity].flag[somni]>.spawners:<-:<[entity]>
       - remove <[entity]>
       - remove <[spawner]>
     - else:
       - define newhealth <[health].sub[<context.damage>]>
       - flag <[entity]> health:<[newhealth]>
       - playeffect effect:block at:<[entity].location.above[1]> special_data:iron_block quantity:10
-      - playsound sound:block.glass.place <[entity].location> sound_category:blocks
-      #- narrate "<white><bold>The spawner shatters upon your touch releasing its protection of the Somni."
+      - playsound sound:block.spawner.hit <[entity].location> sound_category:blocks
 
 Dungeon_Core_Interaction:
     type: entity
