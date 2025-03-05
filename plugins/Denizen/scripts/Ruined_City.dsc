@@ -102,3 +102,10 @@ SomniData_Ruined_City:
     pos1: 97|2|-70
     facing: west
     table: ruinedcityvaluables
+
+Ruined_City_Mob_Spawns:
+    type: world
+    events:
+        on RuinedVindicator spawns:
+        - define entity <context.entity>
+        - adjust <[entity]> item_in_hand:<item[steel_axe]>
