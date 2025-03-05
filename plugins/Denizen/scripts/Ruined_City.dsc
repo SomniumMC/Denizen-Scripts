@@ -29,7 +29,7 @@ SomniData_Ruined_City:
     pos1: 106|11|-77
   lootchestgear1:
     type: chest
-    pos1: 105|11|-77
+    pos1: 21|13|-38
     facing: east
     table: ruinedcitygear
   lootchestgear2:
