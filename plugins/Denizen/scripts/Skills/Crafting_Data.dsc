@@ -125,6 +125,13 @@ Crafting_Master_Data:
         slate_silver_hoe-1:
         - slate_silver_ingot-2
         - tool_rod-2
+      locks:
+        basic_lock-1:
+        - steel_ingot-1
+        - iron_nugget-5
+        lockpick-3:
+        - steel_ingot-1
+
     refining:
       ingots:
         iron_ingot-16:

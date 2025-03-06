@@ -345,7 +345,7 @@ Lock_Picking_GUI:
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
     - [air] [] [] [] [] [] [] [] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
-    - [air] [air] [air] [air] [Lockpick[quantity=3]] [air] [air] [air] [barrier[display=<gray>]]
+    - [air] [air] [air] [air] [Lockpick[quantity=3;lore=<red>Select this to begin picking the lock]] [air] [air] [air] [barrier[display=<gray>]]
 
 Lock_Cleanup:
   type: command
@@ -385,6 +385,9 @@ Basic_Lock:
     mechanisms:
       components_patch:
         item_model: string:lockpicking:alock
+    lore:
+    - <red>Right click a chest to lock it.
+    - <gold>Hold a key in the offhand to sync the new lock id.
 
 Advanced_Lock:
     type: item
@@ -393,6 +396,9 @@ Advanced_Lock:
     mechanisms:
       components_patch:
         item_model: string:lockpicking:hlock
+    lore:
+    - <red>Right click a chest to lock it.
+    - <gold>Hold a key in the offhand to sync the new lock id.
 
 Blessed_Lock:
     type: item
@@ -401,6 +407,9 @@ Blessed_Lock:
     mechanisms:
       components_patch:
         item_model: string:lockpicking:dlock
+    lore:
+    - <red>Right click a chest to lock it.
+    - <gold>Hold a key in the offhand to sync the new lock id.
 
 Lock_Key:
     type: item
@@ -427,6 +436,8 @@ Lockpick:
     mechanisms:
       components_patch:
         item_model: string:lockpicking:lockpick
+    lore:
+    - <red>Right click a locked chest to attempt to pick the lock.
 
 Lockpick_GUI:
     type: item
