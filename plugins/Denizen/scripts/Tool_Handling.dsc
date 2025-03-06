@@ -168,7 +168,7 @@ update_item_task:
 Attributes_Lore_Proc:
   type: procedure
   definitions: item
-  debug: true
+  debug: false
   script:
   - define attributes <[item].attribute_modifiers>
   - foreach <[attributes]> key:id as:map:
@@ -200,7 +200,7 @@ Attributes_Lore_Proc:
 Apply_Info_Proc:
   type: procedure
   definitions: item
-  debug: true
+  debug: false
   script:
   - define lore <empty>
   - if <[item].lore||null> != null:
