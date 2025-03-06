@@ -919,3 +919,15 @@ Crafting_Icon_Masonry_Blocks:
     category: masonry_blocks
   lore:
   - <white>Prepare materials for crafting masonry blocks
+
+Crafting_Icon_Locks:
+  type: item
+  material: iron_door
+  display name: <red>Locks
+  flags:
+    category: locks
+  mechanisms:
+      components_patch:
+        item_model: string:lockpicking:hlock
+  lore:
+  - <white>Prepare materials for crafting locks
