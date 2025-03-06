@@ -15,18 +15,95 @@ SomniData_Ruined_City:
     health: 10
     area: ruinedcity2
     somni: Ruined_City
+  exit_portal:
+    type: returnportal
+    pos1: 66|2|-101
+    somni: Ruined_City
+  #Ruined Skeleton
   spawner1:
     type: mobspawner
     pos1: 63|14|-50
     id: ruinedcity1
     health: 10
     somni: ruined_city
+  #Ruined Zombie
+  spawner2:
+    type: mobspawner
+    pos1: 45|13|-26
+    id: ruinedcity2
+    health: 10
+    somni: ruined_city
+  #Ruined Zombie
+  spawner3:
+    type: mobspawner
+    pos1: 39|13|-48
+    id: ruinedcity3
+    health: 10
+    somni: ruined_city
+  #Ruined Zombie
+  spawner4:
+    type: mobspawner
+    pos1: 51|13|-64
+    id: ruinedcity4
+    health: 10
+    somni: ruined_city
+  #Ruined Zombie
+  spawner5:
+    type: mobspawner
+    pos1: 50|17|-63
+    id: ruinedcity5
+    health: 10
+    somni: ruined_city
+  #Ruined Zombie
+  spawner6:
+    type: mobspawner
+    pos1: 78|13|-76
+    id: ruinedcity6
+    health: 10
+    somni: ruined_city
+  #Ruined Skeleton
+  spawner7:
+    type: mobspawner
+    pos1: 93|16|-73
+    id: ruinedcity7
+    health: 10
+    somni: ruined_city
+  #Ruined Witch
+  spawner8:
+    type: mobspawner
+    pos1: 93|16|-73
+    id: ruinedcity8
+    health: 10
+    somni: ruined_city
+  #Ruined Skeleton
+  spawner9:
+    type: mobspawner
+    pos1: 93|16|-73
+    id: ruinedcity9
+    health: 10
+    somni: ruined_city
+  #Ruined Vindicator
+  spawner10:
+      type: mobspawner
+      pos1: 63|2|-61
+      id: ruinedcity10
+      health: 10
+      somni: ruined_city
+  #Ruined Pillager
+  spawner11:
+      type: mobspawner
+      pos1: 90|2|-88
+      id: ruinedcity11
+      health: 10
+      somni: ruined_city
   horsespawn1:
     type: mob
     pos1: 105|11|-81
+    mob: horse
   horsespawn2:
     type: mob
     pos1: 106|11|-77
+    mob: horse
   lootchestgear1:
     type: chest
     pos1: 21|13|-38
@@ -82,6 +159,11 @@ SomniData_Ruined_City:
     pos1: 85|13|-39
     facing: south
     table: ruinedcitymaterials
+  lootchestmaterials3:
+    type: chest
+    pos1: 68|2|-98
+    facing: west
+    table: ruinedcitymaterials
   lootchesttrash1:
     type: chest
     pos1: 29|11|-59
@@ -105,14 +187,20 @@ SomniData_Ruined_City:
 
 Ruined_City_Mob_Spawns:
     type: world
+    debug: false
     events:
-        on mythicmob RuinedVindicator spawns:
+        after mythicmob RuinedPillager spawns:
+        - define entity <context.entity>
+        - adjust <[entity]> item_in_hand:<item[crossbow]>
+        after mythicmob RuinedVindicator spawns:
         - define entity <context.entity>
         - adjust <[entity]> item_in_hand:<item[steel_sword]>
-        on mythicmob RuinedSkeleton spawns:
+        after mythicmob RuinedSkeleton spawns:
         - define entity <context.entity>
         - adjust <[entity]> item_in_hand:<item[bow]>
-        on mythicmob RuinedZombie spawns:
+        - if <util.random_chance[15]>:
+          - adjust <[entity]> item_in_hand:<item[stone_sword]>
+        after mythicmob RuinedZombie spawns:
         - define entity <context.entity>
         - adjust <[entity]> item_in_hand:<item[stick]>
         - if <util.random_chance[50]>:

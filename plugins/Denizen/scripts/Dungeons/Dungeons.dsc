@@ -95,6 +95,8 @@ SomniFurniture:
     definitions: pos1|pos2|origin|furniture|yaw|chance
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - if <[pos1].material.name> == oak_sign:
+      - modifyblock <[pos1]> air
     - run Assemble_<[furniture]> def.location:<[pos1]> def.item:<item[furniture_<[furniture]>]> def.player:f def.yaw:<[yaw]>
     - flag <[pos1]> furniture_chance:<[chance]>
 
@@ -103,6 +105,8 @@ SomniMob:
     definitions: pos1|origin|mob|mythicmob
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed.center.below[0.5]>
+    - if <[pos1].material.name> == oak_sign:
+      - modifyblock <[pos1]> air
     - if <[mob]||null> != null:
       - spawn <[mob]> <[pos1]> save:mob
       - adjust <entry[mob].spawned_entity> force_no_persist:false
@@ -115,6 +119,8 @@ SomniMobSpawner:
     definitions: pos1|origin|id|health|somni
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - if <[pos1].material.name> == oak_sign:
+      - modifyblock <[pos1]> air
     - define spawner <mythicspawner[<[id]>]>
     #- narrate <[pos1]>
     - adjust <[spawner]> enable
@@ -132,6 +138,8 @@ SomniBreakable:
     definitions: pos1|origin|model|health|breakable_type|table
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - if <[pos1].material.name> == oak_sign:
+      - modifyblock <[pos1]> air
     - spawn item_display[item=<[model]>] <[pos1].center> save:model_entity
     - spawn somni_breakable <[pos1].center.below[0.5]> save:interaction_entity
     - flag <entry[model_entity].spawned_entity> interaction_entity:<entry[interaction_entity].spawned_entity>
@@ -146,6 +154,8 @@ SomniChest:
     definitions: pos1|origin|table|facing
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - if <[pos1].material.name> == oak_sign:
+      - modifyblock <[pos1]> air
     #- narrate <[pos1]>
     - modifyblock <[pos1].center> chest[direction=<[facing]>]
     - if <[table]||null> == null:
@@ -521,6 +531,9 @@ SomniLoot_Table:
           weight: 200
           quantity: 1-64
         glass:
+          weight: 100
+          quantity: 1-64
+        smooth_stone:
           weight: 100
           quantity: 1-64
         stone_bricks:
