@@ -78,7 +78,7 @@ SomniData_Ruined_City:
   #Ruined Skeleton
   spawner9:
     type: mobspawner
-    pos1: 93|16|-73
+    pos1: 88|13|-87
     id: ruinedcity9
     health: 10
     somni: ruined_city
@@ -94,6 +94,20 @@ SomniData_Ruined_City:
       type: mobspawner
       pos1: 90|2|-88
       id: ruinedcity11
+      health: 10
+      somni: ruined_city
+  #Ruined Zombie
+  spawner12:
+      type: mobspawner
+      pos1: 53|16|-89
+      id: ruinedcity12
+      health: 10
+      somni: ruined_city
+  #Ruined Zombie
+  spawner13:
+      type: mobspawner
+      pos1: 74|2|-24
+      id: ruinedcity13
       health: 10
       somni: ruined_city
   horsespawn1:
@@ -184,6 +198,62 @@ SomniData_Ruined_City:
     pos1: 97|2|-70
     facing: west
     table: ruinedcityvaluables
+  breakablechalice:
+    type: breakable
+    pos1: 96|3|-73
+    health: 5
+    model: Ruined_City_Chalice
+    breakable_type: valuable
+    table: ruinedcitychalice
+  breakablebundle:
+    type: breakable
+    pos1: 96|3|-71
+    health: 5
+    model: bundle
+    breakable_type: leather
+    table: ruinedcitybundle
+  breakableskeleton1:
+    type: breakable
+    pos1: 65|2|-61
+    health: 5
+    model: skeleton
+    breakable_type: bone
+    table: ruinedcityskeleton
+  breakableskeleton2:
+    type: breakable
+    pos1: 55|18|-49
+    health: 5
+    model: Ruined_City_Skeleton_Hanging
+    breakable_type: bone
+    table: ruinedcityskeleton
+  breakablecannon1:
+    type: breakable
+    pos1: 56|17|-98
+    health: 20
+    model: Ruined_City_Cannon
+    breakable_type: iron
+    table: ruinedcitycannon
+  breakablecannon2:
+    type: breakable
+    pos1: 72|17|-98
+    health: 20
+    model: Ruined_City_Cannon
+    breakable_type: iron
+    table: ruinedcitycannon
+  breakablehorse:
+    type: breakable
+    pos1: 104|11|-85
+    health: 5
+    model: Ruined_City_Horse
+    breakable_type: flesh
+    table: ruinedcityhorse
+  breakablegoat:
+    type: breakable
+    pos1: 39|13|-55
+    health: 5
+    model: Ruined_City_Goat
+    breakable_type: flesh
+    table: ruinedcitygoat
 
 Ruined_City_Mob_Spawns:
     type: world
@@ -211,3 +281,65 @@ Ruined_City_Mob_Spawns:
           - equip <[entity]> legs:<item[crafted_leather_leggings]>
         - if <util.random_chance[50]>:
           - equip <[entity]> boots:<item[crafted_leather_boots]>
+
+
+Ruined_City_Chalice:
+    type: item
+    material: stick
+    display name: <gold>Chalice of the Ruined City
+    mechanisms:
+      components_patch:
+        item_model: string:utensils:chalice3
+    lore:
+    - <red>Drop this chalice to summon the Ruined City's guardian.
+    - <red>Be prepared for a fight!
+
+Ruined_City_Skeleton_Sitting:
+    type: item
+    material: string
+    display name: <red>Ruined Skeleton
+    mechanisms:
+      components_patch:
+        entity_model: string:dungeons:skelly
+    lore:
+    - <red>Once a mighty warrior, now a guardian of the Ruined City.
+
+Ruined_City_Skeleton_Hanging:
+    type: item
+    material: string
+    display name: <red>Ruined Skeleton
+    mechanisms:
+      components_patch:
+        entity_model: string:dungeons:hanging_skelly
+    lore:
+    - <red>Once a mighty warrior, now a guardian of the Ruined City.
+
+Ruined_City_Cannon:
+    type: item
+    material: stick
+    display name: <red>Ruined City Cannon
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:cannon
+    lore:
+    - <red>This cannon was used to protect the Ruined City's defenses.
+
+Ruined_City_Goat:
+    type: item
+    material: stick
+    display name: <red>Ruined City Goat
+    mechanisms:
+      components_patch:
+        entity_model: string:materials:corpse/goat_corpse
+    lore:
+    - <red>This goat was once a part of the Ruined City's livestock.
+
+Ruined_City_Horse:
+    type: item
+    material: stick
+    display name: <red>Ruined City Horse
+    mechanisms:
+      components_patch:
+        entity_model: string:materials:corpse/horse_corpse
+    lore:
+    - <red>This horse was once a part of the Ruined City's cavalry.

@@ -332,7 +332,20 @@ SomniBreakable_Handler:
               - case barrel:
                 - playsound sound:entity.zombie.break.wooden.door sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:oak_planks quantity:5
-            - run SomniBreakable_Loot def.location:<[entity].location> def.table:<[entity].flag[table]||null>
+              - case valuable:
+                - playsound sound:block.nether_gold_ore.break sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:gold_block quantity:5
+              - case leather:
+                - playsound sound:block.wool.break sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:brown_wool quantity:5
+              - case iron:
+                - playsound sound:block.iron.break sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:iron_block quantity:5
+              - case flesh:
+                - playsound sound:item.honeycomb.wax_on sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:red_wool quantity:5
+            - if <[entity].flag[table]> != noloot:
+              - run SomniBreakable_Loot def.location:<[entity].location> def.table:<[entity].flag[table]||null>
             - foreach <[entity].flag[model_entity]> as:model:
               - remove <[model]>
             - remove <[entity]>
@@ -344,6 +357,18 @@ SomniBreakable_Handler:
               - case barrel:
                 - playsound sound:block.wood.hit sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:oak_planks quantity:5
+              - case valuable:
+                - playsound sound:block.nether_gold_ore.hit sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:gold_block quantity:5
+              - case leather:
+                - playsound sound:block.wool.hit sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:brown_wool quantity:5
+              - case iron:
+                - playsound sound:block.iron.hit sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:iron_block quantity:5
+              - case flesh:
+                - playsound sound:item.honeycomb.wax_on sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:red_wool quantity:5
           #- debugblock <[entity].location>
         #- if <context.entity.has_flag[dungeon_core]>
 
@@ -614,6 +639,48 @@ SomniLoot_Table:
         geode:
           weight: 5
           quantity: 1-1
+    ruinedcitychalice:
+      quantity: 1-1
+      items:
+        ruined_city_chalice:
+          weight: 100
+          quantity: 1-1
+    ruinedcitybundle:
+      quantity: 1-1
+      items:
+        bundle:
+          weight: 100
+          quantity: 1-1
+    ruinedcityskeleton:
+      quantity: 1-1
+      items:
+        bone:
+          weight: 100
+          quantity: 1-10
+    ruinedcitycannon:
+      quantity: 1-3
+      items:
+        iron_ingot:
+          weight: 100
+          quantity: 1-5
+        steel_ingot:
+          weight: 10
+          quantity: 1-2
+    ruinedcityhorse:
+      quantity: 1-2
+      items:
+        saddle:
+          weight: 10
+          quantity: 1-1
+        cooking_raw_horse:
+          weight: 100
+          quantity: 1-5
+    ruinedcitygoat:
+      quantity: 1-1
+      items:
+        cooking_raw_goat:
+          weight: 100
+          quantity: 1-5
 
 #testproc:
 #    type: procedure
