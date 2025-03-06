@@ -300,7 +300,7 @@ Ruined_City_Skeleton_Sitting:
     display name: <red>Ruined Skeleton
     mechanisms:
       components_patch:
-        entity_model: string:dungeons:skelly
+        item_model: string:dungeons:skelly
     lore:
     - <red>Once a mighty warrior, now a guardian of the Ruined City.
 
@@ -310,7 +310,7 @@ Ruined_City_Skeleton_Hanging:
     display name: <red>Ruined Skeleton
     mechanisms:
       components_patch:
-        entity_model: string:dungeons:hanging_skelly
+        item_model: string:dungeons:hanging_skelly
     lore:
     - <red>Once a mighty warrior, now a guardian of the Ruined City.
 
@@ -330,7 +330,7 @@ Ruined_City_Goat:
     display name: <red>Ruined City Goat
     mechanisms:
       components_patch:
-        entity_model: string:materials:corpse/goat_corpse
+        item_model: string:materials:corpse/goat_corpse
     lore:
     - <red>This goat was once a part of the Ruined City's livestock.
 
@@ -340,6 +340,6 @@ Ruined_City_Horse:
     display name: <red>Ruined City Horse
     mechanisms:
       components_patch:
-        entity_model: string:materials:corpse/horse_corpse
+        item_model: string:materials:corpse/horse_corpse
     lore:
     - <red>This horse was once a part of the Ruined City's cavalry.
