@@ -384,4 +384,4 @@ Race_Bonus_Task:
       - adjust <player> fly_speed:0.03
       - adjust <player> flying_fall_damage:true
     - case water_affinity:
-      - cast <player> conduit_power duration:9999999t hide_particles
+      - cast conduit_power <player> duration:infinite hide_particles amplifier:-1
