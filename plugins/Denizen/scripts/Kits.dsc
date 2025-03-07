@@ -40,5 +40,5 @@ Starter_Kit_Data:
     - Bacon_Cheeseburger-1
     - Apple_Jelly_Toast-16
     - basic_lock-1
-    - crab-1
+    - fish_crab-1
     - currency1-32
