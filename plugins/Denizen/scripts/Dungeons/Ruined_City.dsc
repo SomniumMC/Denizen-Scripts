@@ -84,32 +84,39 @@ SomniData_Ruined_City:
     somni: ruined_city
   #Ruined Vindicator
   spawner10:
-      type: mobspawner
-      pos1: 63|2|-61
-      id: ruinedcity10
-      health: 10
-      somni: ruined_city
+    type: mobspawner
+    pos1: 63|2|-61
+    id: ruinedcity10
+    health: 10
+    somni: ruined_city
   #Ruined Pillager
   spawner11:
-      type: mobspawner
-      pos1: 90|2|-88
-      id: ruinedcity11
-      health: 10
-      somni: ruined_city
+    type: mobspawner
+    pos1: 90|2|-88
+    id: ruinedcity11
+    health: 10
+    somni: ruined_city
   #Ruined Zombie
   spawner12:
-      type: mobspawner
-      pos1: 53|16|-89
-      id: ruinedcity12
-      health: 10
-      somni: ruined_city
+    type: mobspawner
+    pos1: 53|16|-89
+    id: ruinedcity12
+    health: 10
+    somni: ruined_city
   #Ruined Zombie
   spawner13:
-      type: mobspawner
-      pos1: 74|2|-24
-      id: ruinedcity13
-      health: 10
-      somni: ruined_city
+    type: mobspawner
+    pos1: 74|2|-24
+    id: ruinedcity13
+    health: 10
+    somni: ruined_city
+  #Ruined Zombie
+  spawner14:
+    type: mobspawner
+    pos1: 49|11|-54
+    id: ruinedcity14
+    health: 10
+    somni: ruined_city
   horsespawn1:
     type: mob
     pos1: 105|11|-81
@@ -296,6 +303,8 @@ Ruined_City_Mob_Spawns:
           - equip <[entity]> head:<item[crafted_leather_helmet]>
         - if <util.random_chance[50]>:
           - equip <[entity]> chest:<item[crafted_leather_chestplate]>
+        - if <util.random_chance[15]>:
+          - equip <[entity]> chest:<item[iron_chestplate]>
         - if <util.random_chance[50]>:
           - equip <[entity]> legs:<item[crafted_leather_leggings]>
         - if <util.random_chance[50]>:
@@ -304,6 +313,7 @@ Ruined_City_Mob_Spawns:
 
 Ruined_City_Chalice:
     type: item
+    debug: false
     material: stick
     display name: <gold>Chalice of the Ruined City
     mechanisms:
@@ -315,6 +325,7 @@ Ruined_City_Chalice:
 
 Ruined_City_Skeleton_Sitting:
     type: item
+    debug: false
     material: string
     display name: <red>Ruined Skeleton
     mechanisms:
@@ -325,6 +336,7 @@ Ruined_City_Skeleton_Sitting:
 
 Ruined_City_Skeleton_Hanging:
     type: item
+    debug: false
     material: string
     display name: <red>Ruined Skeleton
     mechanisms:
@@ -335,6 +347,7 @@ Ruined_City_Skeleton_Hanging:
 
 Ruined_City_Cannon:
     type: item
+    debug: false
     material: stick
     display name: <red>Ruined City Cannon
     mechanisms:
@@ -345,6 +358,7 @@ Ruined_City_Cannon:
 
 Ruined_City_Goat:
     type: item
+    debug: false
     material: stick
     display name: <red>Ruined City Goat
     mechanisms:
@@ -355,6 +369,7 @@ Ruined_City_Goat:
 
 Ruined_City_Horse:
     type: item
+    debug: false
     material: stick
     display name: <red>Ruined City Horse
     mechanisms:

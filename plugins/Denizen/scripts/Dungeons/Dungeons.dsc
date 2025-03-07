@@ -702,6 +702,8 @@ SomniProtection:
     debug: false
     events:
         on player breaks block priority:-20:
+        - if <context.material.name> in <list[short_grass|tall_grass|fern]>:
+          - stop
         - foreach <context.location.areas> as:area_name:
           - if <cuboid[<[area_name]>].flag[protection]||null> == enabled:
             - flag <player> protection_warn:+:1 expire:5s
