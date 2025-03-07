@@ -84,6 +84,7 @@ Blast_Iron_Dagger:
     flags:
       lore: <gold>A basic iron dagger.
       durability1: 100
+      damage_type: Slashing
 
 Steel_Dagger:
     type: item
@@ -297,6 +298,17 @@ Crafted_Stone_Dagger:
         item_model: string:weapons:stone_dagger
      unbreakable: true
      hides: unbreakable|attributes
+     attribute_modifiers:
+        GENERIC_ATTACK_DAMAGE:
+          1:
+            operation: add_number
+            amount: 1
+            slot: hand
+        GENERIC_ATTACK_SPEED:
+           1:
+             operation: add_number
+             amount: -2.4
+             slot: hand
     display name: <gold>Stone Dagger
     flags:
       lore: <gold>A flimsy stone dagger.<n><red>This item cannot be repaired.
@@ -320,6 +332,17 @@ Crafted_Flint_Dagger:
         item_model: string:weapons:flint_dagger
      unbreakable: true
      hides: unbreakable|attributes
+     attribute_modifiers:
+        GENERIC_ATTACK_DAMAGE:
+          1:
+            operation: add_number
+            amount: 2
+            slot: hand
+        GENERIC_ATTACK_SPEED:
+           1:
+             operation: add_number
+             amount: -2.4
+             slot: hand
     display name: <gold>Flint Dagger
     flags:
       lore: <gold>A pointy flint dagger.<n><red>This item cannot be repaired.
