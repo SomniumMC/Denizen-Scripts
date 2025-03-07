@@ -353,7 +353,7 @@ Race_Goblin_Head:
 
 Race_Bonus_Event:
     type: world
-    debug: false
+    debug: true
     events:
         after player joins:
         - wait 1t
@@ -368,11 +368,11 @@ Race_Bonus_Event:
         - if <player.has_flag[race.bonus]>:
           - run Race_Bonus_Task
         on player damaged:
-        - if <player.flag[race.bonus]> == slow_flight:
-          - adjust <player> can_fly:false
-          - flag <player> flight_blocked expire:2s
+        - if <context.entity.flag[race.bonus]> == slow_flight:
+          - adjust <context.entity> can_fly:false
+          - flag <context.entity> flight_blocked expire:2s
           - wait 2s
-          - adjust <player> can_fly:true
+          - adjust <context.entity> can_fly:true
 Race_Bonus_Task:
   type: task
   script:
