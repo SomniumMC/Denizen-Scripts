@@ -5,6 +5,7 @@
 ## Copper
 #Blast_Copper_Helmet:
 #    type: item
+#    debug: false
 #    material: iron_helmet
 #    mechanisms:
 #     custom_model_data: 10000
@@ -332,6 +333,7 @@
 ## Steel
 Steel_Helmet:
     type: item
+    debug: false
     material: iron_helmet
     mechanisms:
      custom_model_data: 10003
@@ -360,6 +362,7 @@ Steel_Helmet:
 
 Steel_Chestplate:
     type: item
+    debug: false
     material: iron_chestplate
     mechanisms:
      custom_model_data: 10003
@@ -388,6 +391,7 @@ Steel_Chestplate:
 
 Steel_Leggings:
     type: item
+    debug: false
     material: iron_leggings
     mechanisms:
      custom_model_data: 10003
@@ -413,6 +417,7 @@ Steel_Leggings:
 
 Steel_Boots:
     type: item
+    debug: false
     material: iron_boots
     mechanisms:
      custom_model_data: 10003
@@ -439,6 +444,7 @@ Steel_Boots:
 ## Silver
 Silver_Helmet:
     type: item
+    debug: false
     material: iron_helmet
     mechanisms:
      custom_model_data: 10004
@@ -466,6 +472,7 @@ Silver_Helmet:
 
 Silver_Chestplate:
     type: item
+    debug: false
     material: iron_chestplate
     mechanisms:
      custom_model_data: 10004
@@ -493,6 +500,7 @@ Silver_Chestplate:
 
 Silver_Leggings:
     type: item
+    debug: false
     material: iron_leggings
     mechanisms:
      custom_model_data: 10004
@@ -520,6 +528,7 @@ Silver_Leggings:
 
 Silver_Boots:
     type: item
+    debug: false
     material: iron_boots
     mechanisms:
      custom_model_data: 10004
@@ -548,6 +557,7 @@ Silver_Boots:
 ## Slate Silver
 Slate_Silver_Helmet:
     type: item
+    debug: false
     material: iron_helmet
     mechanisms:
      custom_model_data: 10005
@@ -575,6 +585,7 @@ Slate_Silver_Helmet:
 
 Slate_Silver_Chestplate:
     type: item
+    debug: false
     material: iron_chestplate
     mechanisms:
      custom_model_data: 10005
@@ -602,6 +613,7 @@ Slate_Silver_Chestplate:
 
 Slate_Silver_Leggings:
     type: item
+    debug: false
     material: iron_leggings
     mechanisms:
      custom_model_data: 10005
@@ -629,6 +641,7 @@ Slate_Silver_Leggings:
 
 Slate_Silver_Boots:
     type: item
+    debug: false
     material: iron_boots
     mechanisms:
      custom_model_data: 10005
@@ -657,6 +670,7 @@ Slate_Silver_Boots:
 ## Adamantine
 Adamantine_Helmet:
     type: item
+    debug: false
     material: iron_helmet
     mechanisms:
      custom_model_data: 10006
@@ -678,6 +692,7 @@ Adamantine_Helmet:
 
 Adamantine_Chestplate:
     type: item
+    debug: false
     material: iron_chestplate
     mechanisms:
      custom_model_data: 10006
@@ -699,6 +714,7 @@ Adamantine_Chestplate:
 
 Adamantine_Leggings:
     type: item
+    debug: false
     material: iron_leggings
     mechanisms:
      custom_model_data: 10006
@@ -720,6 +736,7 @@ Adamantine_Leggings:
 
 Adamantine_Boots:
     type: item
+    debug: false
     material: iron_boots
     mechanisms:
      custom_model_data: 10006
@@ -742,6 +759,7 @@ Adamantine_Boots:
 ## Mythril
 Mythril_Helmet:
     type: item
+    debug: false
     material: iron_helmet
     mechanisms:
      custom_model_data: 10007
@@ -763,6 +781,7 @@ Mythril_Helmet:
 
 Mythril_Chestplate:
     type: item
+    debug: false
     material: iron_chestplate
     mechanisms:
      custom_model_data: 10007
@@ -784,6 +803,7 @@ Mythril_Chestplate:
 
 Mythril_Leggings:
     type: item
+    debug: false
     material: iron_leggings
     mechanisms:
      custom_model_data: 10007
@@ -805,6 +825,7 @@ Mythril_Leggings:
 
 Mythril_Boots:
     type: item
+    debug: false
     material: iron_boots
     mechanisms:
      custom_model_data: 10007
@@ -827,6 +848,7 @@ Mythril_Boots:
 ## Leather
 Tailored_Leather_Helmet:
     type: item
+    debug: false
     material: leather_helmet
     mechanisms:
      custom_model_data: 10000
@@ -850,6 +872,7 @@ Tailored_Leather_Helmet:
       recipe: leather_5
 Tailored_Leather_Chestplate:
     type: item
+    debug: false
     material: leather_chestplate
     mechanisms:
      custom_model_data: 10000
@@ -873,6 +896,7 @@ Tailored_Leather_Chestplate:
       recipe: leather_8
 Tailored_Leather_Leggings:
     type: item
+    debug: false
     material: leather_leggings
     mechanisms:
      custom_model_data: 10000
@@ -896,6 +920,7 @@ Tailored_Leather_Leggings:
       recipe: leather_7
 Tailored_Leather_Boots:
     type: item
+    debug: false
     material: leather_boots
     mechanisms:
      custom_model_data: 10000
@@ -922,6 +947,7 @@ Tailored_Leather_Boots:
 
 Crafted_Leather_Helmet:
     type: item
+    debug: false
     material: leather_helmet
     mechanisms:
      custom_model_data: 10000
@@ -955,6 +981,7 @@ Crafted_Leather_Helmet:
         - leather|air|leather
 Crafted_Leather_Chestplate:
     type: item
+    debug: false
     material: leather_chestplate
     mechanisms:
      custom_model_data: 10000
@@ -989,6 +1016,7 @@ Crafted_Leather_Chestplate:
         - leather|leather|leather
 Crafted_Leather_Leggings:
     type: item
+    debug: false
     material: leather_leggings
     mechanisms:
      custom_model_data: 10000
@@ -1023,6 +1051,7 @@ Crafted_Leather_Leggings:
         - leather|air|leather
 Crafted_Leather_Boots:
     type: item
+    debug: false
     material: leather_boots
     mechanisms:
      custom_model_data: 10000
@@ -1060,6 +1089,7 @@ Crafted_Leather_Boots:
 
 Fished_Leather_Boots:
     type: item
+    debug: false
     material: leather_boots
     mechanisms:
      custom_model_data: 10000

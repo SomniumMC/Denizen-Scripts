@@ -6,6 +6,7 @@
 
 Bakeware:
     type: item
+    debug: false
     material: Brick
     display name: <white>Bakeware
     mechanisms:
@@ -24,6 +25,7 @@ Bakeware:
 
 Cutting_Board:
     type: item
+    debug: false
     material: brick
     display name: <white>Cutting Board
     mechanisms:
@@ -48,6 +50,7 @@ Cutting_Board:
 
 Juicer:
     type: item
+    debug: false
     material: brick
     display name: <white>Juicer
     mechanisms:
@@ -65,6 +68,7 @@ Juicer:
 
 Mortar_And_Pestle:
     type: item
+    debug: false
     material: BRICK
     display name: <white>Mortar and Pestle
     mechanisms:
@@ -80,8 +84,10 @@ Mortar_And_Pestle:
     #    input:
     #    - smooth_stone/stone/deepslate/sandstone|stick|smooth_stone/stone/deepslate/sandstone
     #    - air|smooth_stone/stone/deepslate/sandstone|air
+
 Mixing_Bowl:
     type: item
+    debug: false
     material: BRICK
     display name: <white>Mixing Bowl
     mechanisms:
@@ -96,8 +102,10 @@ Mixing_Bowl:
     #    input:
     #    - *planks|stick|*planks
     #    - air|*planks|air
+
 Cooking_Pot:
     type: item
+    debug: false
     material: BRICK
     display name: <white>Cooking Pot
     mechanisms:
@@ -113,8 +121,10 @@ Cooking_Pot:
     #    input:
     #    - blast_copper_ingot|stick|blast_copper_ingot
     #    - air|blast_copper_ingot|air
+
 Roller:
     type: item
+    debug: false
     material: BRICK
     display name: <white>Roller
     mechanisms:
@@ -137,8 +147,10 @@ Roller:
     #    - air|air|stick
     #    - air|*log|air
     #    - stick|air|air
+
 Sauce_Pan:
     type: item
+    debug: false
     material: BRICK
     display name: <white>Sauce Pan
     mechanisms:
@@ -152,8 +164,10 @@ Sauce_Pan:
     #    type: shaped
     #    input:
     #    - stick|blast_copper_ingot
+
 Skillet:
     type: item
+    debug: false
     material: BRICK
     display name: <white>Skillet
     mechanisms:

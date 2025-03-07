@@ -88,6 +88,7 @@
 
 Steel_Mace:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -117,6 +118,7 @@ Steel_Mace:
 
 Silver_Mace:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -146,6 +148,7 @@ Silver_Mace:
 
 Slate_Silver_Mace:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -175,6 +178,7 @@ Slate_Silver_Mace:
 
 Adamantine_Mace:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -204,6 +208,7 @@ Adamantine_Mace:
 
 Mythril_Mace:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:

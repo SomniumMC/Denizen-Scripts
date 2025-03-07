@@ -4,6 +4,7 @@
 
 #Blast_Copper_Axe:
 #    type: item
+#    debug: false
 #    material: iron_axe
 #    mechanisms:
 #     custom_model_data: 10000
@@ -32,6 +33,7 @@
 #
 #Bronze_Axe:
 #    type: item
+#    debug: false
 #    material: iron_axe
 #    mechanisms:
 #     custom_model_data: 10001
@@ -60,6 +62,7 @@
 #
 #Blast_Iron_Axe:
 #    type: item
+#    debug: false
 #    material: iron_axe
 #    mechanisms:
 #     custom_model_data: 10002
@@ -88,6 +91,7 @@
 
 Steel_Axe:
     type: item
+    debug: false
     material: diamond_axe
     mechanisms:
      components_patch:
@@ -117,6 +121,7 @@ Steel_Axe:
 
 Silver_Axe:
     type: item
+    debug: false
     material: diamond_axe
     mechanisms:
      components_patch:
@@ -146,6 +151,7 @@ Silver_Axe:
 
 Slate_Silver_Axe:
     type: item
+    debug: false
     material: iron_axe
     mechanisms:
      components_patch:
@@ -175,6 +181,7 @@ Slate_Silver_Axe:
 
 Adamantine_Axe:
     type: item
+    debug: false
     material: iron_axe
     mechanisms:
      components_patch:
@@ -204,6 +211,7 @@ Adamantine_Axe:
 
 Mythril_Axe:
     type: item
+    debug: false
     material: iron_axe
     mechanisms:
      components_patch:
@@ -235,6 +243,7 @@ Mythril_Axe:
 
 Crafted_Blast_Copper_Axe:
     type: item
+    debug: false
     material: iron_axe
     mechanisms:
      custom_model_data: 10000
@@ -266,6 +275,7 @@ Crafted_Blast_Copper_Axe:
 
 Crafted_Blast_Iron_Axe:
     type: item
+    debug: false
     material: iron_axe
     mechanisms:
      custom_model_data: 10002

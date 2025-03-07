@@ -88,6 +88,7 @@
 
 Steel_Shovel:
     type: item
+    debug: false
     material: diamond_shovel
     mechanisms:
      components_patch:
@@ -117,6 +118,7 @@ Steel_Shovel:
 
 Silver_Shovel:
     type: item
+    debug: false
     material: iron_shovel
     mechanisms:
      components_patch:
@@ -146,6 +148,7 @@ Silver_Shovel:
 
 Slate_Silver_Shovel:
     type: item
+    debug: false
     material: diamond_shovel
     mechanisms:
      components_patch:
@@ -175,6 +178,7 @@ Slate_Silver_Shovel:
 
 Adamantine_Shovel:
     type: item
+    debug: false
     material: iron_shovel
     mechanisms:
      components_patch:
@@ -204,6 +208,7 @@ Adamantine_Shovel:
 
 Mythril_Shovel:
     type: item
+    debug: false
     material: iron_shovel
     mechanisms:
      components_patch:
@@ -235,6 +240,7 @@ Mythril_Shovel:
 
 Crafted_Blast_Copper_Shovel:
     type: item
+    debug: false
     material: iron_shovel
     mechanisms:
      custom_model_data: 10000
@@ -271,6 +277,7 @@ Crafted_Blast_Copper_Shovel:
 
 Crafted_Blast_Iron_Shovel:
     type: item
+    debug: false
     material: iron_shovel
     mechanisms:
      custom_model_data: 10002
