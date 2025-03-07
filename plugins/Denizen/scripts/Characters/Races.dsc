@@ -90,6 +90,7 @@ Race_Menu_Event:
             - flag player stat.wisdom:6
             - flag player race.bonus:!
             - adjust <player> attribute_base_values:<map[scale=0.9]>
+            - flag player race.bonus:water_affinity
           - else if <[selection]> == goblin:
             - flag player race.name:Goblin
             - flag player stat.strength:4
@@ -382,3 +383,5 @@ Race_Bonus_Task:
       - adjust <player> can_fly:true
       - adjust <player> fly_speed:0.03
       - adjust <player> flying_fall_damage:true
+    - case water_affinity:
+      - cast <player> conduit_power duration:9999999t hide_particles
