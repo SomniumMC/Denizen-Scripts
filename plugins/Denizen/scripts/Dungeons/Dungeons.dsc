@@ -356,11 +356,14 @@ SomniBreakable_Handler:
                 - playsound sound:block.wool.break sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:brown_wool quantity:5
               - case iron:
-                - playsound sound:block.iron.break sound_category:blocks <[entity].location>
+                - playsound sound:entity.item.break sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:iron_block quantity:5
               - case flesh:
                 - playsound sound:item.honeycomb.wax_on sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:red_wool quantity:5
+              - case bone:
+                - playsound sound:block.bone_block.break sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:bone_block quantity:5
             - if <[entity].flag[table]> != noloot:
               - run SomniBreakable_Loot def.location:<[entity].location> def.table:<[entity].flag[table]||null>
             - foreach <[entity].flag[model_entity]> as:model:
@@ -381,11 +384,14 @@ SomniBreakable_Handler:
                 - playsound sound:block.wool.hit sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:brown_wool quantity:5
               - case iron:
-                - playsound sound:block.iron.hit sound_category:blocks <[entity].location>
+                - playsound sound:block.metal.hit sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:iron_block quantity:5
               - case flesh:
                 - playsound sound:item.honeycomb.wax_on sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:red_wool quantity:5
+              - case bone:
+                - playsound sound:block.bone_block.hit sound_category:blocks <[entity].location>
+                - playeffect effect:block at:<[entity].location> special_data:bone_block quantity:5
           #- debugblock <[entity].location>
         #- if <context.entity.has_flag[dungeon_core]>
 
