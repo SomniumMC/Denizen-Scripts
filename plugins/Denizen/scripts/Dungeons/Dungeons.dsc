@@ -762,10 +762,11 @@ SomniProtectionClear:
     - playsound sound:entity.generic.explode <[location]> sound_category:blocks
     - flag <cuboid[<[area]>]> protection:disabled
     - flag server somni.<[somni]>.status:cleared
-    - foreach <script[SomniData_<[somni]>].list_keys.exclude[type|origin]> as:entry:
-      - if <script[SomniData_<[somni]>].data_key[<[entry]>.type]> == enablespawner:
-        - adjust <mythicspawner[<script[SomniData_<[somni]>].data_key[<[entry]>].get[id]>]> disable
+    #- foreach <script[SomniData_<[somni]>].list_keys.exclude[type|origin]> as:entry:
+    #  - if <script[SomniData_<[somni]>].data_key[<[entry]>.type]> == enablespawner:
+    #    - adjust <mythicspawner[<script[SomniData_<[somni]>].data_key[<[entry]>].get[id]>]> disable
     - foreach <server.flag[somni.<[somni]>.spawners]> as:spawner:
+      - adjust <mythicspawner[<[spawner].flag[id]>]> disable
       - remove <[spawner].flag[spawner_entity]>
       - remove <[spawner]>
       - flag server somni.<[somni]>.spawners:<-:<[spawner]>
