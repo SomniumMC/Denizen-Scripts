@@ -228,7 +228,7 @@ SomniData_Ruined_City:
     table: ruinedcityskeleton
   breakableskeleton3:
     type: breakable
-    pos1: 65|3|-61
+    pos1: 65|2|-61
     health: 5
     model: Ruined_City_Skeleton_Sitting
     breakable_type: bone
