@@ -923,4 +923,13 @@ SomniMenu_Data:
     entrance: sentient_undergrowthentrance
     exit: sentient_undergrowthexit
     icon: vine
+  ruined_city:
+    name: <dark_red>Ruined City
+    cost: 0
+    description: <light_purple>A once great city now in ruins.
+    danger: high
+    enabled: true
+    entrance: ruined_cityentrance
+    exit: ruined_cityexit
+    icon: cobblestone
 
