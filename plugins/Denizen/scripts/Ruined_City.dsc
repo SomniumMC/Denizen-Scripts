@@ -247,7 +247,7 @@ SomniData_Ruined_City:
     table: ruinedcitycannon
     yaw: 180
     scale: 3,3,3
-    translation: 0,0,0
+    translation: 0,1,0
   breakablecannon2:
     type: breakable
     pos1: 72|17|-98
@@ -257,7 +257,7 @@ SomniData_Ruined_City:
     table: ruinedcitycannon
     yaw: 180
     scale: 3,3,3
-    translation: 0,0,0
+    translation: 0,1,0
   breakablehorse:
     type: breakable
     pos1: 104|11|-85
