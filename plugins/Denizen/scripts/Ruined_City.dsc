@@ -71,7 +71,7 @@ SomniData_Ruined_City:
   #Ruined Witch
   spawner8:
     type: mobspawner
-    pos1: 93|16|-73
+    pos1: 75|13|-86
     id: ruinedcity8
     health: 10
     somni: ruined_city
@@ -214,9 +214,9 @@ SomniData_Ruined_City:
     table: ruinedcitybundle
   breakableskeleton1:
     type: breakable
-    pos1: 65|2|-61
+    pos1: 65|11|-101
     health: 5
-    model: skeleton
+    model: Ruined_City_Skeleton_Sitting
     breakable_type: bone
     table: ruinedcityskeleton
   breakableskeleton2:
@@ -226,6 +226,14 @@ SomniData_Ruined_City:
     model: Ruined_City_Skeleton_Hanging
     breakable_type: bone
     table: ruinedcityskeleton
+  breakableskeleton3:
+    type: breakable
+    pos1: 65|3|-61
+    health: 5
+    model: Ruined_City_Skeleton_Sitting
+    breakable_type: bone
+    table: ruinedcityskeleton
+    yaw: 90
   breakablecannon1:
     type: breakable
     pos1: 56|17|-98
