@@ -228,6 +228,7 @@ SomniData_Ruined_City:
     breakable_type: bone
     table: ruinedcityskeleton
     yaw: 225
+    translation: 0,-1,0
   breakableskeleton3:
     type: breakable
     pos1: 65|2|-61
