@@ -654,7 +654,7 @@ SomniLoot_Table:
     ruinedcitybundle:
       quantity: 1-1
       items:
-        bundle:
+        leather:
           weight: 100
           quantity: 1-1
     ruinedcityskeleton:
