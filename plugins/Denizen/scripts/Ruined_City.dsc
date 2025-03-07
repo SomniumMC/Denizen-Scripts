@@ -235,6 +235,7 @@ SomniData_Ruined_City:
     table: ruinedcityskeleton
     yaw: 0
     scale: 2,2,2
+    translate: 0,0.5,0
   breakablecannon1:
     type: breakable
     pos1: 56|17|-98
