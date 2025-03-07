@@ -4,6 +4,7 @@
 
 Wooden_Fishing_Rod:
     type: item
+    debug: false
     material: fishing_rod
     mechanisms:
      custom_model_data: 10000
@@ -23,6 +24,7 @@ Wooden_Fishing_Rod:
 
 Crafted_Wooden_Fishing_Rod:
     type: item
+    debug: false
     material: fishing_rod
     mechanisms:
      custom_model_data: 10000

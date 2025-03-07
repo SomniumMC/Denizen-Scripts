@@ -4,6 +4,7 @@
 
 #Blast_Copper_Dagger:
 #    type: item
+#    debug: false
 #    material: iron_sword
 #    mechanisms:
 #     custom_model_data: 10008
@@ -32,6 +33,7 @@
 #
 #Bronze_Dagger:
 #    type: item
+#    debug: false
 #    material: iron_sword
 #    mechanisms:
 #     custom_model_data: 10009
@@ -60,6 +62,7 @@
 #
 Blast_Iron_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -84,6 +87,7 @@ Blast_Iron_Dagger:
 
 Steel_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -113,6 +117,7 @@ Steel_Dagger:
 
 Silver_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -142,6 +147,7 @@ Silver_Dagger:
 
 Slate_Silver_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -171,6 +177,7 @@ Slate_Silver_Dagger:
 
 Adamantine_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -200,6 +207,7 @@ Adamantine_Dagger:
 
 Mythril_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -232,6 +240,7 @@ Mythril_Dagger:
 
 Crafted_Blast_Copper_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10008
@@ -256,6 +265,7 @@ Crafted_Blast_Copper_Dagger:
 
 Crafted_Blast_Iron_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10010
@@ -280,6 +290,7 @@ Crafted_Blast_Iron_Dagger:
 
 Crafted_Stone_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -302,6 +313,7 @@ Crafted_Stone_Dagger:
 
 Crafted_Flint_Dagger:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10041

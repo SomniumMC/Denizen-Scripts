@@ -4,6 +4,7 @@
 
 Tool_Rod:
     type: item
+    debug: false
     material: brick
     display name: <gray>Tool Rod
     mechanisms:
@@ -18,6 +19,7 @@ Tool_Rod:
 
 Raw_Tin:
     type: item
+    debug: false
     material: brick
     display name: <gray>Tin Ore
     mechanisms:
@@ -30,6 +32,7 @@ Raw_Tin:
 
 Raw_Silver:
     type: item
+    debug: false
     material: brick
     display name: <gray>Silver Ore
     mechanisms:
@@ -42,6 +45,7 @@ Raw_Silver:
 
 Raw_Adamantine:
     type: item
+    debug: false
     material: brick
     display name: <gray>Adamantine Ore
     mechanisms:
@@ -54,6 +58,7 @@ Raw_Adamantine:
 
 Raw_Mythril:
     type: item
+    debug: false
     material: brick
     display name: <gray>Mythril Ore
     mechanisms:
@@ -66,11 +71,12 @@ Raw_Mythril:
 
 high_carbon_raw_iron:
     type: item
+    debug: false
     material: brick
     display name: <gray>High Carbon Raw Iron
     mechanisms:
       components_patch:
-        item_model: string:materials:ore/high_carbon_raw_iron
+        item_model: string:materials:ore/raw_carbon
     #flags:
     #  lore: <gold>An unrefined chunk of iron with a high carbon content.
     lore:
@@ -80,6 +86,7 @@ high_carbon_raw_iron:
 
 Silver_Ingot:
     type: item
+    debug: false
     material: brick
     mechanisms:
       components_patch:
@@ -92,6 +99,7 @@ Silver_Ingot:
 
 Adamantine_Ingot:
     type: item
+    debug: false
     material: brick
     mechanisms:
       components_patch:
@@ -104,6 +112,7 @@ Adamantine_Ingot:
 
 Mythril_Ingot:
     type: item
+    debug: false
     material: brick
     mechanisms:
       components_patch:
@@ -118,6 +127,7 @@ Mythril_Ingot:
 
 Bronze_Ingot:
     type: item
+    debug: false
     material: brick
     mechanisms:
       components_patch:
@@ -130,6 +140,7 @@ Bronze_Ingot:
 
 Slate_Silver_Ingot:
     type: item
+    debug: false
     material: brick
     mechanisms:
       components_patch:
@@ -142,6 +153,7 @@ Slate_Silver_Ingot:
 
 Steel_Ingot:
     type: item
+    debug: false
     material: brick
     mechanisms:
       components_patch:
@@ -156,6 +168,7 @@ Steel_Ingot:
 
 Copper_Nugget:
   type: item
+  debug: false
   material: brick
   display name: <gold>Copper Nugget
   mechanisms:
@@ -171,6 +184,7 @@ Copper_Nugget:
 
 Grass_Fiber:
   type: item
+  debug: false
   material: brick
   display name: <white>Grass Fiber
   mechanisms:
@@ -183,6 +197,7 @@ Grass_Fiber:
 
 Flesh_Bound_Leather:
   type: item
+  debug: false
   material: brick
   display name: <white>Flesh Bound Leather
   mechanisms:
@@ -200,6 +215,7 @@ Flesh_Bound_Leather:
 
 Flesh_Smelted_Leather:
   type: item
+  debug: false
   material: leather
   no_id: true
   recipes:

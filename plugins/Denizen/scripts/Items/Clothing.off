@@ -4,6 +4,7 @@
 
 #Bikini:
 #    type: item
+#    debug: false
 #    material: iron_chestplate
 #    mechanisms:
 #      custom_model_data: 10000
@@ -16,6 +17,7 @@
 #
 #Swim_Trunks:
 #    type: item
+#    debug: false
 #    material: iron_leggings
 #    mechanisms:
 #      custom_model_data: 10000

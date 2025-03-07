@@ -77,7 +77,6 @@ SomniReset:
 
 SomniModiCube:
     type: task
-    debug: false
     definitions: pos1|pos2|replace|replacement|special|origin
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -94,7 +93,6 @@ SomniModiCube:
 
 SomniFurniture:
     type: task
-    debug: false
     definitions: pos1|pos2|origin|furniture|yaw|chance
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -105,7 +103,6 @@ SomniFurniture:
 
 SomniMob:
     type: task
-    debug: false
     definitions: pos1|origin|mob|mythicmob
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed.center.below[0.5]>
@@ -146,7 +143,7 @@ SomniBreakable:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - if <[pos1].material.name> == oak_sign:
       - modifyblock <[pos1]> air
-    - spawn item_display[item=<[model]>] <[pos1].center> save:model_entity
+    - spawn item_display[item=<[model]>] <[pos1].center.add[<element[<[translation]>].if_null[0,0,0]>]> save:model_entity
     - spawn somni_breakable <[pos1].center.below[0.5]> save:interaction_entity
     - flag <entry[model_entity].spawned_entity> interaction_entity:<entry[interaction_entity].spawned_entity>
     - flag <entry[interaction_entity].spawned_entity> model_entity:<entry[model_entity].spawned_entity>
@@ -154,8 +151,7 @@ SomniBreakable:
     - flag <entry[interaction_entity].spawned_entity> breakable_type:<[breakable_type]>
     - flag <entry[interaction_entity].spawned_entity> table:<[table]>
     - look <entry[model_entity].spawned_entity> yaw:<[yaw].if_null[0]>
-    - adjust <entry[model_entity].spawned_entity> scale:<element[<[scale].if_null[1,1,1]>]>
-    - teleport <entry[model_entity].spawned_entity> <entry[model_entity].spawned_entity.location.add[<[translation].if_null[0,0,0]>]>
+    - adjust <entry[model_entity].spawned_entity> scale:<element[<[scale]>].if_null[1,1,1]>
     #- mount <entry[interaction_entity].spawned_entity>|<entry[model_entity].spawned_entity>
 
 SomniChest:
@@ -191,7 +187,6 @@ SomniChest:
 
 SomniDungeonCore:
     type: task
-    debug: false
     definitions: pos|origin|health|area|somni
     script:
     - define random_position <[pos].random>
@@ -215,7 +210,6 @@ SomniDungeonCore:
 
 SomniReturnPortal:
     type: task
-    debug: false
     definitions: pos1|origin|somni
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -230,7 +224,6 @@ SomniReturnPortal:
 
 SomniLocationProc:
     type: procedure
-    debug: false
     definitions: x|y|z
     script:
     #- narrate <location[testschempos3].right[<[x]>].up[<[y]>].backward[<[z]>].block>
@@ -239,7 +232,6 @@ SomniLocationProc:
 
 SomniBlockReplacements:
   type: data
-  debug: false
   ore1:
     coal_ore:
       weight: 100
@@ -301,7 +293,6 @@ SomniChestSlot_Proc:
 
 SomniCoordTool:
     type: item
-    debug: false
     material: light_blue_stained_glass
     display name: <gold><bold>Somni Tape Measurer
     flags:
@@ -313,7 +304,6 @@ SomniCoordTool:
 
 SomniTapeMeasurer:
     type: world
-    debug: false
     events:
         on player breaks block with:SomniCoordTool:
         - determine passively cancelled
@@ -337,7 +327,6 @@ SomniTapeMeasurer:
 
 SomniBreakable_Handler:
     type: world
-    debug: false
     events:
         on player damages Somni_Breakable:
         - if <context.entity.has_flag[breakable]>:
@@ -356,14 +345,11 @@ SomniBreakable_Handler:
                 - playsound sound:block.wool.break sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:brown_wool quantity:5
               - case iron:
-                - playsound sound:entity.item.break sound_category:blocks <[entity].location>
+                - playsound sound:block.iron.break sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:iron_block quantity:5
               - case flesh:
                 - playsound sound:item.honeycomb.wax_on sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:red_wool quantity:5
-              - case bone:
-                - playsound sound:block.bone_block.break sound_category:blocks <[entity].location>
-                - playeffect effect:block at:<[entity].location> special_data:bone_block quantity:5
             - if <[entity].flag[table]> != noloot:
               - run SomniBreakable_Loot def.location:<[entity].location> def.table:<[entity].flag[table]||null>
             - foreach <[entity].flag[model_entity]> as:model:
@@ -384,20 +370,16 @@ SomniBreakable_Handler:
                 - playsound sound:block.wool.hit sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:brown_wool quantity:5
               - case iron:
-                - playsound sound:block.metal.hit sound_category:blocks <[entity].location>
+                - playsound sound:block.iron.hit sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:iron_block quantity:5
               - case flesh:
                 - playsound sound:item.honeycomb.wax_on sound_category:blocks <[entity].location>
                 - playeffect effect:block at:<[entity].location> special_data:red_wool quantity:5
-              - case bone:
-                - playsound sound:block.bone_block.hit sound_category:blocks <[entity].location>
-                - playeffect effect:block at:<[entity].location> special_data:bone_block quantity:5
           #- debugblock <[entity].location>
         #- if <context.entity.has_flag[dungeon_core]>
 
 SomniBreakable_Loot:
     type: task
-    debug: false
     definitions: location|table
     script:
     - if <[table]||null> == null:
@@ -417,12 +399,10 @@ SomniBreakable_Loot:
 
 Somni_Breakable:
   type: entity
-  debug: false
   entity_type: interaction
 
 SomniLoot_Table:
     type: data
-    debug: false
     test1:
       quantity: 1-5
       items:
@@ -807,7 +787,6 @@ SomniReturnPortal_Event:
 
 SomniMob_Spawner_Event:
   type: world
-  debug: false
   #debug: false
   events:
     on player damages Dungeon_Spawner_Interaction:
@@ -828,7 +807,6 @@ SomniMob_Spawner_Event:
 
 Dungeon_Core_Interaction:
     type: entity
-    debug: false
     entity_type: interaction
     mechanisms:
         #is_aware: true
@@ -837,7 +815,6 @@ Dungeon_Core_Interaction:
 
 Dungeon_Core:
     type: item
-    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Core
     mechanisms:
@@ -845,7 +822,6 @@ Dungeon_Core:
 
 Dungeon_Core_Stabilizer:
     type: item
-    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Core Stabilizer
     mechanisms:
@@ -853,7 +829,6 @@ Dungeon_Core_Stabilizer:
 
 Dungeon_Return_Portal:
     type: item
-    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Return Portal
     mechanisms:
@@ -861,7 +836,6 @@ Dungeon_Return_Portal:
 
 Dungeon_Spawner:
     type: item
-    debug: false
     material: string
     display name: <red><bold>Dungeon Spawner
     mechanisms:
@@ -870,7 +844,6 @@ Dungeon_Spawner:
 
 Dungeon_Spawner_Interaction:
     type: entity
-    debug: false
     entity_type: interaction
     mechanisms:
         height: 1
@@ -878,7 +851,6 @@ Dungeon_Spawner_Interaction:
 
 Dungeon_Stone:
     type: item
-    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Stone
     mechanisms:
@@ -886,7 +858,6 @@ Dungeon_Stone:
 
 Dungeon_Stone_Interaction:
     type: entity
-    debug: false
     entity_type: interaction
     mechanisms:
         #is_aware: true
@@ -895,7 +866,6 @@ Dungeon_Stone_Interaction:
 
 Somni_Stone_Interaction:
   type: world
-  debug: false
   events:
     on player right clicks Dungeon_Stone_Interaction:
     - ratelimit <player> 1t
@@ -907,7 +877,6 @@ Somni_Stone_Interaction:
 
 SomniMenu_Inventory:
   type: inventory
-  debug: false
   inventory: chest
   gui: true
   title: <gold>Dungeon Stone Network
@@ -933,7 +902,6 @@ SomniMenu_Inventory:
 
 SomniMenu_Data:
   type: data
-  debug: false
   testschem:
     name: <white>Test Schematic Cell
     cost: 0

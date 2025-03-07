@@ -82,6 +82,7 @@
 
 Steel_Pickaxe:
     type: item
+    debug: false
     material: diamond_pickaxe
     mechanisms:
      components_patch:
@@ -109,6 +110,7 @@ Steel_Pickaxe:
 
 Silver_Pickaxe:
     type: item
+    debug: false
     material: iron_pickaxe
     mechanisms:
      components_patch:
@@ -136,6 +138,7 @@ Silver_Pickaxe:
 
 Slate_Silver_Pickaxe:
     type: item
+    debug: false
     material: diamond_pickaxe
     mechanisms:
      components_patch:
@@ -163,6 +166,7 @@ Slate_Silver_Pickaxe:
 
 Adamantine_Pickaxe:
     type: item
+    debug: false
     material: iron_pickaxe
     mechanisms:
      components_patch:
@@ -190,6 +194,7 @@ Adamantine_Pickaxe:
 
 Mythril_Pickaxe:
     type: item
+    debug: false
     material: iron_pickaxe
     mechanisms:
      components_patch:
@@ -221,6 +226,7 @@ Mythril_Pickaxe:
 
 Crafted_Blast_Copper_Pickaxe:
     type: item
+    debug: false
     material: iron_pickaxe
     mechanisms:
      custom_model_data: 10000
@@ -255,6 +261,7 @@ Crafted_Blast_Copper_Pickaxe:
 
 Crafted_Blast_Iron_Pickaxe:
     type: item
+    debug: false
     material: iron_pickaxe
     mechanisms:
      custom_model_data: 10002

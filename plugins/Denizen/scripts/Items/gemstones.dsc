@@ -4,16 +4,18 @@
 
 Geode:
     type: item
+    debug: false
     material: brick
     display name: <gray>Geode
     mechanisms:
       components_patch:
-        item_model: string:materials:ore/geode
+        item_model: string:materials:gemstone/geode
     lore:
     - <gold>A solid rock with possible gemstones inside.
 
 Ice_Gemstone:
     type: item
+    debug: false
     material: brick
     display name: <aqua>Ice Gemstone
     mechanisms:
@@ -25,6 +27,7 @@ Ice_Gemstone:
 
 Fire_Gemstone:
     type: item
+    debug: false
     material: brick
     display name: <red>Fire Gemstone
     mechanisms:
@@ -36,6 +39,7 @@ Fire_Gemstone:
 
 Earth_Gemstone:
     type: item
+    debug: false
     material: brick
     display name: <&color[#704000]>Earth Gemstone
     mechanisms:
@@ -47,6 +51,7 @@ Earth_Gemstone:
 
 Air_Gemstone:
     type: item
+    debug: false
     material: brick
     display name: <&color[#eeff70]>Air Gemstone
     mechanisms:

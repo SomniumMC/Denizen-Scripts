@@ -4,6 +4,7 @@
 
 Furniture_Events:
     type: world
+    debug: false
     events:
         on player right clicks block with:item_flagged:assembles:
         - ratelimit <player> 5t
@@ -66,6 +67,7 @@ Furniture_Events:
 
 Staff_Place:
   type: command
+  debug: false
   name: staffplace
   description: Places a display entity or gives a tool for it.
   usage: /staffplace tool
@@ -84,6 +86,7 @@ Staff_Place:
 
 Staff_Place_Task:
   type: task
+  debug: false
   definitions: slot
   script:
   - define item <player.inventory.slot[<[slot]>]>
@@ -224,6 +227,7 @@ Staff_Place_tool:
 
 Staff_Place_GUI:
   type: inventory
+  debug: false
   inventory: chest
   gui: true
   slots:
@@ -269,6 +273,7 @@ Staff_Place_GUI:
 
 Assemble_Crude_Chair:
     type: task
+    debug: false
     definitions: location|item|player|yaw
     script:
     - define player_yaw <player.location.yaw>
@@ -282,6 +287,7 @@ Assemble_Crude_Chair:
 
 Assemble_Crude_Table:
     type: task
+    debug: false
     definitions: location|item|player
     script:
     - spawn ITEM_DISPLAY[item=Furniture_Crude_Table;scale=1,1,1] <[location].center> save:furniture_entity
@@ -298,6 +304,7 @@ Assemble_Crude_Table:
 
 Assemble_1x2_Crude_Table:
     type: task
+    debug: false
     definitions: location|item|player|yaw
     script:
     - define right_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].forward_flat[1].with_yaw[!]>
@@ -322,6 +329,7 @@ Assemble_1x2_Crude_Table:
 
 Assemble_1x3_Crude_Table:
     type: task
+    debug: false
     definitions: location|item|player|yaw
     script:
     - define right_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].forward_flat[1].with_yaw[!]>
@@ -350,6 +358,7 @@ Assemble_1x3_Crude_Table:
 
 Assemble_2x2_Crude_Table:
     type: task
+    debug: false
     definitions: location|item|player|yaw
     script:
     - define right_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].forward_flat[1].with_yaw[!]>
@@ -383,6 +392,7 @@ Assemble_2x2_Crude_Table:
 
 Assemble_Runestone_Inscriber:
     type: task
+    debug: false
     definitions: location|item|player
     script:
     - spawn ITEM_DISPLAY[item=Furniture_Runestone_Inscriber;scale=1,1,1] <[location].center> save:furniture_entity
@@ -394,6 +404,7 @@ Assemble_Runestone_Inscriber:
 
 Assemble_Display_Stand:
     type: task
+    debug: false
     definitions: location|item|player|yaw
     script:
     - spawn ITEM_DISPLAY[item=furniture_display_stand;scale=1,1,1] <[location].center.above[0.5]> save:furniture_entity
@@ -419,6 +430,7 @@ Assemble_Display_Stand:
 
 Furniture_Interaction:
   type: entity
+  debug: false
   entity_type: interaction
   mechanisms:
     height: 1
@@ -428,6 +440,7 @@ Furniture_Interaction:
 
 Furniture_Crude_Chair:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>Crude Chair
     mechanisms:
@@ -438,6 +451,7 @@ Furniture_Crude_Chair:
 
 Furniture_Crude_Table:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>Crude Table
     mechanisms:
@@ -449,6 +463,7 @@ Furniture_Crude_Table:
 
 Furniture_1x2_Crude_Table:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>1x2 Crude Table
     mechanisms:
@@ -459,6 +474,7 @@ Furniture_1x2_Crude_Table:
 
 Furniture_1x3_Crude_Table:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>1x3 Crude Table
     mechanisms:
@@ -469,6 +485,7 @@ Furniture_1x3_Crude_Table:
 
 Furniture_2x2_Crude_Table:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>2x2 Crude Table
     mechanisms:
@@ -479,6 +496,7 @@ Furniture_2x2_Crude_Table:
 
 Furniture_Runestone_Inscriber:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>Runestone Inscriber
     mechanisms:
@@ -489,6 +507,7 @@ Furniture_Runestone_Inscriber:
 
 Furniture_Display_Stand:
     type: item
+    debug: false
     material: string
     display name: <yellow>Assembly Kit<&co> <blue>Display Stand
     mechanisms:
@@ -499,12 +518,9 @@ Furniture_Display_Stand:
 
 
 
-
-
-
-
 Display_Stand:
     type: item
+    debug: false
     material: string
     display name: <red>Display Stand
     mechanisms:
@@ -514,6 +530,7 @@ Display_Stand:
 
 invis_frame:
     type: item
+    debug: false
     material: item_frame
     display name: <gold>Invisible Item Frame
     data:

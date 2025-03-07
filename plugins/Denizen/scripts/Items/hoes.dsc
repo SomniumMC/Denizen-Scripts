@@ -2,7 +2,6 @@
 
 # First Tilled: 04/18/2024
 
-
 #Blast_Copper_Hoe:
 #    type: item
 #    material: iron_hoe
@@ -89,6 +88,7 @@
 
 Steel_Hoe:
     type: item
+    debug: false
     material: diamond_hoe
     mechanisms:
      components_patch:
@@ -118,6 +118,7 @@ Steel_Hoe:
 
 Silver_Hoe:
     type: item
+    debug: false
     material: iron_hoe
     mechanisms:
      components_patch:
@@ -147,6 +148,7 @@ Silver_Hoe:
 
 Slate_Silver_Hoe:
     type: item
+    debug: false
     material: diamond_hoe
     mechanisms:
      components_patch:
@@ -176,6 +178,7 @@ Slate_Silver_Hoe:
 
 Adamantine_Hoe:
     type: item
+    debug: false
     material: iron_hoe
     mechanisms:
      components_patch:
@@ -205,6 +208,7 @@ Adamantine_Hoe:
 
 Mythril_Hoe:
     type: item
+    debug: false
     material: iron_hoe
     mechanisms:
      components_patch:
@@ -236,6 +240,7 @@ Mythril_Hoe:
 
 Crafted_Blast_Copper_Hoe:
     type: item
+    debug: false
     material: iron_hoe
     mechanisms:
      custom_model_data: 10000
@@ -272,6 +277,7 @@ Crafted_Blast_Copper_Hoe:
 
 Crafted_Blast_Iron_Hoe:
     type: item
+    debug: false
     material: iron_hoe
     mechanisms:
      custom_model_data: 10002
