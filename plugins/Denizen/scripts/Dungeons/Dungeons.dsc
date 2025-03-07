@@ -155,7 +155,8 @@ SomniBreakable:
     - flag <entry[interaction_entity].spawned_entity> table:<[table]>
     - look <entry[model_entity].spawned_entity> yaw:<[yaw].if_null[0]>
     - adjust <entry[model_entity].spawned_entity> scale:<element[<[scale].if_null[1,1,1]>]>
-    - teleport <entry[model_entity].spawned_entity> <entry[model_entity].spawned_entity.location.add[<[translation].if_null[0,0,0]>]>
+    - if <[translation]||null> != null:
+      - teleport <entry[model_entity].spawned_entity> <entry[model_entity].spawned_entity.location.add[<[translation]>]>
     #- mount <entry[interaction_entity].spawned_entity>|<entry[model_entity].spawned_entity>
 
 SomniChest:

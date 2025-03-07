@@ -4,6 +4,7 @@
 
 Cooking_Eating_Module:
     type: world
+    debug: false
     events:
         on player consumes item_flagged:food:
         #- if !<player.item_in_hand.has_flag[food]>:
@@ -82,6 +83,7 @@ Cooking_Eating_Module:
 
 Cooking_Furnace_Start:
     type: world
+    debug: false
     events:
         on player right clicks furnace with:item_flagged:cooking_id:
         #- if <player.item_in_hand.has_lore[<green>Protein]>:
@@ -216,6 +218,7 @@ Cooking_Furnace_Start:
 
 Cooking_3_Start:
     type: world
+    debug: false
     events:
         on player right clicks *pressure_plate:
         - determine passively cancelled
@@ -229,6 +232,7 @@ Cooking_3_Start:
 
 Cooking_3_Craft:
     type: world
+    debug: false
     events:
 #        on player clicks item in Cooking_Category_Inventory:
 #        - if <context.item.script.name> !in <list[CookingButtonL|CookingNull|CookingReturn|CookingButtonR]>:
@@ -303,6 +307,7 @@ Cooking_3_Craft:
 
 Cooking_Index:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow><bold>Cooking Index
     size: 27
@@ -314,6 +319,7 @@ Cooking_Index:
 
 Cooking_Master_Data:
     type: data
+    debug: false
     dairy:
       fresh_milk-4:
       - milk_bucket-1
@@ -987,6 +993,7 @@ Cooking_Master_Data:
 
 Cooking_Category_Inventory:
     type: inventory
+    debug: false
     inventory: chest
     gui: true
     procedural items:
@@ -1033,6 +1040,7 @@ Cooking_Category_Inventory:
 
 Cooking_Recipe_Event:
     type: world
+    debug: false
     events:
       on player right clicks block with:CookingRecipe:
       - if <player.item_in_hand.has_flag[Recipe]>:
@@ -1054,6 +1062,7 @@ Cooking_Recipe_Event:
 
 Cooking_Recipe_Task:
     type: task
+    debug: false
     script:
     - if <player.open_inventory.contains_item[CookingSelectedRecipe]>:
       - if if <[2]> in <player.flag[Recipe]>:
@@ -1069,6 +1078,7 @@ Cooking_Recipe_Task:
 
 Cooking_Recipe_Creator:
     type: command
+    debug: false
     description: This allows for the basic creation of recipes that unlock a flag to allow players to craft certain items.
     name: genrecipe
     usage: /genrecipe <&lt>Recipe_ID<&gt>
@@ -1080,6 +1090,7 @@ Cooking_Recipe_Creator:
 
 Cooking_Recipe_Forget:
     type: command
+    debug: false
     description: This allows you to forget(remove the flag) of a recipe your character has stored.
     name: forgetrecipe
     usage: /forgetrecipe <&lt>Recipe_ID<&gt>
@@ -1091,6 +1102,7 @@ Cooking_Recipe_Forget:
 
 Cooking_Recipe_Mob_Drop:
   type: world
+  debug: false
   events:
     on player kills entity:
     - if <context.entity.type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
@@ -1099,12 +1111,14 @@ Cooking_Recipe_Mob_Drop:
 
 Cooking_Proc_Reformat:
   type: procedure
+  debug: false
   definitions: item
   script:
   - determine <item[<[item]>].with_single[lore=<proc[Cooking_Lore_Proc].context[<[item]>]>]>
 
 Cooking_Lore_Proc:
   type: procedure
+  debug: false
   definitions: item|category|quantity
   script:
   - define lore <empty>
@@ -1145,6 +1159,7 @@ Cooking_Lore_Proc:
 
 Cooking_Recipe_Generator:
   type: procedure
+  debug: false
   definitions: def
   script:
   - define categories <list[fruit|dairy|grain|protein|sugar]>
@@ -1154,6 +1169,7 @@ Cooking_Recipe_Generator:
 
 Cooking_Recipe_Pack:
   type: item
+  debug: false
   material: brick
   display name: <gold>Wrapped Recipe Pack
   lore:
@@ -1168,6 +1184,7 @@ Cooking_Recipe_Pack:
 
 CookingRecipe:
   type: item
+  debug: false
   material: flower_banner_pattern
   display name: <green>Recipe
   mechanisms:
@@ -1175,6 +1192,7 @@ CookingRecipe:
 
 Cooking_Recipe_Fragment:
   type: item
+  debug: false
   material: brick
   display name: <blue>Cooking Recipe Fragment
   lore:
@@ -1186,6 +1204,7 @@ Cooking_Recipe_Fragment:
 
 Cooking_Animal_Breeding:
     type: world
+    debug: false
     events:
       on player right clicks chicken:
       - if <player.item_in_hand.has_flag[seed]> && !<context.entity.breeding> && <context.entity.can_breed>:
@@ -1252,6 +1271,7 @@ Cooking_Animal_Breeding:
 
 Cooking_Vanilla_Interact:
     type: world
+    debug: false
     events:
       on player right clicks sugar_cane:
       - if <context.location.above.material.name> == air:
@@ -1305,6 +1325,7 @@ Cooking_Vanilla_Interact:
 
 Cooking_Milking:
     type: world
+    debug: false
     events:
         on player right clicks mooshroom:
         - if <player.item_in_hand.material.name> == bowl:
@@ -1315,6 +1336,7 @@ Cooking_Milking:
 
 Cooking_Composter:
     type: world
+    debug: false
     events:
         on player right clicks composter:
         - foreach <context.location.material.level> as:compost_level:
@@ -1337,6 +1359,7 @@ Cooking_Composter:
 
 Cooking_Grass_Harvest:
      type: world
+     debug: false
      events:
         on player breaks grass_block with:*_hoe bukkit_priority:HIGHEST:
         - determine passively cancelled
@@ -1362,12 +1385,14 @@ Cooking_Grass_Harvest:
 
 Cooking_Sound_Bakeware:
     type: task
+    debug: false
     script:
     - playsound <player> sound:block.bone.block.place pitch:0.8 volume:0.7 sound_category:blocks
     - wait 4t
     - playsound <player> sound:BLOCK.FIRE.AMBIENT pitch:1.7 volume:1 sound_category:blocks
 Cooking_Sound_Cutting_Board:
     type: task
+    debug: false
     script:
     - playsound <player> sound:item.axe.strip pitch:1.5 volume:0.7 sound_category:blocks
     - wait 4t
@@ -1376,34 +1401,41 @@ Cooking_Sound_Cutting_Board:
     - playsound <player> sound:item.axe.strip pitch:1.5 volume:0.7 sound_category:blocks
 Cooking_Sound_Juicer:
     type: task
+    debug: false
     script:
     - playsound <player> sound:block.beehive.shear pitch:0.7 volume:0.7 sound_category:blocks
 Cooking_Sound_Mortar_And_Pestle:
     type: task
+    debug: false
     script:
     - playsound <player> sound:item.axe.scrape pitch:0.4 volume:0.8 sound_category:blocks
 Cooking_Sound_Mixing_Bowl:
     type: task
+    debug: false
     script:
     - playsound <player> sound:item.axe.strip pitch:0.8 volume:0.7 sound_category:blocks
     - wait 3t
     - playsound <player> sound:item.axe.strip pitch:1.2 volume:0.7 sound_category:blocks
 Cooking_Sound_Cooking_Pot:
     type: task
+    debug: false
     script:
     - playsound <player> sound:BLOCK.BREWING.STAND.BREW pitch:0.4 volume:0.4 sound_category:blocks
 Cooking_Sound_Roller:
     type: task
+    debug: false
     script:
     - playsound <player> sound:block.big.dripleaf.tilt_up pitch:0.1 volume:0.7 sound_category:blocks
 Cooking_Sound_Sauce_Pan:
     type: task
+    debug: false
     script:
     - playsound <player> sound:BLOCK.CHAIN.BREAK pitch:0.4 volume:0.4 sound_category:blocks
     - wait 4t
     - playsound <player> sound:BLOCK.FIRE.AMBIENT pitch:1.7 volume:1 sound_category:blocks
 Cooking_Sound_Skillet:
     type: task
+    debug: false
     script:
     - playsound <player> sound:block.anvil.land pitch:0.6 volume:0.35 sound_category:blocks
     - wait 4t
@@ -1411,6 +1443,7 @@ Cooking_Sound_Skillet:
 
 Cooking_Storage_Block:
     type: world
+    debug: false
     events:
        on player right clicks block with:salt_block:
        - determine cancelled
@@ -1419,6 +1452,7 @@ Cooking_Storage_Block:
 
 Cooking_Guide_Update:
     type: world
+    debug: false
     events:
       on player right clicks block with:Cooking_Guide:
       - define new_model <item[Cooking_Guide]>
@@ -1428,6 +1462,7 @@ Cooking_Guide_Update:
 
 Cooking_Guide:
     type: item
+    debug: false
     material: written_book
     mechanisms:
       custom_model_data: 273
@@ -1441,6 +1476,7 @@ Cooking_Guide:
 
 Cooking_Guide_Bookscript:
     type: book
+    debug: false
     title: <green>Ingredients and You
     author: <gold><bold>Talfein, The Chef
     signed: true
@@ -1476,6 +1512,7 @@ Cooking_Guide_Bookscript:
 
 Cooking_Hand_Crafting:
     type: world
+    debug: false
     events:
       on player right clicks block with:cooking_salt:
       - determine passively cancelled
@@ -1516,6 +1553,7 @@ Cooking_Hand_Crafting:
 
 Cooking_Lunchbox_Inventory:
   type: inventory
+  debug: false
   inventory: dispenser
   title: <white>Lunch Box
   procedural items:
@@ -1528,6 +1566,7 @@ Cooking_Lunchbox_Inventory:
 
 Cooking_Lunchbox:
   type: item
+  debug: false
   material: tropical_fish
   display name: <white>Lunch Box
   mechanisms:
@@ -1536,6 +1575,7 @@ Cooking_Lunchbox:
 
 Cooking_Lunchbox_Event:
   type: world
+  debug: false
   events:
     on player consumes Cooking_Lunchbox:
       - determine passively cancelled
@@ -1585,6 +1625,7 @@ Cooking_Lunchbox_Event:
 
 Cooking_Lunchbox_Update:
   type: task
+  debug: false
   script:
   - define contents_list <player.item_in_hand.flag[contents]>
   - if !<player.item_in_hand.has_flag[contents]>:
@@ -1604,6 +1645,7 @@ Cooking_Lunchbox_Update:
 
 Cooking_Math_Command:
   type: command
+  debug: false
   name: foodcal
   description: Does something
   usage: /foodcal <&lt>food_id<&gt>
@@ -1614,6 +1656,7 @@ Cooking_Math_Command:
 
 Cooking_Math_Proc:
   type: procedure
+  debug: false
   definitions: food_id
   script:
   - define current_value:+:1
@@ -1688,6 +1731,7 @@ Cooking_Math_Proc:
 
 Cooking_Math_Data:
   type: data
+  debug: false
   tools:
     - mixing_bowl
     - sauce_pan
@@ -1839,6 +1883,7 @@ Cooking_Math_Data:
 
 cookinginventorytool:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow><bold>Tools
     size: 27
@@ -1850,6 +1895,7 @@ cookinginventorytool:
 
 cookinginventorystorage:
     type: world
+    debug: false
     events:
         on player clicks CookingStorage in cooking_index:
         - inventory open d:cookinginventorystorages
@@ -1899,6 +1945,7 @@ cookinginventorystorage:
 
 cookinginventorystorages:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow><bold>Storage
     size: 54
@@ -1914,6 +1961,7 @@ cookinginventorystorages:
 
 cookinginventoryseed:
     type: world
+    debug: false
     events:
         on player clicks CookingSeed in cooking_index:
         - inventory open d:cookinginventoryseeds
@@ -1963,6 +2011,7 @@ cookinginventoryseed:
 
 cookinginventoryseeds:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow><bold>Seeds
     size: 54
@@ -1977,6 +2026,7 @@ cookinginventoryseeds:
 
 cookinginventorydye:
     type: world
+    debug: false
     events:
         on player clicks CookingDye in cooking_index:
         - inventory open d:cookinginventorydyes
@@ -2003,6 +2053,7 @@ cookinginventorydye:
 
 cookinginventorydyes:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow><bold>Dyes
     size: 54
@@ -2019,6 +2070,7 @@ cookinginventorydyes:
 
 New_Hay_Block:
     type: item
+    debug: false
     material: hay_block
     display name: <white>Hay Bale
     mechanisms:
@@ -2029,6 +2081,7 @@ New_Hay_Block:
     - <gold>Contains 9 Bundles of wheat.
 New_Melon_Block:
     type: item
+    debug: false
     material: melon
     display name: <white>Melon Block
     mechanisms:
@@ -2039,6 +2092,7 @@ New_Melon_Block:
     - <gold>Contains 9 Slices of Melon.
 Salt_Block:
     type: item
+    debug: false
     material: calcite
     display name: <white>Salt Block
     mechanisms:
@@ -2049,6 +2103,7 @@ Salt_Block:
     - <gold>Contains 9 Piles of Salt.
 New_Kelp_Block:
     type: item
+    debug: false
     material: dried_kelp_block
     display name: <white>Dried Kelp Block
     mechanisms:
