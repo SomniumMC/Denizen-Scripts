@@ -233,7 +233,8 @@ SomniData_Ruined_City:
     model: Ruined_City_Skeleton_Sitting
     breakable_type: bone
     table: ruinedcityskeleton
-    yaw: 90
+    yaw: 0
+    scale: 2,2,2
   breakablecannon1:
     type: breakable
     pos1: 56|17|-98
