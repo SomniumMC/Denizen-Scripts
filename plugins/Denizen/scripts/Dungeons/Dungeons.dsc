@@ -140,7 +140,7 @@ SomniBreakable:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - if <[pos1].material.name> == oak_sign:
       - modifyblock <[pos1]> air
-    - spawn item_display[item=<[model]>] <[pos1].center.add[<element[<[translation].if_null[0,0,0]>]>]> save:model_entity
+    - spawn item_display[item=<[model]>] <[pos1].center.add[<element[<[translation]>].if_null[0,0,0]>]> save:model_entity
     - spawn somni_breakable <[pos1].center.below[0.5]> save:interaction_entity
     - flag <entry[model_entity].spawned_entity> interaction_entity:<entry[interaction_entity].spawned_entity>
     - flag <entry[interaction_entity].spawned_entity> model_entity:<entry[model_entity].spawned_entity>
