@@ -34,9 +34,11 @@ Starter_Kit_Data:
     - Tailored_Leather_Leggings-1
     - Tailored_Leather_boots-1
     - Crafted_Flint_Dagger-1
-    - Server_Guide-1
+    #- Server_Guide-1
     - Stone_Pickaxe-1
     - Stone_Axe-1
     - Bacon_Cheeseburger-1
     - Apple_Jelly_Toast-16
-    - coinpurse-1
+    - basic_lock-1
+    - crab-1
+    - currency1-32

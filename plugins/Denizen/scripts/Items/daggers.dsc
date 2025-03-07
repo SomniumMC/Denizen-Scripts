@@ -316,7 +316,8 @@ Crafted_Flint_Dagger:
     debug: false
     material: iron_sword
     mechanisms:
-     custom_model_data: 10041
+     components_patch:
+        item_model: string:weapons:flint_dagger
      unbreakable: true
      hides: unbreakable|attributes
     display name: <gold>Flint Dagger
