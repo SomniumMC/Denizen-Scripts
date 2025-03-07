@@ -745,7 +745,7 @@ SomniProtection:
 
 SomniProtectionClear:
     type: task
-    debug: false
+    debug: true
     definitions: area|location|core|stabilizer|interaction|somni
     script:
     - remove <[interaction]>
