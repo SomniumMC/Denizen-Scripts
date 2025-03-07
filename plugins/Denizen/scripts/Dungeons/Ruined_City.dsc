@@ -296,6 +296,12 @@ Ruined_City_Mob_Spawns:
         - adjust <[entity]> item_in_hand:<item[bow]>
         - if <util.random_chance[15]>:
           - adjust <[entity]> item_in_hand:<item[stone_sword]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> head:<item[crafted_leather_helmet]>
+        - if <util.random_chance[15]>:
+          - equip <[entity]> head:<item[iron_helmet]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> legs:<item[crafted_leather_leggings]>
         after mythicmob RuinedZombie spawns:
         - define entity <context.entity>
         - adjust <[entity]> item_in_hand:<item[stick]>
