@@ -96,6 +96,7 @@ Staff_Place_Task:
 
 Staff_Place_Event:
   type: world
+  debug: false
   events:
     on player places block using:off_hand priority:-20:
     - if <player.item_in_hand.script.name.if_null[null]> == staff_place_tool:
