@@ -214,11 +214,12 @@ SomniData_Ruined_City:
     table: ruinedcitybundle
   breakableskeleton1:
     type: breakable
-    pos1: 65|11|-101
+    pos1: 67|11|-101
     health: 5
     model: Ruined_City_Skeleton_Sitting
     breakable_type: bone
     table: ruinedcityskeleton
+    yaw: 135
   breakableskeleton2:
     type: breakable
     pos1: 55|18|-49
@@ -226,6 +227,7 @@ SomniData_Ruined_City:
     model: Ruined_City_Skeleton_Hanging
     breakable_type: bone
     table: ruinedcityskeleton
+    yaw: 225
   breakableskeleton3:
     type: breakable
     pos1: 65|2|-61
@@ -243,6 +245,9 @@ SomniData_Ruined_City:
     model: Ruined_City_Cannon
     breakable_type: iron
     table: ruinedcitycannon
+    yaw: 180
+    scale: 3,3,3
+    translation: 0,-1,0
   breakablecannon2:
     type: breakable
     pos1: 72|17|-98
@@ -250,6 +255,9 @@ SomniData_Ruined_City:
     model: Ruined_City_Cannon
     breakable_type: iron
     table: ruinedcitycannon
+    yaw: 180
+    scale: 3,3,3
+    translation: 0,-1,0
   breakablehorse:
     type: breakable
     pos1: 104|11|-85
