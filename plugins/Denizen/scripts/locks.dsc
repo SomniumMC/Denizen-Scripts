@@ -91,9 +91,14 @@ Keyring_Event:
         - determine passively cancelled
         - define stored_list <player.item_in_hand.flag[stored_keys]||<empty>>
         - if <player.item_in_offhand.material.name> == copper_ingot:
+          - if <[stored_list].get[1].has_flag[copy]>:
+            - narrate "<red>This key has already been copied."
+            - stop
           - define key <item[lock_key].with_flag[key_id]>
           - adjust def:key flag:key_id:<[stored_list].get[1].flag[key_id]>
           - adjust def:key lore:<yellow>Key<&sp>Id<&co><&sp><white><bold><[stored_list].get[1].flag[key_id]>
+          - adjust def:key lore:<[key].lore><n><gray><italic>Copy
+          - adjust def:key flag:copy
           - give item:<[key]>
           - take item:copper_ingot quantity:1
           - stop
