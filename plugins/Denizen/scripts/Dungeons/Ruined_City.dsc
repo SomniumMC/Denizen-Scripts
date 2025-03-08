@@ -15,7 +15,7 @@ SomniData_Ruined_City:
     health: 10
     area: ruinedcity2
     somni: Ruined_City
-  exit_portal:
+  exit:
     type: returnportal
     pos1: 66|2|-101
     somni: Ruined_City
