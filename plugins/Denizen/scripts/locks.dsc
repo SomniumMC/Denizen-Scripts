@@ -85,11 +85,18 @@ Keyring_Event:
         - define inventory <context.inventory>
         - inventory adjust slot:hand flag:stored_keys:<[inventory].list_contents>
         on player clicks item in Keyring_Inv:
-        - if !<context.item.has_flag[key_id]>:
+        - if !<context.item.has_flag[key_id]> && <context.item.material.name> != air:
           - determine cancelled
         on player swaps items offhand:Key_Ring:
         - determine passively cancelled
         - define stored_list <player.item_in_hand.flag[stored_keys]||<empty>>
+        - if <player.item_in_offhand.material.name> == copper_ingot:
+          - define key <item[lock_key].with_flag[key_id]>
+          - adjust def:key flag:key_id:<[stored_list].get[1]>
+          - adjust def:key lore:<yellow>Key<&sp>Id<&co><&sp><white><bold><[stored_list].get[1]>
+          - give item:<[key]>
+          - take item:copper_ingot quantity:1
+          - stop
         - if <[stored_list].is_empty>:
           - stop
         - else:
