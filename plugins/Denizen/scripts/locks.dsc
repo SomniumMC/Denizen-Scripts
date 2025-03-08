@@ -86,7 +86,8 @@ Keyring_Event:
               - give item:<[key]>
               - define new_list <[key_ring].remove[<[loop_index]>]>
               - inventory adjust flag:stored_keys:<[new_list]> slot:hand
-              - stop
+              - playsound <context.location> sound:block.note_block.chime sound_category:players
+              - determine cancelled
         - if <context.hand> == hand:
           - determine passively cancelled
           - inventory open d:Keyring_Inv
