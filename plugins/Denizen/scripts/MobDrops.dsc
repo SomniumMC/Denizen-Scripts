@@ -38,13 +38,13 @@ Vanilla_Drops:
         - drop item:Hoglin_Corpse <context.entity.location> quantity:1
         on cod death:
         - determine passively NO_DROPS
-        - drop item:Cooking_Raw_Fish <context.entity.location> quantity:1
+        - drop item:<proc[apply_info_proc].context[<item[Cooking_Raw_Fish]>]> <context.entity.location> quantity:1
         on salmon death:
         - determine passively NO_DROPS
-        - drop item:Cooking_Raw_Fish <context.entity.location> quantity:1
+        - drop item:<proc[apply_info_proc].context[<item[Cooking_Raw_Fish]>]> <context.entity.location> quantity:1
         on tropical_fish death:
         - determine passively NO_DROPS
-        - drop item:Cooking_Raw_Fish <context.entity.location> quantity:1
+        - drop item:<proc[apply_info_proc].context[<item[Cooking_Raw_Fish]>]> <context.entity.location> quantity:1
         on zombie death:
         - drop item:currency1 quantity:<util.random.int[1].to[5]> <context.entity.location>
         on skeleton death:
