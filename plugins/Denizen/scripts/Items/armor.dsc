@@ -459,6 +459,7 @@ Silver_Helmet:
      #trim:
      #  material: iron
      #  pattern: custom_armor:stainless_steel_plate
+     components_patch: minecraft:equippable=<map[slot=string:head;asset_id=string:custom_armor:silver_plate]>
     display name: <gold>Silver Helmet
     flags:
       lore: <gold>A decorative silver helmet.
@@ -487,6 +488,7 @@ Silver_Chestplate:
      #trim:
      #  material: iron
      #  pattern: custom_armor:stainless_steel_plate
+     components_patch: minecraft:equippable=<map[slot=string:chest;asset_id=string:custom_armor:silver_plate]>
     display name: <gold>Silver Chestplate
     flags:
       lore: <gold>A decorative silver Chestplate.
@@ -515,6 +517,7 @@ Silver_Leggings:
      #trim:
      #  material: iron
      #  pattern: custom_armor:stainless_steel_plate
+     components_patch: minecraft:equippable=<map[slot=string:legs;asset_id=string:custom_armor:silver_plate]>
     display name: <gold>Silver Leggings
     flags:
       lore: <gold>A decorative silver leggings.
@@ -543,6 +546,7 @@ Silver_Boots:
      #trim:
      #  material: iron
      #  pattern: custom_armor:stainless_steel_plate
+     components_patch: minecraft:equippable=<map[slot=string:feet;asset_id=string:custom_armor:silver_plate]>
     display name: <gold>Silver Boots
     flags:
       lore: <gold>A decorative silver boots.
