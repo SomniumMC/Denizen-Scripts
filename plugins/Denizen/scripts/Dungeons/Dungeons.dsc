@@ -217,7 +217,7 @@ SomniReturnPortal:
     - modifyblock <[pos1].forward[1]> barrier
     #- run Furniture_Faker def.location:<[pos1]> def.unbreakable:true def.player:f
     #- modifyblock <[pos1].below[1]> barrier
-    - spawn item_display[item=Dungeon_Return_Portal;scale=2,2,2] <[pos1].center.backward[1]> save:Portal_Model
+    - spawn item_display[item=Dungeon_Return_Portal;scale=2,2,2] <[pos1].center.backward[1].above[0.5]> save:Portal_Model
     - look <entry[Portal_model].spawned_entity> yaw:0
     - note <[pos1].forward[1].above[1].to_cuboid[<[pos1].forward[1].above[2]>]> as:<[somni]>_exit
 
@@ -496,6 +496,12 @@ SomniReturnPortal_Event:
     - narrate "<light_purple><italic>A strange portal whisks you away through realms."
     on player enters Sentient_Undergrowth_Exit:
     - define exit_location <script[SomniData_Sentient_Undergrowth].data_key[exit.exit_override]||null>
+    - if <[exit_location]> == null:
+      - define exit_location SomniDungeon_Stone_Warp
+    - teleport <player> <location[<[exit_location]>]>
+    - narrate "<light_purple><italic>You can once again hear your own thoughts as the spiritual haze fades from your mind."
+    on player enters Ruined_City_Exit:
+    - define exit_location <script[Ruined_City_Undergrowth].data_key[exit.exit_override]||null>
     - if <[exit_location]> == null:
       - define exit_location SomniDungeon_Stone_Warp
     - teleport <player> <location[<[exit_location]>]>
