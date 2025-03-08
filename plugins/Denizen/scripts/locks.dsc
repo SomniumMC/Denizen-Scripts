@@ -77,7 +77,7 @@ Lock_Event_Main:
 Keyring_Event:
     type: world
     events:
-        on player right clicks block with:Key_Ring:
+        on player right clicks block with:Key_Ring priority:-25:
         - if <context.location.has_flag[locked]>:
           - define id <context.location.flag[locked.id]>
           - define key_ring <player.item_in_hand.flag[stored_keys]>
