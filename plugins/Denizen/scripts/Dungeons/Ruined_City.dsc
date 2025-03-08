@@ -205,6 +205,11 @@ SomniData_Ruined_City:
     pos1: 97|2|-70
     facing: west
     table: ruinedcityvaluables
+  lootchestvaluables4:
+    type: chest
+    pos1: 81|4|-102
+    facing: south
+    table: ruinedcityvaluables
   breakablechalice:
     type: breakable
     pos1: 96|3|-73
