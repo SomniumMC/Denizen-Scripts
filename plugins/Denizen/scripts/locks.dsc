@@ -78,6 +78,15 @@ Keyring_Event:
     type: world
     events:
         on player right clicks block with:Key_Ring:
+        - if <context.location.has_flag[locked]>:
+          - define id <context.location.flag[locked.id]>
+          - define key_ring <player.item_in_hand.flag[stored_keys]>
+          - foreach <[key_ring]> as:key:
+            - if <[key].flag[key_id]> == <[id]>:
+              - give item:<[key]>
+              - define new_list <[key_ring].remove[<[loop_index]>]>
+              - inventory adjust flag:stored_keys:<[new_list]> slot:hand
+              - stop
         - if <context.hand> == hand:
           - determine passively cancelled
           - inventory open d:Keyring_Inv
