@@ -133,6 +133,8 @@ SomniMobSpawner:
     - flag <entry[interaction_entity].spawned_entity> health:<[health]>
     - flag <entry[interaction_entity].spawned_entity> somni:<[somni]>
     - flag <entry[interaction_entity].spawned_entity> id:<[id]>
+    - if <[id]> !in <server.flag[somni.<[somni]>.spawner_ids]>:
+      - flag server somni.<[somni]>.spawner_ids:->:<[id]>
     - flag server somni.<[somni]>.spawners:->:<entry[interaction_entity].spawned_entity>
 
 SomniBreakable:
@@ -478,11 +480,13 @@ SomniProtectionClear:
     #- foreach <script[SomniData_<[somni]>].list_keys.exclude[type|origin]> as:entry:
     #  - if <script[SomniData_<[somni]>].data_key[<[entry]>.type]> == enablespawner:
     #    - adjust <mythicspawner[<script[SomniData_<[somni]>].data_key[<[entry]>].get[id]>]> disable
-    - foreach <server.flag[somni.<[somni]>.spawners]> as:spawner:
-      - adjust <mythicspawner[<[spawner].flag[id]>]> disable
+    - foreach <server.flag[somni.<[somni]>.spawner_ids]> as:spawner:
       - remove <[spawner].flag[spawner_entity]>
       - remove <[spawner]>
       - flag server somni.<[somni]>.spawners:<-:<[spawner]>
+    - foreach <server.flag[somni.<[somni]>.spawner_ids]> as:id:
+      - adjust <mythicspawner[<[id]>]> disable
+    - flag server somni.<[somni]>.broken_spawners:!
 
 SomniReturnPortal_Event:
   type: world
@@ -521,11 +525,16 @@ SomniMob_Spawner_Event:
       - flag server somni.<[entity].flag[somni]>.spawners:<-:<[entity]>
       - remove <[entity]>
       - remove <[spawner]>
+      - flag server somni.<[entity].flag[somni]>.broken_spawners:->:<[entity].flag[id]>
     - else:
       - define newhealth <[health].sub[<context.damage>]>
       - flag <[entity]> health:<[newhealth]>
       - playeffect effect:block at:<[entity].location.above[1]> special_data:iron_block quantity:10
       - playsound sound:block.spawner.hit <[entity].location> sound_category:blocks
+    after reload scripts:
+    - foreach <server.flag[somni].keys> as:somni_name:
+      - foreach <server.flag[somni.<[somni_name]>.broken_spawners]> as:spawner_id:
+        - adjust <mythicspawner[<[spawner_id]>]> disable
 
 Dungeon_Core_Interaction:
     type: entity
