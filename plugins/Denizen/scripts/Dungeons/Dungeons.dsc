@@ -47,6 +47,10 @@ SomniReset:
     - wait 10t
     - define origin <location[<script[SomniData_<[somni]>].data_key[origin]>]>
 
+    - flag server somni.<[somni]>.spawner_ids:!
+    - flag server somni.<[somni]>.spawners:!
+    - flag server somni.<[somni]>.broken_spawners:!
+
     - schematic load name:<[somni]>
     - schematic paste name:<[somni]> <[origin].with_yaw[!]>
     - foreach <script[SomniData_<[somni]>].list_keys.exclude[origin|type|pos2|area|chunks]> as:key:
