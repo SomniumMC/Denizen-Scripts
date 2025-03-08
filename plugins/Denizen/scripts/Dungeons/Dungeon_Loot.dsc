@@ -73,7 +73,7 @@ SomniLoot_Table:
           quantity: 1-1
           info: apply
     ruinedcityfood:
-      quantity: 3-7
+      quantity: 2-7
       items:
         new_apple:
           weight: 100
@@ -176,7 +176,7 @@ SomniLoot_Table:
           weight: 100
           quantity: 1-64
     ruinedcitymaterials:
-      quantity: 1-3
+      quantity: 2-5
       items:
         stick:
           weight: 500
