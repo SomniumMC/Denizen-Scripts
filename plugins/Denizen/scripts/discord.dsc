@@ -1,4 +1,4 @@
-#Discord Bot handler. 
+#Discord Bot handler.
 connect_to_discord:
     type: world
     events:
