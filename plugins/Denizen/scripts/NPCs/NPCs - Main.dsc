@@ -56,6 +56,7 @@ NPC_ID_Storage:
 
     45: Ayla
     46: Talfein_Satus
+    47: Avalris
 
 NPC_Chat:
     type: task
