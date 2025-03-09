@@ -353,12 +353,6 @@ Steel_Helmet:
     flags:
       lore: <gold>A basic steel helmet.
       durability1: 320
-      slashingdefense: 3
-      bluntdefense: 1.25
-      piercingdefense: 3
-      skill_base: Blacksmithing
-      level: 39
-      recipe: steel_ingot_5
 
 Steel_Chestplate:
     type: item
@@ -382,12 +376,6 @@ Steel_Chestplate:
     flags:
       lore: <gold>A basic steel Chestplate.
       durability1: 320
-      slashingdefense: 4
-      bluntdefense: 1.25
-      piercingdefense: 4
-      skill_base: Blacksmithing
-      level: 30
-      recipe: steel_ingot_8
 
 Steel_Leggings:
     type: item
@@ -408,12 +396,6 @@ Steel_Leggings:
     flags:
       lore: <gold>Basic steel leggings.
       durability1: 320
-      slashingdefense: 3
-      bluntdefense: 1.25
-      piercingdefense: 3
-      skill_base: Blacksmithing
-      level: 30
-      recipe: steel_ingot_7
 
 Steel_Boots:
     type: item
@@ -434,12 +416,6 @@ Steel_Boots:
     flags:
       lore: <gold>Basic steel boots.
       durability1: 320
-      slashingdefense: 3
-      bluntdefense: 1.25
-      piercingdefense: 3
-      skill_base: Blacksmithing
-      level: 30
-      recipe: steel_ingot_4
 
 ## Silver
 Silver_Helmet:
@@ -453,7 +429,7 @@ Silver_Helmet:
        armor:
          1:
            operation: add_number
-           amount: 1
+           amount: 2
            slot: head
      hides: unbreakable|armor_trim|attributes
      #trim:
@@ -464,12 +440,6 @@ Silver_Helmet:
     flags:
       lore: <gold>A decorative silver helmet.
       durability1: 100
-      slashingdefense: 3
-      bluntdefense: 1.25
-      piercingdefense: 3
-      skill_base: Blacksmithing
-      level: 40
-      recipe: silver_ingot_5
 
 Silver_Chestplate:
     type: item
@@ -482,7 +452,7 @@ Silver_Chestplate:
        armor:
          1:
            operation: add_number
-           amount: 1
+           amount: 6
            slot: chest
      hides: unbreakable|armor_trim|attributes
      #trim:
@@ -493,12 +463,6 @@ Silver_Chestplate:
     flags:
       lore: <gold>A decorative silver Chestplate.
       durability1: 100
-      slashingdefense: 4
-      bluntdefense: 1.25
-      piercingdefense: 4
-      skill_base: Blacksmithing
-      level: 40
-      recipe: silver_ingot_8
 
 Silver_Leggings:
     type: item
@@ -511,7 +475,7 @@ Silver_Leggings:
        armor:
          1:
            operation: add_number
-           amount: 1
+           amount: 5
            slot: legs
      hides: unbreakable|armor_trim|attributes
      #trim:
@@ -522,12 +486,6 @@ Silver_Leggings:
     flags:
       lore: <gold>A decorative silver leggings.
       durability1: 100
-      slashingdefense: 3
-      bluntdefense: 1.25
-      piercingdefense: 3
-      skill_base: Blacksmithing
-      level: 40
-      recipe: silver_ingot_7
 
 Silver_Boots:
     type: item
@@ -540,7 +498,7 @@ Silver_Boots:
        armor:
          1:
            operation: add_number
-           amount: 1
+           amount: 2
            slot: feet
      hides: unbreakable|armor_trim|attributes
      #trim:
@@ -551,12 +509,6 @@ Silver_Boots:
     flags:
       lore: <gold>A decorative silver boots.
       durability1: 100
-      slashingdefense: 3
-      bluntdefense: 1.25
-      piercingdefense: 3
-      skill_base: Blacksmithing
-      level: 40
-      recipe: silver_ingot_4
 
 ## Slate Silver
 Slate_Silver_Helmet:

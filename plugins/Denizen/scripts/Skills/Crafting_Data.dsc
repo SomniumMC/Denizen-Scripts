@@ -131,7 +131,11 @@ Crafting_Master_Data:
         - iron_nugget-5
         lockpick-3:
         - steel_ingot-1
-
+        key_ring:
+        - iron_ingot-1
+        - iron_nugget-2
+        - copper_block-1
+        - gold_ingot-1
     refining:
       ingots:
         iron_ingot-16:
@@ -140,6 +144,8 @@ Crafting_Master_Data:
         - raw_gold-12
         copper_ingot-16:
         - raw_copper-12
+        silver_ingot-4:
+        - raw_silver-4
       alloys:
         bronze_ingot-2:
         - raw_copper-3
