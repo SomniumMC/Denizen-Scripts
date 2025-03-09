@@ -539,7 +539,7 @@ SomniMob_Spawner_Event:
       - playsound sound:block.spawner.hit <[entity].location> sound_category:blocks
     after reload scripts:
     - foreach <server.flag[somni].keys> as:somni_name:
-      - foreach <server.flag[somni.<[somni_name]>.broken_spawners]> as:spawner_id:
+      - foreach <server.flag[somni.<[somni_name]>.broken_spawners]||null> as:spawner_id:
         - adjust <mythicspawner[<[spawner_id]>]> disable
 
 Dungeon_Core_Interaction:
