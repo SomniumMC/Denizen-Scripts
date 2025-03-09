@@ -1,20 +1,9 @@
-players:
-    type: command
-    description: players
-    name: players
-    usage: /players
-    aliases:
-    - player
-    tab completions:
-      1: <util.notes[locations].replace_text[l<&at>].with[]>
-    script:
-    - foreach <server.players> as:player:
-        - narrate <[player].name>
 staff_warp:
     type: command
     description: Use this to warp between staff builds or waypoints.
     name: staffwarp
     usage: /staffwarp <&lt>Warp_Name<&gt>
+    permission: dscript.staffwarp
     aliases:
     - sw
     tab completions:
@@ -26,6 +15,7 @@ create_staff_warp:
     description: Use this create new warps to staff builds or waypoints.
     name: createstaffwarp
     usage: /createstaffwarp <&lt>Warp_Name<&gt>
+    permission: dscript.staffwarp
     aliases:
     - cresw
     tab completions:
@@ -37,6 +27,7 @@ delete_staff_warp:
     description: Use this remove waypoints or warps.
     name: deletestaffwarp
     usage: /deletestaffwarp <&lt>Warp_Name<&gt>
+    permission: dscript.staffwarp
     aliases:
     - delsw
     tab completions:
@@ -51,6 +42,7 @@ Staff_Give_Command:
     description: This gives the item to the Staff with all info applied
     name: staffgive
     usage: /staffgive <&lt>Item<&gt> <&lt>Player<&gt>
+    permission: dscript.staffgive
     aliases:
     - sgive
     script:
@@ -67,6 +59,7 @@ Staff_Model_Command:
     description: This spawns an item or block with a custom model
     name: staffmodel
     usage: /staffmodel <&lt>NAMESPACE:MODELPATH<&gt>
+    permission: dscript.staffmodel
     aliases:
     - smodel
     tab completions:
@@ -90,6 +83,7 @@ Staff_Storage_Command:
     description: This is a menu for Staff to use to find any created items or add new items.
     name: staffstorage
     usage: /staffstorage <&lt>Category<&gt> <&lt>Add<&gt>
+    permission: dscript.staffstorage
     aliases:
     - sstorage
     tab completions:
