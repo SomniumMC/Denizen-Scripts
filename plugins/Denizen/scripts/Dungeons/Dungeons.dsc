@@ -484,7 +484,7 @@ SomniProtectionClear:
     #- foreach <script[SomniData_<[somni]>].list_keys.exclude[type|origin]> as:entry:
     #  - if <script[SomniData_<[somni]>].data_key[<[entry]>.type]> == enablespawner:
     #    - adjust <mythicspawner[<script[SomniData_<[somni]>].data_key[<[entry]>].get[id]>]> disable
-    - foreach <server.flag[somni.<[somni]>.spawner_ids]> as:spawner:
+    - foreach <server.flag[somni.<[somni]>.spawners]> as:spawner:
       - remove <[spawner].flag[spawner_entity]>
       - remove <[spawner]>
       - flag server somni.<[somni]>.spawners:<-:<[spawner]>
