@@ -38,11 +38,11 @@ Storm_Starter:
     - wait 1s
   - flag server storm.stage:warning
   - modifyblock <cuboid[bunker_door_satus]> air
-  - wait 15m
+  - wait 10m
   - flag server storm.stage:started
-  - wait 2m
+  - wait 3m
   - flag server storm.stage:danger
-  - wait 1m
+  - wait 4m
   - foreach <server.flag[somni].keys> as:somni_name:
     - if <server.flag[somni.<[somni_name]>].get[status]> == cleared:
       - define eligible_list:->:<[somni_name]>
