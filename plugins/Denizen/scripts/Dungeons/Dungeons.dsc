@@ -434,6 +434,8 @@ SomniProtection:
           - else:
             - foreach next
         on player places block priority:-20:
+        - if <context.item_in_hand.material.name> == ladder:
+          - stop
         - foreach <context.location.areas> as:area_name:
           - if <cuboid[<[area_name]>].flag[protection]||null> == enabled:
             - flag <player> protection_warn:+:1 expire:5s
