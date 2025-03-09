@@ -178,6 +178,9 @@ Crafting_Recipe_Task:
       - adjust def:crafted_item lore:<proc[apply_info_proc].context[<[crafted_item]>].lore.if_null[<empty>]>
     - adjust def:crafted_item quantity:<[item].flag[recipe].after_last[-]>
     #- give item:<[crafted_item]> quantity:<[item].flag[recipe].after_last[-]>
+    - if <[crafted_item].has_flag[durability1]>:
+      - if !<[crafted_item].has_flag[durability2]>:
+        - adjust def:crafted_item flag:durability2:<[crafted_item].flag[durability1].round_up>
     - flag <player> crafting.item:<[crafted_item]>
     - inventory close
 
