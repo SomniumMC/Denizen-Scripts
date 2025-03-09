@@ -6,7 +6,6 @@ Server_Start_Event:
     type: world
     events:
         after server start:
-        - wait 1m
         - foreach <server.flag[somni].keys> as:somni_name:
           - foreach <server.flag[somni.<[somni_name]>.broken_spawners]> as:spawner_id:
             - adjust <mythicspawner[<[spawner_id]>]> disable
