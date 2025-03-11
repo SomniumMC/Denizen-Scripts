@@ -306,6 +306,6 @@ Crafting_Master_Data:
         packed_mud-16:
         - new_wheat-4
         - mud-12
-        stone_bricks-128:
-        - cobblestone-256
+        stone_bricks-64:
+        - cobblestone-128
 
