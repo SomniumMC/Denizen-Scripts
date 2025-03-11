@@ -296,7 +296,8 @@ Crafted_Stone_Dagger:
     mechanisms:
      components_patch:
         item_model: string:weapons:stone_dagger
-     unbreakable: true
+        max_damage: 10
+     #unbreakable: true
      hides: unbreakable|attributes
      attribute_modifiers:
         GENERIC_ATTACK_DAMAGE:
