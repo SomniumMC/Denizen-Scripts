@@ -1556,7 +1556,10 @@ Campfire_Disable:
     debug: false
     events:
       on player right clicks campfire:
-      - determine cancelled
+      - if <context.item.material.name> in <list[campfire|water_bucket|bucket]>:
+        - stop
+      - else:
+        - determine cancelled
 
 Cooking_Lunchbox_Inventory:
   type: inventory
