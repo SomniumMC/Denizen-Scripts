@@ -1551,6 +1551,13 @@ Cooking_Hand_Crafting:
           - adjust def:offhand lore:<[offhand].lore.set[<blue>Flavored<&co><&sp><gold><context.item.flag[effect_sauce].to_titlecase>].at[<[offhand].flag[flavored].after_last[-]>]>
         - give <[offhand]>
 
+Campfire_Disable:
+    type: world
+    debug: false
+    events:
+      on player right clicks campfire:
+      - determine cancelled
+
 Cooking_Lunchbox_Inventory:
   type: inventory
   debug: false
