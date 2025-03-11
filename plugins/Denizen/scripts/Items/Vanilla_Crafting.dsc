@@ -62,6 +62,10 @@ Vanilla_Iron_Trapdoor:
         input:
         - Iron_Ingot|Iron_Ingot|Iron_Ingot
         output_quantity: 2
+      2:
+        type: stonecutting
+        input: iron_ingot
+        output_quantity: 1
     no_id: true
 
 Vanilla_Iron_Block:
@@ -172,6 +176,10 @@ Vanilla_Chain:
         - Iron_Ingot
         - Iron_Nugget
         output_quantity: 8
+      2:
+        type: stonecutting
+        input: iron_ingot
+        output_quantity: 8
     no_id: true
 
 Vanilla_Shears:
@@ -188,352 +196,46 @@ Vanilla_Shears:
         input:
         - air|Copper_Ingot
         - Copper_Ingot|air
-      3:
-        type: shaped
-        input:
-        - air|Copper_Ingot
-        - Copper_Ingot|air
-      4:
-        type: shaped
-        input:
-        - Iron_Ingot|air
-        - air|Iron_Ingot
     no_id: true
 
-New_Shield:
-  type: item
-  material: shield
-  #no_id: true
-  #recipes:
-  #  1:
-  #    type: shaped
-  #    input:
-  #    - *planks|iron_ingot|*planks
-  #    - *planks|*planks|*planks
-  #    - air|*planks|air
-  flags:
-    recipe: *planks_5|iron_ingot_1
-
-New_Tripwire_Hook:
-    type: item
-    material: tripwire_hook
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot
-    #    - stick
-    #    - *_planks
-    #    output_quantity: 2
-    #no_id: true
-    flags:
-      recipe: iron_ingot_1|stick_1|*planks_1
-
-New_Smithing_Table:
-    type: item
-    material: smithing_table
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|Iron_Ingot
-    #    - *_planks|*_planks
-    #    - *_planks|*_planks
-    #no_id: true
-    flags:
-      recipe: iron_ingot_2|*planks_4
-
-New_Minecart:
-    type: item
-    material: minecart
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|air|Iron_Ingot
-    #    - Iron_Ingot|Iron_Ingot|Iron_Ingot
-    #no_id: true
-    flags:
-      recipe: iron_ingot_5
-
-New_Iron_Trapdoor:
-    type: item
-    material: iron_trapdoor
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|Iron_Ingot
-    #    - Iron_Ingot|Iron_Ingot
-    #    output_quantity: 2
-    #no_id: true
-    flags:
-      recipe: iron_ingot_4
-
-
-New_Iron_Door:
+Stonecut_Iron_Door:
     type: item
     material: iron_door
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|Iron_Ingot
-    #    - Iron_Ingot|Iron_Ingot
-    #    - Iron_Ingot|Iron_Ingot
-    #    output_quantity: 3
-    #no_id: true
-    flags:
-      recipe: iron_ingot_6
+    recipes:
+      1:
+        type: stonecutting
+        input: iron_block
+        output_quantity: 2
+    no_id: true
 
-New_Iron_Bars:
+Stonecut_Iron_Bars:
     type: item
     material: iron_bars
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|Iron_Ingot|Iron_Ingot
-    #    - Iron_Ingot|Iron_Ingot|Iron_Ingot
-    #    output_quantity: 16
-    #no_id: true
-    flags:
-      recipe: iron_ingot_6
+    recipes:
+      1:
+        type: stonecutting
+        input: iron_ingot
+        output_quantity: 4
+    no_id: true
 
 New_Heavy_Weighted_Pressure_Plate:
     type: item
     material: heavy_weighted_pressure_plate
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|Iron_Ingot
-    #    output_quantity: 2
-    #no_id: true
-    flags:
-      recipe: iron_ingot_2
+    recipes:
+      1:
+        type: stonecutting
+        input: iron_ingot
+        output_quantity: 1
 
-New_Stonecutter:
-    type: item
-    material: stonecutter
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - air|Iron_Ingot|air
-    #    - smooth_stone/stone/deepslate/sandstone|smooth_stone/stone/deepslate/sandstone|smooth_stone/stone/deepslate/sandstone
-    #no_id: true
-    flags:
-      recipe: iron_ingot_1|stone_3
-
-New_Rail:
+Stonecut_Rail:
     type: item
     material: rail
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Nugget|stick|Iron_Nugget
-    #    - Iron_Nugget|stick|Iron_Nugget
-    #    - Iron_Nugget|stick|Iron_Nugget
-    #    output_quantity: 6
-    #no_id: true
-    flags:
-      recipe: iron_nugget_6|stick_3
-
-New_Piston:
-    type: item
-    material: piston
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - *_planks|*_planks|*_planks
-    #    - cobblestone/cobbled_deepslate|Iron_Ingot|cobblestone/cobbled_deepslate
-    #    - cobblestone/cobbled_deepslate|redstone|cobblestone/cobbled_deepslate
-    #    output_quantity: 2
-    #no_id: true
-    flags:
-      recipe: *planks_3|cobblestone_4|iron_ingot_1|redstone_1
-
-New_Detector_Rail:
-    type: item
-    material: Detector_Rail
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Nugget|stick|Iron_Nugget
-    #    - Iron_Nugget|*pressure_plate|Iron_Nugget
-    #    - Iron_Nugget|redstone|Iron_Nugget
-    #    output_quantity: 3
-    #no_id: true
-    flags:
-      recipe: iron_nugget_6|stick_1|stone_pressure_plate_1|redstone_1
-
-New_Compass:
-    type: item
-    material: Compass
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - air|Iron_Ingot|air
-    #    - Iron_Ingot|redstone|Iron_Ingot
-    #    - air|Iron_Ingot|air
-    #no_id: true
-    flags:
-      recipe: iron_ingot_4|redstone_1
-
-New_Cauldron:
-    type: item
-    material: cauldron
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Nugget|air|Iron_Nugget
-    #    - Iron_Ingot|air|Iron_Ingot
-    #    - Iron_Ingot|Iron_Ingot|Iron_Ingot
-    #no_id: true
-    flags:
-      recipe: iron_ingot_5|iron_nugget_2
-
-New_Activator_Rail:
-    type: item
-    material: Activator_Rail
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Nugget|stick|Iron_Nugget
-    #    - Iron_Nugget|redstone_torch|Iron_Nugget
-    #    - Iron_Nugget|stick|Iron_Nugget
-    #    output_quantity: 3
-    #no_id: true
-    flags:
-      recipe: iron_nugget_6|stick_2|redstone_torch_1
-
-#New_Furnace:
-#    type: item
-#    material: Furnace
-#    recipes:
-#      1:
-#        type: shaped
-#        input:
-#        - Iron_Ingot|Iron_Ingot|Iron_Ingot
-#        - Iron_Ingot|furnace|Iron_Ingot
-#        - smooth_stone/stone/deepslate/sandstone|smooth_stone/stone/deepslate/sandstone|smooth_stone/stone/deepslate/sandstone
-#    no_id: true
-
-New_Hopper:
-    type: item
-    material: hopper
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Iron_Ingot|air|Iron_Ingot
-    #    - Iron_Ingot|chest|Iron_Ingot
-    #    - air|Iron_Ingot|air
-    #no_id: true
-    flags:
-      recipe: iron_ingot_5|chest_1
-
-New_Flint_And_Steel:
-    type: item
-    material: flint_and_steel
-    #recipes:
-    #  1:
-    #    type: shapeless
-    #    input: Steel_Ingot|flint
-    #no_id: true
-    flags:
-      recipe: steel_ingot|flint
-
-New_Copper_Block:
-    type: item
-    material: copper_block
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Copper_Ingot|Copper_Ingot|Copper_Ingot
-    #    - Copper_Ingot|Copper_Ingot|Copper_Ingot
-    #    - Copper_Ingot|Copper_Ingot|Copper_Ingot
-    #no_id: true
-    flags:
-      recipe: copper_ingot_4
-
-New_Spyglass:
-    type: item
-    material: spyglass
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - amethyst_shard
-    #    - Copper_Ingot
-    #    - Copper_Ingot
-    #no_id: true
-    flags:
-      recipe: copper_ingot_2|amethyst_shard_1
-
-New_Lightning_Rod:
-    type: item
-    material: lightning_rod
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Copper_Ingot
-    #    - Copper_Ingot
-    #    - Copper_Ingot
-    #no_id: true
-    flags:
-      recipe: copper_ingot_3
-
-New_Brush:
-    type: item
-    material: brush
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - feather
-    #    - Copper_Ingot
-    #    - stick
-    #no_id: true
-    flags:
-      recipe: copper_ingot_1|stick_1|feather_1
-
-New_Grindstone:
-    type: item
-    material: grindstone
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - stick|stone_slab/smooth_stone_slab/polished_deepslate_slab|stick
-    #    - *planks|air|*planks
-    #no_id: true
-    flags:
-      recipe: stick_2|stone_slab_1|*planks_2
-
-New_Soul_Lantern:
-    type: item
-    material: soul_lantern
-    #recipes:
-    #  1:
-    #    type: shaped
-    #    input:
-    #    - Copper_Nugget|Copper_Nugget|Copper_Nugget
-    #    - Copper_Nugget|soul_torch|Copper_Nugget
-    #    - Copper_Nugget|Copper_Nugget|Copper_Nugget
-    #    output_quantity: 3
-    #no_id: true
-    flags:
-      recipe: copper_nugget_8|soul_torch_1
+    recipes:
+      1:
+        type: stonecutting
+        input: iron_ingot
+        output_quantity: 4
+    no_id: true
 
 Grass_String:
   type: item
