@@ -290,7 +290,7 @@ NPC_Shop_PriceDisplay_Proc:
     - define sell_text  <n><red>Sell<&sp>Price<&co><&sp><item[currency<[price].after[$]>].display.before[<item[currency<[price].after[$]>].display.strip_color>]><[sell_price]><&sp><item[currency<[price].after[$]>].display.strip_color>
 
 
-  - define buttons <white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>purchase<&sp><gold>1<n><[sell_check]><white><&lt><light_purple>Middle<&sp>Click<white><&gt><&sp><white>to<&sp>toggle<&sp><white><&lb><green>Description<white><&rb>
+  - define buttons <white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>purchase<&sp><gold>1<n><[sell_check].if_null[]><white><&lt><light_purple>Middle<&sp>Click<white><&gt><&sp><white>to<&sp>toggle<&sp><white><&lb><green>Description<white><&rb>
   - define break <n><&sp.repeat[40].strikethrough>
 
 
