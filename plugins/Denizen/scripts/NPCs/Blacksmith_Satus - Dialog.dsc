@@ -112,3 +112,13 @@ NPC_DialogTree_Blacksmith_Satus:
           target: player
           flag: quest.tutorial_beginnings.stage
           value: 9
+
+NPC_ShopData_Blacksmith_Satus:
+  type: data
+  shop:
+    ## Item Script Name
+    enchant_unbreak3:
+      ## Buying Price
+      # Coin amount $ Coin Type
+      value: 2$2
+      quantity: 1
