@@ -7,6 +7,7 @@ Remove_Vanilla_Recipes:
     data:
       recipes:
           - minecraft:iron_block
+          - minecraft:iron_trapdoor
           - minecraft:anvil
           - minecraft:hopper
           - minecraft:copper_block
@@ -50,6 +51,17 @@ Vanilla_Anvil:
         - iron_block|Iron_Ingot|iron_block
         - air|Iron_Ingot|air
         - Iron_Ingot|Iron_Ingot|Iron_Ingot
+    no_id: true
+
+Vanilla_Iron_Trapdoor:
+    type: item
+    material: iron_trapdoor
+    recipes:
+      1:
+        type: shaped
+        input:
+        - Iron_Ingot|Iron_Ingot|Iron_Ingot
+        output_quantity: 2
     no_id: true
 
 Vanilla_Iron_Block:
