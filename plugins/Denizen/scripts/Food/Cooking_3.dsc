@@ -637,9 +637,6 @@ Cooking_Vanilla_Interact:
       on large_fern drops wheat_seeds from breaking:
       - determine passively cancelled
       - drop seeds_wheat <context.location>
-      on kelp drops kelp from breaking:
-      - determine passively cancelled
-      - drop new_kelp <context.location>
 
 Cooking_Milking:
     type: world
