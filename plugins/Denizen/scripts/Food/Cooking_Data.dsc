@@ -674,8 +674,7 @@ Cooking_Master_Data:
 Cooking_Vanilla_Ingredients:
   type: data
   debug: false
-  data:
-    ingredients:
+  ingredients:
     - snowball
     - egg
     - sugar_cane
