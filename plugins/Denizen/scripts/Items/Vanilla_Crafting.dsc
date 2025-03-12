@@ -2209,6 +2209,33 @@ Stonecut_Bamboo_Slab:
         input: Bamboo_planks
         output_quantity: 2
 
+Stonecut_Bamboo_Mosaic:
+    type: item
+    material: bamboo_mosaic
+    no_id: true
+    recipes:
+      1:
+        type: stonecutting
+        input: Bamboo_Block/Stripped_Bamboo_Block
+        output_quantity: 4
+      2:
+        type: stonecutting
+        input: Bamboo_planks
+
+Stonecut_Bamboo_Mosaic_Slab:
+    type: item
+    material: Bamboo_Mosaic_Slab
+    no_id: true
+    recipes:
+      1:
+        type: stonecutting
+        input: Bamboo_Block/Stripped_Bamboo_Block
+        output_quantity: 8
+      2:
+        type: stonecutting
+        input: Bamboo_planks
+        output_quantity: 2
+
 Stonecut_Bamboo_Stairs:
     type: item
     material: Bamboo_stairs
