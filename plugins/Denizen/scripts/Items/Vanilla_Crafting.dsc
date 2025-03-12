@@ -36,6 +36,9 @@ Remove_Vanilla_Recipes:
           - minecraft:bow
           - minecraft:bundle
           - minecraft:sugar
+          - minecraft:dried_kelp
+          - minecraft:dried_kelp_from_smelting
+          - minecraft:dried_kelp_from_smoking
     script:
     #- define list <list[minecraft:iron_block|minecraft:anvil|minecraft:hopper|minecraft:copper_block|minecraft:copper_ingot|minecraft:copper_ingot_from_waxed_copper_block|minecraft:iron_ingot_from_iron_block|minecraft:lantern|minecraft:soul_lantern|minecraft:chain|minecraft:bucket|minecraft:shears|minecraft:leather_helmet|minecraft:leather_chestplate|minecraft:leather_leggings|minecraft:leather_boots|minecraft:diamond_helmet|minecraft:diamond_chestplate|minecraft:diamond_leggings|minecraft:diamond_boots|minecraft:diamond_sword|minecraft:diamond_pickaxe|minecraft:diamond_axe|minecraft:diamond_shovel|minecraft:diamond_hoe|minecraft:paper|minecraft:bow]>
     - adjust server remove_recipes:<script.data_key[data.recipes]>

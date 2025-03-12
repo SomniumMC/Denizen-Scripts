@@ -2664,6 +2664,10 @@ New_Dried_Kelp:
         type: furnace
         input: Kelp
         cook_time: 2s
+      2:
+        type: smoker
+        input: Kelp
+        cook_time: 2s
 
 # Sugars
 New_Sugar:
