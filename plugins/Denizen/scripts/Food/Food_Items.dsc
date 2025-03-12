@@ -625,7 +625,8 @@ New_BREAD:
         type: ingredient
     material: TROPICAL_FISH
     mechanisms:
-      custom_model_data: 406
+      components_patch:
+        item_model: string:minecraft:bread
     display name: <white>Bread
     flags:
       food: 3
