@@ -38,8 +38,8 @@ Furniture_Interaction:
   debug: false
   entity_type: interaction
   mechanisms:
-    height: 1.05
-    width: 0.95
+    height: 1
+    width: 1.05
 
 Furniture_Kit_1x1_Table:
     type: item
