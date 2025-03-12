@@ -428,110 +428,110 @@ Assemble_Display_Stand:
 
 
 
-Furniture_Interaction:
-  type: entity
-  debug: false
-  entity_type: interaction
-  mechanisms:
-    height: 1
-    width: 1
-
-
-
-Furniture_Crude_Chair:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>Crude Chair
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:crude_chair
-    flags:
-      assembles: crude_chair
-
-Furniture_Crude_Table:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>Crude Table
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:crude_table
-    flags:
-      assembles: crude_table
-
-
-Furniture_1x2_Crude_Table:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>1x2 Crude Table
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:1x2_crude_table
-    flags:
-      assembles: 1x2_crude_table
-
-Furniture_1x3_Crude_Table:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>1x3 Crude Table
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:1x3_crude_table
-    flags:
-      assembles: 1x3_crude_table
-
-Furniture_2x2_Crude_Table:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>2x2 Crude Table
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:2x2_crude_table
-    flags:
-      assembles: 2x2_crude_table
-
-Furniture_Runestone_Inscriber:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>Runestone Inscriber
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:runestone_inscriber
-    flags:
-      assembles: Runestone_Inscriber
-
-Furniture_Display_Stand:
-    type: item
-    debug: false
-    material: string
-    display name: <yellow>Assembly Kit<&co> <blue>Display Stand
-    mechanisms:
-      components_patch:
-        item_model: string:furniture:display_stand
-    flags:
-      assembles: Display_Stand
-
-
-
-Display_Stand:
-    type: item
-    debug: false
-    material: string
-    display name: <red>Display Stand
-    mechanisms:
-      custom_model_data: 1
-    lore:
-      - <gold>Use this to assemble a display stand to show off your fancy items.
-
-invis_frame:
-    type: item
-    debug: false
-    material: item_frame
-    display name: <gold>Invisible Item Frame
-    data:
-      visible: false
+#Furniture_Interaction:
+#  type: entity
+#  debug: false
+#  entity_type: interaction
+#  mechanisms:
+#    height: 1
+#    width: 1
+#
+#
+#
+#Furniture_Crude_Chair:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>Crude Chair
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:crude_chair
+#    flags:
+#      assembles: crude_chair
+#
+#Furniture_Crude_Table:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>Crude Table
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:crude_table
+#    flags:
+#      assembles: crude_table
+#
+#
+#Furniture_1x2_Crude_Table:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>1x2 Crude Table
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:1x2_crude_table
+#    flags:
+#      assembles: 1x2_crude_table
+#
+#Furniture_1x3_Crude_Table:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>1x3 Crude Table
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:1x3_crude_table
+#    flags:
+#      assembles: 1x3_crude_table
+#
+#Furniture_2x2_Crude_Table:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>2x2 Crude Table
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:2x2_crude_table
+#    flags:
+#      assembles: 2x2_crude_table
+#
+#Furniture_Runestone_Inscriber:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>Runestone Inscriber
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:runestone_inscriber
+#    flags:
+#      assembles: Runestone_Inscriber
+#
+#Furniture_Display_Stand:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <yellow>Assembly Kit<&co> <blue>Display Stand
+#    mechanisms:
+#      components_patch:
+#        item_model: string:furniture:display_stand
+#    flags:
+#      assembles: Display_Stand
+#
+#
+#
+#Display_Stand:
+#    type: item
+#    debug: false
+#    material: string
+#    display name: <red>Display Stand
+#    mechanisms:
+#      custom_model_data: 1
+#    lore:
+#      - <gold>Use this to assemble a display stand to show off your fancy items.
+#
+#invis_frame:
+#    type: item
+#    debug: false
+#    material: item_frame
+#    display name: <gold>Invisible Item Frame
+#    data:
+#      visible: false
