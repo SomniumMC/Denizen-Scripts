@@ -12,14 +12,37 @@ Furniture_Main_Event:
         - define location <context.location>
         - define item <context.item_in_hand>
         - run Assemble_1x1_Table def.location:<[location]> def.item:<[item]>
+        on player places Furniture_Kit_1x1_Chair:
+        - ratelimit <player> 5t
+        - define location <context.location>
+        - define item <context.item_in_hand>
+        - run Assemble_1x1_Chair def.location:<[location]> def.item:<[item]>
+        on player places Furniture_Kit_1x2_Table:
+        - ratelimit <player> 5t
+        - define location <context.location>
+        - define item <context.item_in_hand>
+        - run Assemble_1x2_Table def.location:<[location]> def.item:<[item]>
+        on player places Furniture_Kit_1x3_Table:
+        - ratelimit <player> 5t
+        - define location <context.location>
+        - define item <context.item_in_hand>
+        - run Assemble_1x3_Table def.location:<[location]> def.item:<[item]>
+        on player places Furniture_Kit_2x2_Table:
+        - ratelimit <player> 5t
+        - define location <context.location>
+        - define item <context.item_in_hand>
+        - run Assemble_2x2_Table def.location:<[location]> def.item:<[item]>
+        on player breaks block location_flagged:furniture_interaction:
+        - define interaction <context.location.flag[furniture_interaction]>
+        - run Furniture_Cleanup def:<[interaction]>
 
 Assemble_1x1_Table:
     type: task
-    debug: true
-    definitions: location|item
+    debug: false
+    definitions: location|item|yaw
     script:
     - adjust def:item quantity:1
-    - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_table]>] <[location].center> save:furniture_entity
+    - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_table]>] <[location].center.with_yaw[<[yaw].if_null[<player.location.yaw.round_to_precision[90]>]>]> save:furniture_entity
     - modifyblock <[location]> cyan_stained_glass
     - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
     - define interaction <entry[interaction_entity].spawned_entity>
@@ -31,12 +54,132 @@ Assemble_1x1_Table:
 
     - take item:<[item]> quantity:1
 
+Assemble_1x1_Chair:
+    type: task
+    debug: false
+    definitions: location|item|yaw
+    script:
+    - adjust def:item quantity:1
+    - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_chair]>] <[location].center.with_yaw[<[yaw].if_null[<player.location.yaw.round_to_precision[90]>]>]> save:furniture_entity
+    - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
+    - define interaction <entry[interaction_entity].spawned_entity>
+    - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
+    - flag <[interaction]> furniture.item:<[item]>
+    #- flag <[interaction]> furniture.blocks:->:<[location]>
+    - flag <[interaction]> furniture.type:1x1_Chair
+    #- flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
 
+    - take item:<[item]> quantity:1
+
+Assemble_1x2_Table:
+    type: task
+    debug: false
+    definitions: location|item|yaw
+    script:
+    - adjust def:item quantity:1
+    - define right_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].forward_flat[1].with_yaw[!]>
+    - define block_list <list[<[location]>|<[right_block]>]>
+
+    - foreach <[block_list]> as:block:
+      - if <[block].material.name> != air:
+        - narrate "<red>Area blocked!"
+        - stop
+
+    - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_table]>] <[location].center.with_yaw[<[yaw].if_null[<player.location.yaw.round_to_precision[90]>]>]> save:furniture_entity
+    - modifyblock <[location]> cyan_stained_glass
+    - modifyblock <[right_block]> cyan_stained_glass
+    - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
+    - define interaction <entry[interaction_entity].spawned_entity>
+    - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
+    - flag <[interaction]> furniture.item:<[item]>
+    - flag <[interaction]> furniture.blocks:->:<[block_list]>
+    - flag <[interaction]> furniture.type:1x2_Table
+    - flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+    - flag <[right_block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+
+    - take item:<[item]> quantity:1
+
+Assemble_1x3_Table:
+    type: task
+    debug: false
+    definitions: location|item|yaw
+    script:
+    - adjust def:item quantity:1
+    - define right_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].forward_flat[1].with_yaw[!]>
+    - define left_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].backward_flat[1].with_yaw[!]>
+    - define block_list <list[<[location]>|<[right_block]>|<[left_block]>]>
+
+    - foreach <[block_list]> as:block:
+      - if <[block].material.name> != air:
+        - narrate "<red>Area blocked!"
+        - stop
+
+    - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_table]>] <[location].center.with_yaw[<[yaw].if_null[<player.location.yaw.round_to_precision[90]>]>]> save:furniture_entity
+    - modifyblock <[location]> cyan_stained_glass
+    - modifyblock <[right_block]> cyan_stained_glass
+    - modifyblock <[left_block]> cyan_stained_glass
+    - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
+    - define interaction <entry[interaction_entity].spawned_entity>
+    - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
+    - flag <[interaction]> furniture.item:<[item]>
+    - flag <[interaction]> furniture.blocks:->:<[block_list]>
+    - flag <[interaction]> furniture.type:1x3_Table
+    - flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+    - flag <[right_block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+    - flag <[left_block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+
+    - take item:<[item]> quantity:1
+
+Assemble_2x2_Table:
+    type: task
+    debug: false
+    definitions: location|item|yaw
+    script:
+    - adjust def:item quantity:1
+    - define right_block <[location].with_yaw[<[yaw].round_to_precision[90].add[90].if_null[<player.location.yaw.round_to_precision[90].add[90]>]>].forward_flat[1].with_yaw[!]>
+    - define backward_block <[location].with_yaw[<[yaw].round_to_precision[90].if_null[<player.location.yaw.round_to_precision[90]>]>].backward_flat[1].with_yaw[!]>
+    - define backward_right_block <[location].with_yaw[<[yaw].round_to_precision[90].if_null[<player.location.yaw.round_to_precision[90]>]>].backward_flat[1].right[1].with_yaw[!]>
+    - define block_list <list[<[location]>|<[right_block]>|<[backward_block]>|<[backward_right_block]>]>
+
+    - foreach <[block_list]> as:block:
+      - if <[block].material.name> != air:
+        - narrate "<red>Area blocked!"
+        - stop
+
+    - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_table]>] <[location].center.with_yaw[<[yaw].if_null[<player.location.yaw.round_to_precision[90]>]>]> save:furniture_entity
+    - modifyblock <[location]> cyan_stained_glass
+    - modifyblock <[right_block]> cyan_stained_glass
+    - modifyblock <[backward_block]> cyan_stained_glass
+    - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
+    - define interaction <entry[interaction_entity].spawned_entity>
+    - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
+    - flag <[interaction]> furniture.item:<[item]>
+    - flag <[interaction]> furniture.blocks:->:<[block_list]>
+    - flag <[interaction]> furniture.type:2x2_Table
+    - flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+    - flag <[right_block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+    - flag <[backward_block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+    - flag <[backward_right_block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+
+    - take item:<[item]> quantity:1
+
+Furniture_Cleanup:
+    type: task
+    debug: false
+    definitions: interaction
+    script:
+    - define block_list <[interaction].flag[blocks]>
+    - foreach <[block_list]> as:block:
+      - modifyblock <[block]> air
+      - flag <[block]> furniture_interaction:!
+    - remove <[interaction]>
 
 Furniture_Interaction:
   type: entity
   debug: false
   entity_type: interaction
+  flags:
+    health: 5
   mechanisms:
     height: 1
     width: 1.05
