@@ -3,7 +3,7 @@
 Mining_Main_Event:
     type: world
     events:
-        on player breaks *_ore:
+        on player breaks *_ore bukkit_priority:HIGHEST:
         - if <player.item_in_hand.enchantment_map.get[silk_touch]||null> != null:
           - stop
         - define ore <context.location.material.name>
