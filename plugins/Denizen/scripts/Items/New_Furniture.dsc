@@ -21,7 +21,7 @@ Furniture_Main_Event:
         - ratelimit <player> 5t
         - define location <context.location>
         - define item <context.item_in_hand>
-        - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1].with_yaw[!]>
+        - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1]>
         - define block_list <list[<[location]>|<[right_block]>]>
         - foreach <[block_list]> as:block:
           - if <[block].material.name> != air || <[block].material.name> != string:
@@ -32,8 +32,8 @@ Furniture_Main_Event:
         - ratelimit <player> 5t
         - define location <context.location>
         - define item <context.item_in_hand>
-        - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1].with_yaw[!]>
-        - define left_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].backward_flat[1].with_yaw[!]>
+        - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1]>
+        - define left_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].backward_flat[1]>
         - define block_list <list[<[location]>|<[right_block]>]>
         - foreach <[block_list]> as:block:
           - if <[block].material.name> != air || <[block].material.name> != string:
@@ -44,9 +44,9 @@ Furniture_Main_Event:
         - ratelimit <player> 5t
         - define location <context.location>
         - define item <context.item_in_hand>
-        - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1].with_yaw[!]>
-        - define backward_block <[location].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat[1].with_yaw[!]>
-        - define backward_right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat[1].right[1].with_yaw[!]>
+        - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1]>
+        - define backward_block <[location].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat[1]>
+        - define backward_right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat[1].right[1]>
         - define block_list <list[<[location]>|<[right_block]>|<[backward_block]>|<[backward_right_block]>]>
         - foreach <[block_list]> as:block:
           - if <[block].material.name> != air || <[block].material.name> != string:
