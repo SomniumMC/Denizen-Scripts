@@ -39,7 +39,7 @@ Furniture_Main_Event:
           - if <[block].material.name> !in <list[air|tripwire]>:
             - narrate "<red>Area blocked!"
             - determine cancelled
-        - run Assemble_1x3_Table def.block_list:<[block_list]> def.item:<[item]>
+        - run Assemble_1x3_Table def.location:<[location]> def.block_list:<[block_list]> def.item:<[item]>
         on player places Furniture_Kit_2x2_Table:
         - ratelimit <player> 5t
         - define location <context.location>
@@ -52,7 +52,7 @@ Furniture_Main_Event:
           - if <[block].material.name> !in <list[air|tripwire]>:
             - narrate "<red>Area blocked!"
             - determine cancelled
-        - run Assemble_2x2_Table def.block_list:<[block_list]> def.item:<[item]>
+        - run Assemble_2x2_Table def.location:<[location]> def.block_list:<[block_list]> def.item:<[item]>
         on player breaks block location_flagged:furniture_interaction:
         - define interaction <context.location.flag[furniture_interaction]>
         - run Furniture_Cleanup def:<[interaction]>
@@ -138,7 +138,7 @@ Assemble_2x2_Table:
     definitions: location|item|block_list
     script:
     - adjust def:item quantity:1
-    - spawn item_display[item=<[item].flag[skin].if_null[furniture_2x2_crude_table]>] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:furniture_entity
+    - spawn item_display[item=<[item].flag[skin].if_null[Furniture_2x2_Crude_Table]>] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:furniture_entity
     - modifyblock <[block_list]> cyan_stained_glass
     - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
     - define interaction <entry[interaction_entity].spawned_entity>
