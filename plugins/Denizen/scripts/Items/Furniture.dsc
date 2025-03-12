@@ -60,9 +60,9 @@ Furniture_Events:
           - define newhealth <[health].sub[1]>
           - flag <[interaction]> health:<[newhealth]>
           - playsound sound:block.wood.hit sound_category:blocks <[interaction].location>
-        on player breaks item_frame location_flagged:invincible_frame:
+        on player breaks item_frame location_flagged:invincible_frame bukkit_priority:HIGHEST:
         - determine cancelled
-        on player breaks item_frame flagged:invincible_frame:
+        on player breaks item_frame flagged:invincible_frame bukkit_priority:HIGHEST:
         - determine cancelled
 
 Staff_Place:

@@ -101,7 +101,7 @@ Farming_Main_Event:
           - flag <[crop_location]> player_position:<player.location>
           - flag <[crop_location]> crop_entity:<entry[crop_entity].spawned_entity>
           - take slot:<context.hand> quantity:1
-        on player breaks beetroots location_flagged:crop:
+        on player breaks beetroots location_flagged:crop bukkit_priority:HIGHEST:
         - define location <context.location>
         - define crop <[location].flag[crop]>
         - define output <script[Farming_Outputs].data_key[<[crop]>]>
