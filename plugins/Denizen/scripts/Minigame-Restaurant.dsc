@@ -761,7 +761,7 @@ Cooking_Main_Event:
 
     - if <[item].material.name> != air:
       - if <[ingredient_map].get[slot6]> != <empty>:
-        - if <script[<[item]>].data_key[cooking_tag].get[type]> == ingredient || <[item].material.name> in <script[cooking_vanilla_ingredients].data_key[ingredients]>:
+        - if <script[<[item].script.name>].data_key[cooking_tag].get[type]> == ingredient || <[item].material.name> in <script[cooking_vanilla_ingredients].data_key[ingredients]>:
           - foreach <[ingredient_map]> as:data key:slot:
             - define item_name <[item].script.name.if_null[<[item].material.name>]>
             - define ingredient_list:->:<[data].get[ingredient]||null>
@@ -784,7 +784,7 @@ Cooking_Main_Event:
             - flag <[interaction]> selected_slot:<[slot]>
 
             - define loc_mod <[location_mods].get[<[slot]>].parsed>
-            - if <script[<[item]>].data_key[cooking_tag].get[type]> == ingredient || <[item].material.name> in <script[cooking_vanilla_ingredients].data_key[ingredients]>:
+            - if <script[<[item].script.name>].data_key[cooking_tag].get[type]> == ingredient || <[item].material.name> in <script[cooking_vanilla_ingredients].data_key[ingredients]>:
               - define item_name <[item].script.name.if_null[<[item].material.name>]>
               - if <[ingredient_map].get[slot1]> != <empty>:
                 - foreach <[ingredient_map]> as:data key:slot:
