@@ -798,7 +798,7 @@ Cooking_Main_Event:
             - else:
               - stop
         - flag <[interaction]> status:in_use
-        - spawn item_display[item=<[interaction].flag[selected_ingredient]>;scale=0.25,0.25,0.25] <[loc_mod]> save:ingredient_display
+        - spawn item_display[item=<[interaction].flag[selected_ingredient]>;scale=0.25,0.25,0.25] <[loc_mod].above[0.2]> save:ingredient_display
         #- adjust <entry[ingredient_display].spawned_entity> left_rotation:<location[1,0,0].to_axis_angle_quaternion[<element[90].to_radians>]>
         - flag <[interaction]> ingredient_map.<[interaction].flag[selected_slot]>.ingredient_model:<entry[ingredient_display].spawned_entity>
         - flag <[interaction]> ingredient_map.<[interaction].flag[selected_slot]>.quantity:1
