@@ -197,6 +197,9 @@ Furniture_Kit_1x1_Chair:
       assembles: 1x1_Chair
     material: string
     display name: <white>1x1 Chair Kit
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:crude_chair
     lore:
     - <gray>Place this kit on the ground to assemble a 1x1 chair.
     - <gray>Take to a Assembly Station to give a skin.
@@ -211,6 +214,9 @@ Furniture_Kit_1x2_Table:
       assembles: 1x2_Table
     material: string
     display name: <white>1x2 Table Kit
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:1x2_crude_table
     lore:
     - <gray>Place this kit on the ground to assemble a 1x2 table.
     - <gray>Take to a Assembly Station to give a skin.
@@ -225,6 +231,9 @@ Furniture_Kit_1x3_Table:
       assembles: 1x3_Table
     material: string
     display name: <white>1x3 Table Kit
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:1x3_crude_table
     lore:
     - <gray>Place this kit on the ground to assemble a 1x3 table.
     - <gray>Take to a Assembly Station to give a skin.
@@ -239,6 +248,9 @@ Furniture_Kit_2x2_Table:
       assembles: 2x2_Table
     material: string
     display name: <white>2x2 Table Kit
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:2x2_crude_table
     lore:
     - <gray>Place this kit on the ground to assemble a 2x2 table.
     - <gray>Take to a Assembly Station to give a skin.
