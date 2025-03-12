@@ -33,6 +33,10 @@
 
 Strawberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5000
@@ -46,6 +50,10 @@ Strawberry:
   - <gold>A sweet red berry, it forms seeds on the outside.
 Blackberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5001
@@ -61,6 +69,10 @@ Blackberry:
 
 Cranberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5002
@@ -76,6 +88,10 @@ Cranberry:
 
 Blueberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5003
@@ -91,6 +107,10 @@ Blueberry:
 
 Gooseberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5004
@@ -106,6 +126,10 @@ Gooseberry:
 
 Mulberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5005
@@ -120,6 +144,10 @@ Mulberry:
 
 Raspberry:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: dried_kelp
   mechanisms:
     custom_model_data: 5006
@@ -134,6 +162,10 @@ Raspberry:
 
 Tomato:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5007
@@ -148,6 +180,10 @@ Tomato:
 
 Chili:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5008
@@ -162,6 +198,10 @@ Chili:
 
 Yeast:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: brick
   display name: <white>Yeast
   flags:
@@ -174,6 +214,10 @@ Yeast:
 
 Cinnamon:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5009
@@ -187,6 +231,10 @@ Cinnamon:
 
 Ground_Cinnamon:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: brick
   display name: <white>Ground Cinnamon
   flags:
@@ -199,6 +247,10 @@ Ground_Cinnamon:
 
 Vanilla_Bean:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5010
@@ -211,6 +263,10 @@ Vanilla_Bean:
   - <gold>A long bean often dried brown.
 Ground_Vanilla:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: brick
   display name: <white>Ground Vanilla
   flags:
@@ -223,6 +279,10 @@ Ground_Vanilla:
 
 Ginger:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5011
@@ -237,6 +297,10 @@ Ginger:
 
 Corn:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5012
@@ -252,6 +316,10 @@ Corn:
 
 Barley_Bundle:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: brick
   display name: <white>Barley Bundle
   flags:
@@ -264,6 +332,10 @@ Barley_Bundle:
 
 Rye_Bundle:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: brick
   display name: <white>Rye Bundle
   flags:
@@ -276,6 +348,10 @@ Rye_Bundle:
 
 Popcorn:
   type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
   material: tropical_fish
   mechanisms:
     custom_model_data: 5012
