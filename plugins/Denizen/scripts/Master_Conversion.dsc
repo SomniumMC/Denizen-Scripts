@@ -38,9 +38,9 @@ Master_Pickup_Data:
     red_mushroom: new_red_mushroom
     crimson_fungus: new_crimson_fungus
     warped_fungus: new_warped_fungus
-    sugar_cane: new_sugar_cane
+    #sugar_cane: new_sugar_cane
     cake: new_cake
-    kelp: new_kelp
+    #kelp: new_kelp
     cod: cooking_raw_fish
     salmon: cooking_raw_fish
     tropical_fish: cooking_raw_fish
@@ -59,7 +59,7 @@ Master_Pickup_Data:
     pumpkin: new_pumpkin
     melon: new_melon
 
-    egg: new_egg
+    #egg: new_egg
     sugar: new_sugar
 
     #iron_pickaxe: crafted_blast_iron_pickaxe

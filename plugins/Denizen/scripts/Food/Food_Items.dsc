@@ -5,8 +5,10 @@
 # Dairy
 Fresh_Milk:
     type: item
+    debug: false
     data:
-      cooking_tag: milk
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 201
@@ -24,6 +26,10 @@ Fresh_Milk:
         output_quantity: 4
 BUTTER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 202
@@ -35,6 +41,10 @@ BUTTER:
     - <gold>Milk churned into a wonderful ingredient often used in baking!
 CREAM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 203
@@ -46,6 +56,10 @@ CREAM:
     - <gold>A buttery product of milk, it gives <&dq>creamy<&dq> textures to food.
 CHEESE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 204
@@ -57,6 +71,10 @@ CHEESE:
     - <gold>A preserved form of milk, it is made by fermentation.
 YOGURT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 205
@@ -68,6 +86,10 @@ YOGURT:
     - <gold>Milk that has been fermented, it is slightly sour when unflavored.
 CHOCOLATE_YOGURT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 206
@@ -80,6 +102,10 @@ CHOCOLATE_YOGURT:
     - <gold>Yogurt flavored with chocolate, it  is richer in taste.
 APPLE_YOGURT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 207
@@ -92,6 +118,10 @@ APPLE_YOGURT:
     - <gold>Yogurt flavored with apple chunks, slightly sweeter.
 SWEET_BERRY_YOGURT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 208
@@ -104,6 +134,10 @@ SWEET_BERRY_YOGURT:
     - <gold>Yogurt flavored with sweet berries, it tastes sweet!
 PUMPKIN_YOGURT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 209
@@ -116,6 +150,10 @@ PUMPKIN_YOGURT:
     - <gold>Yogurt flavored with pumpkin, it tastes earthy with a hint of sweet.
 CARAMEL_YOGURT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 210
@@ -128,6 +166,10 @@ CARAMEL_YOGURT:
     - <gold>Yogurt flavored with caramel, it is sweet  and buttery.
 ICE_CREAM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 211
@@ -139,6 +181,10 @@ ICE_CREAM:
     - <gold>Milk that has been mixed with snow, it is cold.
 CHOCOLATE_ICE_CREAM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 212
@@ -151,6 +197,10 @@ CHOCOLATE_ICE_CREAM:
     - <gold>Ice Cream flavored with chocolate, it is rich in flavor.
 CARAMEL_ICE_CREAM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 213
@@ -163,6 +213,10 @@ CARAMEL_ICE_CREAM:
     - <gold>Ice Cream flavored with caramel. It is buttery and rich.
 COOKIES_AND_MILK:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 214
@@ -178,6 +232,10 @@ COOKIES_AND_MILK:
 # Fruit
 New_MELON_SLICE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 301
@@ -191,6 +249,10 @@ New_MELON_SLICE:
     - <gold>A slice of melon.
 New_GLOW_BERRY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 302
@@ -204,6 +266,10 @@ New_GLOW_BERRY:
     - <gold>Berries with an biofluorescence to them.
 New_APPLE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 303
@@ -217,6 +283,10 @@ New_APPLE:
     - <gold>A crisp sweet red apple.
 New_SWEET_BERRY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 304
@@ -230,6 +300,10 @@ New_SWEET_BERRY:
     - <gold>Sweet red berries pick from a bush.
 APPLE_JUICE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 305
@@ -242,6 +316,10 @@ APPLE_JUICE:
     - <gold>Juice from several apples, it is naturally sweet.
 APPLE_SMOOTHIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 306
@@ -254,6 +332,10 @@ APPLE_SMOOTHIE:
     - <gold>Apple juice mixed with snow. Refreshing!
 Apple_Jelly:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: tropical_fish
     display name: <white>Apple Jelly
     mechanisms:
@@ -267,6 +349,10 @@ Apple_Jelly:
     - <gold>Apple juice preserved with added ingedients.
 CARAMEL_APPLE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 308
@@ -279,6 +365,10 @@ CARAMEL_APPLE:
     - <gold>An apple covered in caramel.
 APPLE_SAUCE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 309
@@ -292,6 +382,10 @@ APPLE_SAUCE:
     - <gold>Crushed up apple paste, it has added sugar.
 MELON_JUICE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 310
@@ -304,6 +398,10 @@ MELON_JUICE:
     - <gold>Juice from multiple slices of melon.
 MELON_SMOOTHIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 311
@@ -316,6 +414,10 @@ MELON_SMOOTHIE:
     - <gold>Melon Juice mixed with snow. Refreshing!
 MELON_JELLY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 312
@@ -329,6 +431,10 @@ MELON_JELLY:
     - <gold>Melon Juice preserved with added ingredients.
 SWEET_BERRY_JUICE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 313
@@ -341,6 +447,10 @@ SWEET_BERRY_JUICE:
     - <gold>Juice made from sweet berries.
 SWEET_BERRY_SMOOTHIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 314
@@ -353,6 +463,10 @@ SWEET_BERRY_SMOOTHIE:
     - <gold>Sweet Berry Juice mixed with snow. Refreshing!
 SWEET_BERRY_JELLY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 315
@@ -366,6 +480,10 @@ SWEET_BERRY_JELLY:
     - <gold>Sweet Berry Juice preserved with added ingredients.
 GLOW_BERRY_JUICE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 316
@@ -378,6 +496,10 @@ GLOW_BERRY_JUICE:
     - <white>Makes one feel Grossly Incandescent.
 FRUIT_PUNCH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Fruit Punch
     mechanisms:
@@ -390,6 +512,10 @@ FRUIT_PUNCH:
     - <gold>A mixture of juice with added sugar.
 FRUIT_SALAD:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Fruit Salad
     mechanisms:
@@ -402,6 +528,10 @@ FRUIT_SALAD:
     - <gold>Cream and fruit mixed together.
 New_Golden_Apple:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <gold>Golden Apple
     mechanisms:
@@ -409,9 +539,14 @@ New_Golden_Apple:
     flags:
       food: 5
       fruit: true
+
 # Grain
 New_Wheat:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: brick
     mechanisms:
       custom_model_data: 401
@@ -425,6 +560,10 @@ New_Wheat:
     - <gold>Golden Wheat, often made into flour.
 FLOUR:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     display name: <white>Flour
     mechanisms:
@@ -435,6 +574,10 @@ FLOUR:
     - <gold>Ground wheat, a useful ingredient.
 DOUGH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 403
@@ -446,6 +589,10 @@ DOUGH:
     - <gold>A thick paste, made of flour.
 BATTER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 404
@@ -457,6 +604,10 @@ BATTER:
     - <gold>Thin mixture of dough often used in baking.
 PASTA:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 405
@@ -468,6 +619,10 @@ PASTA:
     - <gold>A form of dough often boiled or baked.
 New_BREAD:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 406
@@ -479,6 +634,10 @@ New_BREAD:
     - <gold>Staple food, it is seen as a necessity to live in some places.
 New_COOKIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 407
@@ -491,6 +650,10 @@ New_COOKIE:
     - <gold>sweet bread made with chocolate. It is baked.
 Buttered_TOAST:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 408
@@ -503,6 +666,10 @@ Buttered_TOAST:
     - <gold>Toasted bread with butter on top.
 GRILLED_CHEESE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 409
@@ -515,6 +682,10 @@ GRILLED_CHEESE:
     - <gold>two pieces of buttered toast with cheese melted between them.
 SWEET_BERRY_JELLY_TOAST:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 410
@@ -527,6 +698,10 @@ SWEET_BERRY_JELLY_TOAST:
     - <gold>Buttered toast with sweet berry jelly on top.
 MELON_JELLY_TOAST:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 411
@@ -539,6 +714,10 @@ MELON_JELLY_TOAST:
     - <gold>Buttered toast with melon jelly on top.
 APPLE_JELLY_TOAST:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 412
@@ -551,6 +730,10 @@ APPLE_JELLY_TOAST:
     - <gold>Buttered toast with apple jelly on top.
 CARROT_CAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 413
@@ -564,6 +747,10 @@ CARROT_CAKE:
     - <gold>Cake made with carrots.
 CARROT_BREAD:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 414
@@ -576,6 +763,10 @@ CARROT_BREAD:
     - <gold>Bread made with carrots.
 PUMPKIN_BREAD:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 415
@@ -588,6 +779,10 @@ PUMPKIN_BREAD:
     - <gold>Bread made with pumpkin.
 PUMPKIN_CUPCAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 416
@@ -600,6 +795,10 @@ PUMPKIN_CUPCAKE:
     - <gold>A small cake made with pumpkin.
 CARROT_CUPCAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 417
@@ -612,6 +811,10 @@ CARROT_CUPCAKE:
     - <gold>A small cake made with carrots.
 SQUID_INK_PASTA:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 418
@@ -623,6 +826,10 @@ SQUID_INK_PASTA:
     - <gold>Pasta with a strong fishy flavor, it is dyed black by squids ink.
 MAC_N_CHEESE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 419
@@ -636,6 +843,10 @@ MAC_N_CHEESE:
     - <gold>Pasta cooked with cheese.
 NOODLE_SOUP:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 420
@@ -648,6 +859,10 @@ NOODLE_SOUP:
     - <gold>Soup stock with bits of noodle cooked in.
 APPLE_PIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 421
@@ -661,6 +876,10 @@ APPLE_PIE:
     - <gold>A pie with apple baked in.
 SWEET_BERRY_PIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 422
@@ -674,6 +893,10 @@ SWEET_BERRY_PIE:
     - <gold>A pie with sweet berries baked in.
 GLOW_BERRY_PIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 423
@@ -687,6 +910,10 @@ GLOW_BERRY_PIE:
     - <gold>A pie that's filling glows beneath the crust.
 CHOCOLATE_CUPCAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 424
@@ -699,6 +926,10 @@ CHOCOLATE_CUPCAKE:
     - <gold>A small cake made with chocolate.
 CARAMEL_CUPCAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 425
@@ -711,6 +942,10 @@ CARAMEL_CUPCAKE:
     - <gold>A small cake made with caramel.
 CHOCOLATE_CAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 426
@@ -723,6 +958,10 @@ CHOCOLATE_CAKE:
     - <gold>A decent sized cake made with chocolate.
 CHEESE_CAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 427
@@ -736,6 +975,10 @@ CHEESE_CAKE:
     - <gold>A decently sized cake made with cheese mixed in.
 PUMPKIN_CHEESE_CAKE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 428
@@ -750,6 +993,10 @@ PUMPKIN_CHEESE_CAKE:
     - <gold>A cheese cake with pumpkin inside.
 CHOCOLATE_MUFFIN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 429
@@ -762,6 +1009,10 @@ CHOCOLATE_MUFFIN:
     - <gold>A small baked good with chocolate as an ingredient.
 CARROT_MUFFIN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 430
@@ -774,6 +1025,10 @@ CARROT_MUFFIN:
     - <gold>A small baked good with carrot inside.
 PUMPKIN_MUFFIN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 431
@@ -786,6 +1041,10 @@ PUMPKIN_MUFFIN:
     - <gold>a small baked good with pumpkin inside.
 CARAMEL_MUFFIN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 432
@@ -798,6 +1057,10 @@ CARAMEL_MUFFIN:
     - <gold>A small baked good with caramel as an ingredient.
 DONUT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 433
@@ -809,6 +1072,10 @@ DONUT:
     - <gold>Fluffy fried pastry.
 CHOCOLATE_DONUT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 434
@@ -821,6 +1088,10 @@ CHOCOLATE_DONUT:
     - <gold>A Donut covered in chocolate.
 JELLY_DONUT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 435
@@ -834,6 +1105,10 @@ JELLY_DONUT:
     - <gold>A donut filled with jelly.
 CRACKER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 436
@@ -845,6 +1120,10 @@ CRACKER:
     - <gold>A simple food good for travel rations.
 SOFT_PRETZEL:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 437
@@ -856,6 +1135,10 @@ SOFT_PRETZEL:
     - <gold>Baked food, often salted and dipped in things.
 TORTILLA:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 438
@@ -867,6 +1150,10 @@ TORTILLA:
     - <gold>A flat bread like disc.
 QUESADILLA:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 439
@@ -879,6 +1166,10 @@ QUESADILLA:
     - <gold>Two tortillas with cheese between them.
 BREAKFAST_BURRITO:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 440
@@ -892,6 +1183,10 @@ BREAKFAST_BURRITO:
     - <gold>A tortilla wrapped around a basic breakfast.
 SUGAR_COOKIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 441
@@ -905,6 +1200,10 @@ SUGAR_COOKIE:
     - <gold>Sugar baked good with no chocolate.
 SUNFLOWER_SEEDS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 442
@@ -917,6 +1216,10 @@ SUNFLOWER_SEEDS:
     - <gold>Seeds from the burger flower. Best roasted.
 ROASTED_SUNFLOWER_SEEDS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Roasted Burgerflower Seeds
     mechanisms:
@@ -928,6 +1231,10 @@ ROASTED_SUNFLOWER_SEEDS:
     - <gold>Roasted burgerflower seeds, they have a satisfying crunch.
 SEED_SOUP:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Seed Soup
     mechanisms:
@@ -940,6 +1247,10 @@ SEED_SOUP:
     - <gold>Steed Stoup
 Large_Cake:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: cake
     display name: <white>Large Cake
     mechanisms:
@@ -956,6 +1267,10 @@ Large_Cake:
 # Protein
 New_Egg:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: brick
     mechanisms:
       components_patch:
@@ -970,6 +1285,10 @@ New_Egg:
 
 COOKING_RAW_CHICKEN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 501
@@ -984,6 +1303,10 @@ COOKING_RAW_CHICKEN:
     - <gold>Raw chicken, dangerous when uncooked.
 COOKING_COOKED_CHICKEN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 502
@@ -996,6 +1319,10 @@ COOKING_COOKED_CHICKEN:
     - <gold>Cooked chicken, it is unseasoned but safe.
 GROUND_CHICKEN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 503
@@ -1008,6 +1335,10 @@ GROUND_CHICKEN:
     - <gold>Ground raw chicken, it is unsafe to eat raw.
 FRIED_CHICKEN:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 504
@@ -1020,6 +1351,10 @@ FRIED_CHICKEN:
     - <gold>Chicken fried in flour.
 CHICKEN_JERKY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 505
@@ -1031,6 +1366,10 @@ CHICKEN_JERKY:
     - <gold>Chicken cured with salt.
 CHICKEN_NUGGET:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 506
@@ -1043,6 +1382,10 @@ CHICKEN_NUGGET:
     - <gold>A fried nugget of chicken meat.
 CHICKEN_SANDWICH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 507
@@ -1055,6 +1398,10 @@ CHICKEN_SANDWICH:
     - <gold>A sandwich made with ground chicken.
 CHICKEN_POT_PIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 508
@@ -1068,6 +1415,10 @@ CHICKEN_POT_PIE:
     - <gold>A meat pie baked in a pan, made with Chicken.
 CHICKEN_DINNER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 509
@@ -1080,6 +1431,10 @@ CHICKEN_DINNER:
     - <gold>A full dinner made with chicken.
 COOKING_RAW_BEEF:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 510
@@ -1094,6 +1449,10 @@ COOKING_RAW_BEEF:
     - <gold>A cut of cow meat it is unsafe raw.
 COOKING_COOKED_BEEF:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 511
@@ -1106,6 +1465,10 @@ COOKING_COOKED_BEEF:
     - <gold>Cooked Beef, it is safe but bland.
 GROUND_BEEF:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 512
@@ -1118,6 +1481,10 @@ GROUND_BEEF:
     - <gold>Ground raw beef. It is unsafe to eat as is.
 HAMBURGER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 513
@@ -1130,6 +1497,10 @@ HAMBURGER:
     - <gold>A burger made of ground beef, between two pieces of bread.
 CHEESEBURGER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 514
@@ -1143,6 +1514,10 @@ CHEESEBURGER:
     - <gold>A hamburger with cheese.
 BACON_CHEESEBURGER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Bacon Cheeseburger
     mechanisms:
@@ -1156,6 +1531,10 @@ BACON_CHEESEBURGER:
     - <gold>A cheeseburger with bacon.
 BEEF_JERKY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 516
@@ -1167,6 +1546,10 @@ BEEF_JERKY:
     - <gold>Beef cured with salt.
 COOKING_RAW_PORK:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 517
@@ -1181,6 +1564,10 @@ COOKING_RAW_PORK:
     - <gold>Raw meat from a pig. Unsafe to eat raw.
 COOKING_COOKED_PORK:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 518
@@ -1193,6 +1580,10 @@ COOKING_COOKED_PORK:
     - <gold>Cooked meat from a pig. It is bland.
 GROUND_PORK:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 519
@@ -1205,6 +1596,10 @@ GROUND_PORK:
     - <gold>raw ground pork. It is unsafe to eat.
 PORK_JERKY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 520
@@ -1216,6 +1611,10 @@ PORK_JERKY:
     - <gold>Pork cured with salt.
 BAKED_HAM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 521
@@ -1229,6 +1628,10 @@ BAKED_HAM:
     - <gold>Ham baked with sugar, and an apple.
 HOT_DOG:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 522
@@ -1241,6 +1644,10 @@ HOT_DOG:
     - <gold>Cooked ground pork in a casing, with a bun made of bread.
 BACON_AND_EGGS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 523
@@ -1252,6 +1659,10 @@ BACON_AND_EGGS:
     - <gold>Bacon and eggs.... yes really.
 EPIC_BACON:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 524
@@ -1261,6 +1672,10 @@ EPIC_BACON:
       protein: true
 COOKING_RAW_FISH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 525
@@ -1276,6 +1691,10 @@ COOKING_RAW_FISH:
     - <gold>Raw fish, parts are unsafe to eat.
 COOKING_COOKED_FISH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 526
@@ -1288,6 +1707,10 @@ COOKING_COOKED_FISH:
     - <gold>Cooked fish, it's only flavoring is fish.
 GROUND_FISH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 527
@@ -1299,6 +1722,10 @@ GROUND_FISH:
     - <gold>Ground fish meat.
 FISH_STICKS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 528
@@ -1311,6 +1738,10 @@ FISH_STICKS:
     - <gold>A length of ground fish fried.
 FISH_SANDWICH:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 529
@@ -1323,6 +1754,10 @@ FISH_SANDWICH:
     - <gold>A sandwich made with ground fish.
 FISH_JERKY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 530
@@ -1334,6 +1769,10 @@ FISH_JERKY:
     - <gold>Fish cured in salt.
 FISH_AND_CHIPS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 531
@@ -1347,6 +1786,10 @@ FISH_AND_CHIPS:
     - <gold>Fish and potato, both cut and fried golden.
 COOKING_RAW_MUTTON:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 532
@@ -1361,6 +1804,10 @@ COOKING_RAW_MUTTON:
     - <gold>Raw sheep meat dangerous until cooked.
 COOKING_COOKED_MUTTON:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 533
@@ -1373,6 +1820,10 @@ COOKING_COOKED_MUTTON:
     - <gold>Cooked mutton with no seasoning.
 MUTTON_JERKY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 534
@@ -1384,6 +1835,10 @@ MUTTON_JERKY:
     - <gold>Mutton cured with salt.
 GROUND_MUTTON:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 535
@@ -1396,6 +1851,10 @@ GROUND_MUTTON:
     - <gold>Ground raw mutton. It is unsafe as is.
 COOKING_RAW_RABBIT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 536
@@ -1410,6 +1869,10 @@ COOKING_RAW_RABBIT:
     - <gold>Raw rabbit, it is unsafe until cooked.
 COOKING_COOKED_RABBIT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 537
@@ -1422,6 +1885,10 @@ COOKING_COOKED_RABBIT:
     - <gold>Cooked rabbit, safe but bland.
 GROUND_RABBIT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 538
@@ -1434,6 +1901,10 @@ GROUND_RABBIT:
     - <gold>Ground raw rabbit.
 New_RABBIT_STEW:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 539
@@ -1447,6 +1918,10 @@ New_RABBIT_STEW:
     - <gold>Stew made from rabbit and vegetables.
 RABBIT_JERKY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 540
@@ -1458,6 +1933,10 @@ RABBIT_JERKY:
     - <gold>Rabbit meat cured in salt.
 Cooking_Egg:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: egg
     mechanisms:
       custom_model_data: 541
@@ -1469,6 +1948,10 @@ Cooking_Egg:
     - <gold>A raw chicken egg.
 Mayonnaise:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 542
@@ -1480,6 +1963,10 @@ Mayonnaise:
     - <gold>Condiment made of egg.
 BOILED_EGG:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 543
@@ -1491,6 +1978,10 @@ BOILED_EGG:
     - <gold>Egg boiled in water.
 FRIED_EGG:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 544
@@ -1502,6 +1993,10 @@ FRIED_EGG:
     - <gold>Can you fry an egg ontop the tallest mountain?
 SCRAMBLED_EGG:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 545
@@ -1514,6 +2009,10 @@ SCRAMBLED_EGG:
     - <gold>An egg scrambled as it cooked in a pan.
 POT_ROAST:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 546
@@ -1527,6 +2026,10 @@ POT_ROAST:
     - <gold>A roast made with hearty beef, potatoes and carrots!
 COOKING_RAW_HORSE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 547
@@ -1541,6 +2044,10 @@ COOKING_RAW_HORSE:
     - <gold>A fallen steed, it is unethical and unsafe to eat. Raw anyways.
 COOKING_RAW_GOAT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 548
@@ -1555,6 +2062,10 @@ COOKING_RAW_GOAT:
     - <gold>Gamey meat from a goat. It is unsafe to eat raw.
 COOKING_COOKED_HORSE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 549
@@ -1566,6 +2077,10 @@ COOKING_COOKED_HORSE:
     - <gold>Cooked meat from a horse. Safe for your stomach at least..
 COOKING_COOKED_GOAT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 550
@@ -1577,6 +2092,10 @@ COOKING_COOKED_GOAT:
     - <gold>Cooked goat, it still has a musky taste.
 RAW_KEBAB:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 551
@@ -1592,6 +2111,10 @@ RAW_KEBAB:
     - <gold>A skewer with meat and vegetables on it. It is raw.
 Cooked_KEBAB:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 552
@@ -1608,6 +2131,10 @@ Cooked_KEBAB:
 # Vegetable
 New_POTATO:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 601
@@ -1621,6 +2148,10 @@ New_POTATO:
     - <gold>Starchy tuber grown in the ground.
 New_CARROT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 602
@@ -1634,6 +2165,10 @@ New_CARROT:
     - <gold>Root plant from the ground.
 New_Beetroot:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 603
@@ -1647,6 +2182,10 @@ New_Beetroot:
     - <gold>A sweet root plant from the ground.
 New_Pumpkin:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: Pumpkin
     display name: <white>Pumpkin
     mechanisms:
@@ -1659,6 +2198,10 @@ New_Pumpkin:
     - <gold>Round gourd, it is very fleshy. Sweet and earth even raw.
 New_Netherwart:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: nether_wart
     display name: <white>Redwart
     mechanisms:
@@ -1670,6 +2213,10 @@ New_Netherwart:
     - <gold>Strange fungus. It grows like polyps.
 New_Baked_Potato:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 606
@@ -1682,6 +2229,10 @@ New_Baked_Potato:
     - <gold>Potato baked thoroughly.
 BUTTERED_BAKED_POTATO:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 607
@@ -1694,6 +2245,10 @@ BUTTERED_BAKED_POTATO:
     - <gold>Baked potato with butter on or inside.
 MASHED_POTATO:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 608
@@ -1707,6 +2262,10 @@ MASHED_POTATO:
     - <gold>Potatoes mashed and typically given additional ingredients.
 POTATO_SALAD:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 609
@@ -1720,6 +2279,10 @@ POTATO_SALAD:
     - <gold>A creamy potato and vegetable salad.
 FRIES:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 610
@@ -1731,6 +2294,10 @@ FRIES:
     - <gold>Wedges of potato that are fried or baked.
 POTATO_CHIPS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 611
@@ -1742,6 +2309,10 @@ POTATO_CHIPS:
     - <gold>Thin wedges of potato typically baked after being made extra thin.
 POTATO_SOUP:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 612
@@ -1754,6 +2325,10 @@ POTATO_SOUP:
     - <gold>Soup made with potato.
 GLAZED_CARROT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 613
@@ -1766,6 +2341,10 @@ GLAZED_CARROT:
     - <gold>A carrot with a glazed surface.
 CARROT_SOUP:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 614
@@ -1778,6 +2357,10 @@ CARROT_SOUP:
     - <gold>A soup made with carrots.
 PICKLED_BEETS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 615
@@ -1789,6 +2372,10 @@ PICKLED_BEETS:
     - <gold>beets pickled in a brine.
 New_PUMPKIN_PIE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 616
@@ -1801,6 +2388,10 @@ New_PUMPKIN_PIE:
     - <gold>Pie baked out of pumpkin.
 PUMPKIN_SOUP:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 617
@@ -1813,6 +2404,10 @@ PUMPKIN_SOUP:
     - <gold>Soup made of pumpkin.
 New_Brown_Mushroom:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 618
@@ -1827,6 +2422,10 @@ New_Brown_Mushroom:
     - <gold>Mushrooms grown best in the dark, they are brown.
 New_Red_Mushroom:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 619
@@ -1841,6 +2440,10 @@ New_Red_Mushroom:
     - <gold>Mushrooms grown best in the dark, they are red.
 New_Crimson_Fungus:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 620
@@ -1855,6 +2458,10 @@ New_Crimson_Fungus:
     - <gold>Strange red mushrooms.
 New_Warped_Fungus:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 621
@@ -1869,6 +2476,10 @@ New_Warped_Fungus:
     - <gold>Odd mushrooms with a strange shape.
 ROASTED_MUSHROOM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 622
@@ -1880,6 +2491,10 @@ ROASTED_MUSHROOM:
     - <gold>Brown mushroom roasted on heat.
 NEW_MUSHROOM_SOUP:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 623
@@ -1892,6 +2507,10 @@ NEW_MUSHROOM_SOUP:
     - <gold>Soup made of mushrooms.
 STUFFED_MUSHROOM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 624
@@ -1905,6 +2524,10 @@ STUFFED_MUSHROOM:
     - <gold>A mushroom stuffed with all manner of ingredient.
 MUSHROOM_STEAK:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 625
@@ -1919,6 +2542,10 @@ MUSHROOM_STEAK:
     - <gold>Mushroom and steak, it is a hearty meal.
 MUSHROOM_OIL:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 626
@@ -1929,6 +2556,10 @@ MUSHROOM_OIL:
     - <gold>Oil from mushrooms.
 CREAM_OF_MUSHROOM:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Cream of Mushroom
     mechanisms:
@@ -1942,6 +2573,10 @@ CREAM_OF_MUSHROOM:
     - <gold>Soup made of mushroom & cream.
 New_Beetroot_Soup:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 628
@@ -1954,6 +2589,10 @@ New_Beetroot_Soup:
     - <gold>Soup made of beetroots.
 Netherwart_Soup:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 629
@@ -1966,6 +2605,10 @@ Netherwart_Soup:
     - <gold>Soup made of Netherwart.
 New_Golden_Carrot:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <gold>Golden Carrot
     mechanisms:
@@ -1975,6 +2618,10 @@ New_Golden_Carrot:
       vegetable: true
 New_Poisonous_Potato:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 631
@@ -1986,6 +2633,10 @@ New_Poisonous_Potato:
       vegetable: true
 New_Kelp:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: kelp
     display name: <white>Kelp
     mechanisms:
@@ -1996,6 +2647,10 @@ New_Kelp:
       vegetable: true
 New_Dried_Kelp:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     display name: <white>Dried Kelp
     mechanisms:
@@ -2007,6 +2662,10 @@ New_Dried_Kelp:
 # Sugars
 New_Sugar:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 701
@@ -2015,8 +2674,16 @@ New_Sugar:
       sugar: true
     lore:
     - <gold>A sweet powder made from sugarcane.
+    recipes:
+      1:
+        type: shapeless
+        input: sugar_cane
 New_Cocoa_Beans:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: cocoa_beans
     mechanisms:
       custom_model_data: 702
@@ -2027,6 +2694,10 @@ New_Cocoa_Beans:
     - <gold>A bean with a unique taste.
 COCOA_POWDER:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 703
@@ -2037,6 +2708,10 @@ COCOA_POWDER:
     - <gold>Powder from Cocoa Beans it is sweeted with sugar.
 CHOCOLATE_BAR:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 704
@@ -2048,6 +2723,10 @@ CHOCOLATE_BAR:
     - <gold>A bar made of Cocoa bean, sugar and milk.
 HOT_CHOCOLATE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 705
@@ -2060,6 +2739,10 @@ HOT_CHOCOLATE:
     - <gold>Milk and cocoa powder, it is sweet!
 CHOCOLATE_BACON:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 706
@@ -2072,6 +2755,10 @@ CHOCOLATE_BACON:
     - <gold>Bacon covered in chocolate.
 CHOCOLATE_PUDDING:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 707
@@ -2084,6 +2771,10 @@ CHOCOLATE_PUDDING:
     - <gold>A milky chocolately treat.
 CHOCOLATE_ROLL:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 708
@@ -2097,6 +2788,10 @@ CHOCOLATE_ROLL:
     - <gold>Small roll of cake with cream inside.
 CHOCOLATE_CARAMEL_FUDGE:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 709
@@ -2108,6 +2803,10 @@ CHOCOLATE_CARAMEL_FUDGE:
     - <gold>Chocolate baked into a solid state, it has caramel mixed in.
 CARAMEL:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     display name: <white>Caramel
     mechanisms:
@@ -2120,6 +2819,10 @@ CARAMEL:
     - <gold>A firm golden-brown substance made from heating sugar.
 MARSHMALLOW:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     display name: <white>Marshmallow
     mechanisms:
@@ -2131,6 +2834,10 @@ MARSHMALLOW:
     - <gold>Fluffy sugar blob
 GUMMY_BEARS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 712
@@ -2142,6 +2849,10 @@ GUMMY_BEARS:
     - <gold>Gummy bear like sweet made with gelatin.
 JELLY_BEANS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     display name: <white>Jelly Beans
     mechanisms:
@@ -2153,6 +2864,10 @@ JELLY_BEANS:
     - <gold>crunchy yet gooey sugar beans.
 MARSHMALLOW_CHICKS:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 714
@@ -2164,6 +2879,10 @@ MARSHMALLOW_CHICKS:
     - <gold>Marshmallow in the shape of baby birds.
 COTTON_CANDY:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 715
@@ -2175,6 +2894,10 @@ COTTON_CANDY:
     - <gold>Sugar whipped into a hair thin cotton like substance.
 SMORES:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: tropical_fish
     mechanisms:
       custom_model_data: 716
@@ -2187,6 +2910,10 @@ SMORES:
     - <gold>Fun for the campfire, crackers, chocolate, and marshmallow, Yum.
 TRAILMIX:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: dried_kelp
     mechanisms:
       custom_model_data: 717
@@ -2200,6 +2927,10 @@ TRAILMIX:
     - <gold>A hearty mix of various foodstuffs.
 New_Sugar_Cane:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: sugar_cane
     mechanisms:
       custom_model_data: 718
@@ -2211,6 +2942,10 @@ New_Sugar_Cane:
 # Misc
 COOKING_SALT:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 801
@@ -2219,6 +2954,10 @@ COOKING_SALT:
     - <gold>Salt made from the sea, or harvested.
 Fresh_Water:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 802
@@ -2235,6 +2974,10 @@ Fresh_Water:
         output_quantity: 4
 COOKING_OIL:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 803
@@ -2243,6 +2986,10 @@ COOKING_OIL:
     - <gold>Oil used to fry and cook dishes.
 VINEGAR:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 804
@@ -2251,6 +2998,10 @@ VINEGAR:
     - <gold>A useful component in cooking, try making brine.
 STOCK:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: BRICK
     mechanisms:
       custom_model_data: 805
@@ -2259,6 +3010,10 @@ STOCK:
     - <gold>Stock used in soups.
 New_Snowball:
     type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
     material: Snowball
     mechanisms:
       custom_model_data: 806
