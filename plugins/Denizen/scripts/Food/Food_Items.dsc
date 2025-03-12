@@ -5,6 +5,8 @@
 # Dairy
 Fresh_Milk:
     type: item
+    data:
+      cooking_tag: milk
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 201
