@@ -186,7 +186,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[roasted_mushroom]>]>
-        - if <player.item_in_hand.flag[Cooking_ID]> == kelp && !<context.location.switched>:
+        - if <player.item_in_hand.material.name> == kelp && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
