@@ -5,7 +5,7 @@
 
 Furniture_Main_Event:
     type: world
-    debug: false
+    debug: true
     events:
         on player places Furniture_Kit_1x1_Table:
         - ratelimit <player> 5t
