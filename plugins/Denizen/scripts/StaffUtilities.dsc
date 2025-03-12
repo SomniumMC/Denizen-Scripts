@@ -368,7 +368,7 @@ Staff_Switch:
 
 Staff_Switch_Event:
   type: world
-  debug: true
+  debug: false
   events:
     on player drops item:
     - if <player.has_flag[staff_switch]>:
