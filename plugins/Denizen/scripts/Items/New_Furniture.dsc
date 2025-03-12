@@ -11,7 +11,7 @@ Furniture_Main_Event:
         - ratelimit <player> 5t
         - determine passively cancelled
         - define location <context.location>
-        - define item <context.item>
+        - define item <context.item_in_hand>
         - run Assemble_1x1_Table def.location:<[location]> def.item:<[item]>
 
 Assemble_1x1_Table:
