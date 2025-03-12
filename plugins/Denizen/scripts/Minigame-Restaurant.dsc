@@ -852,7 +852,7 @@ Cooking_Ingredient_Stacking:
 
         - if <[interaction].flag[ingredient_map].get[<[slot]>].get[quantity_display]||null> == null:
           - define loc_mod <[location_mods].get[<[slot]>]>
-          - spawn text_display[text=<aqua>1;background_color=TRANSPARENT;scale=0.5,0.5,0.5;text_color=aqua] <[loc_mod].above[0.035].with_yaw[<[interaction].flag[location].below[1].flag[cooking_furniture.model].location.yaw.add[180]>].forward[0.15]> save:text_display
+          - spawn text_display[text=<aqua>1;background_color=TRANSPARENT;scale=0.5,0.5,0.5;text_color=aqua] <[loc_mod].above[0.035].with_yaw[<[interaction].flag[location].below[1].flag[cooking_furniture.model].location.yaw.add[180]>].forward[0.1]> save:text_display
           #- adjust <entry[text_display].spawned_entity> left_rotation:<location[1,0,0].to_axis_angle_quaternion[<element[270].to_radians>]>
           - flag <[interaction]> ingredient_map.<[slot]>.quantity_display:<entry[text_display].spawned_entity>
         - flag <[interaction]> ingredient_map.<[slot]>.quantity:+:1
