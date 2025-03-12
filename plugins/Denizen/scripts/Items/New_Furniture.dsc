@@ -160,6 +160,7 @@ Furniture_Cleanup:
     - foreach <[block_list]> as:block:
       - modifyblock <[block]> air
       - flag <[block]> furniture_interaction:!
+    - remove <[interaction].flag[furniture.furniture_model]>
     - remove <[interaction]>
 
 Furniture_Interaction:
