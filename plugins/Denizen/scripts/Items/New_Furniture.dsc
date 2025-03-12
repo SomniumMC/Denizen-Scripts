@@ -16,7 +16,7 @@ Furniture_Main_Event:
 
 Assemble_1x1_Table:
     type: task
-    debug: false
+    debug: true
     definitions: location|item
     script:
     - adjust def:item quantity:1
@@ -24,7 +24,7 @@ Assemble_1x1_Table:
     - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
     - modifyblock <[location]> cyan_stained_glass
     - define interaction <entry[interaction_entity].spawned_entity>
-    - flag <[interaction]> furniture.interaction:<entry[furniture_entity].spawned_entity>
+    - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
     - flag <[interaction]> furniture.item:<[item]>
     - flag <[interaction]> furniture.blocks:->:<[location]>
     - flag <[interaction]> furniture.type:1x1_Table
@@ -49,6 +49,9 @@ Furniture_Kit_1x1_Table:
       assembles: 1x1_Table
     material: string
     display name: <white>1x1 Table Kit
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:crude_table
     lore:
     - <gray>Place this kit on the ground to assemble a 1x1 table.
     - <gray>Take to a Assembly Station to give a skin.
