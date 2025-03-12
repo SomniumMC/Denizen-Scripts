@@ -5,7 +5,7 @@
 Grass_Drop:
     type: world
     events:
-        after player breaks short_grass:
+        after player breaks short_grass bukkit_priority:HIGHEST:
         - if <util.random_chance[45]>:
           - drop <context.location> item:Grass_Fiber quantity:1
         on player breaks clay bukkit_priority:HIGHEST:
