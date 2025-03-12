@@ -82,6 +82,7 @@ Assemble_1x1_Chair:
     script:
     - adjust def:item quantity:1
     - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_chair]>] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:furniture_entity
+    - modifyblock <[location]> air
     - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
     - define interaction <entry[interaction_entity].spawned_entity>
     - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
