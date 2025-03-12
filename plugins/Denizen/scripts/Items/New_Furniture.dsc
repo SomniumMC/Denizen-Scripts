@@ -24,7 +24,7 @@ Furniture_Main_Event:
         - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1].with_yaw[!]>
         - define block_list <list[<[location]>|<[right_block]>]>
         - foreach <[block_list]> as:block:
-          - if <[block].material.name> != air:
+          - if <[block].material.name> != air || <[block].material.name> != string:
             - narrate "<red>Area blocked!"
             - determine cancelled
         - run Assemble_1x2_Table def.location:<[location]> def.block_list:<[block_list]> def.item:<[item]>
@@ -36,7 +36,7 @@ Furniture_Main_Event:
         - define left_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].backward_flat[1].with_yaw[!]>
         - define block_list <list[<[location]>|<[right_block]>]>
         - foreach <[block_list]> as:block:
-          - if <[block].material.name> != air:
+          - if <[block].material.name> != air || <[block].material.name> != string:
             - narrate "<red>Area blocked!"
             - determine cancelled
         - run Assemble_1x3_Table def.block_list:<[block_list]> def.item:<[item]>
@@ -49,7 +49,7 @@ Furniture_Main_Event:
         - define backward_right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90]>].backward_flat[1].right[1].with_yaw[!]>
         - define block_list <list[<[location]>|<[right_block]>|<[backward_block]>|<[backward_right_block]>]>
         - foreach <[block_list]> as:block:
-          - if <[block].material.name> != air:
+          - if <[block].material.name> != air || <[block].material.name> != string:
             - narrate "<red>Area blocked!"
             - determine cancelled
         - run Assemble_2x2_Table def.block_list:<[block_list]> def.item:<[item]>
