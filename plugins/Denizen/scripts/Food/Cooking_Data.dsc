@@ -678,3 +678,4 @@ Cooking_Vanilla_Ingredients:
     - snowball
     - egg
     - sugar_cane
+    - gold_nugget
