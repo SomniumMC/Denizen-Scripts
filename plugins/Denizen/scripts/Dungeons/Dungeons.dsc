@@ -420,7 +420,7 @@ SomniProtection:
     type: world
     debug: false
     events:
-        on player breaks block priority:-20:
+        on player breaks block priority:-20 bukkit_priority:HIGHEST:
         - if <context.material.name> in <list[short_grass|tall_grass|fern|cobweb|vine|ladder]>:
           - stop
         - foreach <context.location.areas> as:area_name:

@@ -536,7 +536,7 @@ Cooking_Kitchen_Furniture_Events:
 
 
 
-    on player breaks block location_flagged:cooking_furniture:
+    on player breaks block location_flagged:cooking_furniture bukkit_priority:HIGHEST:
     - define location <context.location>
     - if <[location].has_flag[cooking_furniture.module]>:
       - drop item:<item[cooking_<[location].flag[cooking_furniture.module.name]>]> <[location].center>

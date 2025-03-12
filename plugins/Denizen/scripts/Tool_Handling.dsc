@@ -6,7 +6,7 @@ Durability_Triggers:
     type: world
     debug: false
     events:
-        on player breaks block:
+        on player breaks block bukkit_priority:HIGHEST:
         - if <player.item_in_hand.has_flag[durability1]>:
           - run Durability_Update_Task def.slot:hand
         on player right clicks block with:*hoe:

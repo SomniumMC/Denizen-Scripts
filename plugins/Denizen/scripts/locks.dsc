@@ -48,7 +48,7 @@ Lock_Event_Main:
             - define id <player.item_in_offhand.flag[key_id]>
             - run Lock_Existing def.lock:blessed def.id:<[id]> def.location:<[location]>
             - take item:blessed_lock quantity:1
-        on player breaks block location_flagged:locked:
+        on player breaks block location_flagged:locked bukkit_priority:HIGHEST:
         - define lock_data <context.location.flag[locked]>
         - if <player.item_in_hand.script.name> == lock_key && <player.item_in_hand.flag[key_id]> == <[lock_data].get[id]>:
           - drop item:<[lock_data].get[type]>_lock <context.location.center>
