@@ -2659,6 +2659,11 @@ New_Dried_Kelp:
     flags:
       food: 1
       vegetable: true
+    recipes:
+      1:
+        type: furnace
+        input: Kelp
+        cook_time: 2s
 
 # Sugars
 New_Sugar:
