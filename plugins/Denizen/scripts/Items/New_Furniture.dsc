@@ -9,11 +9,9 @@ Furniture_Main_Event:
     events:
         on player places Furniture_Kit_1x1_Table:
         - ratelimit <player> 5t
-        - determine passively cancelled
         - define location <context.location>
         - define item <context.item_in_hand>
         - run Assemble_1x1_Table def.location:<[location]> def.item:<[item]>
-        - modifyblock <[location]> cyan_stained_glass
 
 Assemble_1x1_Table:
     type: task
@@ -22,6 +20,7 @@ Assemble_1x1_Table:
     script:
     - adjust def:item quantity:1
     - spawn item_display[item=<[item].flag[skin].if_null[furniture_crude_table]>] <[location].center> save:furniture_entity
+    - modifyblock <[location]> cyan_stained_glass
     - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
     - define interaction <entry[interaction_entity].spawned_entity>
     - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
