@@ -84,6 +84,7 @@ Blast_Iron_Dagger:
     flags:
       lore: <gold>A basic iron dagger.
       durability1: 100
+      slashing: 5
       damage_type: Slashing
 
 Steel_Dagger:
