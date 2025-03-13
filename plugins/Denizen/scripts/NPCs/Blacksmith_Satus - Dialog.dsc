@@ -41,14 +41,14 @@ NPC_DialogTree_Blacksmith_Satus:
           target: player
           flag: quest.tutorial_beginnings.stage
           value: 8
-        option5:
-          text: <white>What should I do now?
-          type: chatting
-          key: chat8
-          req_flag:
-            target: player
-            flag: quest.tutorial_beginnings.stage
-            value: 8
+      option5:
+        text: <white>What should I do now?
+        type: chatting
+        key: chat8
+        req_flag:
+          target: player
+          flag: quest.tutorial_beginnings.stage
+          value: 8
     chat1:
       dialog: <green>Is it about metal? Ask yer question!
       option1:
