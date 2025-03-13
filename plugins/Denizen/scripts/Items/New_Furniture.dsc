@@ -56,6 +56,19 @@ Furniture_Main_Event:
         on player breaks block location_flagged:furniture_interaction:
         - define interaction <context.location.flag[furniture_interaction]>
         - run Furniture_Cleanup def:<[interaction]>
+        on player damages Furniture_Interaction:
+        - define interaction <context.entity>
+        - define health <[interaction].flag[health]||5>
+        - if <[interaction].flag[invincible]||false>:
+          - stop
+        - if <[health].sub[<context.damage>]> <= 0:
+          - drop item:furniture_<[interaction].flag[furniture.item]> <[interaction].location>
+          - playsound sound:entity.zombie.break.wooden_door sound_category:blocks <[interaction].location>
+          - run Furniture_Cleanup def:<[interaction]>
+        - else:
+          - define newhealth <[health].sub[1]>
+          - flag <[interaction]> health:<[newhealth]>
+          - playsound sound:block.wood.hit sound_category:blocks <[interaction].location>
 
 Assemble_1x1_Table:
     type: task
