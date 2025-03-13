@@ -69,6 +69,10 @@ Furniture_Main_Event:
           - define newhealth <[health].sub[1]>
           - flag <[interaction]> health:<[newhealth]>
           - playsound sound:block.wood.hit sound_category:blocks <[interaction].location>
+        on player right clicks Furniture_Interaction:
+        - define interaction <context.entity>
+        - if <[interaction].flag[furniture.type]> == 1x1_chair:
+          - mount <player>|<[interaction].flag[furniture.furniture_model]>
 
 Assemble_1x1_Table:
     type: task
@@ -174,6 +178,7 @@ Furniture_Cleanup:
     - foreach <[block_list]> as:block:
       - modifyblock <[block]> air
       - flag <[block]> furniture_interaction:!
+    - drop item:<[interaction].flag[furniture.item]> <[interaction].location>
     - remove <[interaction].flag[furniture.furniture_model]>
     - remove <[interaction]>
 
