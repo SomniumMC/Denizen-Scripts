@@ -404,7 +404,7 @@ Furniture_Config_GUI:
     - define result <list>
     - define tool <player.item_in_hand>
     - if <[tool].flag[furniture_config]> == staff:
-      - define result <list[<item[green_concrete].with_single[display=<red>X <green>Increase]>|<item[green_concrete].with_single[display=<green>Y <green>Increase]>|<item[green_concrete].with_single[display=<blue>Z <green>Increase]>|<item[red_concrete].with_single[display=<red>X <red>Decrease]>|<item[red_concrete].with_single[display=<green>Y <red>Decrease]>|<item[red_concrete].with_single[display=<blue>Z <red>Decrease]>|<item[shield].with_single[display=<yellow>Invincibility Toggle]>|<item[bricks].with_single[display=<gold>Collision Block]>|<item[structure_void].with_single[display=<aqua>Remove Interaction;lore=<red><bold>WARNING<n><white>This will remove the interaction preventing further edits<n><gold>Double Click this to activate]>]>
+      - define result <list[<item[green_concrete].with_single[display=<red>X <green>Increase]>|<item[green_concrete].with_single[display=<green>Y <green>Increase]>|<item[green_concrete].with_single[display=<blue>Z <green>Increase]>|<item[red_concrete].with_single[display=<red>X <red>Decrease]>|<item[red_concrete].with_single[display=<green>Y <red>Decrease]>|<item[red_concrete].with_single[display=<blue>Z <red>Decrease]>|<item[shield].with_single[display=<yellow>Invincibility Toggle]>|<item[bricks].with_single[display=<gold>Collision Block]>|<item[structure_void].with_single[display=<aqua>Remove Interaction].with_single[lore=<red><bold>WARNING<n><white>This will remove the interaction preventing further edits<n><gold>Double Click this to activate]>]>
 
     - else:
       - define result <list[air]>
