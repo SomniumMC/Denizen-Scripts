@@ -6,8 +6,13 @@ Ogre_Mob_Spawn:
     type: world
     events:
         after mythicmob Ogre_Arbalest spawns:
-        #- disguise <context.entity> as
+        - define entity <context.entity>
         - adjust <context.entity> item_in_hand:<item[crossbow]>
+        - equip <[entity]> head:<item[air]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> head:<item[crafted_leather_helmet]>
+        - equip <[entity]> legs:<item[crafted_leather_leggings]>
+        - equip <[entity]> boots:<item[crafted_leather_boots]>
         after mythicmob Ogre_Brute spawns:
         - define entity <context.entity>
         - adjust <context.entity> item_in_hand:<item[iron_axe]>
