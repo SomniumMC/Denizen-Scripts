@@ -236,21 +236,27 @@ Crafting_Master_Data:
         - oak_planks-5
         - chest-1
         - iron_ingot-4
-        furniture_crude_chair-1:
+        Furniture_Configurator-1:
+        - iron_ingot-4
+        - stick-2
+        Furniture_Kit_1x1_Chair-1:
         - oak_planks-4
         - stick-2
-        furniture_crude_table-1:
+        Furniture_Kit_1x1_Table-1:
         - oak_planks-5
         - stick-4
-        furniture_1x2_crude_table-1:
+        Furniture_Kit_1x2_Table-1:
         - oak_planks-10
         - stick-4
-        furniture_1x3_crude_table-1:
+        Furniture_Kit_1x3_Table-1:
         - oak_planks-15
         - stick-4
-        furniture_2x2_crude_table-1:
+        Furniture_Kit_2x2_Table-1:
         - oak_planks-20
         - stick-4
+        Furniture_Kit_Decoration-1:
+        - oak_planks-5
+        - oak_slab-2
       cooking_tools:
         bakeware-1:
         - brick-8
