@@ -60,11 +60,13 @@ Furniture_Main_Event:
         - run Assemble_Decoration def.location:<[location]> def.item:<[item]>
         on player breaks block location_flagged:furniture_interaction:
         - define interaction <context.location.flag[furniture_interaction]>
+        - if <[interaction].has_flag[furniture.invincible]>:
+          - determine cancelled
         - run Furniture_Cleanup def:<[interaction]>
         on player damages Furniture_Interaction:
         - define interaction <context.entity>
         - define health <[interaction].flag[health]||5>
-        - if <[interaction].flag[invincible]||false>:
+        - if <[interaction].flag[furniture.invincible]||false>:
           - stop
         - if <[health].sub[<context.damage>]> <= 0:
           - drop item:furniture_<[interaction].flag[furniture.item]> <[interaction].location>
@@ -221,6 +223,9 @@ Furniture_Config_Event:
           - run Staff_Place_Task def.slot:offhand
         on player right clicks Furniture_Interaction with:item_flagged:furniture_config priority:-20:
         - ratelimit <player> 5t
+        - if <context.entity.has_flag[furniture.invincible]>:
+          - if <player.item_in_hand.flag[furniture_config]> != staff:
+            - stop
         - flag <player> Furniture_Entity:<context.entity>
         - inventory open d:Furniture_Config_GUI
         on player clicks item in Furniture_Config_GUI:
@@ -301,8 +306,16 @@ Furniture_Config_Event:
           - case 44:
             - define type:remove
           - case 41:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
             - define type:invincibility
+          - case 42:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:collision
           - case 43:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
             - if <context.click> == double_click:
               - define type:remove_interaction
         - if <context.click> == shift_left && <[tool].flag[furniture_config]> == staff:
@@ -327,12 +340,22 @@ Furniture_Config_Event:
             - remove <[interaction]>
             - inventory close
           - case invincibility:
-            - if <[interaction].has_flag[invincible]>:
+            - if <[interaction].has_flag[furniture.invincible]>:
               - narrate "<red>Invincibility Disabled"
-              - flag <[interaction]> invincible:!
+              - flag <[interaction]> furniture.invincible:!
             - else:
               - narrate "<green>Invincibility Enabled"
-              - flag <[interaction]> invincible
+              - flag <[interaction]> furniture.invincible
+          - case collision:
+            - if <[interaction].has_flag[furniture.collision]>:
+              - narrate "<red>Collision Disabled"
+              - flag <[interaction]> furniture.collision:!
+              - modifyblock <[interaction].location> air
+            - else:
+              - narrate "<green>Collision Enabled"
+              - flag <[interaction]> furniture.collision
+              - flag <[interaction]> furniture.location:<[interaction].location>
+              - modifyblock <[interaction].location> barrier
           - case remove_interaction:
             - remove <[interaction]>
             - inventory close
@@ -381,11 +404,18 @@ Furniture_Config_GUI:
     - define result <list>
     - define tool <player.item_in_hand>
     - if <[tool].flag[furniture_config]> == staff:
-      - define result <list[<item[green_concrete[display=<red>X <green>Increase]]>|<item[green_concrete[display=<green>Y <green>Increase]]>|<item[green_concrete[display=<blue>Z <green>Increase]]>|<item[green_concrete[display=<red>Yaw 45 Decrease]]>|<item[green_concrete[display=<green>Yaw 45 Increase]]>|<item[red_concrete[display=<red>X <red>Decrease]]>|<item[red_concrete[display=<green>Y <red>Decrease]]>|<item[red_concrete[display=<blue>Z <red>Decrease]]>|<item[shield[display=<yellow>Invincibility Toggle]]>|<item[structure_void[display=<aqua>Remove Interaction;lore=<red><bold>WARNING<n><white>This will remove the interaction preventing further edits<n><gold>Double Click this to activate]]>]>
+      - define result <list[<item[green_concrete].with_single[display=<red>X <green>Increase]>|
+        <item[green_concrete].with_single[display=<green>Y <green>Increase]>|
+        <item[green_concrete].with_single[display=<blue>Z <green>Increase]>|
+        <item[red_concrete].with_single[display=<red>X <red>Decrease]>|
+        <item[red_concrete].with_single[display=<green>Y <red>Decrease]>|
+        <item[red_concrete].with_single[display=<blue>Z <red>Decrease]>|
+        <item[shield].with_single[display=<yellow>Invincibility Toggle]>|
+        <item[bricks].with_single[display=<gold>Collision Block]>|
+        <item[structure_void].with_single[display=<aqua>Remove Interaction;lore=<red><bold>WARNING<n><white>This will remove the interaction preventing further edits<n><gold>Double Click this to activate]>]>
+
     - else:
       - define result <list[air]>
-    # Add some logic!
-    # 
     # green_concrete[display=<green>Y <green>Increase]
     # green_concrete[display=<blue>Z <green>Increase]
     # red_concrete[display=<red>X <red>Decrease]
@@ -400,7 +430,7 @@ Furniture_Config_GUI:
   - [GUINULL] [] [] [] [GUINULL] [green_concrete[display=<red>Left]] [green_concrete[display=<green>Up]] [green_concrete[display=<blue>Right]] [GUINULL]
   - [GUINULL] [] [] [] [GUINULL] [GUINULL] [red_concrete[display=<green>Down]] [GUINULL] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-  - [paper[display=<gold>Model<&sp>Yaw(Rotation)]] [red_concrete[display=<red>Yaw 45 Decrease]] [green_concrete[display=<green>Yaw 45 Increase]] [GUINULL] [] [air] [] [barrier[display=<red>Remove Decoration]] [GUINULL]
+  - [paper[display=<gold>Model<&sp>Yaw(Rotation)]] [red_concrete[display=<red>Yaw 45 Decrease]] [green_concrete[display=<green>Yaw 45 Increase]] [GUINULL] [] [] [] [barrier[display=<red>Remove Decoration]] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
 Furniture_Interaction:
