@@ -336,8 +336,7 @@ Furniture_Config_Event:
           - case yaw:
             - look <[model]> yaw:<[model].location.yaw.add[<[yaw_adjustment]>]>
           - case remove:
-            - remove <[model]>
-            - remove <[interaction]>
+            - run furniture_cleanup def:<[interaction]>
             - inventory close
           - case invincibility:
             - if <[interaction].has_flag[furniture.invincible]>:
@@ -351,12 +350,17 @@ Furniture_Config_Event:
               - narrate "<red>Collision Disabled"
               - flag <[interaction]> furniture.collision:!
               - modifyblock <[interaction].location> air
+              - flag <[interaction].flag[furniture.blocks]> furniture_interaction:!
             - else:
               - narrate "<green>Collision Enabled"
               - flag <[interaction]> furniture.collision
-              - flag <[interaction]> furniture.location:<[interaction].location>
+              - flag <[interaction]> furniture.blocks:<[interaction].location>
               - modifyblock <[interaction].location> barrier
+              - flag <[interaction].flag[furniture.blocks]> furniture_interaction:<[interaction]>
           - case remove_interaction:
+            - if <[interaction].has_flag[furniture.blocks]>:
+              - foreach <[interaction].flag[furniture.blocks]> as:block:
+                - flag <[block]> furniture_interaction:!
             - remove <[interaction]>
             - inventory close
         #- inventory adjust slot:5 destination:<player.open_inventory> lore:<yellow>Scale<white><&co><&sp><[model].scale.simple><n><yellow>Location<white><&co><&sp><[model].location.simple><n><yellow>Yaw<white><&co><&sp><[model].location.yaw>
