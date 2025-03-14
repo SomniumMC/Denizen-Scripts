@@ -16,7 +16,14 @@ Ogre_Mob_Spawn:
         - equip <[entity]> legs:<item[crafted_leather_leggings]>
         - equip <[entity]> boots:<item[crafted_leather_boots]>
         after mythicmob Ogre spawns:
-        - adjust <context.entity> item_in_hand:<item[stone_axe]>
+        - define entity <context.entity>
+        - adjust <context.entity> item_in_hand:<item[wooden_axe]>
+        - if <util.random_chance[50]>:
+          - adjust <context.entity> item_in_hand:<item[stone_axe]>
+        - if <util.random_chance[50]>:
+          - equip <[entity]> head:<item[crafted_leather_helmet]>
+        - equip <[entity]> legs:<item[crafted_leather_leggings]>
+        - equip <[entity]> boots:<item[crafted_leather_boots]>
 #        after mythicmob Ogre spawns:
 #        - disguise <context.entity> as:player[skin=<script[Ogre_Skins].data_key[skins].random>]
 #
