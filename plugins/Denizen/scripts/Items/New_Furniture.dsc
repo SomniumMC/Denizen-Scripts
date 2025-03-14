@@ -209,7 +209,7 @@ Furniture_Cleanup:
 
 Furniture_Config_Event:
     type: world
-    debug: false
+    debug: true
     events:
         on player places block using:off_hand priority:-20:
         - if <player.item_in_hand.script.name.if_null[null]> == Staff_Furniture_Configurator:
@@ -396,7 +396,7 @@ Furniture_Config_GUI:
     - determine <[result]>
   gui: true
   slots:
-  - [GUINULL] [GUINULL] [paper[display=<gold>Model<&sp>Scale;lore=<player.flag[furniture_entity].flag[furniture.furniture_model].scale.simple>]] [GUINULL] [<player.flag[furniture_entity].flag[furniture].get[item].with_single[lore=<empty>].with_single[display=<gold>Item<&sp>Model].if_null[<item[brick].with_single[display=<red>ERROR].with_single[lore=<red>An error has occured, please contact staff.<n>Make sure to explain what happened prior to issue.]>]>] [GUINULL] [paper[display=<gold>Model<&sp>Location]] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [paper[display=<gold>Model<&sp>Scale;lore=<yellow><player.flag[furniture_entity].flag[furniture.furniture_model].scale.simple>]] [GUINULL] [<player.flag[furniture_entity].flag[furniture].get[item].with_single[lore=<empty>].with_single[display=<gold>Item<&sp>Model].if_null[<item[brick].with_single[display=<red>ERROR].with_single[lore=<red>An error has occured, please contact staff.<n>Make sure to explain what happened prior to issue.]>]>] [GUINULL] [paper[display=<gold>Model<&sp>Location]] [GUINULL] [GUINULL]
   - [GUINULL] [] [] [] [GUINULL] [green_concrete[display=<red>Left]] [green_concrete[display=<green>Up]] [green_concrete[display=<blue>Right]] [GUINULL]
   - [GUINULL] [] [] [] [GUINULL] [GUINULL] [red_concrete[display=<green>Down]] [GUINULL] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
