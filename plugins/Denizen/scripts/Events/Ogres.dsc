@@ -22,9 +22,9 @@ Ogre_Mob_Spawn:
         - equip <[entity]> boots:<item[crafted_leather_boots]>
         after mythicmob Ogre spawns:
         - define entity <context.entity>
-        - adjust <context.entity> item_in_hand:<item[wooden_axe]>
+        - adjust <context.entity> item_in_hand:<item[wooden_sword]>
         - if <util.random_chance[50]>:
-          - adjust <context.entity> item_in_hand:<item[stone_axe]>
+          - adjust <context.entity> item_in_hand:<item[stone_sword]>
         - if <util.random_chance[50]>:
           - equip <[entity]> head:<item[crafted_leather_helmet]>
         - equip <[entity]> legs:<item[crafted_leather_leggings]>
