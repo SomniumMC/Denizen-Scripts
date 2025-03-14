@@ -404,6 +404,7 @@ Furniture_Config_GUI:
   type: inventory
   debug: false
   inventory: chest
+  title: <gold>Furniture Configurator
   procedural items:
     - define result <list>
     - define tool <player.item_in_hand>
