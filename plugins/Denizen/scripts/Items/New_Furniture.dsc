@@ -228,7 +228,7 @@ Furniture_Config_Event:
         - define tool <player.item_in_hand>
         - define slot <context.slot>
         - define interaction <player.flag[furniture_entity]>
-        - define model <[interaction].flag[furniture].get[furniture_entity].if_null[<[interaction].flag[furniture].get[entity].get[1]>]>
+        - define model <[interaction].flag[furniture].get[furniture_model].if_null[<[interaction].flag[furniture].get[entity].get[1]>]>
         - define scale_x <[model].scale.simple.before[,].round_to[1]>
         - define scale_y <[model].scale.simple.before_last[,].after_last[,].round_to[1]>
         - define scale_z <[model].scale.simple.after_last[,].round_to[1]>
