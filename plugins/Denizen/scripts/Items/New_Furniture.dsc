@@ -64,7 +64,7 @@ Furniture_Main_Event:
         on player damages Furniture_Interaction:
         - define interaction <context.entity>
         - define health <[interaction].flag[health]||5>
-        - if <[interaction].flag[invincible]||false>:
+        - if <[interaction].flag[furniture.invincible]||false>:
           - stop
         - if <[health].sub[<context.damage>]> <= 0:
           - drop item:furniture_<[interaction].flag[furniture.item]> <[interaction].location>
@@ -221,6 +221,9 @@ Furniture_Config_Event:
           - run Staff_Place_Task def.slot:offhand
         on player right clicks Furniture_Interaction with:item_flagged:furniture_config priority:-20:
         - ratelimit <player> 5t
+        - if <context.entity.has_flag[furniture.invincible]>:
+          - if <player.item_in_hand.flag[furniture_config]> != staff:
+            - stop
         - flag <player> Furniture_Entity:<context.entity>
         - inventory open d:Furniture_Config_GUI
         on player clicks item in Furniture_Config_GUI:
