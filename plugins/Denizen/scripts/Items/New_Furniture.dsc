@@ -53,6 +53,11 @@ Furniture_Main_Event:
             - narrate "<red>Area blocked!"
             - determine cancelled
         - run Assemble_2x2_Table def.location:<[location]> def.block_list:<[block_list]> def.item:<[item]>
+        on player places Furniture_Kit_Decoration:
+        - ratelimit <player> 5t
+        - define location <context.location>
+        - define item <context.item_in_hand>
+        - run Assemble_Decoration def.location:<[location]> def.item:<[item]>
         on player breaks block location_flagged:furniture_interaction:
         - define interaction <context.location.flag[furniture_interaction]>
         - run Furniture_Cleanup def:<[interaction]>
@@ -169,6 +174,24 @@ Assemble_2x2_Table:
 
     - take item:<[item]> quantity:1
 
+Assemble_Decoration:
+    type: task
+    debug: true
+    definitions: location|item
+    script:
+    - adjust def:item quantity:1
+    - spawn item_display[item=<[item].flag[skin].if_null[Furniture_Decoration_Default]>] <[location].center.with_yaw[<player.location.yaw.round_to_precision[45]>]> save:furniture_entity
+    - modifyblock <[location]> air
+    - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction_entity
+    - define interaction <entry[interaction_entity].spawned_entity>
+    - flag <[interaction]> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
+    - flag <[interaction]> furniture.item:<[item]>
+    - flag <[interaction]> furniture.blocks:->:<[location]>
+    - flag <[interaction]> furniture.type:Decoration
+    - flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
+
+    - take item:<[item]> quantity:1
+
 Furniture_Cleanup:
     type: task
     debug: false
@@ -181,6 +204,204 @@ Furniture_Cleanup:
     - drop item:<[interaction].flag[furniture.item]> <[interaction].location>
     - remove <[interaction].flag[furniture.furniture_model]>
     - remove <[interaction]>
+
+## Furniture Configuration
+
+Furniture_Config_Event:
+    type: world
+    debug: false
+    events:
+        on player places block using:off_hand priority:-20:
+        - if <player.item_in_hand.script.name.if_null[null]> == Staff_Furniture_Configurator:
+          - determine cancelled
+        on player right clicks block with:Staff_Furniture_Configurator priority:-20:
+        - determine passively cancelled
+        - ratelimit <player> 5t
+        - if <player.item_in_offhand.material.name> != air:
+          - run Staff_Place_Task def.slot:offhand
+        on player right clicks Furniture_Interaction with:item_flagged:furniture_config priority:-20:
+        - ratelimit <player> 5t
+        - flag <player> Furniture_Entity:<context.entity>
+        - inventory open d:Furniture_Config_GUI
+        on player clicks item in Furniture_Config_GUI:
+        - define item <context.item>
+        - define tool <player.item_in_hand>
+        - define slot <context.slot>
+        - define interaction <player.flag[furniture_entity]>
+        - define model <[interaction].flag[furniture].get[furniture_entity].if_null[<[interaction].flag[furniture].get[entity].get[1]>]>
+        - define scale_x <[model].scale.simple.before[,].round_to[1]>
+        - define scale_y <[model].scale.simple.before_last[,].after_last[,].round_to[1]>
+        - define scale_z <[model].scale.simple.after_last[,].round_to[1]>
+        #- narrate <[model].scale.simple>
+        - define x_adjustment 0
+        - define y_adjustment 0
+        - define z_adjustment 0
+        - choose <[slot]>:
+          - case 11:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:scale
+            - define director:x
+            - define x_adjustment:1
+          - case 12:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:scale
+            - define director:y
+            - define y_adjustment:1
+          - case 13:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:scale
+            - define director:z
+            - define z_adjustment:1
+
+          - case 20:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:scale
+            - define director:x
+            - define x_adjustment:-1
+          - case 21:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:scale
+            - define director:y
+            - define y_adjustment:-1
+          - case 22:
+            - if <[tool].flag[furniture_config]> != staff:
+              - stop
+            - define type:scale
+            - define director:z
+            - define z_adjustment:-1
+
+          - case 15:
+            - define type:teleport
+            - define director:x
+            - define x_adjustment:1
+          - case 16:
+            - define type:teleport
+            - define director:y
+            - define y_adjustment:1
+          - case 25:
+            - define type:teleport
+            - define director:y
+            - define y_adjustment:-1
+          - case 17:
+            - define type:teleport
+            - define director:z
+            - define z_adjustment:1
+
+          - case 38:
+            - define type:yaw
+            - define yaw_adjustment:-45
+          - case 39:
+            - define type:yaw
+            - define yaw_adjustment:45
+          - case 44:
+            - define type:remove
+          - case 41:
+            - define type:invincibility
+          - case 43:
+            - if <context.click> == double_click:
+              - define type:remove_interaction
+        - if <context.click> == shift_left && <[tool].flag[furniture_config]> == staff:
+          - define x_adjustment:<[x_adjustment].mul[0.1]>
+          - define y_adjustment:<[y_adjustment].mul[0.1]>
+          - define z_adjustment:<[z_adjustment].mul[0.1]>
+        - choose <[type]>:
+          - case scale:
+            - adjust <[model]> scale:<[scale_x].add[<[x_adjustment]>].round_to[1]>,<[scale_y].add[<[y_adjustment]>].round_to[1]>,<[scale_z].add[<[z_adjustment]>].round_to[1]>
+            #- narrate <[scale_x].add[<[x_adjustment]>].round_to[2]>
+          - case teleport:
+            - if <[x_adjustment]> != 0:
+              - teleport <[model]> <[model].location.left[<[x_adjustment]>]>
+            - if <[y_adjustment]> != 0:
+              - teleport <[model]> <[model].location.up[<[y_adjustment]>]>
+            - if <[z_adjustment]> != 0:
+              - teleport <[model]> <[model].location.right[<[z_adjustment]>]>
+          - case yaw:
+            - look <[model]> yaw:<[model].location.yaw.add[<[yaw_adjustment]>]>
+          - case remove:
+            - remove <[model]>
+            - remove <[interaction]>
+            - inventory close
+          - case invincibility:
+            - if <[interaction].has_flag[invincible]>:
+              - narrate "<red>Invincibility Disabled"
+              - flag <[interaction]> invincible:!
+            - else:
+              - narrate "<green>Invincibility Enabled"
+              - flag <[interaction]> invincible
+          - case remove_interaction:
+            - remove <[interaction]>
+            - inventory close
+        #- inventory adjust slot:5 destination:<player.open_inventory> lore:<yellow>Scale<white><&co><&sp><[model].scale.simple><n><yellow>Location<white><&co><&sp><[model].location.simple><n><yellow>Yaw<white><&co><&sp><[model].location.yaw>
+
+Staff_Place:
+  type: command
+  debug: false
+  name: staffplace
+  description: Places a display entity or gives a tool for it.
+  usage: /staffplace tool
+  permission: dscript.staffplace
+  tab completions:
+    1: tool|remove
+  script:
+  - define slot hand
+  - if <context.args.get[1]> == tool:
+    - give staff_furniture_configurator
+    - stop
+  - if <context.args.get[1]> == remove:
+    - remove <player.target>
+    - stop
+  - run Staff_Place_Task def.slot:<[slot]>
+
+Staff_Place_Task:
+  type: task
+  debug: false
+  definitions: slot
+  script:
+  - define item <player.inventory.slot[<[slot]>]>
+  - adjust def:item quantity:1
+  - define location <player.cursor_on.above[1]>
+  #- narrate <[item]>
+  - spawn ITEM_DISPLAY[item=<[item]>;scale=1,1,1] <[location].center> save:furniture_entity
+  - look <entry[furniture_entity].spawned_entity> yaw:<player.location.yaw.round_to_precision[45]>
+  - spawn Furniture_Interaction <[location].center.below[0.5]> save:interaction
+  - flag <entry[interaction].spawned_entity> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
+  - flag <entry[interaction].spawned_entity> furniture.item:<[item]>
+  - flag <entry[interaction].spawned_entity> furniture.type:Decoration
+
+Furniture_Config_GUI:
+  type: inventory
+  debug: false
+  inventory: chest
+  procedural items:
+    - define result <list>
+    - define tool <player.item_in_hand>
+    - if <[tool].flag[furniture_config]> == staff:
+      - define result <list[<item[green_concrete[display=<red>X <green>Increase]]>|<item[green_concrete[display=<green>Y <green>Increase]]>|<item[green_concrete[display=<blue>Z <green>Increase]]>|<item[green_concrete[display=<red>Yaw 45 Decrease]]>|<item[green_concrete[display=<green>Yaw 45 Increase]]>|<item[red_concrete[display=<red>X <red>Decrease]]>|<item[red_concrete[display=<green>Y <red>Decrease]]>|<item[red_concrete[display=<blue>Z <red>Decrease]]>|<item[shield[display=<yellow>Invincibility Toggle]]>|<item[structure_void[display=<aqua>Remove Interaction;lore=<red><bold>WARNING<n><white>This will remove the interaction preventing further edits<n><gold>Double Click this to activate]]>]>
+    - else:
+      - define result <list[air]>
+    # Add some logic!
+    # 
+    # green_concrete[display=<green>Y <green>Increase]
+    # green_concrete[display=<blue>Z <green>Increase]
+    # red_concrete[display=<red>X <red>Decrease]
+    # red_concrete[display=<green>Y <red>Decrease]
+    # red_concrete[display=<blue>Z <red>Decrease]
+    # shield[display=<yellow>Invincibility Toggle]
+    # structure_void[display=<aqua>Remove Interaction;lore=<red><bold>WARNING<n><white>This will remove the interaction preventing further edits<n><gold>Double Click this to activate]
+    - determine <[result]>
+  gui: true
+  slots:
+  - [GUINULL] [GUINULL] [paper[display=<gold>Model<&sp>Scale;lore=<player.flag[furniture_entity].flag[furniture.furniture_model].scale.simple>]] [GUINULL] [<player.flag[furniture_entity].flag[furniture].get[item].with_single[lore=<empty>].with_single[display=<gold>Item<&sp>Model].if_null[<item[brick].with_single[display=<red>ERROR].with_single[lore=<red>An error has occured, please contact staff.<n>Make sure to explain what happened prior to issue.]>]>] [GUINULL] [paper[display=<gold>Model<&sp>Location]] [GUINULL] [GUINULL]
+  - [GUINULL] [] [] [] [GUINULL] [green_concrete[display=<red>Left]] [green_concrete[display=<green>Up]] [green_concrete[display=<blue>Right]] [GUINULL]
+  - [GUINULL] [] [] [] [GUINULL] [GUINULL] [red_concrete[display=<green>Down]] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+  - [paper[display=<gold>Model<&sp>Yaw(Rotation)]] [red_concrete[display=<red>Yaw 45 Decrease]] [green_concrete[display=<green>Yaw 45 Increase]] [GUINULL] [] [air] [] [barrier[display=<red>Remove Decoration]] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
 Furniture_Interaction:
   type: entity
@@ -277,6 +498,22 @@ Furniture_Kit_2x2_Table:
       furniture_type: table
       furniture_size: 2x2
 
+Furniture_Kit_Decoration:
+    type: item
+    debug: false
+    data:
+      assembles: Decoration
+    material: string
+    display name: <white>Decoration Kit
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:barrel
+    lore:
+    - <gray>Place this kit on the ground to assemble a decoration.
+    - <gray>Take to a Assembly Station to give a skin.
+    flags:
+      furniture_type: decoration
+
 Furniture_Crude_Chair:
     type: item
     debug: false
@@ -333,6 +570,17 @@ Furniture_2x2_Crude_Table:
     lore:
     - <red>This is the default model of 2x2 Table
 
+Furniture_Decoration_Default:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Assembly Kit<&co> <blue>Decoration
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:barrel
+    lore:
+    - <red>This is the default model of 2x2 Table
+
 Furniture_Runestone_Inscriber:
     type: item
     debug: false
@@ -350,3 +598,28 @@ Furniture_Display_Stand:
     mechanisms:
       components_patch:
         item_model: string:furniture:display_stand
+
+Furniture_Configurator:
+    type: item
+    debug: false
+    material: brick
+    display name: <yellow>Furniture Configurator
+    flags:
+      furniture_config: player
+    mechanisms:
+      components_patch:
+        item_model: string:tools:iron_hammer
+    lore:
+    - <gold>Right click on a furniture entity to configure it.
+
+Staff_Furniture_Configurator:
+  type: item
+  material: breeze_rod
+  display name: <gold>Staff Place Tool
+  flags:
+    furniture_config: staff
+  lore:
+  - <white>Hold item in <yellow>OFFHAND
+  - <white><&lt><green>Right Click<white><&gt> <gray>for aligned <red>Block Placement
+  #- <gray><empty>
+  #- <white><&lt><blue>Sneak Right Click<white><&gt> <gray>for <red>Freeform Placement
