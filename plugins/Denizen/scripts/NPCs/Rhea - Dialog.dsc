@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Rhea:
     type: data
+    debug: false
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
     welcome:
       dialog: <green>Good eve, Storm-sodden! Are you here for your delivery task?
@@ -38,6 +39,7 @@ NPC_DialogTree_Rhea:
 
 NPC_Rhea_Events:
     type: world
+    debug: false
     events:
       on player exits tutorial_quest_check:
       - if <player.flag[quest.tutorial_beginnings.stage]> <= 1:

@@ -4,6 +4,7 @@
 
 Storm_Scheduler:
   type: world
+  debug: false
   events:
     # This will start the storm at 12:00(Noon) for PST, as PST is -7 from UTC(Server Time)
     on system time 19:00:

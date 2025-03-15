@@ -1,5 +1,6 @@
 SomniData_Ruined_City:
   type: data
+  debug: false
   origin: ruinedcitypos3
   pos2: ruinedcitypos4
   area: ruinedcity2

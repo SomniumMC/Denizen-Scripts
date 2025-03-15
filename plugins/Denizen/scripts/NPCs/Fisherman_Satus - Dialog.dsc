@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Fisherman_Satus:
     type: data
+    debug: false
     display: <yellow>Fisherman
     welcome:
       dialog: <green>Glub, glub glub, glub, gargle. I am only kidding! How can i help you?

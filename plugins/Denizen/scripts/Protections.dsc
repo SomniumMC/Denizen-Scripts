@@ -4,6 +4,7 @@
 
 protections_script:
     type: world
+    debug: false
     events:
         on player right clicks item_frame:
         - if <context.entity.location.world.name> == world:

@@ -88,6 +88,7 @@
 
 Steel_Warhammer:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -117,6 +118,7 @@ Steel_Warhammer:
 
 Silver_Warhammer:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -146,6 +148,7 @@ Silver_Warhammer:
 
 Slate_Silver_Warhammer:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -175,6 +178,7 @@ Slate_Silver_Warhammer:
 
 Adamantine_Warhammer:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -204,6 +208,7 @@ Adamantine_Warhammer:
 
 Mythril_Warhammer:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:

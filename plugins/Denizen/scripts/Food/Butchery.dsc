@@ -4,6 +4,7 @@
 
 Butchery_Event:
     type: world
+    debug: false
     events:
         on player right clicks block with:*_Corpse:
         - if !<player.item_in_offhand.has_flag[slashing]>:
@@ -18,6 +19,7 @@ Butchery_Event:
 
 Butchery_Rewards:
     type: task
+    debug: false
     definitions: item
     script:
     - define mob <[item].flag[mob]>

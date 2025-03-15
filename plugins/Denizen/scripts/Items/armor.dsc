@@ -33,6 +33,7 @@
 #
 #Blast_Copper_Chestplate:
 #    type: item
+#    debug: false
 #    material: iron_chestplate
 #    mechanisms:
 #     custom_model_data: 10000
@@ -60,6 +61,7 @@
 #
 #Blast_Copper_Leggings:
 #    type: item
+#    debug: false
 #    material: iron_leggings
 #    mechanisms:
 #     custom_model_data: 10000
@@ -87,6 +89,7 @@
 #
 #Blast_Copper_Boots:
 #    type: item
+#    debug: false
 #    material: iron_boots
 #    mechanisms:
 #     custom_model_data: 10000
@@ -115,6 +118,7 @@
 ## Bronze
 #Bronze_Helmet:
 #    type: item
+#    debug: false
 #    material: iron_helmet
 #    mechanisms:
 #     custom_model_data: 10001
@@ -142,6 +146,7 @@
 #
 #Bronze_Chestplate:
 #    type: item
+#    debug: false
 #    material: iron_chestplate
 #    mechanisms:
 #     custom_model_data: 10001
@@ -169,6 +174,7 @@
 #
 #Bronze_Leggings:
 #    type: item
+#    debug: false
 #    material: iron_leggings
 #    mechanisms:
 #     custom_model_data: 10001
@@ -196,6 +202,7 @@
 #
 #Bronze_Boots:
 #    type: item
+#    debug: false
 #    material: iron_boots
 #    mechanisms:
 #     custom_model_data: 10001
@@ -224,6 +231,7 @@
 ## Iron
 #Blast_Iron_Helmet:
 #    type: item
+#    debug: false
 #    material: iron_helmet
 #    mechanisms:
 #     custom_model_data: 10002
@@ -251,6 +259,7 @@
 #
 #Blast_Iron_Chestplate:
 #    type: item
+#    debug: false
 #    material: iron_chestplate
 #    mechanisms:
 #     custom_model_data: 10002
@@ -278,6 +287,7 @@
 #
 #Blast_Iron_Leggings:
 #    type: item
+#    debug: false
 #    material: iron_leggings
 #    mechanisms:
 #     custom_model_data: 10002
@@ -305,6 +315,7 @@
 #
 #Blast_Iron_Boots:
 #    type: item
+#    debug: false
 #    material: iron_boots
 #    mechanisms:
 #     custom_model_data: 10002

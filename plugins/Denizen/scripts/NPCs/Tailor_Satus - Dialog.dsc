@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Tailor_Satus:
     type: data
+    debug: false
     display: <yellow>Tailor
     welcome:
       dialog: <green>Hello lovely, here for fine fabrics and garments?

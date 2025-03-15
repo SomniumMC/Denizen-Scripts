@@ -2,6 +2,7 @@
 
 Crafting_Master_Data:
     type: data
+    debug: false
     blacksmithing:
       armor:
       # Steel Armor

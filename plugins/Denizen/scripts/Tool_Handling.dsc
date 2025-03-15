@@ -92,6 +92,7 @@ Mending_Task:
 
 Vanilla_Equipment_Craft:
   type: world
+  debug: false
   events:
     on player crafts item_flagged:durability1:
     - determine <proc[Apply_Info_Proc].context[<context.item>]>

@@ -4,6 +4,7 @@
 
 Server_Start_Event:
     type: world
+    debug: false
     events:
         after server start:
         - wait 1m

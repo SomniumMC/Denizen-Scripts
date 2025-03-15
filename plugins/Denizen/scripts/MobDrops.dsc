@@ -4,6 +4,7 @@
 
 Vanilla_Drops:
     type: world
+    debug: false
     events:
         on cow death:
         - determine passively NO_DROPS
@@ -57,6 +58,7 @@ Vanilla_Drops:
 
 Cow_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Cow Corpse
   mechanisms:
@@ -69,6 +71,7 @@ Cow_Corpse:
 
 Sheep_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Sheep Corpse
   mechanisms:
@@ -81,6 +84,7 @@ Sheep_Corpse:
 
 Chicken_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Chicken Corpse
   mechanisms:
@@ -93,6 +97,7 @@ Chicken_Corpse:
 
 Pig_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Pig Corpse
   mechanisms:
@@ -105,6 +110,7 @@ Pig_Corpse:
 
 Horse_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Horse Corpse
   mechanisms:
@@ -117,6 +123,7 @@ Horse_Corpse:
 
 Goat_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Goat Corpse
   mechanisms:
@@ -129,6 +136,7 @@ Goat_Corpse:
 
 Rabbit_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Rabbit Corpse
   mechanisms:
@@ -141,6 +149,7 @@ Rabbit_Corpse:
 
 Mooshroom_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Mooshroom Cow Corpse
   mechanisms:
@@ -153,6 +162,7 @@ Mooshroom_Corpse:
 
 Hoglin_Corpse:
   type: item
+  debug: false
   material: brick
   display name: <red>Hoglin Corpse
   mechanisms:

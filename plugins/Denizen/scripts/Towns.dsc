@@ -9,6 +9,7 @@
 
 Town_Form_Event:
     type: world
+    debug: false
     events:
         on player right clicks block with:Town_Deed:
         - ratelimit <player> 1t
@@ -61,6 +62,7 @@ Town_Form_Event:
 Town_Pylon_Spawn:
 # This script spawns in the item model and interaction point that players can interface with a town.
     type: task
+    debug: false
     definitions: location
     # location refers to the <player.cursor_on> position
     script:
@@ -90,6 +92,7 @@ Town_Pylon_Interaction:
 
 Town_Form_Task:
     type: task
+    debug: false
     script:
     - define location <player.cursor_on.above[1]>
     - define town_name <player.flag[temp_town_name]>
@@ -140,6 +143,7 @@ Town_Rename_Placeholder_Item:
 
 Pylon_Interact_Event:
     type: world
+    debug: false
     events:
         # opens the GUI
         on player right clicks Town_Pylon_Interaction:
@@ -314,6 +318,7 @@ Pylon_Interact_Event:
 
 Pylon_Interact_Task:
     type: task
+    debug: false
     definitions: pylon
     script:
     - define town <[pylon].flag[town.name]>
@@ -434,6 +439,7 @@ Pylon_Residents_Skull:
 
 Pylon_Information_GUI:
     type: inventory
+    debug: false
     inventory: chest
     title: <gold><bold>City Information
     gui: true
@@ -492,6 +498,7 @@ Pylon_Information_GUI:
 
 Pylon_Map_GUI:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow>Town Map
     gui: true
@@ -519,6 +526,7 @@ Pylon_Map_GUI:
 
 Town_Claim_Flag:
     type: item
+    debug: false
     material: brick
     display name: <red>Claim Flag
     mechanisms:
@@ -530,6 +538,7 @@ Town_Claim_Flag:
 
 Pylon_Settings_GUI:
     type: inventory
+    debug: false
     inventory: chest
     title: <yellow>Town Settings
     gui: true
@@ -598,6 +607,7 @@ Pylon_Settings_GUI:
 
 Pylon_Settings_Event:
     type: world
+    debug: false
     events:
         after player edits book:
         - if <context.old_book.script.name> == Pylon_Settings_Message_Book:
@@ -616,6 +626,7 @@ Pylon_Settings_Event:
 
 Pylon_Settings_Wand:
     type: item
+    debug: false
     material: blaze_rod
     display name: <red>Pylon Settings Wand
     lore:
@@ -625,6 +636,7 @@ Pylon_Settings_Wand:
 
 Pylon_Settings_Message_Book:
     type: item
+    debug: false
     material: writable_book
     display name: <white>Town Message Of The Day Book
     lore:
@@ -633,6 +645,7 @@ Pylon_Settings_Message_Book:
 
 Pylon_Notice_Event:
   type: world
+  debug: false
   events:
     on player right clicks block with:Pylon_Notice_Message_Book:
     - if <player.flag[town.name]> != <player.item_in_hand.flag[town_name]>:
@@ -706,6 +719,7 @@ Pylon_Notice_Event:
 
 Pylon_Notices_GUI:
     type: inventory
+    debug: false
     inventory: chest
     title: <red>Notice Board
     gui: true
@@ -726,6 +740,7 @@ Pylon_Notices_GUI:
 
 Pylon_Notice_Message_Book_GUI:
   type: item
+  debug: false
   material: writable_book
   display name: <white>Notice Mode
   flags:
@@ -739,6 +754,7 @@ Pylon_Notice_Message_Book_GUI:
 
 Pylon_Notice_Message_Book:
   type: item
+  debug: false
   material: writable_book
   display name: <white>Notice Board Book
   lore:
@@ -746,6 +762,7 @@ Pylon_Notice_Message_Book:
 
 Notice_Book_Script_Notice:
   type: book
+  debug: false
   title: Title
   author: Town Name
   signed: false
@@ -754,6 +771,7 @@ Notice_Book_Script_Notice:
 
 Notice_Book_Script_Request:
   type: book
+  debug: false
   title: Title
   author: Town Name
   signed: false
@@ -763,6 +781,7 @@ Notice_Book_Script_Request:
 
 Town_Tiers_Data:
     type: data
+    debug: false
     Freeholding:
       name: <white>Freeholding
       size: 3x3
@@ -776,6 +795,7 @@ Town_Tiers_Data:
 
 Town_Claim_Event:
   type: world
+  debug: false
   events:
     on player right clicks block with:Town_Claim_Flag:
     - define location <context.location>
@@ -873,6 +893,7 @@ Town_Flag_Finisher:
 
 Town_Flag_Inventory:
   type: inventory
+  debug: false
   inventory: chest
   title: <red>Claim Flag Info
   gui: true
@@ -897,6 +918,7 @@ Town_Flag_Inventory:
 
 Town_Flag_Cleanup:
   type: task
+  debug: false
   definitions: flag
   script:
   - foreach <[flag].flag[models]> as:entity:
@@ -907,6 +929,7 @@ Town_Flag_Cleanup:
 
 Town_Flag_Claim:
   type: task
+  debug: false
   definitions: flag
   script:
   - teleport <player> <[flag].location>
@@ -920,6 +943,7 @@ Town_Flag_Claim:
 
 Town_Claim_Interaction:
   type: entity
+  debug: false
   entity_type: interaction
   mechanisms:
     height: 3
@@ -927,6 +951,7 @@ Town_Claim_Interaction:
 
 Town_Claim_Flag_GUI:
   type: item
+  debug: false
   material: brick
   display name: <red>Flag Info
   mechanisms:
@@ -934,6 +959,7 @@ Town_Claim_Flag_GUI:
 
 Town_Claim_Abort:
   type: item
+  debug: false
   material: red_concrete
   display name: <red><bold>Abort The Claim?
   lore:
@@ -943,5 +969,6 @@ Town_Claim_Abort:
 
 Town_Claim_Timer:
   type: item
+  debug: false
   material: clock
   display name: <blue>Timer

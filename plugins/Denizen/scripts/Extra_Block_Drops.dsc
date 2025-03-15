@@ -4,6 +4,7 @@
 
 Grass_Drop:
     type: world
+    debug: false
     events:
         after player breaks short_grass bukkit_priority:HIGHEST:
         - if <util.random_chance[45]>:

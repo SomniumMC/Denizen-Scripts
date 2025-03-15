@@ -280,6 +280,7 @@ Crafting_Minigame_Spawn:
 
 Crafting_Minigame_Event:
   type: world
+  debug: false
   events:
     on player right clicks Crafting_Minigame_Interaction:
     - ratelimit <player> 5t
@@ -368,6 +369,7 @@ Crafting_Minigame_Cleanup:
 
 Crafting_Station_Select_GUI:
   type: inventory
+  debug: false
   inventory: chest
   title: <yellow>Select a Station
   gui: true
@@ -389,6 +391,7 @@ Crafting_Station_Select_GUI:
 
 Crafting_Category_Select_GUI:
   type: inventory
+  debug: false
   inventory: chest
   title: <yellow>Select a Category
   gui: true
@@ -414,6 +417,7 @@ Crafting_Category_Select_GUI:
 
 Crafting_Recipe_Select_GUI:
   type: inventory
+  debug: false
   inventory: chest
   title: <yellow>Select a Recipe
   gui: true
@@ -448,8 +452,8 @@ Crafting_Recipe_Select_GUI:
 
 Crafting_Recipe_Proc:
   type: procedure
-  definitions: path
   debug: false
+  definitions: path
   script:
   - define ingredients <script[Crafting_Master_Data].data_key[<[path]>]>
   #- define tool <[ingredients].last.replace[_].with[ ].to_titlecase>
@@ -595,6 +599,7 @@ Crafting_Config_WorkbenchCleanup:
 
 Workbench_Interaction:
     type: entity
+    debug: false
     entity_type: interaction
     mechanisms:
         width: 1.1
@@ -602,6 +607,7 @@ Workbench_Interaction:
 
 Crafting_Interaction:
     type: entity
+    debug: false
     entity_type: interaction
     mechanisms:
         width: 1.1
@@ -609,6 +615,7 @@ Crafting_Interaction:
 
 Crafting_Minigame_Interaction:
     type: entity
+    debug: false
     entity_type: interaction
     mechanisms:
         width: 0.25
@@ -616,6 +623,7 @@ Crafting_Minigame_Interaction:
 
 Crafting_Minigame_Model:
     type: entity
+    debug: false
     entity_type: item_display
     mechanisms:
         scale: 0.25,0.25,0.25
@@ -623,6 +631,7 @@ Crafting_Minigame_Model:
 
 Crafting_Minigame_Textdisplay:
   type: entity
+  debug: false
   entity_type: text_display
   mechanisms:
     text: <element[<&lb>].color[white]><element[|].color[red].repeat[20]><element[<&rb>].color[white]>
@@ -634,6 +643,7 @@ Crafting_Minigame_Textdisplay:
 
 Crafting_Workbench:
     type: item
+    debug: false
     material: string
     display name: <red>Crafting Workbench
     mechanisms:
@@ -649,6 +659,7 @@ Crafting_Workbench:
 
 Crafting_Smelter:
     type: item
+    debug: false
     material: string
     display name: <red>Smelter
     mechanisms:
@@ -657,6 +668,7 @@ Crafting_Smelter:
 
 Crafting_Anvil:
     type: item
+    debug: false
     material: string
     display name: <red>Anvil
     mechanisms:
@@ -665,6 +677,7 @@ Crafting_Anvil:
 
 Crafting_Tailoring_Station:
     type: item
+    debug: false
     material: string
     display name: <red>Tailoring Station
     mechanisms:
@@ -673,6 +686,7 @@ Crafting_Tailoring_Station:
 
 Crafting_Agriculture_Station:
     type: item
+    debug: false
     material: string
     display name: <red>Agriculture Station
     mechanisms:
@@ -681,6 +695,7 @@ Crafting_Agriculture_Station:
 
 Crafting_Carpentry_Bench:
     type: item
+    debug: false
     material: string
     display name: <red>Carpentry Bench
     mechanisms:
@@ -696,6 +711,7 @@ Crafting_Carpentry_Bench:
 
 Crafting_Masonry_Station:
     type: item
+    debug: false
     material: string
     display name: <red>Masonry Station
     mechanisms:
@@ -704,6 +720,7 @@ Crafting_Masonry_Station:
 
 Crafting_MissingWorkbench:
     type: item
+    debug: false
     material: red_concrete
     display name: <red><bold>Missing Workbench!
     lore:
@@ -711,6 +728,7 @@ Crafting_MissingWorkbench:
 
 Config_Wrench:
     type: item
+    debug: false
     material: brick
     display name: <yellow>Configuration Wrench
     mechanisms:
@@ -726,6 +744,7 @@ Config_Wrench:
 
 Crafting_Tailorkit:
     type: item
+    debug: false
     material: brick
     display name: <red><bold>Missing Workbench!
     mechanisms:
@@ -734,6 +753,7 @@ Crafting_Tailorkit:
 
 Crafting_Hammer:
     type: item
+    debug: false
     material: brick
     display name: <red><bold>Missing Workbench!
     mechanisms:
@@ -742,6 +762,7 @@ Crafting_Hammer:
 
 #magic_pill:
 #    type: item
+#    debug: false
 #    material: apple
 #    display name: <red>Magic Pill
 #    mechanisms:
@@ -757,6 +778,7 @@ Crafting_Hammer:
 
 Crafting_Icon_Ingots:
   type: item
+  debug: false
   material: iron_ingot
   display name: <red>Ingots
   flags:
@@ -766,6 +788,7 @@ Crafting_Icon_Ingots:
 
 Crafting_Icon_Alloys:
   type: item
+  debug: false
   material: netherite_ingot
   display name: <red>Alloys
   flags:
@@ -775,6 +798,7 @@ Crafting_Icon_Alloys:
 
 Crafting_Icon_Armor:
   type: item
+  debug: false
   material: iron_chestplate
   display name: <red>Armor
   flags:
@@ -784,6 +808,7 @@ Crafting_Icon_Armor:
 
 Crafting_Icon_Leather_Armor:
   type: item
+  debug: false
   material: leather_chestplate
   display name: <red>Armor
   flags:
@@ -793,6 +818,7 @@ Crafting_Icon_Leather_Armor:
 
 Crafting_Icon_Weapons:
   type: item
+  debug: false
   material: iron_sword
   display name: <red>Weapons
   flags:
@@ -802,6 +828,7 @@ Crafting_Icon_Weapons:
 
 Crafting_Icon_Leather_Materials:
   type: item
+  debug: false
   material: leather
   display name: <red>Leather Materials
   flags:
@@ -811,6 +838,7 @@ Crafting_Icon_Leather_Materials:
 
 Crafting_Icon_Tools:
   type: item
+  debug: false
   material: iron_shovel
   display name: <red>Tools
   flags:
@@ -820,6 +848,7 @@ Crafting_Icon_Tools:
 
 Crafting_Icon_Stations:
   type: item
+  debug: false
   material: anvil
   display name: <red>Stations
   mechanisms:
@@ -832,6 +861,7 @@ Crafting_Icon_Stations:
 
 Crafting_Icon_Metal_Materials:
   type: item
+  debug: false
   material: iron_ingot
   display name: <red>Metal Materials
   flags:
@@ -841,6 +871,7 @@ Crafting_Icon_Metal_Materials:
 
 Crafting_Icon_Wooden_Materials:
   type: item
+  debug: false
   material: stick
   display name: <red>Wooden Materials
   flags:
@@ -850,6 +881,7 @@ Crafting_Icon_Wooden_Materials:
 
 Crafting_Icon_Ores:
   type: item
+  debug: false
   material: iron_ore
   display name: <red>Ores
   flags:
@@ -859,6 +891,7 @@ Crafting_Icon_Ores:
 
 Crafting_Icon_Furniture:
   type: item
+  debug: false
   material: string
   display name: <red>Furniture
   mechanisms:
@@ -871,6 +904,7 @@ Crafting_Icon_Furniture:
 
 Crafting_Icon_Cooking_Tools:
   type: item
+  debug: false
   material: brick
   display name: <red>Cooking Tools
   mechanisms:
@@ -883,6 +917,7 @@ Crafting_Icon_Cooking_Tools:
 
 Crafting_Icon_Farming_Storage:
   type: item
+  debug: false
   material: chest
   display name: <red>Farming Storage
   mechanisms:
@@ -895,6 +930,7 @@ Crafting_Icon_Farming_Storage:
 
 Crafting_Icon_Wooden_Equipment:
   type: item
+  debug: false
   material: fishing_rod
   display name: <red>Wooden Equipment
   flags:
@@ -904,6 +940,7 @@ Crafting_Icon_Wooden_Equipment:
 
 Crafting_Icon_Seeds:
   type: item
+  debug: false
   material: wheat_seeds
   display name: <red>Seeds
   mechanisms:
@@ -916,6 +953,7 @@ Crafting_Icon_Seeds:
 
 Crafting_Icon_Masonry_Blocks:
   type: item
+  debug: false
   material: stone_bricks
   display name: <red>Masonry Blocks
   flags:
@@ -925,6 +963,7 @@ Crafting_Icon_Masonry_Blocks:
 
 Crafting_Icon_Locks:
   type: item
+  debug: false
   material: iron_door
   display name: <red>Locks
   flags:

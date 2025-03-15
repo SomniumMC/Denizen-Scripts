@@ -2,6 +2,7 @@
 
 character:
     type: command
+    debug: false
     name: character
     description: Does something
     usage: /character
@@ -11,6 +12,7 @@ character:
 
 Character_Menu_Controls:
     type: world
+    debug: false
     events:
         on player clicks Character_Quests in Character_Menu:
         - inventory open d:Quest_Player_Inventory
@@ -25,6 +27,7 @@ Character_Menu_Controls:
 
 Character_Menu:
     type: inventory
+    debug: false
     title: <green>Character Menu
     inventory: chest
     gui: true
@@ -35,6 +38,7 @@ Character_Menu:
 
 Character_Stats_Menu:
     type: inventory
+    debug: false
     title: <green><bold>Basic Stats
     inventory: chest
     gui: true
@@ -45,6 +49,7 @@ Character_Stats_Menu:
 
 Character_RPC:
     type: item
+    debug: false
     material: player_head
     display name: <red>My RPC
     mechanisms:
@@ -56,6 +61,7 @@ Character_RPC:
 
 Character_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold><player.name||null>
     mechanisms:
@@ -63,6 +69,7 @@ Character_Head:
 
 Character_Stats:
     type: item
+    debug: false
     material: bell
     display name: <green>Character Stats
     lore:
@@ -70,6 +77,7 @@ Character_Stats:
 
 Character_Quests:
     type: item
+    debug: false
     material: filled_map
     display name: <yellow>Quests
     mechanisms:
@@ -79,6 +87,7 @@ Character_Quests:
 
 Character_Skills:
     type: item
+    debug: false
     material: ender_eye
     display name: <blue>Skills
     lore:
@@ -86,6 +95,7 @@ Character_Skills:
 
 Character_RPC_Events:
     type: world
+    debug: false
     events:
         on player clicks item in Character_RPC_Menu:
         - define item <context.item>
@@ -200,6 +210,7 @@ Character_RPC_Events:
 
 Character_RPC_Menu:
     type: inventory
+    debug: false
     inventory: chest
     gui: true
     title: <green>RPC Info
@@ -236,6 +247,7 @@ Character_RPC_Menu:
 
 Character_RPC_EditBook:
     type: item
+    debug: false
     material: writable_book
     display name: <green>Character Edit Book
     flags:
@@ -246,6 +258,7 @@ Character_RPC_EditBook:
 
 Character_RPC_ViewBook:
     type: item
+    debug: false
     material: written_book
     display name: <green>Character View Book
     flags:
@@ -256,6 +269,7 @@ Character_RPC_ViewBook:
 
 Character_RPC_Name:
     type: item
+    debug: false
     material: name_tag
     display name: <green>Character Name
     flags:
@@ -266,6 +280,7 @@ Character_RPC_Name:
 
 Character_RPC_Desc:
     type: item
+    debug: false
     material: paper
     display name: <green>Character Description
     flags:
@@ -276,6 +291,7 @@ Character_RPC_Desc:
 
 Character_RPC_Lore:
     type: item
+    debug: false
     material: book
     display name: <green>Character Lore
     flags:
@@ -286,6 +302,7 @@ Character_RPC_Lore:
 
 Character_RPC_Age:
     type: item
+    debug: false
     material: clock
     display name: <green>Character Age
     flags:
@@ -296,6 +313,7 @@ Character_RPC_Age:
 
 Character_RPC_Height:
     type: item
+    debug: false
     material: iron_boots
     display name: <green>Character Height
     flags:
@@ -306,6 +324,7 @@ Character_RPC_Height:
 
 Character_RPC_Profession:
     type: item
+    debug: false
     material: bookshelf
     display name: <green>Character Profession
     flags:
@@ -316,6 +335,7 @@ Character_RPC_Profession:
 
 Character_RPC_Journal:
     type: item
+    debug: false
     material: writable_book
     display name: <green>Character Journal
     lore:
@@ -324,6 +344,7 @@ Character_RPC_Journal:
 
 Character_RPC_Confirm:
     type: item
+    debug: false
     material: emerald
     display name: <green><bold>Confirm
     flags:
@@ -333,6 +354,7 @@ Character_RPC_Confirm:
 
 Character_RPC_Locked:
     type: item
+    debug: false
     material: barrier
     display name: <red><bold>Locked
     flags:
@@ -343,6 +365,7 @@ Character_RPC_Locked:
 
 Character_RPC_Status:
     type: item
+    debug: false
     material: emerald
     display name: <green>Application Status
     lore:
@@ -351,6 +374,7 @@ Character_RPC_Status:
 
 Character_RPC_AppSend:
     type: task
+    debug: false
     script:
     - if !<player.has_flag[character.rpc.name]>:
       - define fail:->:name
@@ -417,6 +441,7 @@ Character_RPC_AppSend:
 
 Character_RPC_Discord_Menu_Events:
     type: world
+    debug: false
     events:
         on discord selection used id:application_menu:
         - ~discordinteraction defer interaction:<context.interaction>
@@ -449,6 +474,7 @@ Character_RPC_Discord_Menu_Events:
 
 Character_RPC_Unlock:
     type: command
+    debug: false
     name: rpcunlock
     description: Does something
     usage: /rpcunlock <&lt>player_name<&gt>

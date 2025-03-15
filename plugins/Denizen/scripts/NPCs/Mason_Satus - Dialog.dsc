@@ -6,6 +6,7 @@
 
 NPC_DialogTree_Mason_Satus:
     type: data
+    debug: false
     display: <yellow>Mason
     welcome:
       dialog: <green>Hey... you.. want to see deals they're hiding from you? Secret deals on masonry <&dq>They<&dq> do not want you to know about.

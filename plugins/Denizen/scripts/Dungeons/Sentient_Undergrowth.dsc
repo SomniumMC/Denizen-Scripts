@@ -1,6 +1,7 @@
 #These ancient ruins haven't been explored in what would seem like hundreds of years.  However..  One never quite feels alone while trapped inside these 
 SomniData_Sentient_Undergrowth:
     type: data
+    debug: false
     origin: sentientunderpos3
     pos2: sentientunderpos4
     area: sentientundergrowth2
@@ -59,6 +60,7 @@ SomniData_Sentient_Undergrowth:
 
 SU_Pot:
   type: item
+  debug: false
   material: stick
   display name: <red>Sentient Undergrowth Pot
   mechanisms:

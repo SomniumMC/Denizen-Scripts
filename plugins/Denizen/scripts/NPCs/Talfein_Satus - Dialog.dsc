@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Talfein_Satus:
   type: data
+  debug: false
   welcome:
     dialog: <green>Ah, hello there! I'm Talfein, the chef of this tavern.
     option1:

@@ -5,6 +5,7 @@
 # First Created: 10/11/2024
 Lock_Event_Main:
     type: world
+    debug: false
     events:
         on player right clicks chest location_flagged:locked:
         - if <context.item.script.name||air> == lock_key && <context.item.flag[key_id]> == <context.location.flag[locked.id]>:
@@ -76,6 +77,7 @@ Lock_Event_Main:
 
 Keyring_Event:
     type: world
+    debug: false
     events:
         on player right clicks block with:Key_Ring priority:-25:
         - if <context.location.has_flag[locked]>:
@@ -123,6 +125,7 @@ Keyring_Event:
 
 Lock_Facer_Proc:
   type: procedure
+  debug: false
   definitions: direction
   script:
   - if <[direction]> == north:
@@ -136,6 +139,7 @@ Lock_Facer_Proc:
 
 Lock_New:
     type: task
+    debug: false
     definitions: lock|location
     script:
     - define id <server.flag[total_lock_id].add[1]>
@@ -168,6 +172,7 @@ Lock_New:
 
 Lock_Existing:
     type: task
+    debug: false
     definitions: lock|location|id
     script:
     - definemap lock_data:
@@ -193,6 +198,7 @@ Lock_Existing:
 
 Lock_Combo_Scramble:
     type: procedure
+    debug: false
     definitions: lock
     script:
     - choose <[lock]>:
@@ -208,6 +214,7 @@ Lock_Combo_Scramble:
 
 Lock_Picking_Event:
     type: world
+    debug: false
     events:
         after player opens Lock_Picking_GUI:
         - foreach <player.flag[lockpicking_target].flag[locked].keys> as:key:
@@ -281,6 +288,7 @@ Lock_Picking_Event:
 
 Lock_Picking_Reset:
     type: task
+    debug: false
     script:
     - define pin_list <list[11|12|13|14|15|16|17]>
     - foreach <[pin_list]> as:pin_slot:
@@ -312,6 +320,7 @@ Lock_Picking_Reset:
 
 Lock_Picking_Success:
     type: task
+    debug: false
     script:
     - flag <player.flag[lockpicking_target]> locked.state:broken
     - flag <player.flag[lockpicking_target]> locked.picked_by:->:<player.nameplate><&sp><util.time_now>
@@ -333,6 +342,7 @@ Lock_Picking_Success:
 
 Lock_Picking_GUI:
     type: inventory
+    debug: false
     inventory: chest
     title: <white>七七七七七七七七ㇺ
     gui: true
@@ -371,6 +381,7 @@ Lock_Picking_GUI:
 
 Lock_Cleanup:
   type: command
+  debug: false
   name: lock_cleanup
   description: Cleans up locked blocks from where the player is looking
   usage: /lock_cleanup
@@ -402,6 +413,7 @@ Keyring_Inv:
 
 Basic_Lock:
     type: item
+    debug: false
     material: brick
     display name: <white>Basic Lock
     mechanisms:
@@ -413,6 +425,7 @@ Basic_Lock:
 
 Advanced_Lock:
     type: item
+    debug: false
     material: brick
     display name: <white>Advanced Lock
     mechanisms:
@@ -424,6 +437,7 @@ Advanced_Lock:
 
 Blessed_Lock:
     type: item
+    debug: false
     material: brick
     display name: <white>Blessed Lock
     mechanisms:
@@ -435,6 +449,7 @@ Blessed_Lock:
 
 Lock_Key:
     type: item
+    debug: false
     material: brick
     display name: <gold>Key
     mechanisms:
@@ -443,6 +458,7 @@ Lock_Key:
 
 Key_Ring:
     type: item
+    debug: false
     material: skull_banner_pattern
     display name: <aqua>Key Ring
     mechanisms:
@@ -453,6 +469,7 @@ Key_Ring:
 
 Lockpick:
     type: item
+    debug: false
     material: brick
     display name: <dark_gray>Lock Pick
     mechanisms:
@@ -463,6 +480,7 @@ Lockpick:
 
 Lockpick_GUI:
     type: item
+    debug: false
     material: skull_banner_pattern
     display name: <dark_gray>Lock Pick
     mechanisms:
@@ -473,6 +491,7 @@ Lockpick_GUI:
 
 Lock_Pin:
     type: item
+    debug: false
     material: skull_banner_pattern
     display name: <gray>
     mechanisms:
@@ -484,6 +503,7 @@ Lock_Pin:
 
 Lock_SecurityPin:
     type: item
+    debug: false
     material: skull_banner_pattern
     display name: <gray>
     mechanisms:

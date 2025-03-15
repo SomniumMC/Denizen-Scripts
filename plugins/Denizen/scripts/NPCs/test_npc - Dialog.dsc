@@ -5,6 +5,7 @@
 
 NPC_DialogTree_test_npc:
     type: data
+    debug: false
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
     welcome:
       ## This shows what the NPC Says
@@ -70,6 +71,7 @@ NPC_DialogTree_test_npc:
 
 NPC_ShopData_test_npc:
   type: data
+  debug: false
   shop:
     ## Item Script Name
     bacon_cheeseburger:

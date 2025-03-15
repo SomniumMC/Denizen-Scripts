@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Blacksmith_Satus:
     type: data
+    debug: false
     welcome:
       dialog: <green> Who'sit Huh?!? What do ya need? Metals cooling, no time wasting!
       option1:
@@ -115,6 +116,7 @@ NPC_DialogTree_Blacksmith_Satus:
 
 NPC_ShopData_Blacksmith_Satus:
   type: data
+  debug: false
   shop:
     ## Item Script Name
     enchant_unbreak3:

@@ -7,6 +7,7 @@
 
 Race_Menu_Event:
     type: world
+    debug: false
     events:
         on player clicks item in race_select_inventory:
         - define item <context.item>
@@ -112,6 +113,7 @@ Race_Menu_Event:
 
 Race_Select_Inventory:
     type: inventory
+    debug: false
     title: <light_purple>Pick a Race!
     inventory: chest
     gui: true
@@ -126,12 +128,14 @@ Race_Select_Inventory:
 
 Race_Menu_Update:
     type: task
+    debug: false
     definitions: race
     script:
     - narrate "Hello, world!"
 
 Stat_Strength:
     type: item
+    debug: false
     material: orange_concrete
     display name: <element[Strength].color[#ff9838]>
     lore:
@@ -139,6 +143,7 @@ Stat_Strength:
 
 Stat_Agility:
     type: item
+    debug: false
     material: lime_concrete
     display name: <element[Agility].color[#a8ff36]>
     lore:
@@ -146,6 +151,7 @@ Stat_Agility:
 
 Stat_Toughness:
     type: item
+    debug: false
     material: Black_concrete
     display name: <element[Toughness].color[#5e523d]>
     lore:
@@ -153,6 +159,7 @@ Stat_Toughness:
 
 Stat_Endurance:
     type: item
+    debug: false
     material: Yellow_concrete
     display name: <element[Endurance].color[#bfb119]>
     lore:
@@ -160,6 +167,7 @@ Stat_Endurance:
 
 Stat_Vitality:
     type: item
+    debug: false
     material: red_concrete
     display name: <element[Vitality].color[#e85723]>
     lore:
@@ -167,6 +175,7 @@ Stat_Vitality:
 
 Stat_Wisdom:
     type: item
+    debug: false
     material: blue_concrete
     display name: <element[Wisdom].color[#1447b5]>
     lore:
@@ -174,6 +183,7 @@ Stat_Wisdom:
 
 Stat_Intelligence:
     type: item
+    debug: false
     material: light_blue_concrete
     display name: <element[Intelligence].color[#24c3e3]>
     lore:
@@ -181,6 +191,7 @@ Stat_Intelligence:
 
 Race_Human_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Human
     mechanisms:
@@ -200,6 +211,7 @@ Race_Human_Head:
 
 Race_Elf_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Elf
     mechanisms:
@@ -219,6 +231,7 @@ Race_Elf_Head:
 
 Race_Dwarf_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Dwarf
     mechanisms:
@@ -238,6 +251,7 @@ Race_Dwarf_Head:
 
 Race_Fairy_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Fairy
     mechanisms:
@@ -257,6 +271,7 @@ Race_Fairy_Head:
 
 Race_Orc_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Orc
     mechanisms:
@@ -276,6 +291,7 @@ Race_Orc_Head:
 
 Race_Finfolk_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Finfolk
     mechanisms:
@@ -295,6 +311,7 @@ Race_Finfolk_Head:
 
 Race_Zoaki_Head:
     type: item
+    debug: false
     material: player_head
     display name: <gold>Zoaki
     mechanisms:
@@ -314,6 +331,7 @@ Race_Zoaki_Head:
 
 Race_Goblin_Head:
   type: item
+  debug: false
   material: player_head
   display name: <gold>Goblin
   mechanisms:
@@ -376,6 +394,7 @@ Race_Bonus_Event:
           - adjust <context.entity> can_fly:true
 Race_Bonus_Task:
   type: task
+  debug: false
   script:
   - define race_bonus <player.flag[race.bonus]>
   - choose <[race_bonus]>:
