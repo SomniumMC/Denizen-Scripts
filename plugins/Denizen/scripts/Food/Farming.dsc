@@ -4,6 +4,7 @@
 
 Farming_Main_Event:
     type: world
+    debug: false
     events:
         on player right clicks farmland with:item_flagged:seed:
         - define item <context.item>
@@ -171,6 +172,7 @@ Farming_Main_Event:
 
 Cooking_Crop_Break:
     type: world
+    debug: false
     events:
         on wheat drops wheat from breaking:
         - determine passively cancelled
@@ -330,6 +332,7 @@ Cooking_Crop_Break:
 
 Farming_Seeds:
     type: data
+    debug: false
     vanilla:
       - wheat
       - carrot
@@ -363,6 +366,7 @@ Farming_Seeds:
 
 Farming_Outputs:
     type: data
+    debug: false
     wheat: new_wheat_3
     carrot: new_carrot_3
     potato: new_potato_3
@@ -399,6 +403,7 @@ Farming_Outputs:
 
 Seeds_Wheat:
     type: item
+    debug: false
     material: brick
     display name: <white>Wheat Seeds
     flags:
@@ -411,6 +416,7 @@ Seeds_Wheat:
     - <gold>A bundle of seeds that produces a crop of Wheat.
 Seeds_Carrot:
     type: item
+    debug: false
     material: brick
     display name: <white>Carrot Seeds
     flags:
@@ -423,6 +429,7 @@ Seeds_Carrot:
     - <gold>A bundle of seeds that produces a crop of Carrots.
 Seeds_Potato:
     type: item
+    debug: false
     material: brick
     display name: <white>Potato Seeds
     flags:
@@ -435,6 +442,7 @@ Seeds_Potato:
     - <gold>A bundle of seeds that produces a crop of Potatoes.
 Seeds_Pumpkin:
     type: item
+    debug: false
     material: brick
     display name: <white>Pumpkin Seeds
     flags:
@@ -447,6 +455,7 @@ Seeds_Pumpkin:
     - <gold>A bundle of seeds that produces a crop of Pumpkins.
 Seeds_Melon:
     type: item
+    debug: false
     material: brick
     display name: <white>Melon Seeds
     flags:
@@ -459,6 +468,7 @@ Seeds_Melon:
     - <gold>A bundle of seeds that produces a crop of Melons.
 Seeds_Beetroot:
     type: item
+    debug: false
     material: brick
     display name: <white>Beetroot Seeds
     flags:
@@ -471,6 +481,7 @@ Seeds_Beetroot:
     - <gold>A bundle of seeds that produces a crop of Beetroots.
 Seeds_Bamboo:
     type: item
+    debug: false
     material: brick
     display name: <white>Bamboo Seeds
     flags:
@@ -483,6 +494,7 @@ Seeds_Bamboo:
     - <gold>A bundle of shoots that sprout a bamboo sapling.
 Seeds_Sweet_Berry:
     type: item
+    debug: false
     material: brick
     display name: <white>Sweet Berry Seeds
     flags:
@@ -495,6 +507,7 @@ Seeds_Sweet_Berry:
     - <gold>A bundle of seeds that produces a bush of Sweet Berries.
 Seeds_Netherwart:
     type: item
+    debug: false
     material: brick
     display name: <white>Redwart Seeds
     flags:
@@ -510,6 +523,7 @@ Seeds_Netherwart:
 
 Seeds_Apple:
     type: item
+    debug: false
     material: brick
     display name: <white>Apple Seeds
     flags:
@@ -523,6 +537,7 @@ Seeds_Apple:
 
 Seeds_Strawberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Strawberry Seeds
     flags:
@@ -536,6 +551,7 @@ Seeds_Strawberry:
 
 Seeds_Blackberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Blackberry Seeds
     flags:
@@ -549,6 +565,7 @@ Seeds_Blackberry:
 
 Seeds_Cranberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Cranberry Seeds
     flags:
@@ -562,6 +579,7 @@ Seeds_Cranberry:
 
 Seeds_Blueberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Blueberry Seeds
     flags:
@@ -575,6 +593,7 @@ Seeds_Blueberry:
 
 Seeds_Gooseberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Gooseberry Seeds
     flags:
@@ -588,6 +607,7 @@ Seeds_Gooseberry:
 
 Seeds_Mulberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Mulberry Seeds
     flags:
@@ -601,6 +621,7 @@ Seeds_Mulberry:
 
 Seeds_Raspberry:
     type: item
+    debug: false
     material: brick
     display name: <white>Raspberry Seeds
     flags:
@@ -614,6 +635,7 @@ Seeds_Raspberry:
 
 Seeds_Tomato:
     type: item
+    debug: false
     material: brick
     display name: <white>Tomato Seeds
     flags:
@@ -627,6 +649,7 @@ Seeds_Tomato:
 
 Seeds_Rice:
     type: item
+    debug: false
     material: brick
     display name: <white>Rice Seeds
     flags:
@@ -640,6 +663,7 @@ Seeds_Rice:
 
 Seeds_Cinnamon:
     type: item
+    debug: false
     material: brick
     display name: <white>Cinnamon Seeds
     flags:
@@ -653,6 +677,7 @@ Seeds_Cinnamon:
 
 Seeds_Vanilla:
     type: item
+    debug: false
     material: brick
     display name: <white>Vanilla Seeds
     flags:
@@ -666,6 +691,7 @@ Seeds_Vanilla:
 
 Seeds_Ginger:
     type: item
+    debug: false
     material: brick
     display name: <white>Ginger Seeds
     flags:
@@ -679,6 +705,7 @@ Seeds_Ginger:
 
 Seeds_Corn:
     type: item
+    debug: false
     material: brick
     display name: <white>Corn Seeds
     flags:
@@ -692,6 +719,7 @@ Seeds_Corn:
 
 Seeds_Barley:
     type: item
+    debug: false
     material: brick
     display name: <white>Barley Seeds
     flags:
@@ -705,6 +733,7 @@ Seeds_Barley:
 
 Seeds_Rye:
     type: item
+    debug: false
     material: brick
     display name: <white>Rye Seeds
     flags:
@@ -718,6 +747,7 @@ Seeds_Rye:
 
 Seeds_Chili:
     type: item
+    debug: false
     material: brick
     display name: <white>Chili Seeds
     flags:
@@ -733,6 +763,7 @@ Seeds_Chili:
 
 Crop_Apple_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Apple Stage 0
     mechanisms:
@@ -740,6 +771,7 @@ Crop_Apple_0:
 
 Crop_Apple_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Apple Stage 1
     mechanisms:
@@ -747,6 +779,7 @@ Crop_Apple_1:
 
 Crop_Apple_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Apple Stage 2
     mechanisms:
@@ -754,6 +787,7 @@ Crop_Apple_2:
 
 Crop_Apple_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Apple Stage 3
     mechanisms:
@@ -761,6 +795,7 @@ Crop_Apple_3:
 
 Crop_Bush_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Bush Stage 0
     mechanisms:
@@ -768,6 +803,7 @@ Crop_Bush_0:
 
 Crop_Bush_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Bush Stage 1
     mechanisms:
@@ -775,6 +811,7 @@ Crop_Bush_1:
 
 Crop_Bush_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Bush Stage 2
     mechanisms:
@@ -782,6 +819,7 @@ Crop_Bush_2:
 
 Crop_Strawberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Strawberry Stage 3
     mechanisms:
@@ -789,6 +827,7 @@ Crop_Strawberry_3:
 
 Crop_Blackberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Blackberry Stage 3
     mechanisms:
@@ -797,6 +836,7 @@ Crop_Blackberry_3:
 
 Crop_Cranberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Cranberry Stage 3
     mechanisms:
@@ -805,6 +845,7 @@ Crop_Cranberry_3:
 
 Crop_Blueberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Blueberry Stage 3
     mechanisms:
@@ -813,6 +854,7 @@ Crop_Blueberry_3:
 
 Crop_Gooseberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Gooseberry Stage 3
     mechanisms:
@@ -821,6 +863,7 @@ Crop_Gooseberry_3:
 
 Crop_Mulberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Mulberry Stage 3
     mechanisms:
@@ -829,6 +872,7 @@ Crop_Mulberry_3:
 
 Crop_Raspberry_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Raspberry Stage 3
     mechanisms:
@@ -836,6 +880,7 @@ Crop_Raspberry_3:
 
 Crop_Tomato_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Tomato Stage 0
     mechanisms:
@@ -843,6 +888,7 @@ Crop_Tomato_0:
 
 Crop_Tomato_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Tomato Stage 1
     mechanisms:
@@ -850,6 +896,7 @@ Crop_Tomato_1:
 
 Crop_Tomato_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Tomato Stage 2
     mechanisms:
@@ -857,6 +904,7 @@ Crop_Tomato_2:
 
 Crop_Tomato_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Tomato Stage 3
     mechanisms:
@@ -865,6 +913,7 @@ Crop_Tomato_3:
 
 Crop_Rice_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rice Stage 0
     mechanisms:
@@ -872,6 +921,7 @@ Crop_Rice_0:
 
 Crop_Rice_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rice Stage 1
     mechanisms:
@@ -879,6 +929,7 @@ Crop_Rice_1:
 
 Crop_Rice_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rice Stage 2
     mechanisms:
@@ -886,6 +937,7 @@ Crop_Rice_2:
 
 Crop_Rice_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rice Stage 3
     mechanisms:
@@ -894,6 +946,7 @@ Crop_Rice_3:
 
 Crop_Cinnamon_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Cinnamon Stage 0
     mechanisms:
@@ -901,6 +954,7 @@ Crop_Cinnamon_0:
 
 Crop_Cinnamon_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Cinnamon Stage 1
     mechanisms:
@@ -908,6 +962,7 @@ Crop_Cinnamon_1:
 
 Crop_Cinnamon_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Cinnamon Stage 2
     mechanisms:
@@ -915,6 +970,7 @@ Crop_Cinnamon_2:
 
 Crop_Cinnamon_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Cinnamon Stage 3
     mechanisms:
@@ -922,6 +978,7 @@ Crop_Cinnamon_3:
 
 Crop_Vanilla_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Vanilla Stage 0
     mechanisms:
@@ -929,6 +986,7 @@ Crop_Vanilla_0:
 
 Crop_Vanilla_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Vanilla Stage 1
     mechanisms:
@@ -936,6 +994,7 @@ Crop_Vanilla_1:
 
 Crop_Vanilla_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Vanilla Stage 2
     mechanisms:
@@ -943,6 +1002,7 @@ Crop_Vanilla_2:
 
 Crop_Vanilla_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Vanilla Stage 3
     mechanisms:
@@ -950,6 +1010,7 @@ Crop_Vanilla_3:
 
 Crop_Ginger_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Ginger Stage 0
     mechanisms:
@@ -957,6 +1018,7 @@ Crop_Ginger_0:
 
 Crop_Ginger_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Ginger Stage 1
     mechanisms:
@@ -964,6 +1026,7 @@ Crop_Ginger_1:
 
 Crop_Ginger_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Ginger Stage 2
     mechanisms:
@@ -971,6 +1034,7 @@ Crop_Ginger_2:
 
 Crop_Ginger_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Ginger Stage 3
     mechanisms:
@@ -978,6 +1042,7 @@ Crop_Ginger_3:
 
 Crop_Corn_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Corn Stage 0
     mechanisms:
@@ -985,6 +1050,7 @@ Crop_Corn_0:
 
 Crop_Corn_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Corn Stage 1
     mechanisms:
@@ -992,6 +1058,7 @@ Crop_Corn_1:
 
 Crop_Corn_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Corn Stage 2
     mechanisms:
@@ -999,6 +1066,7 @@ Crop_Corn_2:
 
 Crop_Corn_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Corn Stage 3
     mechanisms:
@@ -1006,6 +1074,7 @@ Crop_Corn_3:
 
 Crop_Barley_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Barley Stage 0
     mechanisms:
@@ -1013,6 +1082,7 @@ Crop_Barley_0:
 
 Crop_Barley_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Barley Stage 1
     mechanisms:
@@ -1020,6 +1090,7 @@ Crop_Barley_1:
 
 Crop_Barley_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Barley Stage 2
     mechanisms:
@@ -1027,6 +1098,7 @@ Crop_Barley_2:
 
 Crop_Barley_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Barley Stage 3
     mechanisms:
@@ -1034,6 +1106,7 @@ Crop_Barley_3:
 
 Crop_Rye_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rye Stage 0
     mechanisms:
@@ -1041,6 +1114,7 @@ Crop_Rye_0:
 
 Crop_Rye_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rye Stage 1
     mechanisms:
@@ -1048,6 +1122,7 @@ Crop_Rye_1:
 
 Crop_Rye_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rye Stage 2
     mechanisms:
@@ -1055,6 +1130,7 @@ Crop_Rye_2:
 
 Crop_Rye_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Rye Stage 3
     mechanisms:
@@ -1062,6 +1138,7 @@ Crop_Rye_3:
 
 Crop_Chili_0:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Chili Stage 0
     mechanisms:
@@ -1069,6 +1146,7 @@ Crop_Chili_0:
 
 Crop_Chili_1:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Chili Stage 1
     mechanisms:
@@ -1076,6 +1154,7 @@ Crop_Chili_1:
 
 Crop_Chili_2:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Chili Stage 2
     mechanisms:
@@ -1083,6 +1162,7 @@ Crop_Chili_2:
 
 Crop_Chili_3:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <light_purple>Chili Stage 3
     mechanisms:

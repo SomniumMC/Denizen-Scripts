@@ -231,6 +231,7 @@ Restaurant_Chair_Interaction:
 
 Restaurant_Table_Kit:
   type: item
+  debug: false
   material: rabbit_foot
   display name: <blue>Restaurant Table Kit
   flags:
@@ -241,6 +242,7 @@ Restaurant_Table_Kit:
 
 Restaurant_Chair_Kit:
   type: item
+  debug: false
   material: rabbit_foot
   display name: <blue>Restaurant Chair Kit
   flags:
@@ -987,6 +989,7 @@ Cooking_4_Craft:
 
 Cooking_Link_Tool:
   type: item
+  debug: false
   material: brick
   display name: <element[Cooking Link Tool].color[#ff9838]>
   lore:

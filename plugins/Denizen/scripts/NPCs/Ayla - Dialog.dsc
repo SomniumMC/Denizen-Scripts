@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Ayla:
   type: data
+  debug: false
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
   welcome:
     dialog: <green>Oh, hello there! Welcome to the Crowned Crow! What can I do for you?

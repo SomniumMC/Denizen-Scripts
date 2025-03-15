@@ -6,6 +6,7 @@
 
 Quest_Data_Tutorial_Beginnings:
     type: data
+    debug: false
     quest_name: <yellow>Tutorial - New Beginnings
     1:
       description: <green>Talk to Rhea at the middle of the ship.

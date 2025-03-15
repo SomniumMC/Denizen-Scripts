@@ -2,6 +2,7 @@
 
 Mining_Main_Event:
     type: world
+    debug: false
     events:
         on player breaks *_ore bukkit_priority:HIGHEST:
         - if <player.item_in_hand.enchantment_map.get[silk_touch]||null> != null:

@@ -4,6 +4,7 @@
 
 Platters_Event:
     type: world
+    debug: false
     events:
         on player right clicks block with:item_flagged:platter:
         - define location <context.location.above[1]>
@@ -84,6 +85,7 @@ Platters_Event:
 
 Platter_Data:
     type: data
+    debug: false
     empty:
       model: 32001
       food:
@@ -114,6 +116,7 @@ Platter_Data:
 
 Platter_Interaction:
     type: entity
+    debug: false
     entity_type: interaction
     mechanisms:
         height: 0.5
@@ -121,6 +124,7 @@ Platter_Interaction:
 
 Empty_Platter:
     type: item
+    debug: false
     material: brick
     display name: <green>Empty Platter
     mechanisms:
@@ -130,6 +134,7 @@ Empty_Platter:
 
 Vegetarian_Platter:
     type: item
+    debug: false
     material: brick
     display name: <green>Vegetarian Platter
     mechanisms:
@@ -139,6 +144,7 @@ Vegetarian_Platter:
 
 Carnivore_Platter:
     type: item
+    debug: false
     material: brick
     display name: <green>Carnivore Platter
     mechanisms:
@@ -148,6 +154,7 @@ Carnivore_Platter:
 
 Dessert_Platter:
     type: item
+    debug: false
     material: brick
     display name: <green>Dessert Platter
     mechanisms:

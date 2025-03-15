@@ -87,6 +87,7 @@
 
 Steel_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
       components_patch:
@@ -118,6 +119,7 @@ Steel_Sword:
 
 Silver_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -147,6 +149,7 @@ Silver_Sword:
 
 Slate_Silver_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -176,6 +179,7 @@ Slate_Silver_Sword:
 
 Adamantine_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -205,6 +209,7 @@ Adamantine_Sword:
 
 Mythril_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -236,6 +241,7 @@ Mythril_Sword:
 
 Crafted_Blast_Copper_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10000
@@ -261,6 +267,7 @@ Crafted_Blast_Copper_Sword:
 
 Crafted_Blast_Iron_Sword:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10002

@@ -88,6 +88,7 @@
 
 Steel_Spear:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -117,6 +118,7 @@ Steel_Spear:
 
 Silver_Spear:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -146,6 +148,7 @@ Silver_Spear:
 
 Slate_Silver_Spear:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      components_patch:
@@ -175,6 +178,7 @@ Slate_Silver_Spear:
 
 Adamantine_Spear:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10030
@@ -203,6 +207,7 @@ Adamantine_Spear:
 
 Mythril_Spear:
     type: item
+    debug: false
     material: iron_sword
     mechanisms:
      custom_model_data: 10031

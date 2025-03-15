@@ -4,6 +4,7 @@
 
 Fishing_Main_Event:
   type: world
+  debug: false
   events:
       on player fishes item while Caught_Fish:
       - define item <context.item>
@@ -29,6 +30,7 @@ Fishing_Main_Event:
 
 Fishing_Table:
   type: data
+  debug: false
   normal_fish:
     - cooking_raw_fish
   custom_fish:
@@ -61,6 +63,7 @@ Fishing_Table:
 
 Fishing_Proc:
     type: procedure
+    debug: false
     script:
     #- choose <list[custom_fish]>
     - if <util.random_chance[70]>:
@@ -74,6 +77,7 @@ Fishing_Proc:
 
 Fish_Anchovy:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1101
@@ -92,6 +96,7 @@ Fish_Anchovy:
     - <red>Dangerous
 Fish_Bass:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1102
@@ -110,6 +115,7 @@ Fish_Bass:
     - <red>Dangerous
 Fish_Carp:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1103
@@ -128,6 +134,7 @@ Fish_Carp:
     - <red>Dangerous
 Fish_Catfish:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1104
@@ -146,6 +153,7 @@ Fish_Catfish:
     - <red>Dangerous
 Fish_Charr:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1105
@@ -164,6 +172,7 @@ Fish_Charr:
     - <red>Dangerous
 Fish_Clam:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1106
@@ -182,6 +191,7 @@ Fish_Clam:
     - <red>Dangerous
 Fish_Crab:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1107
@@ -200,6 +210,7 @@ Fish_Crab:
     - <red>Dangerous
 Fish_Crayfish:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1108
@@ -218,6 +229,7 @@ Fish_Crayfish:
     - <red>Dangerous
 Fish_Eel:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1109
@@ -236,6 +248,7 @@ Fish_Eel:
     - <red>Dangerous
 Fish_Grouper:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1110
@@ -254,6 +267,7 @@ Fish_Grouper:
     - <red>Dangerous
 Fish_Herring:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1111
@@ -272,6 +286,7 @@ Fish_Herring:
     - <red>Dangerous
 Fish_Jellyfish:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1112
@@ -290,6 +305,7 @@ Fish_Jellyfish:
     - <red>Dangerous
 Fish_Octopus:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1113
@@ -308,6 +324,7 @@ Fish_Octopus:
     - <red>Dangerous
 Fish_Perch:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1114
@@ -326,6 +343,7 @@ Fish_Perch:
     - <red>Dangerous
 Fish_Sardine:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1115
@@ -344,6 +362,7 @@ Fish_Sardine:
     - <red>Dangerous
 Fish_Scallop:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1116
@@ -362,6 +381,7 @@ Fish_Scallop:
     - <red>Dangerous
 Fish_Shrimp:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1117
@@ -380,6 +400,7 @@ Fish_Shrimp:
     - <red>Dangerous
 Fish_Snapper:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1118
@@ -398,6 +419,7 @@ Fish_Snapper:
     - <red>Dangerous
 Fish_Tilapia:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1119
@@ -416,6 +438,7 @@ Fish_Tilapia:
     - <red>Dangerous
 Fish_Trout:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1120
@@ -434,6 +457,7 @@ Fish_Trout:
     - <red>Dangerous
 Fish_Tuna:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1121
@@ -452,6 +476,7 @@ Fish_Tuna:
     - <red>Dangerous
 Fish_Walleye:
     type: item
+    debug: false
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1122

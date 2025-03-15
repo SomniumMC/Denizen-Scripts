@@ -6,6 +6,7 @@
 
 NPC_DialogTree_Grocer_Satus:
     type: data
+    debug: false
     display: <yellow>Grocer
     welcome:
       dialog: <green>Fresh produce and seasoning for sale! How can I help you?
@@ -43,6 +44,7 @@ NPC_DialogTree_Grocer_Satus:
 
 NPC_ShopData_Grocer_Satus:
   type: data
+  debug: false
   shop:
     ## Item Script Name
     new_bread:

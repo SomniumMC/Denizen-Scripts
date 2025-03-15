@@ -1,6 +1,7 @@
 #Discord Bot handler.
 connect_to_discord:
     type: world
+    debug: false
     events:
         after server start:
         - ~discordconnect id:mybot tokenfile:data/discord.dat

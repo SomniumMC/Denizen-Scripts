@@ -4,6 +4,7 @@
 
 Death_Module:
     type: world
+    debug: false
     events:
         on player dies:
         - define cause <context.cause>
@@ -70,6 +71,7 @@ Death_Module:
 
 Death_Storage:
     type: inventory
+    debug: false
     inventory: chest
     gui: true
     procedural items:
@@ -93,6 +95,7 @@ Death_Storage:
 
 Death_Equip_Damage:
     type: task
+    debug: false
     definitions: slot
     script:
     - define item <player.inventory.slot[<[slot]>]>

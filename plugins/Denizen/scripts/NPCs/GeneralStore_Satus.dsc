@@ -6,6 +6,7 @@
 
 NPC_DialogTree_GeneralStore_Satus:
     type: data
+    debug: false
     display: <yellow>General Store
     welcome:
       dialog: <green>Tools and supplies for sale! How can I help you?

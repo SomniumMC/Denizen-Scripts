@@ -81,6 +81,7 @@ SomniReset:
 
 SomniModiCube:
     type: task
+    debug: false
     definitions: pos1|pos2|replace|replacement|special|origin
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -97,6 +98,7 @@ SomniModiCube:
 
 SomniFurniture:
     type: task
+    debug: false
     definitions: pos1|pos2|origin|furniture|yaw|chance
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -107,6 +109,7 @@ SomniFurniture:
 
 SomniMob:
     type: task
+    debug: false
     definitions: pos1|origin|mob|mythicmob
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed.center.below[0.5]>
@@ -193,6 +196,7 @@ SomniChest:
 
 SomniDungeonCore:
     type: task
+    debug: false
     definitions: pos|origin|health|area|somni
     script:
     - define random_position <[pos].random>
@@ -216,6 +220,7 @@ SomniDungeonCore:
 
 SomniReturnPortal:
     type: task
+    debug: false
     definitions: pos1|origin|somni
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -238,6 +243,7 @@ SomniLocationProc:
 
 SomniBlockReplacements:
   type: data
+  debug: false
   ore1:
     coal_ore:
       weight: 100
@@ -299,6 +305,7 @@ SomniChestSlot_Proc:
 
 SomniCoordTool:
     type: item
+    debug: false
     material: light_blue_stained_glass
     display name: <gold><bold>Somni Tape Measurer
     flags:
@@ -310,6 +317,7 @@ SomniCoordTool:
 
 SomniTapeMeasurer:
     type: world
+    debug: false
     events:
         on player breaks block with:SomniCoordTool:
         - determine passively cancelled
@@ -333,6 +341,7 @@ SomniTapeMeasurer:
 
 SomniBreakable_Handler:
     type: world
+    debug: false
     events:
         on player damages Somni_Breakable:
         - if <context.entity.has_flag[breakable]>:
@@ -386,6 +395,7 @@ SomniBreakable_Handler:
 
 SomniBreakable_Loot:
     type: task
+    debug: false
     definitions: location|table
     script:
     - if <[table]||null> == null:
@@ -552,6 +562,7 @@ Dungeon_Core_Interaction:
 
 Dungeon_Core:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Core
     mechanisms:
@@ -559,6 +570,7 @@ Dungeon_Core:
 
 Dungeon_Core_Stabilizer:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Core Stabilizer
     mechanisms:
@@ -566,6 +578,7 @@ Dungeon_Core_Stabilizer:
 
 Dungeon_Return_Portal:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Return Portal
     mechanisms:
@@ -573,6 +586,7 @@ Dungeon_Return_Portal:
 
 Dungeon_Spawner:
     type: item
+    debug: false
     material: string
     display name: <red><bold>Dungeon Spawner
     mechanisms:
@@ -581,6 +595,7 @@ Dungeon_Spawner:
 
 Dungeon_Spawner_Interaction:
     type: entity
+    debug: false
     entity_type: interaction
     mechanisms:
         height: 1
@@ -588,6 +603,7 @@ Dungeon_Spawner_Interaction:
 
 Dungeon_Stone:
     type: item
+    debug: false
     material: rabbit_foot
     display name: <red><bold>Dungeon Stone
     mechanisms:
@@ -595,6 +611,7 @@ Dungeon_Stone:
 
 Dungeon_Stone_Interaction:
     type: entity
+    debug: false
     entity_type: interaction
     mechanisms:
         #is_aware: true
@@ -603,6 +620,7 @@ Dungeon_Stone_Interaction:
 
 Somni_Stone_Interaction:
   type: world
+  debug: false
   events:
     on player right clicks Dungeon_Stone_Interaction:
     - ratelimit <player> 1t
@@ -614,6 +632,7 @@ Somni_Stone_Interaction:
 
 SomniMenu_Inventory:
   type: inventory
+  debug: false
   inventory: chest
   gui: true
   title: <gold>Dungeon Stone Network
@@ -639,6 +658,7 @@ SomniMenu_Inventory:
 
 SomniMenu_Data:
   type: data
+  debug: false
   testschem:
     name: <white>Test Schematic Cell
     cost: 0

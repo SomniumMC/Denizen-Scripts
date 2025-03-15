@@ -25,6 +25,7 @@ Master_Pickup_Event:
 
 Master_Pickup_Data:
     type: data
+    debug: false
     apple: new_apple
     melon_slice: new_melon_slice
     cocoa_beans: new_cocoa_beans

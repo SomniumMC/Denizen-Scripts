@@ -4,6 +4,7 @@
 
 RepairEvent:
     type: world
+    debug: false
     events:
       on player right clicks Iron_Block with:item_flagged:durability1:
       - ratelimit <player> 1t
@@ -12,6 +13,7 @@ RepairEvent:
 
 #RepairEvent:
 #    type: world
+#    debug: false
 #    events:
 #        on player right clicks Iron_Block with:item_flagged:durability1:
 #        - if !<player.has_flag[temp_double_click]>:
@@ -88,6 +90,7 @@ RepairEvent:
 #
 #SalvageEvent:
 #    type: world
+#    debug: false
 #    events:
 #        on player right clicks Gold_Block with:item_flagged:durability1:
 #        - if !<player.has_flag[temp_double_click]>:

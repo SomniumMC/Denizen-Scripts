@@ -9,22 +9,26 @@
 
 GUINull:
     type: item
+    debug: false
     material: gray_stained_glass_pane
     display name: <green>
 GUIReturn:
     type: item
+    debug: false
     material: brick
     display name: <light_purple><bold>Return to Menu
     mechanisms:
       custom_model_data: 1
 GUIL:
     type: item
+    debug: false
     material: brick
     display name: <red>Previous Page
     mechanisms:
       custom_model_data: 3
 GUIR:
     type: item
+    debug: false
     material: brick
     display name: <green>Next Page
     mechanisms:
@@ -35,6 +39,7 @@ GUIR:
 
 HandcombatIcon:
     type: item
+    debug: false
     material: orange_stained_glass_pane
     display name: <green>Hand Combat
     mechanisms:
@@ -45,6 +50,7 @@ HandcombatIcon:
       trait: Hand Combat
 MiningIcon:
     type: item
+    debug: false
     material: orange_stained_glass_pane
     display name: <green>Mining
     mechanisms:
@@ -56,6 +62,7 @@ MiningIcon:
       trait: Mining
 AgilityIcon:
     type: item
+    debug: false
     material: orange_stained_glass_pane
     display name: <green>Agility
     mechanisms:
@@ -66,6 +73,7 @@ AgilityIcon:
       trait: Agility
 CraftingIcon:
     type: item
+    debug: false
     material: orange_stained_glass_pane
     display name: <green>Crafting
     mechanisms:
@@ -76,6 +84,7 @@ CraftingIcon:
       trait: Crafting
 CookingIcon:
     type: item
+    debug: false
     material: orange_stained_glass_pane
     display name: <green>Cooking
     mechanisms:
@@ -86,6 +95,7 @@ CookingIcon:
       trait: Cooking
 FishingIcon:
     type: item
+    debug: false
     material: orange_stained_glass_pane
     display name: <green>Fishing
     mechanisms:
@@ -97,6 +107,7 @@ FishingIcon:
 
 CookingReturn:
     type: item
+    debug: false
     material: brick
     display name: <light_purple><bold>Return to Index
     mechanisms:
@@ -104,6 +115,7 @@ CookingReturn:
 
 CookingButtonR:
     type: item
+    debug: false
     material: brick
     display name: <green>Next Page
     mechanisms:
@@ -111,6 +123,7 @@ CookingButtonR:
 
 CookingButtonL:
     type: item
+    debug: false
     material: brick
     display name: <red>Previous Page
     mechanisms:
@@ -118,6 +131,7 @@ CookingButtonL:
 
 CookingNull:
     type: item
+    debug: false
     material: brick
     display name: <gray>
     mechanisms:
@@ -125,6 +139,7 @@ CookingNull:
 
 CookingIndex:
     type: item
+    debug: false
     material: brick
     display name: <light_purple><bold>Index
     mechanisms:
@@ -132,6 +147,7 @@ CookingIndex:
 
 CookingTool:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Tools
     mechanisms:
@@ -139,6 +155,7 @@ CookingTool:
 
 CookingDairy:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Dairy
     mechanisms:
@@ -146,6 +163,7 @@ CookingDairy:
 
 CookingFruit:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Fruits
     mechanisms:
@@ -153,6 +171,7 @@ CookingFruit:
 
 CookingGrain:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Grains
     mechanisms:
@@ -160,6 +179,7 @@ CookingGrain:
 
 CookingProtein:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Proteins
     mechanisms:
@@ -167,6 +187,7 @@ CookingProtein:
 
 CookingVegetable:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Vegetables
     mechanisms:
@@ -174,6 +195,7 @@ CookingVegetable:
 
 CookingSugar:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Sugars
     mechanisms:
@@ -181,6 +203,7 @@ CookingSugar:
 
 CookingMisc:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Miscellaneous
     mechanisms:
@@ -188,6 +211,7 @@ CookingMisc:
 
 CookingStorage:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Storage
     mechanisms:
@@ -195,6 +219,7 @@ CookingStorage:
 
 CookingSeed:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Seeds
     mechanisms:
@@ -202,6 +227,7 @@ CookingSeed:
 
 CookingNutrition:
     type: item
+    debug: false
     material: brick
     display name: <Gold><bold>Nutrition
     mechanisms:
@@ -209,6 +235,7 @@ CookingNutrition:
 
 CookingNutritionOpt:
     type: item
+    debug: false
     material: brick
     display name: <white>Opt In Status: <red><bold>FALSE
     mechanisms:
@@ -223,6 +250,7 @@ CookingNutritionOpt:
     - <white>This is not mandatory to play the game and is only a voluntary addition to the experience.
 CookingNutritionTier:
     type: item
+    debug: false
     material: brick
     display name: <White>Nutrition Tier<&co> <Red><bold>DISABLED
     mechanisms:
@@ -238,6 +266,7 @@ CookingNutritionTier:
 
 CookingDye:
     type: item
+    debug: false
     material: brick
     display name: <green><bold>Dyes
     mechanisms:

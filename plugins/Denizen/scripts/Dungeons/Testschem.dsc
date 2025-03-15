@@ -2,6 +2,7 @@
 
 SomniData_TestSchem:
     type: data
+    debug: false
     origin: testschempos3
     pos2: testschempos4
     area: schemtest2

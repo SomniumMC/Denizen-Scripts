@@ -4,6 +4,7 @@
 
 SomniLoot_Table:
     type: data
+    debug: false
     test1:
       quantity: 1-5
       items:

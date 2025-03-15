@@ -6,6 +6,7 @@
 
 Quest_Data_test_quest:
     type: data
+    debug: false
     quest_name: <yellow>Test Quest - The False Fountain
     1:
       description: <green>Go check out the town square.
@@ -20,6 +21,7 @@ Quest_Data_test_quest:
 
 Quest_Event_test_quest:
     type: world
+    debug: false
     events:
         on player enters fake_town_square flagged:quest.test_quest:
         - if <player.flag[quest.test_quest.stage]> == 1:

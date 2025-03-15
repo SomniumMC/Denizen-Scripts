@@ -8,6 +8,7 @@
 
 Quest_Player_Inventory:
     type: inventory
+    debug: false
     inventory: chest
     title: <green>Current Quests
     size: 36
@@ -32,6 +33,7 @@ Quest_Player_Inventory:
 
 Quest_Inventory_Update_Event:
   type: world
+  debug: false
   events:
     after player opens Quest_Player_Inventory:
     - wait 1t
@@ -43,6 +45,7 @@ Quest_Inventory_Update_Event:
 
 Quest_Display_Proc:
   type: procedure
+  debug: false
   definitions: item
   script:
   - define quest_data <script[Quest_Data_<[item].flag[quest_id]>]>
@@ -64,6 +67,7 @@ Quest_Display_Proc:
 
 Quest_Inventory_Command:
     type: command
+    debug: false
     description: Opens the player quests menu.
     name: quests
     usage: /quests

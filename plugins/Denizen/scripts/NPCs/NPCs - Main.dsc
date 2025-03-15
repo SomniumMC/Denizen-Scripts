@@ -4,6 +4,7 @@
 
 NPC_Event_Main:
     type: world
+    debug: false
     events:
         on player right clicks npc:
         - ratelimit <player> 5t
@@ -19,6 +20,7 @@ NPC_Event_Main:
 
 NPC_Dialog_Welcome:
     type: task
+    debug: false
     definitions: npc_name|npc_id
     script:
     - define dialog_data <script[NPC_DialogTree_<[npc_name]>]>
@@ -30,6 +32,7 @@ NPC_Dialog_Welcome:
 
 NPC_ID_Storage:
     type: data
+    debug: false
     6: test_npc
     0: Nyomi
     1: Rhea
@@ -60,6 +63,7 @@ NPC_ID_Storage:
 
 NPC_Chat:
     type: task
+    debug: false
     definitions: data|type|npc|npc_display
     script:
     - flag <player> chatting:<[npc]> expire:1m
@@ -133,6 +137,7 @@ NPC_Chat:
 
 NPC_Chat_Command:
     type: command
+    debug: false
     name: npcchat
     description: Does something
     usage: /npcchat npc chat_flag
@@ -169,6 +174,7 @@ NPC_Chat_Command:
 
 NPC_Shop_GUI:
   type: inventory
+  debug: false
   inventory: chest
   title: <green>Shop
   gui: true
@@ -206,6 +212,7 @@ NPC_Shop_GUI:
 
 NPC_Shop_Event:
   type: world
+  debug: false
   events:
     on player clicks item in NPC_Shop_GUI:
     - define item <context.item>
@@ -278,6 +285,7 @@ NPC_Shop_Event:
 
 NPC_Shop_PriceDisplay_Proc:
   type: procedure
+  debug: false
   definitions: item
   script:
   - define entry_data <[item].flag[entry_data]>

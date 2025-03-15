@@ -1,5 +1,6 @@
 staff_warp:
     type: command
+    debug: false
     description: Use this to warp between staff builds or waypoints.
     name: staffwarp
     usage: /staffwarp <&lt>Warp_Name<&gt>
@@ -12,6 +13,7 @@ staff_warp:
     - teleport <player> <context.raw_args>
 create_staff_warp:
     type: command
+    debug: false
     description: Use this create new warps to staff builds or waypoints.
     name: createstaffwarp
     usage: /createstaffwarp <&lt>Warp_Name<&gt>
@@ -24,6 +26,7 @@ create_staff_warp:
     - note <player.location> as:<context.raw_args>
 delete_staff_warp:
     type: command
+    debug: false
     description: Use this remove waypoints or warps.
     name: deletestaffwarp
     usage: /deletestaffwarp <&lt>Warp_Name<&gt>
@@ -39,6 +42,7 @@ delete_staff_warp:
 
 Staff_Give_Command:
     type: command
+    debug: false
     description: This gives the item to the Staff with all info applied
     name: staffgive
     usage: /staffgive <&lt>Item<&gt> <&lt>Player<&gt>
@@ -56,6 +60,7 @@ Staff_Give_Command:
 
 Staff_Model_Command:
     type: command
+    debug: false
     description: This spawns an item or block with a custom model
     name: staffmodel
     usage: /staffmodel <&lt>NAMESPACE:MODELPATH<&gt>
@@ -80,6 +85,7 @@ Staff_Model_Command:
 
 Staff_Storage_Command:
     type: command
+    debug: false
     description: This is a menu for Staff to use to find any created items or add new items.
     name: staffstorage
     usage: /staffstorage <&lt>Category<&gt> <&lt>Add<&gt>
@@ -113,6 +119,7 @@ Staff_Storage_Command:
 
 Staff_Storage_Event:
     type: world
+    debug: false
     events:
       on player clicks SStorage_Food in Staff_Storage_*:
       - flag <player> temp_inventory_page:0
@@ -178,6 +185,7 @@ Staff_Storage_Event:
 
 Staff_Storage_Main:
     type: inventory
+    debug: false
     inventory: chest
     title: <light_purple>Staff Storage
     size: 54
@@ -192,6 +200,7 @@ Staff_Storage_Main:
 
 Staff_Storage_Food:
     type: inventory
+    debug: false
     inventory: chest
     title: <green>Foodstuffs
     size: 54
@@ -218,6 +227,7 @@ Staff_Storage_Food:
 
 Staff_Storage_Materials:
     type: inventory
+    debug: false
     inventory: chest
     title: <green>Materials
     size: 54
@@ -244,6 +254,7 @@ Staff_Storage_Materials:
 
 Staff_Storage_Tools:
     type: inventory
+    debug: false
     inventory: chest
     title: <green>Tools
     size: 54
@@ -270,6 +281,7 @@ Staff_Storage_Tools:
 
 Staff_Storage_Armor:
     type: inventory
+    debug: false
     inventory: chest
     title: <green>Armor
     size: 54
@@ -296,6 +308,7 @@ Staff_Storage_Armor:
 
 Staff_Storage_Weapons:
     type: inventory
+    debug: false
     inventory: chest
     title: <green>Weapons
     size: 54
@@ -322,22 +335,27 @@ Staff_Storage_Weapons:
 
 SStorage_Food:
     type: item
+    debug: false
     material: Apple
     display name: <green>Food
 SStorage_Tools:
     type: item
+    debug: false
     material: iron_pickaxe
     display name: <green>Tools
 SStorage_Weapons:
     type: item
+    debug: false
     material: iron_sword
     display name: <green>Weapons
 SStorage_Armor:
     type: item
+    debug: false
     material: iron_chestplate
     display name: <green>Armor
 SStorage_Materials:
     type: item
+    debug: false
     material: Leather
     display name: <green>Materials
 
@@ -345,6 +363,7 @@ SStorage_Materials:
 
 Staff_Switch:
     type: command
+    debug: false
     description: This script is for staff to switch from player mode to staff mode and vice versa
     name: staffswitch
     usage: /staffswitch

@@ -2,6 +2,7 @@
 
 Starter_Kit_Event:
     type: world
+    debug: false
     events:
       #on player respawns elsewhere:
       #- determine spawn
@@ -16,6 +17,7 @@ Starter_Kit_Event:
 
 Kit_Task:
     type: task
+    debug: false
     definitions: kit
     script:
     - foreach <script[<[kit]>_data].data_key[kit]> as:item:
@@ -28,6 +30,7 @@ Kit_Task:
 
 Starter_Kit_Data:
     type: data
+    debug: false
     kit:
     - Tailored_Leather_Helmet-1
     - Tailored_Leather_Chestplate-1

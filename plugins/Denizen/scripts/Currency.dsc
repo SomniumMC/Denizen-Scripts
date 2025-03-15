@@ -6,6 +6,7 @@
 #Data Defined
 Currency_Data:
     type: data
+    debug: false
     1:
       base_value: 1
     2:
@@ -24,6 +25,7 @@ Currency_Data:
 #GUI
 Coinpurse_GUI:
     type: inventory
+    debug: false
     inventory: hopper
     title: <green>Coin Purse
     gui: true
@@ -55,6 +57,7 @@ Coinpurse_GUI:
 
 Currency1:
     type: item
+    debug: false
     material: brick
     display name: <element[Copper Crus].color[#f2963a]>
     mechanisms:
@@ -64,6 +67,7 @@ Currency1:
       currency: 1
 Currency2:
     type: item
+    debug: false
     material: brick
     display name: <element[Silver Crus].color[#918c87]>
     mechanisms:
@@ -73,6 +77,7 @@ Currency2:
       currency: 2
 Currency3:
     type: item
+    debug: false
     material: brick
     display name: <element[Gold Crus].color[#c2ae00]>
     mechanisms:
@@ -82,6 +87,7 @@ Currency3:
       currency: 3
 Currency4:
     type: item
+    debug: false
     material: brick
     display name: <element[Platinum Crus].color[#93dbda]>
     mechanisms:
@@ -93,6 +99,7 @@ Currency4:
 
 Coinpurse:
     type: item
+    debug: false
     material: piglin_banner_pattern
     display name: <green>Coin Purse
     mechanisms:
@@ -113,6 +120,7 @@ Coinpurse:
 #Main Assisting Tasks
 CoinPurse_Update_Task:
     type: task
+    debug: false
     definitions: currency1|currency2|currency3|currency4|slot|inventory
     script:
     #- narrate <[currency1]>
@@ -124,6 +132,7 @@ CoinPurse_Update_Task:
 
 CoinPurse_Max_Check:
   type: procedure
+  debug: false
   definitions: current
   script:
   - determine true
@@ -135,6 +144,7 @@ CoinPurse_Max_Check:
 # The below script detects if a player has picked up currency then handles storing it in the players purse if they have one. 
 Currency_Pickup_Event:
     type: world
+    debug: false
     events:
         on player picks up item_flagged:currency:
         - define item <context.item>
@@ -173,6 +183,7 @@ Currency_Pickup_Event:
 # Purse Gui Handler. 
 Currency_Purse_Event:
     type: world
+    debug: false
     events:
         on player right clicks block with:Coinpurse:
         - inventory open d:Coinpurse_GUI
@@ -277,6 +288,7 @@ Currency_Purse_Event:
 #Defined Banking Items
 Bank_Coinpurse:
   type: item
+  debug: false
   material: piglin_banner_pattern
   display name: <green>Currency Storage & Exchange
   mechanisms:
@@ -287,12 +299,14 @@ Bank_Coinpurse:
 
 Bank_Vault:
   type: item
+  debug: false
   material: chest
   display name: <light_purple>Bank Vault<white><&co><&sp><gold>
 
 #Gui And Inventories
 Bank_GUI:
   type: inventory
+  debug: false
   inventory: chest
   title: <green>Bank
   gui: true
@@ -320,6 +334,7 @@ Bank_GUI:
 
 Bank_Vault_Storage:
   type: inventory
+  debug: false
   inventory: chest
   procedural items:
   - define result <list>
@@ -334,6 +349,7 @@ Bank_Vault_Storage:
 
 Bank_Currency_Storage:
   type: inventory
+  debug: false
   inventory: chest
   gui: true
   definitions:
@@ -362,6 +378,7 @@ Bank_Currency_Storage:
 #Assisting Scripts/tasks
 Bank_Account_Create:
   type: task
+  debug: false
   script:
   - define bank_location <player.flag[bank_location]>
   - definemap vault_data:
@@ -375,6 +392,7 @@ Bank_Account_Create:
 
 Bank_Currency_Update:
   type: task
+  debug: false
   definitions: total_stored
   script:
   - define totals_item <item[gold_ingot]>
@@ -422,6 +440,7 @@ Bank_Currency_Update:
 #Handles Gui
 Bank_Event:
   type: world
+  debug: false
   events:
     on player clicks item in Bank_GUI:
     - define item <context.item>

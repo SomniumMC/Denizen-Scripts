@@ -4,6 +4,7 @@
 
 Ogre_Mob_Spawn:
     type: world
+    debug: false
     events:
         after mythicmob Ogre_Arbalest spawns:
         - define entity <context.entity>

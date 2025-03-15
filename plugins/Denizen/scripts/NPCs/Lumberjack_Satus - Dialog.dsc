@@ -5,6 +5,7 @@
 
 NPC_DialogTree_Lumberjack_Satus:
     type: data
+    debug: false
     display: <yellow>Lumberjack
     welcome:
       dialog: <green>Ugh... this axe is so heavy! Want to buy some lumber?
