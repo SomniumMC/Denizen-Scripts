@@ -57,7 +57,7 @@ Lock_Event_Main:
             - remove <context.location.flag[locked].get[display]>
           - if <context.location.other_block||null> != null:
             - if <context.location.other_block.flag[locked].get[display].if_null[null]> != null:
-              - remove <context.location.flag[locked].get[display]>
+              - remove <context.location.other_block.flag[locked].get[display]>
             - flag <context.location.other_block> locked:!
           - flag <context.location> locked:!
         - else if <[lock_data].get[state]> == broken:
