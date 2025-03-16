@@ -81,7 +81,7 @@ NPC_DialogTree_Blacksmith_Satus:
           item: tool_rod
           quantity: 1
     chat6:
-      dialog: <green>First, you'll want to go over to that workbench next to me. Select the anvil and select weapons. You'll see the dagger recipe in there. Head over to the anvil when you're ready.<n><green>Don't forget to only hit the green areas or you'll ruin the craft!
+      dialog: <green>First, you'll want to go over to that workbench next to me. Select the anvil and select weapons. You'll see the dagger recipe in there. Head over to the anvil when you're ready.<n><green>Don't forget to only hit the green areas or you'll ruin the craft!<n><green>If you wait too long they'll cool and turn black. Hit them to reset it.
       option1:
         text: <white>Alright, I'll go do that.
         type: end
