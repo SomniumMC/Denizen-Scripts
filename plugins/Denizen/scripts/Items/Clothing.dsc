@@ -10,7 +10,7 @@ PreAlpha_Glasses:
     components_patch:
       equippable:
         slot: string:head
-      item_model: string:tools/glasses
+      item_model: string:tools:glasses
   lore:
   - <gold>These glasses are a bit dusty, but they'll do the trick.
   - <aqua>Signifies participation in the Pre-Alpha.
