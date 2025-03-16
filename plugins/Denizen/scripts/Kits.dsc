@@ -45,3 +45,4 @@ PreAlpha_Kit_Data:
     - basic_lock-1
     - fish_crab-1
     - currency1-32
+    - PreAlpha_Glasses-1
