@@ -87,7 +87,7 @@ Cooking_Furnace_Start:
     events:
         on player right clicks furnace with:item_flagged:cooking_id:
         #- if <player.item_in_hand.has_lore[<green>Protein]>:
-        - if <player.item_in_hand.flag[meat]> == chicken && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == chicken && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -96,7 +96,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_chicken]>]>
-        - if <player.item_in_hand.flag[meat]> == beef && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == beef && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -105,7 +105,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_beef]>]>
-        - if <player.item_in_hand.flag[meat]> == pork && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == pork && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -114,7 +114,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_pork]>]>
-        - if <player.item_in_hand.flag[meat]> == rabbit && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == rabbit && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -123,7 +123,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_rabbit]>]>
-        - if <player.item_in_hand.flag[meat]> == mutton && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == mutton && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -132,7 +132,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_mutton]>]>
-        - if <player.item_in_hand.flag[meat]> == fish && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == fish && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -141,7 +141,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_fish]>]>
-        - if <player.item_in_hand.flag[meat]> == horse && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == horse && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -150,7 +150,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_horse]>]>
-        - if <player.item_in_hand.flag[meat]> == goat && !<context.location.switched>:
+        - if <player.item_in_hand.flag[meat].if_null[null]> == goat && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -159,7 +159,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[cooking_cooked_goat]>]>
-        - if <player.item_in_hand.flag[Cooking_ID]> == dough && !<context.location.switched>:
+        - if <player.item_in_hand.flag[Cooking_ID].if_null[null]> == dough && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -168,7 +168,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[new_bread]>]>
-        - if <player.item_in_hand.flag[Cooking_ID]> == new_potato && !<context.location.switched>:
+        - if <player.item_in_hand.flag[Cooking_ID].if_null[null]> == new_potato && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -186,7 +186,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[roasted_mushroom]>]>
-        - if <player.item_in_hand.flag[Cooking_ID]> == raw_kebab && !<context.location.switched>:
+        - if <player.item_in_hand.flag[Cooking_ID].if_null[null]> == raw_kebab && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
@@ -195,7 +195,7 @@ Cooking_Furnace_Start:
           - adjustblock <context.location> switched:false
           - playsound sound:entity.generic.extinguish.fire at:<context.location> sound_category:blocks pitch:0.5
           - drop <context.location.above> <proc[apply_info_proc].context[<item[Cooked_Kebab]>]>
-        - if <player.item_in_hand.flag[Cooking_ID]> == sunflower_seeds && !<context.location.switched>:
+        - if <player.item_in_hand.flag[Cooking_ID].if_null[null]> == sunflower_seeds && !<context.location.switched>:
           - determine passively cancelled
           - take iteminhand quantity:1
           - adjustblock <context.location> switched:true
