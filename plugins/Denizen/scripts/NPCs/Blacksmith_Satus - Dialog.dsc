@@ -35,9 +35,6 @@ NPC_DialogTree_Blacksmith_Satus:
         req_item:
           item: blast_iron_dagger
           quantity: 1
-        take:
-          item: blast_iron_dagger
-          quantity: 1
         flag:
           target: player
           flag: quest.tutorial_beginnings.stage
