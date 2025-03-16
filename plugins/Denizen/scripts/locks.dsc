@@ -5,7 +5,7 @@
 # First Created: 10/11/2024
 Lock_Event_Main:
     type: world
-    debug: false
+    debug: true
     events:
         on player right clicks chest location_flagged:locked:
         - if <context.item.script.name||air> == lock_key && <context.item.flag[key_id]> == <context.location.flag[locked.id]>:
