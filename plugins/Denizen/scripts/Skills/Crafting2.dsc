@@ -285,7 +285,7 @@ Crafting_Minigame_Event:
     on player right clicks Crafting_Minigame_Interaction:
     - ratelimit <player> 5t
     - define interaction <context.entity>
-    - if <context.item.script.name> == config_wrench:
+    - if <context.item.script.name.null_if[null]> == config_wrench:
       - run Crafting_Minigame_Cleanup def:<[interaction].flag[station_data.location]>
       - stop
 
