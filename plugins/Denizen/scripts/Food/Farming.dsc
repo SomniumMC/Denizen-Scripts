@@ -404,6 +404,10 @@ Farming_Outputs:
 Seeds_Wheat:
     type: item
     debug: false
+    data:
+      cooking_tag:
+        type: ingredient
+        tag: seeds
     material: brick
     display name: <white>Wheat Seeds
     flags:
