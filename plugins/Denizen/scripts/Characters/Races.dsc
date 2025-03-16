@@ -387,7 +387,7 @@ Race_Bonus_Event:
         - if <player.has_flag[race.bonus]>:
           - run Race_Bonus_Task
         on player damaged:
-        - if <context.entity.flag[race.bonus]> == slow_flight:
+        - if <context.entity.flag[race.bonus].if_null[null]> == slow_flight:
           - adjust <context.entity> can_fly:false
           - flag <context.entity> flight_blocked expire:2s
           - wait 2s
