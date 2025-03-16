@@ -5,7 +5,7 @@
 # First Created: 10/11/2024
 Lock_Event_Main:
     type: world
-    debug: true
+    debug: false
     events:
         on player right clicks chest location_flagged:locked:
         - if <context.item.script.name||air> == lock_key && <context.item.flag[key_id]> == <context.location.flag[locked.id]>:
@@ -56,9 +56,9 @@ Lock_Event_Main:
           - if <[lock_data].get[display].if_null[null]> != null:
             - remove <context.location.flag[locked].get[display]>
           - if <context.location.other_block||null> != null:
-            - flag <context.location.other_block> locked:!
             - if <context.location.other_block.flag[locked].get[display].if_null[null]> != null:
               - remove <context.location.flag[locked].get[display]>
+            - flag <context.location.other_block> locked:!
           - flag <context.location> locked:!
         - else if <[lock_data].get[state]> == broken:
           - flag <context.location> locked:!
