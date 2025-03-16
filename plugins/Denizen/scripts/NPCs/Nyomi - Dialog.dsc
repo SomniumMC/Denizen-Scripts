@@ -60,7 +60,8 @@ NPC_DialogTree_Nyomi:
       dialog: <green>Ah yes, Satus! The only safe harbour in the world! The Storm can't reach us here. I don't know much else. I'm from the Isles... Don't ask.
       option1:
         text: <white>Thanks for catching me up!
-        type: end
+        type: chatting
+        key: chat4
     chat4:
       dialog: <green>You can find Rhea on the main deck, can't miss her! She probably has a delivery task for you. How else were you going to pay for your passage, huh? I've seen your bags... if you could call them that...
       option1:
