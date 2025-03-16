@@ -374,7 +374,7 @@ Character_RPC_Status:
 
 Character_RPC_AppSend:
     type: task
-    debug: false
+    debug: true
     script:
     - if !<player.has_flag[character.rpc.name]>:
       - define fail:->:name
@@ -441,7 +441,7 @@ Character_RPC_AppSend:
 
 Character_RPC_Discord_Menu_Events:
     type: world
-    debug: false
+    debug: true
     events:
         on discord selection used id:application_menu:
         - ~discordinteraction defer interaction:<context.interaction>
