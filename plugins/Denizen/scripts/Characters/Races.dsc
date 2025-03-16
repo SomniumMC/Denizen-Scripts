@@ -372,7 +372,7 @@ Race_Goblin_Head:
 
 Race_Bonus_Event:
     type: world
-    debug: true
+    debug: false
     events:
         after player joins:
         - wait 1t
