@@ -996,7 +996,7 @@ Cooking_Link_Tool:
   - <green>Selected<&sp>Link<White><&co><&sp><blue>Empty
   mechanisms:
     components_patch:
-      item_model: string:cooking:tools/link_tool
+      item_model: string:tools:cooking_tool
 
 Cooking_Link_Event:
   type: world
