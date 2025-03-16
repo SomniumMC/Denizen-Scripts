@@ -462,7 +462,8 @@ Key_Ring:
     material: skull_banner_pattern
     display name: <aqua>Key Ring
     mechanisms:
-      custom_model_data: 30003
+      components_patch:
+        item_model: string:lockpicking:key_ring
       hides: enchants|item_data
     flags:
       stored_keys: <empty>
