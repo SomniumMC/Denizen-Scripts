@@ -9,7 +9,7 @@ Mining_Main_Event:
           - stop
         - define ore <context.location.material.name>
         - choose <[ore]>:
-          - case coal_ore
+          #- case coal_ore
           - case iron_ore:
             - if <util.random_chance[1]>:
               - determine high_carbon_raw_iron
@@ -24,7 +24,7 @@ Mining_Main_Event:
             - determine <[item]>
           - case emerald_ore:
             - determine Geode
-          - case deepslate_coal_ore
+          #- case deepslate_coal_ore
           - case deepslate_iron_ore:
             - define xp 5
           - case deepslate_copper_ore:
