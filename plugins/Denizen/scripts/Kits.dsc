@@ -10,7 +10,7 @@ Starter_Kit_Event:
       - adjust <player> forget_recipe:<server.recipe_ids.filter[starts_with[denizen]]>
       - adjust <player> discover_recipe:<server.recipe_ids.filter[starts_with[denizen]]>
       - if !<player.has_flag[starter_kit]>:
-        - run Kit_Task def.kit:starter_kit
+        - run Kit_Task def.kit:PreAlpha
         - flag <player> starter_kit:1
         #- teleport <player> spawn
       #- narrate targets:<player> "<gold>Welcome to Falsen Phantasm, this is a heavy development environment, if you have any questions on how to play use the command <element[/guide].on_hover[Click to Run This Command].on_click[/guide]>"
@@ -28,7 +28,7 @@ Kit_Task:
       - give item:<[item]> quantity:<[quantity]>
 
 
-Starter_Kit_Data:
+PreAlpha_Kit_Data:
     type: data
     debug: false
     kit:
