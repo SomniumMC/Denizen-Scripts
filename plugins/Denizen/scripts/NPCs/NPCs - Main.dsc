@@ -186,6 +186,7 @@ NPC_Shop_GUI:
     - define reference_item <item[<[entry]>]>
 
     - define construct_item <item[<[reference_item].material>].with_single[custom_model_data=<[reference_item].custom_model_data>]>
+    - adjust def:construct_item components_patch:<[reference_item].components_patch>
 
     - adjust def:construct_item flag:reference_item:<[entry]>
     - adjust def:construct_item flag:entry_data:<[entry_data]>
