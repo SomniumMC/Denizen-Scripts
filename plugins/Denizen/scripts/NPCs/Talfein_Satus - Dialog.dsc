@@ -53,7 +53,7 @@ NPC_DialogTree_Talfein_Satus:
       text: <white>Sure, I can do that.
       give:
         item: new_wheat
-        quantity: 2
+        quantity: 1
       type: chatting
       key: chat2
   chat2:

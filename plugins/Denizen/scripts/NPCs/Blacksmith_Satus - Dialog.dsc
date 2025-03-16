@@ -35,9 +35,6 @@ NPC_DialogTree_Blacksmith_Satus:
         req_item:
           item: blast_iron_dagger
           quantity: 1
-        take:
-          item: blast_iron_dagger
-          quantity: 1
         flag:
           target: player
           flag: quest.tutorial_beginnings.stage
@@ -96,7 +93,7 @@ NPC_DialogTree_Blacksmith_Satus:
           item: iron_ingot
           quantity: 1
     chat7:
-      dialog: <green>Good work! Here's a little something for your trouble.
+      dialog: <green>Ah good job, but on second thought, the quality on this isn't that great. I'll make it myself later. You can keep this one. Here's a little something for your time.
       option1:
         text: <white>Thank you, but where do I deposit this?
         give:
