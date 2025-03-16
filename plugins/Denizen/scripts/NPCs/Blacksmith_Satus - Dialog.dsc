@@ -78,7 +78,7 @@ NPC_DialogTree_Blacksmith_Satus:
         type: chatting
         key: chat6
         give:
-          item: tool_rod|iron_ingot
+          item: tool_rod
           quantity: 1
     chat6:
       dialog: <green>First, you'll want to go over to that workbench next to me. Select the anvil and select weapons. You'll see the dagger recipe in there. Head over to the anvil when you're ready.<n><green>Don't forget to only hit the green areas or you'll ruin the craft!

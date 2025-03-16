@@ -332,7 +332,7 @@ Lock_Picking_Success:
       - flag <player.flag[lockpicking_target]> locked.display:!
     - if <player.flag[lockpicking_target].other_block||null> != null:
       - define location <player.flag[lockpicking_target].other_block>
-      - adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>八
+      #- adjust <[location]> custom_name:Chest<&sp.repeat[19]><white>八
       - flag <[location]> locked.state:broken
       - flag <[location]> locked.picked_by:->:<player.nameplate><&sp><util.time_now>
     - playsound sound:block_comparator_click <player.flag[lockpicking_target]> sound_category:players
