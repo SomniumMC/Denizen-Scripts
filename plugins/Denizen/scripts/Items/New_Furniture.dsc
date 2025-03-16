@@ -78,8 +78,9 @@ Furniture_Main_Event:
           - playsound sound:block.wood.hit sound_category:blocks <[interaction].location>
         on player right clicks Furniture_Interaction:
         - define interaction <context.entity>
-        - if <[interaction].flag[furniture.type]> == 1x1_chair:
-          - mount <player>|<[interaction].flag[furniture.furniture_model]>
+        - if !<player.item_in_hand.has_flag[furniture_config]>:
+          - if <[interaction].flag[furniture.type]> == 1x1_chair:
+            - mount <player>|<[interaction].flag[furniture.furniture_model]>
 
 Assemble_1x1_Table:
     type: task
