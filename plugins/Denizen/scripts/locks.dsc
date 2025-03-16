@@ -72,7 +72,7 @@ Lock_Event_Main:
         - else:
           - determine cancelled
         on player places chest:
-        - if <context.location.center.find_blocks_flagged[locked].within[1]>:
+        - if <context.location.center.find_blocks_flagged[locked].within[2]>:
           - determine cancelled
 
 Keyring_Event:
