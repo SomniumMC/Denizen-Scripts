@@ -139,12 +139,14 @@ Silver_Spear:
     display name: <gold>Silver Spear
     flags:
       lore: <gold>A basic silver spear.
-      durability1: 100
+      durability1: 450
       slashing: 4
       damage_type: Slashing
       skill_base: Blacksmithing
       level: 40
       recipe: silver_ingot_2|tool_rod_1
+    enchantments:
+    - smite:3
 
 Slate_Silver_Spear:
     type: item
