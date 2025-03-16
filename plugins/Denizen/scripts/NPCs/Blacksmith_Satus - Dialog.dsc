@@ -25,16 +25,13 @@ NPC_DialogTree_Blacksmith_Satus:
           flag: quest.tutorial_beginnings.stage
           value: 6
       option4:
-        text: <white>I made the iron dagger you asked for.
+        text: <white>I tried to make the iron dagger you asked for.
         type: chatting
         key: chat7
         req_flag:
           target: player
           flag: quest.tutorial_beginnings.stage
           value: 7
-        req_item:
-          item: blast_iron_dagger
-          quantity: 1
         flag:
           target: player
           flag: quest.tutorial_beginnings.stage
