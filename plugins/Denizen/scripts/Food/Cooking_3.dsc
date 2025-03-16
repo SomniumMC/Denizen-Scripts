@@ -756,7 +756,7 @@ Cooking_Sound_Skillet:
     - wait 4t
     - playsound <player> sound:BLOCK.FIRE.AMBIENT pitch:1.7 volume:1 sound_category:blocks
 
-Cooking_Storage_Block:
+Cooking_Storage_Cancel:
     type: world
     debug: false
     events:

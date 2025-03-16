@@ -28,7 +28,7 @@ NPC_DialogTree_Rhea:
         type: chatting
         key: welcome
     chat2:
-      dialog: <green>Good! Can you deliver this to Ayla, the innkeeper? Tavern's called the Crowned Crow, It's on second avenue.
+      dialog: <green>Good! Can you deliver this to Ayla, the innkeeper? Tavern's called the Crowned Crow, It's on the dock front.
       option1:
         text: <white>I'll certainly get on that!
         type: quest_progress
