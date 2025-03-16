@@ -678,6 +678,10 @@ Cooking_Grass_Harvest:
      events:
         on player breaks grass_block with:*_hoe bukkit_priority:HIGHEST:
         - determine passively cancelled
+        - if <player.item_in_hand.durability> >= 0:
+          - take iteminhand quantity:1
+          - playsound sound:entity.item.break <player.location> sound_category:players
+          - stop
         - foreach <player.item_in_hand.durability> as:item_durability:
           - inventory adjust slot:hand durability:<[item_durability].add[1]>
         - modifyblock <context.location> dirt
