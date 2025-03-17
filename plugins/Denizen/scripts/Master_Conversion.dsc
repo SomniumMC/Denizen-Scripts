@@ -4,7 +4,7 @@
 
 Master_Pickup_Event:
     type: world
-    debug: true
+    debug: false
     events:
         on player picks up item:
         - define item <context.item>
@@ -21,12 +21,12 @@ Master_Pickup_Event:
             #- narrate <[item]>
             - adjust def:item enchantments:<[enchants]>
             - adjust def:item quantity:<[quantity]>
-            - foreach <script[Satchel_Storage_Data].data_key[satchels]> as:data key:category:
-              - if <[item].material.name||null> in <[data]> || <[item].script.name||null> in <[data]>:
-                - define satchel_slot <player.inventory.find_all_items[item_flagged:satchel].filter[item_flagged:type=<[category]>].first.if_null[null]>
-                - narrate <[satchel_slot]>
-
-                - determine item:air
+            #- foreach <script[Satchel_Storage_Data].data_key[satchels]> as:data key:category:
+            #  - if <[item].material.name||null> in <[data]> || <[item].script.name||null> in <[data]>:
+            #    - define satchel_slot <player.inventory.find_all_items[item_flagged:satchel].filter[item_flagged:type=<[category]>].first.if_null[null]>
+            #    - narrate <[satchel_slot]>
+#
+            #    - determine item:air
             - else:
               - determine item:<[item]>
 
