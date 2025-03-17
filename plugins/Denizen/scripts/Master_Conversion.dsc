@@ -22,7 +22,8 @@ Master_Pickup_Event:
             - adjust def:item enchantments:<[enchants]>
             - adjust def:item quantity:<[quantity]>
             - foreach <script[Satchel_Storage_Data].data_key[satchels]> as:data key:category:
-              - narrate <[data]> <[category]>
+              - if <[item].material.name||null> in <[data]> || <[item].script.name||null> in <[data]>:
+                - determine item:air
             - else:
               - determine item:<[item]>
 
