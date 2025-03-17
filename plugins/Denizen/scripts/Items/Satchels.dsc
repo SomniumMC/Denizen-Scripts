@@ -45,6 +45,21 @@ Satchel_Woodcutter_Tier1:
     - <green>- Logs
     - <green>- Saplings
 
+Satchel_Fisher_Tier1:
+    type: item
+    material: brick
+    display name: <green><bold>Fishing Satchel
+    mechanisms:
+      custom_model_data: 10001
+    flags:
+      type: fisher
+      tier: 1
+      Satchel: true
+    lore:
+    - <gold>Stores the following materials<&co>
+    - <green>- Fish
+    - <green>- Fishing Rods
+
 
 Satchel_Open:
     type: world
@@ -185,3 +200,5 @@ Satchel_Storage_Data:
         - Fish_Walleye
         - Fish_Clam
         - Fish_Scallop
+        - Crafted_Fishing_Rod
+        - Wooden_Fishing_Rod
