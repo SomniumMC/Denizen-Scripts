@@ -8,6 +8,12 @@ Satchel_Digger_Tier1:
       type: digger
       tier: 1
       Satchel: true
+    lore:
+    - <gold>Stores the following materials<&co>
+    - <green>- Stone
+    - <green>- Dirt
+    - <green>- Gravel
+    - <green>- Sand
 
 Satchel_Miner_Tier1:
     type: item
@@ -19,6 +25,10 @@ Satchel_Miner_Tier1:
       type: miner
       tier: 1
       Satchel: true
+    lore:
+    - <gold>Stores the following materials<&co>
+    - <green>- Block Ores
+    - <green>- Raw Ores
 
 Satchel_Woodcutter_Tier1:
     type: item
@@ -30,6 +40,10 @@ Satchel_Woodcutter_Tier1:
       type: woodcutter
       tier: 1
       Satchel: true
+    lore:
+    - <gold>Stores the following materials<&co>
+    - <green>- Logs
+    - <green>- Saplings
 
 
 Satchel_Open:
@@ -107,6 +121,7 @@ Satchel_Storage_Data:
       - clay
       - clay_ball
       - flint
+      - stone
       miner:
       - air
       - raw_copper
