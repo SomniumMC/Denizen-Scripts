@@ -60,6 +60,21 @@ Satchel_Fisher_Tier1:
     - <green>- Fish
     - <green>- Fishing Rods
 
+Satchel_Farmer_Tier1:
+    type: item
+    material: brick
+    display name: <green><bold>Farming Satchel
+    mechanisms:
+      custom_model_data: 10001
+    flags:
+      type: farmer
+      tier: 1
+      Satchel: true
+    lore:
+    - <gold>Stores the following materials<&co>
+    - <green>- Seeds
+    - <green>- Produce
+    - <green>- Hoes
 
 Satchel_Open:
     type: world
@@ -91,7 +106,7 @@ Satchel_Interact:
         - define list <script[satchel_storage_data].data_key[satchels.<[Satchel].flag[type]>].if_null[null]>
         - if <[list]> == null:
           - determine passively cancelled
-        - if <[inventory_item].material.name> in <[list]> || <[inventory_item].script.name> in <[list]> && <context.slot> != -998:
+        - if <[inventory_item].material.name||null> in <[list]> || <[inventory_item].script.name||null> in <[list]> && <context.slot> != -998:
           - playsound <player> sound_category:blocks sound:item_bundle_insert
           - stop
         - else:
@@ -202,3 +217,23 @@ Satchel_Storage_Data:
         - Fish_Scallop
         - Crafted_Wooden_Fishing_Rod
         - Wooden_Fishing_Rod
+      farmer:
+        - air
+        - seeds_wheat
+        - seeds_beetroot
+        - seeds_carrot
+        - seeds_potato
+        - seeds_melon
+        - seeds_pumpkin
+        - seeds_nether_wart
+        - seeds_bamboo
+        - seeds_sweet_berry
+        - new_wheat
+        - new_beetroot
+        - new_carrot
+        - new_potato
+        - new_melon
+        - new_pumpkin
+        - sugar_cane
+        - cactus
+        - bamboo
