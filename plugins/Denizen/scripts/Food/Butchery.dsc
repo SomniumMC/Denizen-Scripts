@@ -10,10 +10,7 @@ Butchery_Event:
         - if !<player.item_in_offhand.has_flag[slashing]>:
           - narrate "<red>You need an item with <blue>Slashing <red>in your offhand to butcher this corpse."
         - else:
-          - inventory adjust slot:offhand flag:durability1:-:1 destination:<player.inventory>
-          - run update_item_task def:<player>|<player.item_in_offhand>|<player.held_item_slot>
-          - if <player.item_in_hand.flag[durability1]> < 1:
-            - inventory set o:air slot:offhand destination:<player.inventory>
+          - run Durability_Update_Task def.slot:offhand
           #- narrate "Nice <player.item_in_offhand.flag[slashing]>"
           - run Butchery_Rewards def.item:<player.item_in_hand>
 
