@@ -4,7 +4,7 @@
 
 Master_Pickup_Event:
     type: world
-    debug: false
+    debug: true
     events:
         on player picks up item:
         - define item <context.item>
@@ -21,7 +21,10 @@ Master_Pickup_Event:
             #- narrate <[item]>
             - adjust def:item enchantments:<[enchants]>
             - adjust def:item quantity:<[quantity]>
-            - determine item:<[item]>
+            - foreach <script[Satchel_Storage_Data].data_key[satchels]> as:data key:category:
+              - narrate <[data]> <[category]>
+            - else:
+              - determine item:<[item]>
 
 Master_Pickup_Data:
     type: data
