@@ -45,6 +45,21 @@ Satchel_Woodcutter_Tier1:
     - <green>- Logs
     - <green>- Saplings
 
+Satchel_Fisher_Tier1:
+    type: item
+    material: brick
+    display name: <green><bold>Fishing Satchel
+    mechanisms:
+      custom_model_data: 10001
+    flags:
+      type: fisher
+      tier: 1
+      Satchel: true
+    lore:
+    - <gold>Stores the following materials<&co>
+    - <green>- Fish
+    - <green>- Fishing Rods
+
 
 Satchel_Open:
     type: world
@@ -94,7 +109,7 @@ Satchel_Interact:
 Satchel_Inventory_Tier1:
     type: inventory
     inventory: chest
-    title: Satchel
+    title: <yellow>Satchel
     procedural items:
     - define result <list>
 
@@ -109,55 +124,81 @@ Satchel_Storage_Data:
     type: data
     satchels:
       digger:
-      - air
-      - dirt
-      - gravel
-      - sand
-      - grass_block
-      - coarse_dirt
-      - mycelium
-      - cobblestone
-      - sandstone
-      - clay
-      - clay_ball
-      - flint
-      - stone
+        - air
+        - dirt
+        - gravel
+        - sand
+        - grass_block
+        - coarse_dirt
+        - mycelium
+        - cobblestone
+        - sandstone
+        - clay
+        - clay_ball
+        - flint
+        - stone
       miner:
-      - air
-      - raw_copper
-      - raw_iron
-      - raw_gold
-      - copper_ore
-      - iron_ore
-      - gold_ore
-      - deepslate_copper_ore
-      - deepslate_iron_ore
-      - deepslate_gold_ore
-      - diamond_ore
-      - deepslate_diamond_ore
-      - coal
-      - coal_ore
-      - deepslate_coal_ore
-      - raw_silver
-      - high_carbon_raw_iron
+        - air
+        - raw_copper
+        - raw_iron
+        - raw_gold
+        - copper_ore
+        - iron_ore
+        - gold_ore
+        - deepslate_copper_ore
+        - deepslate_iron_ore
+        - deepslate_gold_ore
+        - diamond_ore
+        - deepslate_diamond_ore
+        - coal
+        - coal_ore
+        - deepslate_coal_ore
+        - raw_silver
+        - high_carbon_raw_iron
       woodcutter:
-      - air
-      - oak_log
-      - birch_log
-      - acacia_log
-      - spruce_log
-      - jungle_log
-      - mangrove_log
-      - cherry_log
-      - dark_oak_log
-      - pale_oak_log
-      - oak_sapling
-      - birch_sapling
-      - acacia_sapling
-      - spruce_sapling
-      - jungle_sapling
-      - mangrove_sapling
-      - cherry_sapling
-      - dark_oak_sapling
-      - pale_oak_sapling
-
+        - air
+        - oak_log
+        - birch_log
+        - acacia_log
+        - spruce_log
+        - jungle_log
+        - mangrove_log
+        - cherry_log
+        - dark_oak_log
+        - pale_oak_log
+        - oak_sapling
+        - birch_sapling
+        - acacia_sapling
+        - spruce_sapling
+        - jungle_sapling
+        - mangrove_sapling
+        - cherry_sapling
+        - dark_oak_sapling
+        - pale_oak_sapling
+      fisher:
+        - air
+        - cooking_raw_fish
+        - Fish_Anchovy
+        - Fish_Bass
+        - Fish_Carp
+        - Fish_Catfish
+        - Fish_Charr
+        - Fish_Crab
+        - Fish_Crayfish
+        - Fish_Eel
+        - Fish_Grouper
+        - Fish_Herring
+        - Fish_Jellyfish
+        - Fish_Octopus
+        - Fish_Perch
+        - Fish_Sardine
+        - Fish_Shrimp
+        - Fish_Snapper
+        - Fish_Tilapia
+        - Fish_Trout
+        - Fish_Tuna
+        - Fish_Walleye
+        - Fish_Clam
+        - Fish_Scallop
+        - Crafted_Fishing_Rod
+        - Wooden_Fishing_Rod
