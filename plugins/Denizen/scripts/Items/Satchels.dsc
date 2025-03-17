@@ -200,5 +200,5 @@ Satchel_Storage_Data:
         - Fish_Walleye
         - Fish_Clam
         - Fish_Scallop
-        - Crafted_Fishing_Rod
+        - Crafted_Wooden_Fishing_Rod
         - Wooden_Fishing_Rod
