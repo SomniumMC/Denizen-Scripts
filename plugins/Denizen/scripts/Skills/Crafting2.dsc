@@ -973,3 +973,16 @@ Crafting_Icon_Locks:
         item_model: string:lockpicking:hlock
   lore:
   - <white>Prepare materials for crafting locks
+
+Crafting_Icon_Satchels:
+  type: item
+  debug: false
+  material: leather
+  display name: <red>Satchels
+  flags:
+    category: satchels
+  mechanisms:
+      components_patch:
+        item_model: string:minecraft:bundle
+  lore:
+  - <white>Prepare materials for crafting satchels

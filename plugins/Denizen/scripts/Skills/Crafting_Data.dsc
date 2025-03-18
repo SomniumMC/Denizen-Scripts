@@ -175,6 +175,32 @@ Crafting_Master_Data:
         flesh_bound_leather-5:
         - rotten_flesh-16
         - string-4
+      satchels:
+        Satchel_Digger_Tier1:
+        - leather-5
+        - string-3
+        - iron_ingot-1
+        - cobblestone-32
+        Satchel_Miner_Tier1:
+        - leather-5
+        - string-3
+        - iron_ingot-1
+        - raw_iron-10
+        Satchel_Woodcutter_Tier1:
+        - leather-5
+        - string-3
+        - iron_ingot-1
+        - oak_log-16
+        Satchel_Fisher_Tier1:
+        - leather-5
+        - string-3
+        - iron_ingot-1
+        - crafted_wooden_fishing_rod-1
+        satchel_farming_tier1:
+        - leather-5
+        - string-3
+        - iron_ingot-1
+        - new_wheat-16
     carpentry:
       stations:
         crafting_anvil-1:
