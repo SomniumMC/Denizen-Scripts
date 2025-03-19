@@ -404,7 +404,7 @@ Steel_Leggings:
       hides: unbreakable|armor_trim|attributes
       components_patch:
         equippable: <map[slot=string:legs;asset_id=string:custom_armor:heavy_steel_plate]>
-        item_model: string:custom_armor:heavy_steel_plate
+        item_model: string:custom_armor:steel_leggings
     display name: <gold>Steel Leggings
     flags:
       lore: <gold>Basic steel leggings.
