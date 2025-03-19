@@ -393,16 +393,18 @@ Steel_Leggings:
     debug: false
     material: iron_leggings
     mechanisms:
-     custom_model_data: 10003
-     unbreakable: true
-     attribute_modifiers:
-       armor:
-         1:
-           operation: add_number
-           amount: 6
-           slot: legs
-     hides: unbreakable|armor_trim|attributes
-     components_patch: minecraft:equippable=<map[slot=string:legs;asset_id=string:custom_armor:heavy_steel_plate]>
+      custom_model_data: 10003
+      unbreakable: true
+      attribute_modifiers:
+        armor:
+          1:
+            operation: add_number
+            amount: 6
+            slot: legs
+      hides: unbreakable|armor_trim|attributes
+      components_patch:
+        equippable: <map[slot=string:legs;asset_id=string:custom_armor:heavy_steel_plate]>
+        item_model: string:custom_armor:heavy_steel_plate
     display name: <gold>Steel Leggings
     flags:
       lore: <gold>Basic steel leggings.
