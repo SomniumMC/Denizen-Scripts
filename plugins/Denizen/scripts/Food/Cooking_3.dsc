@@ -423,7 +423,7 @@ Cooking_Recipe_Mob_Drop:
   debug: false
   events:
     on player kills entity:
-    - if <context.entity.type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
+    - if <context.entity.entity_type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
       - if <util.random_chance[5]>:
         - drop item:cooking_recipe_pack quantity:1 <context.location>
 
