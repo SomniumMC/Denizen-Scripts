@@ -451,9 +451,7 @@ Furniture_Assembly_Event:
       - inventory open d:Furniture_Assembly_Bench_Config_GUI
     - else:
       - flag <player> assembly_kit:<context.item>
-      - define item <player.flag[assembly_kit]>
-      - narrate <script[<[item].script.name>].data_key[data.assembles]>
-      #- inventory open d:Furniture_Assembly_Bench_GUI
+      - inventory open d:Furniture_Assembly_Bench_GUI
 
 
 Furniture_Assembly_Bench_Config_GUI:
@@ -469,16 +467,62 @@ Furniture_Assembly_Bench_GUI:
   type: inventory
   inventory: chest
   gui: true
+  definitions:
+    selected_furniture: <player.flag[assembly_kit].with_single[quantity=1]>
   procedural items:
   - define result <list>
   - define item <player.flag[assembly_kit]>
   - define assembly_type <script[<[item].script.name>].data_key[data.assembles]>
+  - choose <[assembly_type]>:
+    - case 1x1_Table:
+      - define skins:<script[Furniture_Skin_Recipes].data_key[free_skins].get[1x1_Table].if_null[<empty>]>
+    - case 1x1_Chair:
+      - define skins:<script[Furniture_Skin_Recipes].data_key[free_skins].get[1x1_Chair].if_null[<empty>]>
+    - case 1x2_Table:
+      - define skins:<script[Furniture_Skin_Recipes].data_key[free_skins].get[1x2_Table].if_null[<empty>]>
+    - case 1x3_Table:
+      - define skins:<script[Furniture_Skin_Recipes].data_key[free_skins].get[1x3_Table].if_null[<empty>]>
+    - case 2x2_Table:
+      - define skins:<script[Furniture_Skin_Recipes].data_key[free_skins].get[2x2_Table].if_null[<empty>]>
+    - case Decoration:
+      - define skins:<script[Furniture_Skin_Recipes].data_key[free_skins].get[Decoration].if_null[<empty>]>
+    - default:
+      - define skins <item[red_concrete].with_single[display=<red>ERROR]>
+  #- define skins <player.flag[skins].get[furniture.<[assembly_type]>]>
+  - foreach <[result]> as:skin:
+    - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>].with_single[display=<gold><[skin]>]>
   - determine <[result]>
   slots:
-  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [selected_furniture] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
   - [] [] [] [] [] [] [] [] []
   - [] [] [] [] [] [] [] [] []
   - [] [] [] [] [] [] [] [] []
+
+Furniture_Skin_Recipes:
+  type: data
+  free_skins:
+    1x1_Table:
+    - empty
+    1x1_Chair:
+    - empty
+    1x2_Table:
+    - empty
+    1x3_Table:
+    - empty
+    2x2_Table:
+    - empty
+    Decoration:
+    - empty
+  1x1_Table:
+  - empty
+  1x1_Chair:
+  - empty
+  1x2_Table:
+  - empty
+  1x3_Table:
+  - empty
+  2x2_Table:
+  - empty
 
 Furniture_Interaction:
   type: entity
@@ -591,6 +635,58 @@ Furniture_Kit_Decoration:
     flags:
       furniture_type: decoration
 
+Furniture_Configurator:
+    type: item
+    debug: false
+    material: brick
+    display name: <yellow>Furniture Configurator
+    flags:
+      furniture_config: player
+    mechanisms:
+      components_patch:
+        item_model: string:tools:iron_hammer
+    lore:
+    - <gold>Right click on a furniture entity to configure it.
+
+Staff_Furniture_Configurator:
+  type: item
+  material: breeze_rod
+  display name: <gold>Staff Place Tool
+  flags:
+    furniture_config: staff
+  lore:
+  - <white>Hold item in <yellow>OFFHAND
+  - <white><&lt><green>Right Click<white><&gt> <gray>for aligned <red>Block Placement
+  #- <gray><empty>
+  #- <white><&lt><blue>Sneak Right Click<white><&gt> <gray>for <red>Freeform Placement
+
+Furniture_Assembly_Bench:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Assembly Bench
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:assembly_bench
+    lore:
+    - <gray>Place this bench to assemble furniture kits.
+    - <gray>Right click with a kit after placing to modify it.
+
+Furniture_Assembly_Bench_Interaction:
+  type: entity
+  debug: false
+  entity_type: interaction
+  flags:
+    health: 5
+  mechanisms:
+    height: 1.05
+    width: 1.05
+
+
+## Furniture Skins
+
+# Default
+
 Furniture_Crude_Chair:
     type: item
     debug: false
@@ -676,49 +772,16 @@ Furniture_Display_Stand:
       components_patch:
         item_model: string:furniture:display_stand
 
-Furniture_Configurator:
-    type: item
-    debug: false
-    material: brick
-    display name: <yellow>Furniture Configurator
-    flags:
-      furniture_config: player
-    mechanisms:
-      components_patch:
-        item_model: string:tools:iron_hammer
-    lore:
-    - <gold>Right click on a furniture entity to configure it.
+#Custom Skins
 
-Staff_Furniture_Configurator:
-  type: item
-  material: breeze_rod
-  display name: <gold>Staff Place Tool
-  flags:
-    furniture_config: staff
-  lore:
-  - <white>Hold item in <yellow>OFFHAND
-  - <white><&lt><green>Right Click<white><&gt> <gray>for aligned <red>Block Placement
-  #- <gray><empty>
-  #- <white><&lt><blue>Sneak Right Click<white><&gt> <gray>for <red>Freeform Placement
-
-Furniture_Assembly_Bench:
+Furniture_Skin_1x1_Chair_Stool:
     type: item
     debug: false
     material: string
-    display name: <yellow>Assembly Bench
+    display name: <yellow>Comfy Stool
     mechanisms:
       components_patch:
-        item_model: string:furniture:assembly_bench
-    lore:
-    - <gray>Place this bench to assemble furniture kits.
-    - <gray>Right click with a kit after placing to modify it.
-
-Furniture_Assembly_Bench_Interaction:
-  type: entity
-  debug: false
-  entity_type: interaction
-  flags:
-    health: 5
-  mechanisms:
-    height: 1.05
-    width: 1.05
+        item_model: string:furniture:comfy_oak_stool
+    flags:
+      type: 1x1_Chair
+      model: furniture:comfy_oak_stool
