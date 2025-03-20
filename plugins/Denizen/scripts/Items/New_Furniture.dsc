@@ -526,10 +526,10 @@ Furniture_Kit_1x1_Chair:
 
 Furniture_Kit_1x2_Table:
     type: item
-    debug: true
     data:
-      assembly:
-        type: 1x2_Table
+      cooking_tag:
+        type: ingredient
+    debug: false
     material: string
     display name: <white>1x2 Table Kit
     mechanisms:
