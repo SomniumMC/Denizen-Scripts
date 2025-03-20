@@ -700,7 +700,7 @@ Crafting_Carpentry_Bench:
     display name: <red>Carpentry Bench
     mechanisms:
       components_patch:
-        item_model: string:furniture:carpentry_bench
+        item_model: string:furniture:carpenter_bench
     recipes:
       1:
         type: shaped
