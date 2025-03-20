@@ -526,10 +526,9 @@ Furniture_Kit_1x1_Chair:
 
 Furniture_Kit_1x2_Table:
     type: item
-    data:
-      cooking_tag:
-        type: ingredient
     debug: false
+    data:
+      assembles: 1x2_Table
     material: string
     display name: <white>1x2 Table Kit
     mechanisms:
@@ -723,3 +722,19 @@ Furniture_Assembly_Bench_Interaction:
   mechanisms:
     height: 1.05
     width: 1.05
+
+furniture_test:
+    type: item
+    debug: false
+    data:
+      cooking_tag:
+        type: ingredient
+    material: BRICK
+    mechanisms:
+      custom_model_data: 202
+    display name: <white>Butter
+    flags:
+      food: 2
+      dairy: true
+    lore:
+    - <gold>Milk churned into a wonderful ingredient often used in baking!
