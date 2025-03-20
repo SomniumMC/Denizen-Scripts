@@ -445,6 +445,7 @@ Furniture_Assembly_Event:
     - flag <entry[bench_interaction].spawned_entity> assembly.home:<[location]>
     - flag <entry[bench_interaction].spawned_entity> assembly.bench:<entry[bench_entity].spawned_entity>
     on player right clicks Furniture_Assembly_Bench_Interaction:
+    - ratelimit player 5t
     - define interaction <context.entity>
     - if <player.item_in_hand.script.name||null> == config_wrench:
       - inventory open d:Furniture_Assembly_Bench_Config_GUI
