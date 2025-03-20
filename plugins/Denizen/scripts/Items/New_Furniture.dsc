@@ -724,17 +724,17 @@ Furniture_Assembly_Bench_Interaction:
     width: 1.05
 
 furniture_test:
-    type: item
-    debug: false
-    data:
-      cooking_tag:
-        type: ingredient
-    material: BRICK
-    mechanisms:
-      custom_model_data: 202
-    display name: <white>Butter
-    flags:
-      food: 2
-      dairy: true
-    lore:
-    - <gold>Milk churned into a wonderful ingredient often used in baking!
+  type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
+  material: BRICK
+  mechanisms:
+    custom_model_data: 202
+  display name: <white>Butter
+  flags:
+    food: 2
+    dairy: true
+  lore:
+  - <gold>Milk churned into a wonderful ingredient often used in baking!
