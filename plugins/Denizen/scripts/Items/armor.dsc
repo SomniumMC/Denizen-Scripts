@@ -445,7 +445,7 @@ Silver_Helmet:
            slot: head
      hides: unbreakable|armor_trim|attributes
      components_patch:
-        equippable: <map[slot=string:helmet;asset_id=string:custom_armor:silver_plate]>
+        equippable: <map[slot=string:head;asset_id=string:custom_armor:silver_plate]>
         item_model: string:custom_armor:silver_helmet
     display name: <gold>Silver Helmet
     flags:
@@ -534,7 +534,7 @@ Slate_Silver_Helmet:
            slot: head
      hides: unbreakable|armor_trim|attributes
      components_patch:
-        equippable: <map[slot=string:helmet;asset_id=string:custom_armor:slate_silver_plate]>
+        equippable: <map[slot=string:head;asset_id=string:custom_armor:slate_silver_plate]>
         item_model: string:custom_armor:slate_silver_helmet
     display name: <gold>Slate Silver Helmet
     flags:
