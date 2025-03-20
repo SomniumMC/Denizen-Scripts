@@ -504,7 +504,7 @@ Furniture_Skin_Recipes:
     1x1_Table:
     - empty
     1x1_Chair:
-    - empty
+    - comfy_oak_stool
     1x2_Table:
     - empty
     1x3_Table:
@@ -774,7 +774,7 @@ Furniture_Display_Stand:
 
 #Custom Skins
 
-Furniture_Skin_1x1_Chair_Stool:
+Furniture_Skin_1x1_Chair_comfy_oak_stool:
     type: item
     debug: false
     material: string
