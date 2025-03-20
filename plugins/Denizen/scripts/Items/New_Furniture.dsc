@@ -489,8 +489,8 @@ Furniture_Assembly_Bench_GUI:
     - default:
       - define skins <item[red_concrete].with_single[display=<red>ERROR]>
   #- define skins <player.flag[skins].get[furniture.<[assembly_type]>]>
-  - foreach <[result]> as:skin:
-    - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>].with_single[display=<gold><[skin]>]>
+  - foreach <[skins]> as:skin:
+    - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>].with_single[display=<gold><[skin].replace[_].with[ ].to_titlecase>]>
   - determine <[result]>
   slots:
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [selected_furniture] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
