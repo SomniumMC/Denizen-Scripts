@@ -700,7 +700,7 @@ Crafting_Carpentry_Bench:
     display name: <red>Carpentry Bench
     mechanisms:
       components_patch:
-        item_model: string:minecraft:fletching_table
+        item_model: string:furniture:carpentry_bench
     recipes:
       1:
         type: shaped
