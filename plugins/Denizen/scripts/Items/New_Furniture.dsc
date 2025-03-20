@@ -431,6 +431,53 @@ Furniture_Config_GUI:
   - [paper[display=<gold>Model<&sp>Yaw(Rotation)]] [red_concrete[display=<red>Yaw 45 Decrease]] [green_concrete[display=<green>Yaw 45 Increase]] [GUINULL] [] [] [] [barrier[display=<red>Remove Decoration]] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
+## Furniture Assembly System
+
+Furniture_Assembly_Event:
+  type: world
+  debug: true
+  events:
+    on player places Furniture_Assembly_Bench:
+    - define location <context.location>
+    - modifyblock <[location]> cyan_stained_glass
+    - spawn item_display[item=furniture_assembly_bench] <[location].center> save:bench_entity
+    - spawn Furniture_Assembly_Bench_Interaction <[location].center.below[0.5]> save:bench_interaction
+    - flag <entry[bench_interaction].spawned_entity> assembly.home:<[location]>
+    - flag <entry[bench_interaction].spawned_entity> assembly.bench:<entry[bench_entity].spawned_entity>
+    on player right clicks Furniture_Assembly_Bench_Interaction:
+    - define interaction <context.entity>
+    - if <player.item_in_hand.script.name||null> == config_wrench:
+      - inventory open d:Furniture_Assembly_Bench_Config_GUI
+    - else:
+      - flag <player> assembly_kit:<context.item>
+      - narrate <script[<[item].script.name>].data_key[data.assembles]>
+      #- inventory open d:Furniture_Assembly_Bench_GUI
+
+
+Furniture_Assembly_Bench_Config_GUI:
+  type: inventory
+  inventory: dispenser
+  gui: true
+  slots:
+  - [GUINULL] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL]
+
+Furniture_Assembly_Bench_GUI:
+  type: inventory
+  inventory: chest
+  gui: true
+  procedural items:
+  - define result <list>
+  - define item <player.flag[assembly_kit]>
+  - define assembly_type <script[<[item].script.name>].data_key[data.assembles]>
+  - determine <[result]>
+  slots:
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+  - [] [] [] [] [] [] [] [] []
+  - [] [] [] [] [] [] [] [] []
+  - [] [] [] [] [] [] [] [] []
+
 Furniture_Interaction:
   type: entity
   debug: false
@@ -651,3 +698,25 @@ Staff_Furniture_Configurator:
   - <white><&lt><green>Right Click<white><&gt> <gray>for aligned <red>Block Placement
   #- <gray><empty>
   #- <white><&lt><blue>Sneak Right Click<white><&gt> <gray>for <red>Freeform Placement
+
+Furniture_Assembly_Bench:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Assembly Bench
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:assembly_bench
+    lore:
+    - <gray>Place this bench to assemble furniture kits.
+    - <gray>Right click with a kit after placing to modify it.
+
+Furniture_Assembly_Bench_Interaction:
+  type: entity
+  debug: false
+  entity_type: interaction
+  flags:
+    health: 5
+  mechanisms:
+    height: 1.05
+    width: 1.05
