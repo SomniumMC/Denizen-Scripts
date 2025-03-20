@@ -526,7 +526,7 @@ Furniture_Kit_1x1_Chair:
 
 Furniture_Kit_1x2_Table:
     type: item
-    debug: false
+    debug: true
     data:
       assembly:
         type: 1x2_Table
