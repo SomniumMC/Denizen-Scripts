@@ -528,7 +528,8 @@ Furniture_Kit_1x2_Table:
     type: item
     debug: false
     data:
-      assembles: 1x2_Table
+      assembly:
+        type: 1x2_Table
     material: string
     display name: <white>1x2 Table Kit
     mechanisms:
