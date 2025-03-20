@@ -450,6 +450,7 @@ Furniture_Assembly_Event:
       - inventory open d:Furniture_Assembly_Bench_Config_GUI
     - else:
       - flag <player> assembly_kit:<context.item>
+      - define item <player.flag[assembly_kit]>
       - narrate <script[<[item].script.name>].data_key[data.assembles]>
       #- inventory open d:Furniture_Assembly_Bench_GUI
 
