@@ -528,18 +528,17 @@ Furniture_Kit_1x2_Table:
     type: item
     debug: false
     data:
-      assembles: 1x2_Table
-    material: string
-    display name: <white>1x2 Table Kit
+      cooking_tag:
+        type: ingredient
+    material: BRICK
     mechanisms:
-      components_patch:
-        item_model: string:furniture:1x2_crude_table
-    lore:
-    - <gray>Place this kit on the ground to assemble a 1x2 table.
-    - <gray>Take to a Assembly Station to give a skin.
+      custom_model_data: 202
+    display name: <white>Butter
     flags:
-      furniture_type: table
-      furniture_size: 1x2
+      food: 2
+      dairy: true
+    lore:
+    - <gold>Milk churned into a wonderful ingredient often used in baking!
 
 Furniture_Kit_1x3_Table:
     type: item
