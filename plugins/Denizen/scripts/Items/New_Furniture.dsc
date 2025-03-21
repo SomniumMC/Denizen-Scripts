@@ -461,8 +461,9 @@ Furniture_Assembly_Event:
 Furniture_Assembly_Bench_Config_GUI:
   type: inventory
   inventory: dispenser
+  debug: false
   title: <gold>Configuration
-  gui: false
+  gui: true
   slots:
   - [GUINULL] [GUINULL] [GUINULL]
   - [GUINULL] [red_concrete[display=<red>Deconstruct?]] [GUINULL]
@@ -471,8 +472,9 @@ Furniture_Assembly_Bench_Config_GUI:
 Furniture_Assembly_Bench_GUI:
   type: inventory
   inventory: chest
+  debug: false
   title: <gold>Furniture Assembly Bench
-  gui: false
+  gui: true
   definitions:
     selected_furniture: <player.flag[assembly_kit].with_single[quantity=1]>
   procedural items:
