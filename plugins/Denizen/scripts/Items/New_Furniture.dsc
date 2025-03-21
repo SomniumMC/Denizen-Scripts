@@ -450,8 +450,9 @@ Furniture_Assembly_Event:
     - if <player.item_in_hand.script.name||null> == config_wrench:
       - inventory open d:Furniture_Assembly_Bench_Config_GUI
     - else:
-      - flag <player> assembly_kit:<context.item>
-      - inventory open d:Furniture_Assembly_Bench_GUI
+      - if <player.item_in_hand.has_flag[furniture_type]>:
+        - flag <player> assembly_kit:<context.item>
+        - inventory open d:Furniture_Assembly_Bench_GUI
 
 
 Furniture_Assembly_Bench_Config_GUI:
