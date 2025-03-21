@@ -17,8 +17,9 @@ SomniData_Sentient_Undergrowth:
       pos1: 1|11|-6
       model: skeleton_skull
       health: 5
-      breakable_type: barrel
+      breakable_type: bone
       table: test1
+      yaw: 270
     SU_Pot1:
       type: breakable
       pos1: 37|7|-27
@@ -40,11 +41,62 @@ SomniData_Sentient_Undergrowth:
       health: 5
       breakable_type: barrel
       table: test1
+    SU_Pot4:
+      type: breakable
+      pos1: 39|11|-12
+      model: SU_Pot
+      health: 5
+      breakable_type: barrel
+      table: test1
+    SU_Pot5:
+      type: breakable
+      pos1: 44|11|-9
+      model: SU_Pot
+      health: 5
+      breakable_type: barrel
+      table: test1
+    SU_Pot6:
+      type: breakable
+      pos1: 38|6|-3
+      model: SU_Pot
+      health: 5
+      breakable_type: barrel
+      table: test1
+    SU_Coin_Pouch1:
+      type: breakable
+      pos1: 33|1|-8
+      model: SU_Coin_Pouch
+      health: 5
+      breakable_type: barrel
+      table: test1
+    SU_Coin_Pouch2:
+      type: breakable
+      pos1: 33|1|-18
+      model: SU_Coin_Pouch
+      health: 5
+      breakable_type: barrel
+      table: test1
+    SU_Coin_Pouch3:
+      type: breakable
+      pos1: 8|5|-40
+      model: SU_Coin_Pouch
+      health: 5
+      breakable_type: barrel
+      table: test1
     lootchest1:
       type: chest
       pos1: 6|5|-41
       facing: west
       table: test1
+    lootchest2:
+      type: chest
+      pos1: 2|11|-28
+      facing: north
+      table: test1
+    bosstele:
+      type: teleporter
+      pos1: 41|11|-40
+      destination: sentientundergrowthbosstele
     dungeon_core:
       type: dungeoncore
       pos:
@@ -66,6 +118,18 @@ SU_Pot:
   mechanisms:
       components_patch:
         item_model: string:furniture:clay_jug
+  lore:
+  - <red>Players should not have this item!
+  - <green>This is just used as a model
+
+SU_Coin_Pouch:
+  type: item
+  debug: false
+  material: stick
+  display name: <red>Sentient Undergrowth Coin Pouch
+  mechanisms:
+      components_patch:
+        item_model: string:furniture:coin_pouch
   lore:
   - <red>Players should not have this item!
   - <green>This is just used as a model

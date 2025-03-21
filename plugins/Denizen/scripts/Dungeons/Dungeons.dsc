@@ -232,6 +232,14 @@ SomniReturnPortal:
     - look <entry[Portal_model].spawned_entity> yaw:0
     - note <[pos1].forward[1].above[1].to_cuboid[<[pos1].forward[1].above[2]>]> as:<[somni]>_exit
 
+SomniTeleporter:
+    type: task
+    debug: true
+    definitions: pos1|origin|destination
+    script:
+    - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - modifyblock <[pos1]> end_gateway
+    - adjust <[pos1]> exit_location:<[destination]>
 
 SomniLocationProc:
     type: procedure
