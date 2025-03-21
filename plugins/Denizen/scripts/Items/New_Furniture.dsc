@@ -641,7 +641,8 @@ Furniture_Recipe_Task:
     - adjust def:skinned_item lore:<[skinned_item].lore><n><gold>Skin<&co><&sp><[skin_item].display>
     - adjust def:skinned_item flag:skin:Furniture_Skin_<[skin_item].flag[type]>_<[skin_item].flag[skin]>
     - give item:<[skinned_item]>
-    - take item:furniture_kit_<[skin_item].flag[type]> quantity:1
+    - if <player.gamemode> != creative:
+      - take item:furniture_kit_<[skin_item].flag[type]> quantity:1
     - inventory close
 
     #- run Crafting_Station_Push
