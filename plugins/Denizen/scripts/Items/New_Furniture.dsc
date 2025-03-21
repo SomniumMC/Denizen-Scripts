@@ -466,6 +466,7 @@ Furniture_Assembly_Bench_Config_GUI:
 Furniture_Assembly_Bench_GUI:
   type: inventory
   inventory: chest
+  title: <gold>Furniture Assembly Bench
   gui: true
   definitions:
     selected_furniture: <player.flag[assembly_kit].with_single[quantity=1]>
@@ -490,6 +491,8 @@ Furniture_Assembly_Bench_GUI:
       - define skins <item[red_concrete].with_single[display=<red>ERROR]>
   #- define skins <player.flag[skins].get[furniture.<[assembly_type]>]>
   - foreach <[skins]> as:skin:
+    - define item <item[furniture_skin_<[assembly_type]>_<[skin]>]>
+    - adjust def:item lore:<proc[Furniture_Recipe_Proc].context[<[assembly_type]>.<[skin]>]>
     - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>]>
   - determine <[result]>
   slots:
@@ -519,15 +522,37 @@ Furniture_Skin_Recipes:
     - plate_empty
     - skelly
   1x1_Table:
-  - empty
+    end_table:
+    - oak_planks-4
+    - white_wool-2
+    - chest-1
   1x1_Chair:
-  - empty
+    comfy_oak_stool:
+    - oak_planks-4
+    - white_wool-2
   1x2_Table:
   - empty
   1x3_Table:
   - empty
   2x2_Table:
   - empty
+
+Furniture_Recipe_Proc:
+  type: procedure
+  debug: false
+  definitions: path
+  script:
+  - define ingredients <script[Furniture_Skin_Recipes].data_key[<[path]>]>
+  #- define tool <[ingredients].last.replace[_].with[ ].to_titlecase>
+  - foreach <[ingredients].get[1].to[<[ingredients].size>]> as:text:
+    - if <item[<[text].before_last[-]>].display||null> == null:
+      - define item_name "<item[<[text].before_last[-]>].material.name.replace[_].with[ ].to_titlecase> x<[text].after_last[-]>"
+    - else:
+      - define item_name "<item[<[text].before_last[-]>].display> x<[text].after_last[-]>"
+    - define ingredient_list:->:<[item_name].strip_color>
+  - define lore <n><gray><element[                          ].strikethrough>
+  - define lore "<[lore]><n><dark_purple>Ingredients<&co><n><blue><[ingredient_list].comma_separated> "
+  - determine <[lore]>
 
 Furniture_Interaction:
   type: entity
