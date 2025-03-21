@@ -632,13 +632,13 @@ Furniture_Recipe_Task:
         - take item:<[ingredient5]> quantity:<[quantity5]>
         - take item:<[ingredient6]> quantity:<[quantity6]>
   - if <[success]||0> == 1:
-    - define skinned_item <item[furniture_kit_<[skin_item].flag[furniture_type]>]>
+    - define skinned_item <item[furniture_kit_<[skin_item].flag[type]>]>
     - adjust def:skinned_item components_patch:item_model:<[skin_item].flag[model]>
     #- adjust def:skinned_item display:<[skin_item].display_name>
     - adjust def:skinned_item lore:<[skinned_item].lore><n><gold>Skin<&co><&sp><[skin_item].display>
     - adjust def:skinned_item flag:skin:<[skin_item].flag[path]>
     - give item:<[skinned_item]>
-    - take item:furniture_kit_<[skin_item].flag[furniture_type]> quantity:1
+    - take item:furniture_kit_<[skin_item].flag[type]> quantity:1
     - inventory close
 
     #- run Crafting_Station_Push
