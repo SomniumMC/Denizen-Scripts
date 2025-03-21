@@ -146,7 +146,7 @@ SomniMobSpawner:
 
 SomniBreakable:
     type: task
-    debug: true
+    debug: false
     definitions: pos1|origin|model|health|breakable_type|table|yaw|scale|translation
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -476,7 +476,7 @@ SomniProtection:
 
 SomniProtectionClear:
     type: task
-    debug: true
+    debug: false
     definitions: area|location|core|stabilizer|interaction|somni
     script:
     - remove <[interaction]>

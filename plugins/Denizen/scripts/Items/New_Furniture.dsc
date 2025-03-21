@@ -5,7 +5,7 @@
 
 Furniture_Main_Event:
     type: world
-    debug: true
+    debug: false
     events:
         on player places Furniture_Kit_1x1_Table:
         - ratelimit <player> 5t
@@ -169,7 +169,7 @@ Assemble_2x2_Table:
 
 Assemble_Decoration:
     type: task
-    debug: true
+    debug: false
     definitions: location|item
     script:
     - adjust def:item quantity:1
