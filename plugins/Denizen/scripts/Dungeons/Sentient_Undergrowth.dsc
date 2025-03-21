@@ -94,9 +94,10 @@ SomniData_Sentient_Undergrowth:
       facing: north
       table: test1
     bosstele:
-      type: teleporter
+      type: modicube
       pos1: 41|11|-40
-      destination: sentientundergrowthbosstele
+      pos2: 41|11|-40
+      replacement: end_gateway
     dungeon_core:
       type: dungeoncore
       pos:
