@@ -493,6 +493,7 @@ Furniture_Assembly_Bench_GUI:
   - foreach <[skins]> as:skin:
     - define item <item[furniture_skin_<[assembly_type]>_<[skin]>]>
     - adjust def:item lore:<proc[Furniture_Recipe_Proc].context[<[assembly_type]>.<[skin]>]>
+    - adjust def:item flag:recipe:<script[Furniture_Skin_Recipes].data_key[<[assembly_type]>.<[skin]>]>
     - define result:->:<[item]>
   - determine <[result]>
   slots:
@@ -536,6 +537,23 @@ Furniture_Skin_Recipes:
   - empty
   2x2_Table:
   - empty
+  Decoration:
+    wheel:
+    - oak_planks-4
+    - iron_ingot-1
+    ship_wheel:
+    - oak_planks-5
+    - iron_ingot-1
+    tent:
+    - white_wool-4
+    - oak_planks-4
+    washtub:
+    - oak_planks-4
+    - iron_ingot-1
+    plate_empty:
+    - iron_ingot-1
+    skelly:
+    - bone-8
 
 Furniture_Recipe_Proc:
   type: procedure
