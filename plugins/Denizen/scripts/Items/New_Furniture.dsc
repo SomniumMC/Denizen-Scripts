@@ -98,8 +98,6 @@ Assemble_1x1_Table:
     - flag <[interaction]> furniture.type:1x1_Table
     - flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
 
-    - take item:<[item]> quantity:1
-
 Assemble_1x1_Chair:
     type: task
     debug: false
@@ -115,8 +113,6 @@ Assemble_1x1_Chair:
     #- flag <[interaction]> furniture.blocks:->:<[location]>
     - flag <[interaction]> furniture.type:1x1_Chair
     #- flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
-
-    - take item:<[item]> quantity:1
 
 Assemble_1x2_Table:
     type: task
@@ -137,8 +133,6 @@ Assemble_1x2_Table:
     - foreach <[block_list]> as:block:
       - flag <[block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
 
-    - take item:<[item]> quantity:1
-
 Assemble_1x3_Table:
     type: task
     debug: false
@@ -155,8 +149,6 @@ Assemble_1x3_Table:
     - flag <[interaction]> furniture.type:1x3_Table
     - foreach <[block_list]> as:block:
       - flag <[block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
-
-    - take item:<[item]> quantity:1
 
 Assemble_2x2_Table:
     type: task
@@ -175,8 +167,6 @@ Assemble_2x2_Table:
     - foreach <[block_list]> as:block:
       - flag <[block]> furniture_interaction:<entry[interaction_entity].spawned_entity>
 
-    - take item:<[item]> quantity:1
-
 Assemble_Decoration:
     type: task
     debug: true
@@ -192,8 +182,6 @@ Assemble_Decoration:
     - flag <[interaction]> furniture.blocks:->:<[location]>
     - flag <[interaction]> furniture.type:Decoration
     - flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
-
-    - take item:<[item]> quantity:1
 
 Furniture_Cleanup:
     type: task
