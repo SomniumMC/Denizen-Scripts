@@ -643,7 +643,7 @@ Furniture_Recipe_Task:
     - give item:<[skinned_item]>
     - if <player.gamemode> != creative:
       - take item:furniture_kit_<[skin_item].flag[type]> quantity:1
-    - inventory close
+      - inventory close
 
     #- run Crafting_Station_Push
 
