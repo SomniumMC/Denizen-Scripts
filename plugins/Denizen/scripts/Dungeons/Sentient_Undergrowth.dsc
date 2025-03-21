@@ -93,11 +93,11 @@ SomniData_Sentient_Undergrowth:
       pos1: 2|11|-28
       facing: north
       table: test1
-    bosstele:
-      type: modicube
-      pos1: 41|11|-40
-      pos2: 41|11|-40
-      replacement: end_gateway
+    #bosstele:
+    #  type: modicube
+    #  pos1: 41|11|-40
+    #  pos2: 41|11|-40
+    #  replacement: end_gateway
     dungeon_core:
       type: dungeoncore
       pos:
