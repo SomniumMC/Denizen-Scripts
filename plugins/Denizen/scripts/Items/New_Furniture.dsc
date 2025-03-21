@@ -435,6 +435,8 @@ Furniture_Assembly_Event:
     on player right clicks Furniture_Assembly_Bench_Interaction:
     - ratelimit player 5t
     - define interaction <context.entity>
+    - if <player.item_in_hand.has_flag[skin]>:
+      - stop
     - if <player.item_in_hand.script.name||null> == config_wrench:
       - flag <player> assembly_bench:<[interaction]> expire:10s
       - inventory open d:Furniture_Assembly_Bench_Config_GUI
@@ -449,6 +451,11 @@ Furniture_Assembly_Event:
       - drop item:furniture_assembly_bench <player.flag[assembly_bench].flag[assembly.home]>
       - remove <player.flag[assembly_bench]>
       - inventory close
+    on player clicks item in Furniture_Assembly_Bench_GUI:
+    - if <context.slot> in <list[1|2|3|4|5|6|7|8|9]>:
+      - stop
+    - else:
+      - run furniture_recipe_task def:<context.item>
 
 
 Furniture_Assembly_Bench_Config_GUI:
@@ -491,7 +498,7 @@ Furniture_Assembly_Bench_GUI:
   - foreach <[skins]> as:skin:
     - define item <item[furniture_skin_<[assembly_type]>_<[skin]>]>
     - adjust def:item lore:<proc[Furniture_Recipe_Proc].context[<[assembly_type]>.<[skin]>]>
-    - adjust def:item flag:recipe:<script[Furniture_Skin_Recipes].data_key[<[assembly_type]>.<[skin]>]>
+    - adjust def:item flag:path:<[assembly_type]>.<[skin]>
     - define result:->:<[item]>
   - determine <[result]>
   slots:
@@ -569,6 +576,75 @@ Furniture_Recipe_Proc:
   - define lore <n><gray><element[                          ].strikethrough>
   - define lore "<[lore]><n><dark_purple>Ingredients<&co><n><blue><[ingredient_list].comma_separated> "
   - determine <[lore]>
+
+
+## Copied from Crafting2.dsc
+Furniture_Recipe_Task:
+  type: task
+  debug: false
+  definitions: skin_item
+  script:
+  - define path <[skin_item].flag[path]>
+  - define recipe <script[Furniture_Skin_Recipes].data_key[<[path]>]>
+  - define recipe_amount <[recipe].size>
+  - define tool <[recipe].last>
+  - foreach <[recipe]> as:item:
+    - define quantity<[loop_index]> <[item].after_last[-]>
+    - define ingredient<[loop_index]> <[item].before_last[-]>
+  - choose <[recipe_amount]>:
+    - case 1:
+      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]>:
+        - define success 1
+        - take item:<[ingredient1]> quantity:<[quantity1]>
+    - case 2:
+      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]>:
+        - define success 1
+        - take item:<[ingredient1]> quantity:<[quantity1]>
+        - take item:<[ingredient2]> quantity:<[quantity2]>
+    - case 3:
+      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]>:
+        - define success 1
+        - take item:<[ingredient1]> quantity:<[quantity1]>
+        - take item:<[ingredient2]> quantity:<[quantity2]>
+        - take item:<[ingredient3]> quantity:<[quantity3]>
+    - case 4:
+      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]>:
+        - define success 1
+        - take item:<[ingredient1]> quantity:<[quantity1]>
+        - take item:<[ingredient2]> quantity:<[quantity2]>
+        - take item:<[ingredient3]> quantity:<[quantity3]>
+        - take item:<[ingredient4]> quantity:<[quantity4]>
+    - case 5:
+      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]>:
+        - define success 1
+        - take item:<[ingredient1]> quantity:<[quantity1]>
+        - take item:<[ingredient2]> quantity:<[quantity2]>
+        - take item:<[ingredient3]> quantity:<[quantity3]>
+        - take item:<[ingredient4]> quantity:<[quantity4]>
+        - take item:<[ingredient5]> quantity:<[quantity5]>
+    - case 6:
+      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <player.inventory.contains_item[<[ingredient6]>].quantity[<[quantity6]>]>:
+        - define success 1
+        - take item:<[ingredient1]> quantity:<[quantity1]>
+        - take item:<[ingredient2]> quantity:<[quantity2]>
+        - take item:<[ingredient3]> quantity:<[quantity3]>
+        - take item:<[ingredient4]> quantity:<[quantity4]>
+        - take item:<[ingredient5]> quantity:<[quantity5]>
+        - take item:<[ingredient6]> quantity:<[quantity6]>
+  - if <[success]||0> == 1:
+    - define skinned_item <item[furniture_kit_<[skin_item].flag[furniture_type]>]>
+    - adjust def:skinned_item components_patch:item_model:<[skin_item].flag[model]>
+    #- adjust def:skinned_item display:<[skin_item].display_name>
+    - adjust def:skinned_item lore:<[skinned_item].lore><n><gold>Skin<&co><&sp><[skin_item].display>
+    - adjust def:skinned_item flag:skin:<[skin_item].flag[path]>
+    - give item:<[skinned_item]>
+    - take item:furniture_kit_<[skin_item].flag[furniture_type]> quantity:1
+    - inventory close
+
+    #- run Crafting_Station_Push
+
+
+
 
 Furniture_Interaction:
   type: entity
