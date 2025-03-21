@@ -448,20 +448,29 @@ Furniture_Assembly_Event:
     - ratelimit player 5t
     - define interaction <context.entity>
     - if <player.item_in_hand.script.name||null> == config_wrench:
+      - flag <player> assembly_bench:<[interaction]> expire:10s
       - inventory open d:Furniture_Assembly_Bench_Config_GUI
     - else:
       - if <player.item_in_hand.has_flag[furniture_type]>:
         - flag <player> assembly_kit:<context.item>
         - inventory open d:Furniture_Assembly_Bench_GUI
+    on player clicks item in Furniture_Assembly_Bench_Config_GUI:
+    - if <context.slot> == 5:
+      - remove <player.flag[assembly_bench].flag[assembly.bench]>
+      - modifyblock <player.flag[assembly_bench].flag[assembly.home]> air
+      - drop item:furniture_assembly_bench <player.flag[assembly_bench].flag[assembly.home]>
+      - remove <player.flag[assembly_bench]>
+      - inventory close
 
 
 Furniture_Assembly_Bench_Config_GUI:
   type: inventory
   inventory: dispenser
+  title: <gold>Configuration
   gui: true
   slots:
   - [GUINULL] [GUINULL] [GUINULL]
-  - [GUINULL] [GUINULL] [GUINULL]
+  - [GUINULL] [red_concrete[display=<red>Deconstruct?]] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL]
 
 Furniture_Assembly_Bench_GUI:
