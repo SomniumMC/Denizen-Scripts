@@ -1,7 +1,6 @@
 #These ancient ruins haven't been explored in what would seem like hundreds of years.  However..  One never quite feels alone while trapped inside these 
 SomniData_Sentient_Undergrowth:
     type: data
-    debug: false
     origin: sentientunderpos3
     pos2: sentientunderpos4
     area: sentientundergrowth2
@@ -136,7 +135,7 @@ SU_Coin_Pouch:
 
 Sentient_Undergrowth_Events:
   type: world
-  debug: false
+  debug: true
   events:
     on player enters sentientundergrowthteleporter:
     - define player <context.entity>
