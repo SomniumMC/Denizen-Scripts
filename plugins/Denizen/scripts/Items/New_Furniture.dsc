@@ -212,7 +212,7 @@ Furniture_Cleanup:
 
 Furniture_Config_Event:
     type: world
-    debug: true
+    debug: false
     events:
         on player places block using:off_hand priority:-20:
         - if <player.item_in_hand.script.name.if_null[null]> == Staff_Furniture_Configurator:
@@ -490,7 +490,7 @@ Furniture_Assembly_Bench_GUI:
       - define skins <item[red_concrete].with_single[display=<red>ERROR]>
   #- define skins <player.flag[skins].get[furniture.<[assembly_type]>]>
   - foreach <[skins]> as:skin:
-    - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>].with_single[display=<gold><[skin].replace[_].with[ ].to_titlecase>]>
+    - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>]>
   - determine <[result]>
   slots:
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [selected_furniture] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
@@ -502,7 +502,7 @@ Furniture_Skin_Recipes:
   type: data
   free_skins:
     1x1_Table:
-    - empty
+    - end_table
     1x1_Chair:
     - comfy_oak_stool
     1x2_Table:
@@ -512,7 +512,12 @@ Furniture_Skin_Recipes:
     2x2_Table:
     - empty
     Decoration:
-    - empty
+    - wheel
+    - ship_wheel
+    - tent
+    - washtub
+    - plate_empty
+    - skelly
   1x1_Table:
   - empty
   1x1_Chair:
@@ -774,6 +779,8 @@ Furniture_Display_Stand:
 
 #Custom Skins
 
+#1x1 Chair
+
 Furniture_Skin_1x1_Chair_comfy_oak_stool:
     type: item
     debug: false
@@ -785,3 +792,91 @@ Furniture_Skin_1x1_Chair_comfy_oak_stool:
     flags:
       type: 1x1_Chair
       model: furniture:comfy_oak_stool
+
+#1x1 Table
+
+Furniture_Skin_1x1_Table_end_table:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>End Table
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:end_table
+    flags:
+      type: 1x1_Table
+      model: furniture:end_table
+
+#Decoration
+
+Furniture_Skin_Decoration_wheel:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Wheel
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:wheel
+    flags:
+      type: Decoration
+      model: furniture:wheel
+
+Furniture_Skin_Decoration_ship_wheel:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Ship Wheel
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:ship_wheel
+    flags:
+      type: Decoration
+      model: furniture:ship_wheel
+
+Furniture_Skin_Decoration_tent:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Tent
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:tent
+    flags:
+      type: Decoration
+      model: furniture:tent
+
+Furniture_Skin_Decoration_washtub:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Washtub
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:washtub
+    flags:
+      type: Decoration
+      model: furniture:washtub
+
+Furniture_Skin_Decoration_plate_empty:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Empty Plate
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:plate_empty
+    flags:
+      type: Decoration
+      model: furniture:plate_empty
+
+Furniture_Skin_Decoration_skelly:
+    type: item
+    debug: false
+    material: string
+    display name: <yellow>Sitting Skeleton
+    mechanisms:
+      components_patch:
+        item_model: string:dungeons:skelly
+    flags:
+      type: Decoration
+      model: dungeons:skelly
