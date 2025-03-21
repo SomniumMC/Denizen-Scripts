@@ -632,6 +632,8 @@ Furniture_Recipe_Task:
         - take item:<[ingredient4]> quantity:<[quantity4]>
         - take item:<[ingredient5]> quantity:<[quantity5]>
         - take item:<[ingredient6]> quantity:<[quantity6]>
+  - if <player.gamemode> == creative:
+    - define success 1
   - if <[success]||0> == 1:
     - define skinned_item <item[furniture_kit_<[skin_item].flag[type]>]>
     - adjust def:skinned_item components_patch:item_model=string<&co><[skin_item].flag[model]>
