@@ -326,7 +326,7 @@ SomniTapeMeasurer:
     type: world
     debug: false
     events:
-        on player breaks block with:SomniCoordTool:
+        on player breaks block with:SomniCoordTool priority:-50 bukkit_priority:HIGHEST:
         - determine passively cancelled
         - if <player.item_in_hand.flag[origin]> == <empty>:
           - inventory adjust flag:origin:<context.location> slot:hand
@@ -335,7 +335,7 @@ SomniTapeMeasurer:
           - if <player.is_sneaking>:
             - inventory adjust flag:origin:<empty> slot:hand
             - inventory adjust lore:<item[<player.item_in_hand.script.name>].lore> slot:hand
-        on player places SomniCoordTool:
+        on player places SomniCoordTool priority:-50 bukkit_priority:HIGHEST:
         - determine passively cancelled
         - if <player.item_in_hand.flag[origin]> != <empty>:
           - define pos1 <player.item_in_hand.flag[origin].simple.before_last[,].split[,]>

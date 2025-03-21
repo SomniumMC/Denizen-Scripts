@@ -18,7 +18,7 @@ SomniData_Sentient_Undergrowth:
       health: 5
       breakable_type: bone
       table: test1
-      yaw: 270
+      yaw: 90
     SU_Pot1:
       type: breakable
       pos1: 37|7|-27
@@ -128,7 +128,7 @@ SU_Coin_Pouch:
   display name: <red>Sentient Undergrowth Coin Pouch
   mechanisms:
       components_patch:
-        item_model: string:furniture:coin_pouch
+        item_model: string:materials:currency/coinpurse
   lore:
   - <red>Players should not have this item!
   - <green>This is just used as a model
@@ -139,5 +139,5 @@ Sentient_Undergrowth_Events:
   events:
     on player enters sentientundergrowthteleporter:
     - define player <context.entity>
-    - narrate "<light_purple><italic>You feel a chill run down your spine as you step into the portal."
+    - narrate "<light_purple><italic>You feel a chill run down your spine as you step into the teleporter."
     - teleport <player> <location[sentientundergrowthbosstele]>
