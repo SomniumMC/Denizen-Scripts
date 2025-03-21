@@ -592,46 +592,47 @@ Furniture_Recipe_Task:
   - foreach <[recipe]> as:item:
     - define quantity<[loop_index]> <[item].after_last[-]>
     - define ingredient<[loop_index]> <[item].before_last[-]>
-  - choose <[recipe_amount]>:
-    - case 1:
-      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]>:
-        - define success 1
-        - take item:<[ingredient1]> quantity:<[quantity1]>
-    - case 2:
-      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]>:
-        - define success 1
-        - take item:<[ingredient1]> quantity:<[quantity1]>
-        - take item:<[ingredient2]> quantity:<[quantity2]>
-    - case 3:
-      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]>:
-        - define success 1
-        - take item:<[ingredient1]> quantity:<[quantity1]>
-        - take item:<[ingredient2]> quantity:<[quantity2]>
-        - take item:<[ingredient3]> quantity:<[quantity3]>
-    - case 4:
-      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]>:
-        - define success 1
-        - take item:<[ingredient1]> quantity:<[quantity1]>
-        - take item:<[ingredient2]> quantity:<[quantity2]>
-        - take item:<[ingredient3]> quantity:<[quantity3]>
-        - take item:<[ingredient4]> quantity:<[quantity4]>
-    - case 5:
-      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]>:
-        - define success 1
-        - take item:<[ingredient1]> quantity:<[quantity1]>
-        - take item:<[ingredient2]> quantity:<[quantity2]>
-        - take item:<[ingredient3]> quantity:<[quantity3]>
-        - take item:<[ingredient4]> quantity:<[quantity4]>
-        - take item:<[ingredient5]> quantity:<[quantity5]>
-    - case 6:
-      - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <player.inventory.contains_item[<[ingredient6]>].quantity[<[quantity6]>]>:
-        - define success 1
-        - take item:<[ingredient1]> quantity:<[quantity1]>
-        - take item:<[ingredient2]> quantity:<[quantity2]>
-        - take item:<[ingredient3]> quantity:<[quantity3]>
-        - take item:<[ingredient4]> quantity:<[quantity4]>
-        - take item:<[ingredient5]> quantity:<[quantity5]>
-        - take item:<[ingredient6]> quantity:<[quantity6]>
+  - if <player.gamemode> != creative:
+    - choose <[recipe_amount]>:
+      - case 1:
+        - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]>:
+          - define success 1
+          - take item:<[ingredient1]> quantity:<[quantity1]>
+      - case 2:
+        - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]>:
+          - define success 1
+          - take item:<[ingredient1]> quantity:<[quantity1]>
+          - take item:<[ingredient2]> quantity:<[quantity2]>
+      - case 3:
+        - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]>:
+          - define success 1
+          - take item:<[ingredient1]> quantity:<[quantity1]>
+          - take item:<[ingredient2]> quantity:<[quantity2]>
+          - take item:<[ingredient3]> quantity:<[quantity3]>
+      - case 4:
+        - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]>:
+          - define success 1
+          - take item:<[ingredient1]> quantity:<[quantity1]>
+          - take item:<[ingredient2]> quantity:<[quantity2]>
+          - take item:<[ingredient3]> quantity:<[quantity3]>
+          - take item:<[ingredient4]> quantity:<[quantity4]>
+      - case 5:
+        - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]>:
+          - define success 1
+          - take item:<[ingredient1]> quantity:<[quantity1]>
+          - take item:<[ingredient2]> quantity:<[quantity2]>
+          - take item:<[ingredient3]> quantity:<[quantity3]>
+          - take item:<[ingredient4]> quantity:<[quantity4]>
+          - take item:<[ingredient5]> quantity:<[quantity5]>
+      - case 6:
+        - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <player.inventory.contains_item[<[ingredient6]>].quantity[<[quantity6]>]>:
+          - define success 1
+          - take item:<[ingredient1]> quantity:<[quantity1]>
+          - take item:<[ingredient2]> quantity:<[quantity2]>
+          - take item:<[ingredient3]> quantity:<[quantity3]>
+          - take item:<[ingredient4]> quantity:<[quantity4]>
+          - take item:<[ingredient5]> quantity:<[quantity5]>
+          - take item:<[ingredient6]> quantity:<[quantity6]>
   - if <player.gamemode> == creative:
     - define success 1
   - if <[success]||0> == 1:
