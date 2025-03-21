@@ -499,6 +499,7 @@ Furniture_Assembly_Bench_GUI:
     - define item <item[furniture_skin_<[assembly_type]>_<[skin]>]>
     - adjust def:item lore:<proc[Furniture_Recipe_Proc].context[<[assembly_type]>.<[skin]>]>
     - adjust def:item flag:path:<[assembly_type]>.<[skin]>
+    - adjust def:item flag:skin:<[skin]>
     - define result:->:<[item]>
   - determine <[result]>
   slots:
@@ -636,7 +637,7 @@ Furniture_Recipe_Task:
     - adjust def:skinned_item components_patch:item_model=string<&co><[skin_item].flag[model]>
     #- adjust def:skinned_item display:<[skin_item].display_name>
     - adjust def:skinned_item lore:<[skinned_item].lore><n><gold>Skin<&co><&sp><[skin_item].display>
-    - adjust def:skinned_item flag:skin:string<&co><[skin_item].flag[model]>
+    - adjust def:skinned_item flag:skin:Furniture_<[skin_item].flag[type]>_<[skin_item].flag[skin]>
     - give item:<[skinned_item]>
     - take item:furniture_kit_<[skin_item].flag[type]> quantity:1
     - inventory close
