@@ -228,6 +228,11 @@ Crafting_Master_Data:
         - oak_planks-5
         - stonecutter-1
         - stone-2
+        furniture_assembly_bench-1:
+        - oak_planks-8
+        - iron_ingot-2
+        - stonecutter-1
+        - crafting_table-1
       wooden_materials:
         tool_rod-1:
         - stick-1
