@@ -235,11 +235,10 @@ SomniReturnPortal:
 SomniTeleporter:
     type: task
     debug: true
-    definitions: pos1|origin|destination
+    definitions: pos1|origin|note
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
-    - modifyblock <[pos1]> end_gateway
-    - adjust <[pos1]> exit_location:<[destination]>
+    - note <[pos1].to_cuboid[<[pos1].above[1]>]> as:sentientundergrowthteleporter
 
 SomniLocationProc:
     type: procedure
@@ -439,6 +438,8 @@ SomniProtection:
     debug: false
     events:
         on player breaks block priority:-20 bukkit_priority:HIGHEST:
+        - if <player.gamemode> == creative:
+          - stop
         - if <context.material.name> in <list[short_grass|tall_grass|fern|cobweb|vine|ladder]>:
           - stop
         - foreach <context.location.areas> as:area_name:

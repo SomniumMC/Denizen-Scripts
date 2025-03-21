@@ -93,11 +93,10 @@ SomniData_Sentient_Undergrowth:
       pos1: 2|11|-28
       facing: north
       table: test1
-    #bosstele:
-    #  type: modicube
-    #  pos1: 41|11|-40
-    #  pos2: 41|11|-40
-    #  replacement: end_gateway
+    bosstele:
+      type: teleporter
+      pos1: 41|11|-40
+      note: sentientundergrowthteleporter
     dungeon_core:
       type: dungeoncore
       pos:
@@ -134,3 +133,12 @@ SU_Coin_Pouch:
   lore:
   - <red>Players should not have this item!
   - <green>This is just used as a model
+
+Sentient_Undergrowth_Events:
+  type: world
+  debug: false
+  events:
+    on player enters sentientundergrowthteleporter:
+    - define player <context.entity>
+    - narrate "<light_purple><italic>You feel a chill run down your spine as you step into the portal."
+    - teleport <player> <location[sentientundergrowthbosstele]>
