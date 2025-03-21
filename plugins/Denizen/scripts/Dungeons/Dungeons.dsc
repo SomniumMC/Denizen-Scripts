@@ -452,6 +452,8 @@ SomniProtection:
           - else:
             - foreach next
         on player places block priority:-20:
+        - if <player.gamemode> == creative:
+          - stop
         - if <context.item_in_hand.material.name> == ladder:
           - stop
         - foreach <context.location.areas> as:area_name:
