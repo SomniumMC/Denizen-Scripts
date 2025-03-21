@@ -423,7 +423,7 @@ Furniture_Config_GUI:
 
 Furniture_Assembly_Event:
   type: world
-  debug: false
+  debug: true
   events:
     on player places Furniture_Assembly_Bench:
     - define location <context.location>
