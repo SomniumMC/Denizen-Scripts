@@ -493,7 +493,7 @@ Furniture_Assembly_Bench_GUI:
   - foreach <[skins]> as:skin:
     - define item <item[furniture_skin_<[assembly_type]>_<[skin]>]>
     - adjust def:item lore:<proc[Furniture_Recipe_Proc].context[<[assembly_type]>.<[skin]>]>
-    - define result:->:<item[furniture_skin_<[assembly_type]>_<[skin]>]>
+    - define result:->:<[item]>
   - determine <[result]>
   slots:
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [selected_furniture] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
