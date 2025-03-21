@@ -452,7 +452,7 @@ Furniture_Assembly_Event:
       - remove <player.flag[assembly_bench]>
       - inventory close
     on player clicks item in Furniture_Assembly_Bench_GUI:
-    - if <context.slot> in <list[1|2|3|4|5|6|7|8|9]>:
+    - if <context.slot> in <list[1|2|3|4|5|6|7|8|9|-998]> || <context.item.material.name> == air:
       - stop
     - else:
       - run furniture_recipe_task def:<context.item>
