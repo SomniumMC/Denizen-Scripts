@@ -96,6 +96,14 @@ SomniData_Sentient_Undergrowth:
       health: 5
       breakable_type: leather
       table: test1
+    SU_Skeleton_Hanging1:
+      type: breakable
+      pos1: 44|11|-19
+      model: SU_Skeleton_Hanging
+      health: 5
+      breakable_type: bone
+      table: test1
+      yaw: 90
     lootchest1:
       type: chest
       pos1: 6|5|-41
@@ -105,6 +113,11 @@ SomniData_Sentient_Undergrowth:
       type: chest
       pos1: 2|11|-28
       facing: north
+      table: test1
+    lootchest3:
+      type: chest
+      pos1: 11|1|-14
+      facing: south
       table: test1
     bosstele:
       type: teleporter
@@ -123,7 +136,7 @@ SomniData_Sentient_Undergrowth:
       somni: Sentient_Undergrowth
     exit2:
       type: returnportal
-      pos1: 3|10|-33
+      pos1: 3|9|-33
       somni: Sentient_Undergrowth
     crawl1:
       type: crawl
@@ -133,6 +146,18 @@ SomniData_Sentient_Undergrowth:
       type: crawl
       pos1: 34|11|-18
       yaw: 0
+    crawl3:
+      type: crawl
+      pos1: 17|1|-25
+      yaw: 0
+    #Spider x2
+    spawner1:
+      type: mobspawner
+      pos1: 4|11|-23
+      id: su_spawner1
+      health: 10
+      somni: sentient_undergrowth
+
 
 
 SU_Pot:
@@ -159,6 +184,18 @@ SU_Coin_Pouch:
   - <red>Players should not have this item!
   - <green>This is just used as a model
 
+SU_Skeleton_Hanging:
+    type: item
+    debug: false
+    material: string
+    display name: <red>Sentient Undergrowth Hanging Skeleton
+    mechanisms:
+      components_patch:
+        item_model: string:dungeons:hanging_skelly
+    lore:
+    - <red>Players should not have this item!
+    - <green>This is just used as a model
+
 Sentient_Undergrowth_Events:
   type: world
   debug: true
@@ -170,3 +207,6 @@ Sentient_Undergrowth_Events:
     on player enters sentientundergrowth_intro_message:
     - define player <context.entity>
     - narrate "<green><italic>This place feels...<n><bold>Alive"
+    on mythicmob su_spiderboss dies:
+    - narrate "<red><bold>The spider boss has been defeated!<n><green>The gates have been opened for a stronger foe." targets:<cuboid[sentientundergrowth2].players>
+    - modifyblock <cuboid[su_spiderboss_gate]> air
