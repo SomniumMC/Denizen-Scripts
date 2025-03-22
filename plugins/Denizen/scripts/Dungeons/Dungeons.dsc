@@ -568,7 +568,7 @@ SomniMob_Spawner_Event:
 
 SomniCrawl_Event:
   type: world
-  debug: false
+  debug: true
   events:
     on player right clicks Somni_Crawl_Interaction:
     - define entity <context.entity>
