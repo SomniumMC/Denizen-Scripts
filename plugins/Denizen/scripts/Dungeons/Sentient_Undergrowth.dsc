@@ -63,14 +63,14 @@ SomniData_Sentient_Undergrowth:
       table: test1
     SU_Coin_Pouch1:
       type: breakable
-      pos1: 33|1|-8
+      pos1: 33|11|-8
       model: SU_Coin_Pouch
       health: 5
       breakable_type: barrel
       table: test1
     SU_Coin_Pouch2:
       type: breakable
-      pos1: 33|1|-18
+      pos1: 33|11|-18
       model: SU_Coin_Pouch
       health: 5
       breakable_type: barrel
@@ -103,9 +103,13 @@ SomniData_Sentient_Undergrowth:
       health: 10
       area: sentientundergrowth2
       somni: Sentient_Undergrowth
-    exit:
+    exit1:
       type: returnportal
       pos1: 41|22|-22
+      somni: Sentient_Undergrowth
+    exit2:
+      type: returnportal
+      pos1: 3|10|-33
       somni: Sentient_Undergrowth
 
 
@@ -141,3 +145,6 @@ Sentient_Undergrowth_Events:
     - define player <context.entity>
     - narrate "<light_purple><italic>You feel a chill run down your spine as you step into the teleporter."
     - teleport <player> <location[sentientundergrowthbosstele]>
+    on player enters sentientundergrowth_intro_message:
+    - define player <context.entity>
+    - narrate "<green><italic>This place feels...<n><bold>Alive"
