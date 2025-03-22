@@ -210,3 +210,6 @@ Sentient_Undergrowth_Events:
     on mythicmob su_spiderboss dies:
     - narrate "<red><bold>The spider boss has been defeated!<n><green>The gates have been opened for a stronger foe." targets:<cuboid[sentientundergrowth2].players>
     - modifyblock <cuboid[su_spiderboss_gate]> air
+    on mythicmob su_spur spawns:
+    - define entity <context.entity>
+    - adjust <[entity]> item_in_hand:<item[air]>
