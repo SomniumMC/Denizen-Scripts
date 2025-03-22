@@ -839,7 +839,7 @@ Cooking_Main_Event:
         - if <[ingredient_provided].contains[<[data]>]>:
           #- narrate <[key]>
           - flag player cooking_recipe:->:<[category]>+<[key]> expire:5s
-      - flag player cooking_workstation:<[location].below[1]> expire:5s
+      - flag player cooking_workstation:<[location].below[1]>
       - inventory open d:Cooking_Recipe_GUI
       #- narrate <player.flag[cooking_recipe]>
       #- narrate <[total_list].comma_separated>
