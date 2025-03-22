@@ -572,7 +572,7 @@ SomniCrawl_Event:
   events:
     on player right clicks Somni_Crawl_Interaction:
     - define entity <context.entity>
-    - execute as_player /crawl silent
+    - execute as_player crawl
 
 Dungeon_Core_Interaction:
     type: entity
