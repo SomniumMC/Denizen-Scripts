@@ -268,12 +268,12 @@ Cooking_Crop_Break:
         - determine passively cancelled
         after player breaks cocoa bukkit_priority:HIGHEST:
         - if <context.material.age> == 2:
-          - drop new_cocoa_beans <context.location> quantity:<util.random.int[1].to[3]>
+          - drop <proc[apply_info_proc].context[<item[new_cocoa_beans]>]> <context.location> quantity:<util.random.int[1].to[3]>
         - if <context.material.age> < 2:
-          - drop new_cocoa_beans <context.location> quantity:1
+          - drop <proc[apply_info_proc].context[<item[new_cocoa_beans]>]> <context.location> quantity:1
         after player breaks sweet_berry_bush bukkit_priority:HIGHEST:
         - if <context.material.age> == 3:
-          - drop new_sweet_berry <context.location> quantity:<util.random.int[1].to[3]>
+          - drop <proc[apply_info_proc].context[<item[new_sweet_berry]>]> <context.location> quantity:<util.random.int[1].to[3]>
           - if <util.random_chance[80]>:
             - drop seeds_sweet_berry <context.location> quantity:<util.random.int[1].to[2]>
         - if <context.material.age> < 3:
@@ -283,11 +283,11 @@ Cooking_Crop_Break:
         on player right clicks sweet_berry_bush:
         - determine passively cancelled
         - if <context.location.material.age> == 3:
-          - drop new_sweet_berry <context.location> quantity:3
+          - drop <proc[apply_info_proc].context[<item[new_sweet_berry]>]> <context.location> quantity:3
           - adjustblock <context.location> age:1
           - playsound <context.location> sound:block_sweet_berry_bush_pick_berries sound_category:blocks
         - if <context.location.material.age> == 2:
-          - drop new_sweet_berry <context.location> quantity:1
+          - drop <proc[apply_info_proc].context[<item[new_sweet_berry]>]> <context.location> quantity:1
           - adjustblock <context.location> age:1
           - playsound <context.location> sound:block_sweet_berry_bush_pick_berries sound_category:blocks
         - if <player.item_in_hand.material.name> == bone_meal:
@@ -298,7 +298,7 @@ Cooking_Crop_Break:
         on player right clicks cave_vines_plant:
         - determine passively cancelled
         - if <context.location.material.type> == berries:
-          - drop new_glow_berry <context.location> quantity:1
+          - drop <proc[apply_info_proc].context[<item[new_glow_berry]>]> <context.location> quantity:1
           - adjustblock <context.location> type:normal
         - if <player.item_in_hand.material.name> == bone_meal:
           - take item:bone_meal quantity:1
@@ -308,7 +308,7 @@ Cooking_Crop_Break:
         on player right clicks cave_vines:
         - determine passively cancelled
         - if <context.location.material.type> == berries:
-          - drop new_glow_berry <context.location> quantity:1
+          - drop <proc[apply_info_proc].context[<item[new_glow_berry]>]> <context.location> quantity:1
           - adjustblock <context.location> type:normal
           - playsound <context.location> sound:block_cave_vines_pick_berries sound_category:blocks
         - if <player.item_in_hand.material.name> == bone_meal:
@@ -320,12 +320,12 @@ Cooking_Crop_Break:
         - determine passively cancelled
         after player breaks nether_wart bukkit_priority:HIGHEST:
         - if <context.material.age> == 3:
-          - drop new_netherwart <context.location> quantity:<util.random.int[1].to[3]>
+          - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:<util.random.int[1].to[3]>
         - if <context.material.age> < 3:
-          - drop new_netherwart <context.location> quantity:1
+          - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:1
         on player right clicks nether_wart:
         - if <context.location.material.age> == 3:
-          - drop new_netherwart <context.location> quantity:<util.random.int[1].to[3]>
+          - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:<util.random.int[1].to[3]>
           - adjustblock <context.location> age:0
           - playsound <context.location> sound:block_azalea_leaves_break sound_category:blocks
 
