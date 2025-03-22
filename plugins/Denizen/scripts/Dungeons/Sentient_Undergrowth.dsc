@@ -111,6 +111,10 @@ SomniData_Sentient_Undergrowth:
       type: returnportal
       pos1: 3|10|-33
       somni: Sentient_Undergrowth
+    crawl1:
+      type: crawl
+      pos1: 30|1|-16
+      yaw: 180
 
 
 SU_Pot:

@@ -233,6 +233,15 @@ SomniTeleporter:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - note <[pos1].to_cuboid[<[pos1].above[1]>]> as:sentientundergrowthteleporter
 
+SomniCrawl:
+    type: task
+    debug: true
+    definitions: pos1|origin|yaw
+    script:
+    - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - spawn item_display[item=Somni_Crawl_Marker] <[pos1].center.with_yaw[<[yaw].if_null[0]>]> save:crawl_entity
+    - spawn Somni_Crawl_Interaction <[pos1].center.below[0.5]> save:interaction_entity
+
 SomniLocationProc:
     type: procedure
     definitions: x|y|z
@@ -557,6 +566,14 @@ SomniMob_Spawner_Event:
         - foreach <server.flag[somni.<[somni_name]>.broken_spawners]> as:spawner_id:
           - adjust <mythicspawner[<[spawner_id]>]> disable
 
+SomniCrawl_Event:
+  type: world
+  debug: false
+  events:
+    on player right clicks Somni_Crawl_Interaction:
+    - define entity <context.entity>
+    - execute as_player /crawl silent
+
 Dungeon_Core_Interaction:
     type: entity
     entity_type: interaction
@@ -597,6 +614,23 @@ Dungeon_Spawner:
     mechanisms:
       components_patch:
         item_model: string:dungeons:fountain
+
+Somni_Crawl_Marker:
+    type: item
+    debug: false
+    material: string
+    display name: <red><bold>Somni Crawl Marker
+    mechanisms:
+      components_patch:
+        item_model: string:dungeons:crawlmark
+
+Somni_Crawl_Interaction:
+    type: entity
+    debug: false
+    entity_type: interaction
+    mechanisms:
+      height: 1
+      width: 1
 
 Dungeon_Spawner_Interaction:
     type: entity
