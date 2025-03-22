@@ -171,7 +171,6 @@ SomniChest:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - if <[pos1].material.name> == oak_sign:
       - modifyblock <[pos1]> air
-    #- narrate <[pos1]>
     - modifyblock <[pos1].center> chest[direction=<[facing]>]
     - if <[table]||null> == null:
       - stop
@@ -181,18 +180,12 @@ SomniChest:
         - define selected_loot <proc[SomniWeight_Proc].context[<[reward_table].get[items].parse_value_tag[<[parse_value].get[weight]>]>]>
         - define selected_item <proc[apply_info_proc].context[<item[<[selected_loot]>]>]>
         - adjust def:selected_item quantity:<proc[SomniQuantity_Proc].context[<[reward_table].get[items].deep_get[<[selected_loot]>.quantity]>]>
-        #- while <proc[SomniChestSlot_Proc].context[<[pos1].inventory>]>
-        #- if <proc[SomniChestSlot_Proc].context[<[pos1].inventory>]> != failed:
-        #  - define success
-        #- else:
-        #  -
         - define slot <proc[SomniChestSlot_Proc].context[<[pos1].inventory>]>
         - if <[slot]> == failed:
           - define slot <[pos1].inventory.first_empty>
         - if <[slot]> == -1:
           - repeat stop
         - inventory set o:<[selected_item]> destination:<[pos1]> slot:<[slot]>
-        #- drop <[selected_loot]> <[location]> quantity:<proc[SomniQuantity_Proc].context[<[reward_table].get[items].deep_get[<[selected_loot]>.quantity]>]>
 
 SomniDungeonCore:
     type: task
