@@ -150,6 +150,18 @@ SomniData_Sentient_Undergrowth:
       type: crawl
       pos1: 17|1|-25
       yaw: 0
+    crawl4:
+      type: crawl
+      pos1: 16|1|-30
+      yaw: 90
+    crawl5:
+      type: crawl
+      pos1: 11|1|-25
+      yaw: 0
+    crawl6:
+      type: crawl
+      pos1: 8|1|-8
+      yaw: 90
     #Spider x2
     spawner1:
       type: mobspawner
@@ -163,6 +175,69 @@ SomniData_Sentient_Undergrowth:
       pos1: 12|11|-9
       id: su_spawner2
       health: 10
+      somni: sentient_undergrowth
+    #Bogged x2
+    spawner3:
+      type: mobspawner
+      pos1: 43|1|-36
+      id: su_spawner3
+      health: 10
+      somni: sentient_undergrowth
+    #Spur x3
+    spawner4:
+      type: mobspawner
+      pos1: 40|3|-42
+      id: su_spawner4
+      health: 10
+      somni: sentient_undergrowth
+    #Bogged x3
+    spawner5:
+      type: mobspawner
+      pos1: 7|5|-30
+      id: su_spawner5
+      health: 10
+      somni: sentient_undergrowth
+    #Spider x1
+    spawner6:
+      type: mobspawner
+      pos1: 27|7|-27
+      id: su_spawner6
+      health: 10
+      somni: sentient_undergrowth
+    #Spider x1
+    spawner7:
+      type: mobspawner
+      pos1: 29|7|-20
+      id: su_spawner7
+      health: 10
+      somni: sentient_undergrowth
+    #Spur x3
+    spawner8:
+      type: mobspawner
+      pos1: 17|3|-11
+      id: su_spawner8
+      health: 10
+      somni: sentient_undergrowth
+    #Spider Mini-Boss
+    spawner9:
+      type: mobspawner
+      pos1: 18|1|-20
+      id: su_spawner9
+      health: 50
+      somni: sentient_undergrowth
+    #Spur x4
+    spawner10:
+      type: mobspawner
+      pos1: 10|1|-35
+      id: su_spawner10
+      health: 10
+      somni: sentient_undergrowth
+    #Dungeon Boss
+    spawner11:
+      type: mobspawner
+      pos1: 23|22|-22
+      id: su_spawner11
+      health: 50
       somni: sentient_undergrowth
 
 
@@ -215,8 +290,15 @@ Sentient_Undergrowth_Events:
     - define player <context.entity>
     - narrate "<green><italic>This place feels...<n><bold>Alive"
     on mythicmob su_spiderboss dies:
-    - narrate "<red><bold>The spider boss has been defeated!<n><green>The gates have been opened for a stronger foe." targets:<cuboid[sentientundergrowth2].players>
-    - modifyblock <cuboid[su_spiderboss_gate]> air
+    - if !<server.has_flag[su_spiderboss_dead]>:
+      - narrate "<red><bold>The spider boss has been defeated!<n><green>The gates have been opened for a stronger foe." targets:<cuboid[sentientundergrowth2].players>
+      - modifyblock <cuboid[su_spiderboss_gate]> air
+      - flag server su_spiderboss_dead:true expire:2h
+    on mythicmob su_dungeonboss dies:
+    - if !<server.has_flag[su_dungeonboss_dead]>:
+      - narrate "<dark_purple><italic>Metal bars screech as they rise behind where the boss lies dead." targets:<cuboid[sentientundergrowth2].players>
+      - modifyblock <cuboid[su_dungeonboss_gate]> air
+      - flag server su_dungeonboss_dead:true expire:2h
     on mythicmob su_spur spawns:
     - define entity <context.entity>
     - adjust <[entity]> item_in_hand:<item[air]>
