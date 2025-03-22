@@ -63,24 +63,38 @@ SomniData_Sentient_Undergrowth:
       table: test1
     SU_Coin_Pouch1:
       type: breakable
-      pos1: 33|11|-8
+      pos1: 32|11|-8
       model: SU_Coin_Pouch
       health: 5
-      breakable_type: barrel
+      breakable_type: leather
       table: test1
     SU_Coin_Pouch2:
       type: breakable
       pos1: 33|11|-18
       model: SU_Coin_Pouch
       health: 5
-      breakable_type: barrel
+      breakable_type: leather
       table: test1
     SU_Coin_Pouch3:
       type: breakable
       pos1: 8|5|-40
       model: SU_Coin_Pouch
       health: 5
-      breakable_type: barrel
+      breakable_type: leather
+      table: test1
+    SU_Coin_Pouch4:
+      type: breakable
+      pos1: 31|1|-18
+      model: SU_Coin_Pouch
+      health: 5
+      breakable_type: leather
+      table: test1
+    SU_Coin_Pouch5:
+      type: breakable
+      pos1: 43|11|-18
+      model: SU_Coin_Pouch
+      health: 5
+      breakable_type: leather
       table: test1
     lootchest1:
       type: chest
@@ -115,6 +129,10 @@ SomniData_Sentient_Undergrowth:
       type: crawl
       pos1: 30|1|-16
       yaw: 90
+    crawl2:
+      type: crawl
+      pos1: 34|11|-18
+      yaw: 0
 
 
 SU_Pot:
