@@ -157,6 +157,13 @@ SomniData_Sentient_Undergrowth:
       id: su_spawner1
       health: 10
       somni: sentient_undergrowth
+    #Spur x3
+    spawner2:
+      type: mobspawner
+      pos1: 4|11|-23
+      id: su_spawner2
+      health: 10
+      somni: sentient_undergrowth
 
 
 
