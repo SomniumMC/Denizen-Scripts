@@ -171,7 +171,6 @@ SomniChest:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - if <[pos1].material.name> == oak_sign:
       - modifyblock <[pos1]> air
-    #- narrate <[pos1]>
     - modifyblock <[pos1].center> chest[direction=<[facing]>]
     - if <[table]||null> == null:
       - stop
@@ -181,18 +180,12 @@ SomniChest:
         - define selected_loot <proc[SomniWeight_Proc].context[<[reward_table].get[items].parse_value_tag[<[parse_value].get[weight]>]>]>
         - define selected_item <proc[apply_info_proc].context[<item[<[selected_loot]>]>]>
         - adjust def:selected_item quantity:<proc[SomniQuantity_Proc].context[<[reward_table].get[items].deep_get[<[selected_loot]>.quantity]>]>
-        #- while <proc[SomniChestSlot_Proc].context[<[pos1].inventory>]>
-        #- if <proc[SomniChestSlot_Proc].context[<[pos1].inventory>]> != failed:
-        #  - define success
-        #- else:
-        #  -
         - define slot <proc[SomniChestSlot_Proc].context[<[pos1].inventory>]>
         - if <[slot]> == failed:
           - define slot <[pos1].inventory.first_empty>
         - if <[slot]> == -1:
           - repeat stop
         - inventory set o:<[selected_item]> destination:<[pos1]> slot:<[slot]>
-        #- drop <[selected_loot]> <[location]> quantity:<proc[SomniQuantity_Proc].context[<[reward_table].get[items].deep_get[<[selected_loot]>.quantity]>]>
 
 SomniDungeonCore:
     type: task
@@ -239,6 +232,15 @@ SomniTeleporter:
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
     - note <[pos1].to_cuboid[<[pos1].above[1]>]> as:sentientundergrowthteleporter
+
+SomniCrawl:
+    type: task
+    debug: true
+    definitions: pos1|origin|yaw
+    script:
+    - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
+    - spawn item_display[item=Somni_Crawl_Marker] <[pos1].center.with_yaw[<[yaw].if_null[0]>]> save:crawl_entity
+    - spawn Somni_Crawl_Interaction <[pos1].center.below[0.5]> save:interaction_entity
 
 SomniLocationProc:
     type: procedure
@@ -564,6 +566,14 @@ SomniMob_Spawner_Event:
         - foreach <server.flag[somni.<[somni_name]>.broken_spawners]> as:spawner_id:
           - adjust <mythicspawner[<[spawner_id]>]> disable
 
+SomniCrawl_Event:
+  type: world
+  debug: false
+  events:
+    on player right clicks Somni_Crawl_Interaction:
+    - define entity <context.entity>
+    - execute as_player /crawl silent
+
 Dungeon_Core_Interaction:
     type: entity
     entity_type: interaction
@@ -604,6 +614,23 @@ Dungeon_Spawner:
     mechanisms:
       components_patch:
         item_model: string:dungeons:fountain
+
+Somni_Crawl_Marker:
+    type: item
+    debug: false
+    material: string
+    display name: <red><bold>Somni Crawl Marker
+    mechanisms:
+      components_patch:
+        item_model: string:dungeons:crawlmark
+
+Somni_Crawl_Interaction:
+    type: entity
+    debug: false
+    entity_type: interaction
+    mechanisms:
+      height: 1
+      width: 1
 
 Dungeon_Spawner_Interaction:
     type: entity
