@@ -27,8 +27,7 @@ Master_Pickup_Event:
             #    - narrate <[satchel_slot]>
 #
             #    - determine item:air
-            - else:
-              - determine item:<[item]>
+            - determine item:<[item]>
 
 Master_Pickup_Data:
     type: data
