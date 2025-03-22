@@ -392,19 +392,24 @@ Staff_Switch_Event:
     on player drops item:
     - if <player.has_flag[staff_switch]>:
       - determine cancelled
-    on player opens chest:
+    on player right clicks block:
     - if <player.has_flag[staff_switch]>:
-      - determine cancelled
-    on player opens barrel:
-    - if <player.has_flag[staff_switch]>:
-      - determine cancelled
-    on player opens enderchest:
-    - if <player.has_flag[staff_switch]>:
-      - determine cancelled
-    on player opens shulker_box:
-    - if <player.has_flag[staff_switch]>:
-      - determine cancelled
-    on player opens furnace:
-    - if <player.has_flag[staff_switch]>:
-      - determine cancelled
+      - if <context.location.material.name> in <list[chest|barrel|ender_chest|shulker_box|furnace]>:
+        - determine cancelled
+      #- determine cancelled
+    #on player opens chest:
+    #- if <player.has_flag[staff_switch]>:
+    #  - determine cancelled
+    #on player opens barrel:
+    #- if <player.has_flag[staff_switch]>:
+    #  - determine cancelled
+    #on player opens enderchest:
+    #- if <player.has_flag[staff_switch]>:
+    #  - determine cancelled
+    #on player opens shulker_box:
+    #- if <player.has_flag[staff_switch]>:
+    #  - determine cancelled
+    #on player opens furnace:
+    #- if <player.has_flag[staff_switch]>:
+    #  - determine cancelled
    # - narrate "Nice <context.material>"
