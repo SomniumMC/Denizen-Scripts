@@ -82,13 +82,6 @@ SomniData_Sentient_Undergrowth:
       health: 5
       breakable_type: leather
       table: test1
-    SU_Coin_Pouch4:
-      type: breakable
-      pos1: 31|1|-18
-      model: SU_Coin_Pouch
-      health: 5
-      breakable_type: leather
-      table: test1
     SU_Coin_Pouch5:
       type: breakable
       pos1: 43|11|-18
