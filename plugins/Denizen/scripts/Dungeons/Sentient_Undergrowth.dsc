@@ -114,7 +114,7 @@ SomniData_Sentient_Undergrowth:
     crawl1:
       type: crawl
       pos1: 30|1|-16
-      yaw: 180
+      yaw: 90
 
 
 SU_Pot:

@@ -505,7 +505,7 @@ Cooking_Kitchen_Furniture_Events:
           - foreach stop
     on player places Cooking_Sink:
     - define location <context.location>
-    - define furniture_type <context.item.flag[Cooking_furniture]>
+    - define furniture_type <context.item_in_hand.flag[Cooking_furniture]>
     #- playsound <[location]> sound:block.stone.place sound_category:blocks
     - spawn item_display[item=Cooking_Sink] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:block_model
     - modifyblock <[location]> cyan_stained_glass
@@ -513,7 +513,7 @@ Cooking_Kitchen_Furniture_Events:
     - flag <[location]> cooking_furniture.type:Sink
     on player places Cooking_Oven:
     - define location <context.location>
-    - define furniture_type <context.item.flag[Cooking_furniture]>
+    - define furniture_type <context.item_in_hand.flag[Cooking_furniture]>
     #- playsound <[location]> sound:block.stone.place sound_category:blocks
     - spawn item_display[item=Cooking_Oven] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:block_model
     - modifyblock <[location]> cyan_stained_glass
@@ -521,7 +521,7 @@ Cooking_Kitchen_Furniture_Events:
     - flag <[location]> cooking_furniture.type:Oven
     on player places Cooking_Counter:
     - define location <context.location>
-    - define furniture_type <context.item.flag[Cooking_furniture]>
+    - define furniture_type <context.item_in_hand.flag[Cooking_furniture]>
     #- playsound <[location]> sound:block.stone.place sound_category:blocks
     - spawn item_display[item=Cooking_Counter] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:block_model
     - modifyblock <[location]> cyan_stained_glass
@@ -529,7 +529,7 @@ Cooking_Kitchen_Furniture_Events:
     - flag <[location]> cooking_furniture.type:Counter
     on player places Cooking_Middle_Counter:
     - define location <context.location>
-    - define furniture_type <context.item.flag[Cooking_furniture]>
+    - define furniture_type <context.item_in_hand.flag[Cooking_furniture]>
     #- playsound <[location]> sound:block.stone.place sound_category:blocks
     - spawn item_display[item=Cooking_Middle_Counter] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:block_model
     - modifyblock <[location]> cyan_stained_glass
