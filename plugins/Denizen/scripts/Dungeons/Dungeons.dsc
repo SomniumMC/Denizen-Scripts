@@ -571,6 +571,7 @@ SomniCrawl_Event:
   debug: true
   events:
     on player right clicks Somni_Crawl_Interaction:
+    - ratelimit <player> 5t
     - define entity <context.entity>
     - execute as_player crawl
 
