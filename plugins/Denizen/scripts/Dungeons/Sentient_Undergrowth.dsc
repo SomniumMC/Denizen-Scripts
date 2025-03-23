@@ -295,3 +295,9 @@ Sentient_Undergrowth_Events:
     on mythicmob su_spur spawns:
     - define entity <context.entity>
     - adjust <[entity]> item_in_hand:<item[air]>
+    on mythicmob su_dungeonboss spawns:
+    - define entity <context.entity>
+    - equip <[entity]> head:<item[steel_helmet]>
+    - equip <[entity]> chest:<item[steel_chestplate]>
+    - equip <[entity]> legs:<item[steel_leggings]>
+    - equip <[entity]> boots:<item[steel_boots]>
