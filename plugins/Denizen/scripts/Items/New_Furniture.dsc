@@ -69,7 +69,7 @@ Furniture_Main_Event:
         - if <[interaction].flag[furniture.invincible]||false>:
           - stop
         - if <[health].sub[<context.damage>]> <= 0:
-          - drop item:furniture_<[interaction].flag[furniture.item]> <[interaction].location>
+          - drop item:<[interaction].flag[furniture.item]> <[interaction].location>
           - playsound sound:entity.zombie.break.wooden_door sound_category:blocks <[interaction].location>
           - run Furniture_Cleanup def:<[interaction]>
         - else:
@@ -425,7 +425,7 @@ Furniture_Config_GUI:
 
 Furniture_Assembly_Event:
   type: world
-  debug: true
+  debug: false
   events:
     on player places Furniture_Assembly_Bench:
     - define location <context.location>
