@@ -400,7 +400,7 @@ Staff_Switch_Event:
       - determine cancelled
     on player right clicks block:
     - if <player.has_flag[staff_switch]>:
-      - if <context.location.material.name> in <list[chest|barrel|ender_chest|shulker_box|furnace]>:
+      - if <context.location.material.name.if_null[null]> in <list[chest|barrel|ender_chest|shulker_box|furnace]>:
         - determine cancelled
       #- determine cancelled
     #on player opens chest:
