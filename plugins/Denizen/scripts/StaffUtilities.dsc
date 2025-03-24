@@ -371,15 +371,19 @@ Staff_Switch:
     aliases:
     - sswitch
     tab completions:
-      1: <player.groups>
+      1: <player.groups.remove[default].remove[founder]>
     script:
       #- narrate <player.luckperms_primary_group>
       - if !<player.has_flag[staff_switch]>:
+        - if <script[Staff_Switch_Kits].data_key[<context.args.get[1]>].if_null[null]> == null:
+          - narrate "<red>Invalid Group"
+          - stop
         - flag <player> staff_switch
         - narrate "<green>Staff Mode Enabled"
         - adjust <player> gamemode:creative
         - flag <player> temp_inventory:<player.inventory.list_contents>
         - inventory clear <player>
+        - inventory set o:<script[Staff_Switch_Kits].data_key[<context.args.get[1]>]>
       - else:
         - flag <player> staff_switch:!
         - adjust <player> gamemode:survival
