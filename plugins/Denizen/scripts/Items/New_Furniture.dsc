@@ -188,10 +188,10 @@ Furniture_Cleanup:
     debug: false
     definitions: interaction
     script:
-    - define block_list <[interaction].flag[furniture.blocks].if_null[null]>
-    - if <[block_list]> != null:
-      - stop
+    - define block_list <[interaction].flag[furniture.blocks]>
     - foreach <[block_list]> as:block:
+      - if <[block].if_null[null]> == null:
+        - foreach stop
       - modifyblock <[block]> air
       - flag <[block]> furniture_interaction:!
     - drop item:<[interaction].flag[furniture.item]> <[interaction].location>
