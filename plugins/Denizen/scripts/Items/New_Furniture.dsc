@@ -546,13 +546,13 @@ Furniture_Skin_Recipes:
     - white_wool-2
   1x2_Table:
     error:
-    - red_concrete
+    - red_concrete-1
   1x3_Table:
     error:
-    - red_concrete
+    - red_concrete-1
   2x2_Table:
     error:
-    - red_concrete
+    - red_concrete-1
   Decoration:
     wheel:
     - oak_planks-4
