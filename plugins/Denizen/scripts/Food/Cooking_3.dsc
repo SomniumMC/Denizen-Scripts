@@ -525,62 +525,86 @@ Cooking_Animal_Breeding:
     debug: false
     events:
       on player right clicks chicken:
+      - if !<player.item_in_hand.has_flag[seed]>:
+        - stop
       - if <player.item_in_hand.has_flag[seed]> && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take flagged:seed quantity:1
       on player right clicks cow:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == grain && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks sheep:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == grain && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks pig:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == vegetable && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks goat:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == grain && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks rabbit:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == vegetable && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks horse:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == fruit && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks donkey:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == fruit && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks mule:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == fruit && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks wolf:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.has_flag[protein]> && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - adjust <context.entity> health:20
         - take iteminhand quantity:1
       on player right clicks fox:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == fruit && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
         - take iteminhand quantity:1
       on player right clicks mooshroom:
+      - if !<player.item_in_hand.has_flag[cooking_tag]>:
+        - stop
       - if <player.item_in_hand.flag[cooking_tag]> == grain && !<context.entity.breeding> && <context.entity.can_breed>:
         - ratelimit <player> 1s
         - adjust <context.entity> breed:true
