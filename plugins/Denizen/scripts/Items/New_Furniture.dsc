@@ -940,7 +940,7 @@ Furniture_Skin_1x1_Table_end_table:
       model: furniture:end_table
 
 #1x2 Table
-Furniture_Skin_1x1_Error:
+Furniture_Skin_1x1_Table_Error:
     type: item
     debug: false
     material: string
@@ -953,7 +953,7 @@ Furniture_Skin_1x1_Error:
       model: minecraft:red_concrete
 
 #1x3 Table
-Furniture_Skin_1x3_Error:
+Furniture_Skin_1x3_Table_Error:
     type: item
     debug: false
     material: string
@@ -966,7 +966,7 @@ Furniture_Skin_1x3_Error:
       model: minecraft:red_concrete
 
 #2x2 Table
-Furniture_Skin_2x2_Error:
+Furniture_Skin_2x2_Table_Error:
     type: item
     debug: false
     material: string
