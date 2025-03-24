@@ -224,7 +224,7 @@ SomniData_Sentient_Undergrowth:
       somni: Sentient_Undergrowth
     exit2:
       type: returnportal
-      pos1: 3|9|-33
+      pos1: 3|9|-32
       somni: Sentient_Undergrowth
     crawl1:
       type: crawl
