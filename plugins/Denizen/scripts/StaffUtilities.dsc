@@ -371,7 +371,7 @@ Staff_Switch:
     aliases:
     - sswitch
     tab completions:
-      1: <player.groups.remove[default].remove[founder]>
+      1: <player.groups.remove[default]>
     script:
       #- narrate <player.luckperms_primary_group>
       - if !<player.has_flag[staff_switch]>:
