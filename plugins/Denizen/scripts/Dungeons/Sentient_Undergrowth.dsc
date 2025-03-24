@@ -97,20 +97,95 @@ SomniData_Sentient_Undergrowth:
       breakable_type: bone
       table: test1
       yaw: 90
-    lootchest1:
+    lootgear1:
       type: chest
       pos1: 6|5|-41
       facing: west
       table: test1
-    lootchest2:
+    lootgear2:
       type: chest
       pos1: 2|11|-28
       facing: north
       table: test1
-    lootchest3:
+    lootgear3:
       type: chest
       pos1: 11|1|-14
       facing: south
+      table: test1
+    lootgear4:
+      type: chest
+      pos1: 29|4|-2
+      facing: south
+      table: test1
+    lootgear5:
+      type: chest
+      pos1: 39|22|-24
+      facing: south
+      table: test1
+    loottrash1:
+      type: chest
+      pos1: 11|12|-1
+      facing: west
+      table: test1
+    loottrash2:
+      type: chest
+      pos1: 27|11|-12
+      facing: south
+      table: test1
+    lootfood1:
+      type: chest
+      pos1: 24|13|-21
+      facing: south
+      table: test1
+    lootfood2:
+      type: chest
+      pos1: 1|11|-11
+      facing: west
+      table: test1
+    lootfood3:
+      type: chest
+      pos1: 3|4|-5
+      facing: west
+      table: test1
+    lootmaterials1:
+      type: chest
+      pos1: 33|7|-25
+      facing: west
+      table: test1
+    lootmaterials2:
+      type: chest
+      pos1: 44|1|-43
+      facing: west
+      table: test1
+    lootmaterials3:
+      type: chest
+      pos1: 24|3|-24
+      facing: west
+      table: test1
+    lootvaluables1:
+      type: chest
+      pos1: 40|8|-39
+      facing: west
+      table: test1
+    lootvaluables2:
+      type: chest
+      pos1: 22|99|-26
+      facing: west
+      table: test1
+    lootvaluables3:
+      type: chest
+      pos1: 29|1|-26
+      facing: west
+      table: test1
+    lootvaluables4:
+      type: chest
+      pos1: 1|1|-34
+      facing: west
+      table: test1
+    lootvaluables5:
+      type: chest
+      pos1: 38|22|-24
+      facing: west
       table: test1
     bosstele:
       type: teleporter
