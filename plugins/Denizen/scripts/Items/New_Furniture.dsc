@@ -202,7 +202,7 @@ Furniture_Cleanup:
 
 Furniture_Config_Event:
     type: world
-    debug: false
+    debug: true
     events:
         on player places block using:off_hand priority:-20:
         - if <player.item_in_hand.script.name.if_null[null]> == Staff_Furniture_Configurator:
