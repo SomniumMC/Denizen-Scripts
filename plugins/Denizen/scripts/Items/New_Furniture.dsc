@@ -69,7 +69,6 @@ Furniture_Main_Event:
         - if <[interaction].flag[furniture.invincible]||false>:
           - stop
         - if <[health].sub[<context.damage>]> <= 0:
-          - drop item:<[interaction].flag[furniture.item]> <[interaction].location>
           - playsound sound:entity.zombie.break.wooden_door sound_category:blocks <[interaction].location>
           - run Furniture_Cleanup def:<[interaction]>
         - else:
