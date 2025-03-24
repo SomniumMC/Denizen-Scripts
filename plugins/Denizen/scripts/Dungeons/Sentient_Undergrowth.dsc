@@ -95,98 +95,118 @@ SomniData_Sentient_Undergrowth:
       model: SU_Skeleton_Hanging
       health: 5
       breakable_type: bone
-      table: test1
+      table: skeleton_body
       yaw: 90
-    lootgear1:
+    lootchestgear1:
       type: chest
       pos1: 6|5|-41
       facing: west
-      table: test1
-    lootgear2:
+      table: su_gear
+    lootchestgear2:
       type: chest
       pos1: 2|11|-28
       facing: north
-      table: test1
-    lootgear3:
+      table: su_gear
+    lootchestgear3:
       type: chest
       pos1: 11|1|-14
       facing: south
-      table: test1
-    lootgear4:
+      table: su_gear
+    lootchestgear4:
       type: chest
       pos1: 29|4|-2
       facing: south
-      table: test1
-    lootgear5:
+      table: su_gear
+    lootchestgear5:
       type: chest
       pos1: 39|22|-24
       facing: south
-      table: test1
-    loottrash1:
+      table: su_gear
+    lootchesttrash1:
       type: chest
       pos1: 11|12|-1
       facing: west
-      table: test1
-    loottrash2:
+      table: trash
+    lootchesttrash2:
       type: chest
       pos1: 27|11|-12
       facing: south
-      table: test1
-    lootfood1:
+      table: trash
+    lootchestfood1:
       type: chest
       pos1: 24|13|-21
       facing: south
-      table: test1
-    lootfood2:
+      table: food
+    lootchestfood2:
       type: chest
       pos1: 1|11|-11
       facing: west
-      table: test1
-    lootfood3:
+      table: food
+    lootchestfood3:
       type: chest
       pos1: 3|4|-5
       facing: west
-      table: test1
-    lootmaterials1:
+      table: food
+    lootchestmaterials1:
       type: chest
       pos1: 33|7|-25
       facing: west
-      table: test1
-    lootmaterials2:
+      table: materials
+    lootchestmaterials2:
       type: chest
       pos1: 44|1|-43
       facing: west
-      table: test1
-    lootmaterials3:
+      table: materials
+    lootchestmaterials3:
       type: chest
       pos1: 24|3|-24
       facing: west
-      table: test1
-    lootvaluables1:
+      table: materials
+    lootchestmaterials4:
+      type: chest
+      pos1: 42|2|-31
+      facing: west
+      table: materials
+    lootchestvaluables1:
       type: chest
       pos1: 40|8|-39
       facing: west
-      table: test1
-    lootvaluables2:
+      table: su_valuables
+    lootchestvaluables2:
       type: chest
       pos1: 22|9|-26
       facing: west
-      table: test1
-    lootvaluables3:
+      table: su_valuables
+    lootchestvaluables3:
       type: chest
       pos1: 29|1|-26
       facing: west
-      table: test1
-    lootvaluables4:
+      table: su_valuables
+    lootchestvaluables4:
       type: chest
       pos1: 1|1|-34
       facing: west
-      table: test1
-    lootvaluables5:
+      table: su_valuables
+    lootchestvaluables5:
       type: chest
       pos1: 38|22|-24
       facing: west
-      table: test1
+      table: su_valuables
+    lootchestblocks1:
+      type: chest
+      pos1: 37|9|-33
+      facing: west
+      table: blocks
+    lootchestblocks2:
+      type: chest
+      pos1: 31|1|-24
+      facing: west
+      table: blocks
+    lootchestblocks3:
+      type: chest
+      pos1: 44|3|-10
+      facing: west
+      table: blocks
     bosstele:
       type: teleporter
       pos1: 41|11|-40
@@ -229,6 +249,10 @@ SomniData_Sentient_Undergrowth:
     crawl6:
       type: crawl
       pos1: 8|1|-8
+      yaw: 90
+    crawl7:
+      type: crawl
+      pos1: 40|1|-26
       yaw: 90
     #Spider x2
     spawner1:
