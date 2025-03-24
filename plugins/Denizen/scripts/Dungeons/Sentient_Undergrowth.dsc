@@ -17,7 +17,7 @@ SomniData_Sentient_Undergrowth:
       model: skeleton_skull
       health: 5
       breakable_type: bone
-      table: test1
+      table: skeleton_body
       yaw: 90
     SU_Pot1:
       type: breakable
@@ -25,56 +25,56 @@ SomniData_Sentient_Undergrowth:
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: test1
+      table: trash
     SU_Pot2:
       type: breakable
       pos1: 38|7|-24
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: test1
+      table: trash
     SU_Pot3:
       type: breakable
       pos1: 37|7|-19
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: test1
+      table: trash
     SU_Pot4:
       type: breakable
       pos1: 39|11|-12
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: test1
+      table: trash
     SU_Pot5:
       type: breakable
       pos1: 44|11|-9
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: test1
+      table: trash
     SU_Pot6:
       type: breakable
       pos1: 38|6|-3
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: test1
+      table: trash
     SU_Coin_Pouch1:
       type: breakable
       pos1: 32|11|-8
       model: SU_Coin_Pouch
       health: 5
       breakable_type: leather
-      table: test1
+      table: trash
     SU_Coin_Pouch2:
       type: breakable
       pos1: 33|11|-18
       model: SU_Coin_Pouch
       health: 5
       breakable_type: leather
-      table: test1
+      table: trash
     SU_Coin_Pouch3:
       type: breakable
       pos1: 8|5|-40
@@ -224,7 +224,7 @@ SomniData_Sentient_Undergrowth:
       somni: Sentient_Undergrowth
     exit2:
       type: returnportal
-      pos1: 3|9|-33
+      pos1: 3|9|-32
       somni: Sentient_Undergrowth
     crawl1:
       type: crawl
