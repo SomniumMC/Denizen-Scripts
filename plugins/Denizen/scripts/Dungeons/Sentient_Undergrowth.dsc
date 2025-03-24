@@ -70,7 +70,7 @@ SomniData_Sentient_Undergrowth:
       table: trash
     SU_Coin_Pouch2:
       type: breakable
-      pos1: 33|11|-18
+      pos1: 33|1|-18
       model: SU_Coin_Pouch
       health: 5
       breakable_type: leather
