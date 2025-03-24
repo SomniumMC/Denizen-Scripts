@@ -111,6 +111,7 @@ Assemble_1x1_Chair:
     - flag <[interaction]> furniture.item:<[item]>
     #- flag <[interaction]> furniture.blocks:->:<[location]>
     - flag <[interaction]> furniture.type:1x1_Chair
+    - flag <[interaction]> furniture.blocks:<[location]>
     #- flag <[location]> furniture_interaction:<entry[interaction_entity].spawned_entity>
 
 Assemble_1x2_Table:
@@ -389,6 +390,7 @@ Staff_Place_Task:
   - flag <entry[interaction].spawned_entity> furniture.furniture_model:<entry[furniture_entity].spawned_entity>
   - flag <entry[interaction].spawned_entity> furniture.item:<[item]>
   - flag <entry[interaction].spawned_entity> furniture.type:Decoration
+  - flag <entry[interaction].spawned_entity> furniture.blocks:->:<[location]>
 
 Furniture_Config_GUI:
   type: inventory
