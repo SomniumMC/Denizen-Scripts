@@ -527,7 +527,7 @@ Furniture_Skin_Recipes:
     1x3_Table:
     - error
     2x2_Table:
-    - errpr
+    - error
     Decoration:
     - wheel
     - ship_wheel
