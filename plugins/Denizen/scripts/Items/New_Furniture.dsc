@@ -523,11 +523,11 @@ Furniture_Skin_Recipes:
     1x1_Chair:
     - comfy_oak_stool
     1x2_Table:
-    - empty
+    - error
     1x3_Table:
-    - empty
+    - error
     2x2_Table:
-    - empty
+    - errpr
     Decoration:
     - wheel
     - ship_wheel
@@ -545,11 +545,14 @@ Furniture_Skin_Recipes:
     - oak_planks-4
     - white_wool-2
   1x2_Table:
-  - empty
+    error:
+    - red_concrete
   1x3_Table:
-  - empty
+    error:
+    - red_concrete
   2x2_Table:
-  - empty
+    error:
+    - red_concrete
   Decoration:
     wheel:
     - oak_planks-4
@@ -935,6 +938,45 @@ Furniture_Skin_1x1_Table_end_table:
     flags:
       type: 1x1_Table
       model: furniture:end_table
+
+#1x2 Table
+Furniture_Skin_1x1_Error:
+    type: item
+    debug: false
+    material: string
+    display name: <red>ERROR
+    mechanisms:
+      components_patch:
+        item_model: string:minecraft:red_concrete
+    flags:
+      type: 1x2_Table
+      model: minecraft:red_concrete
+
+#1x3 Table
+Furniture_Skin_1x3_Error:
+    type: item
+    debug: false
+    material: string
+    display name: <red>ERROR
+    mechanisms:
+      components_patch:
+        item_model: string:minecraft:red_concrete
+    flags:
+      type: 1x3_Table
+      model: minecraft:red_concrete
+
+#2x2 Table
+Furniture_Skin_2x2_Error:
+    type: item
+    debug: false
+    material: string
+    display name: <red>ERROR
+    mechanisms:
+      components_patch:
+        item_model: string:minecraft:red_concrete
+    flags:
+      type: 2x2_Table
+      model: minecraft:red_concrete
 
 #Decoration
 
