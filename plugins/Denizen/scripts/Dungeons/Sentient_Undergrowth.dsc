@@ -169,7 +169,7 @@ SomniData_Sentient_Undergrowth:
       table: test1
     lootvaluables2:
       type: chest
-      pos1: 22|99|-26
+      pos1: 22|9|-26
       facing: west
       table: test1
     lootvaluables3:
