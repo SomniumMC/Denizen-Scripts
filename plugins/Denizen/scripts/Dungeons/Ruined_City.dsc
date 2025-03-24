@@ -145,57 +145,57 @@ SomniData_Ruined_City:
     type: chest
     pos1: 70|11|-53
     facing: east
-    table: ruinedcityfood
+    table: food
   lootchestfood2:
     type: chest
     pos1: 76|16|-82
     facing: north
-    table: ruinedcityfood
+    table: food
   lootchestfood3:
     type: chest
     pos1: 62|10|-38
     facing: north
-    table: ruinedcityfood
+    table: food
   lootchestfood4:
     type: chest
     pos1: 73|9|-14
     facing: north
-    table: ruinedcityfood
+    table: food
   lootchestblocks1:
     type: chest
     pos1: 72|13|-66
     facing: north
-    table: ruinedcityblocks
+    table: food
   lootchestblocks2:
     type: chest
     pos1: 68|11|-98
     facing: south
-    table: ruinedcityblocks
+    table: food
   lootchestmaterials1:
     type: chest
     pos1: 33|11|-53
     facing: west
-    table: ruinedcitymaterials
+    table: food
   lootchestmaterials2:
     type: chest
     pos1: 85|13|-39
     facing: south
-    table: ruinedcitymaterials
+    table: food
   lootchestmaterials3:
     type: chest
     pos1: 68|2|-98
     facing: west
-    table: ruinedcitymaterials
+    table: food
   lootchesttrash1:
     type: chest
     pos1: 29|11|-59
     facing: east
-    table: ruinedcitytrash
+    table: food
   lootchestvaluables1:
     type: chest
     pos1: 109|3|-57
     facing: west
-    table: ruinedcityvaluables
+    table: food
   lootchestvaluables2:
     type: chest
     pos1: 97|2|-74
@@ -224,14 +224,14 @@ SomniData_Ruined_City:
     health: 5
     model: bundle
     breakable_type: leather
-    table: ruinedcitybundle
+    table: materials
   breakableskeleton1:
     type: breakable
     pos1: 67|11|-101
     health: 5
     model: Ruined_City_Skeleton_Sitting
     breakable_type: bone
-    table: ruinedcityskeleton
+    table: skeleton_body
     yaw: 135
   breakableskeleton2:
     type: breakable
@@ -239,7 +239,7 @@ SomniData_Ruined_City:
     health: 5
     model: Ruined_City_Skeleton_Hanging
     breakable_type: bone
-    table: ruinedcityskeleton
+    table: skeleton_body
     yaw: 225
     translation: 0,-1,0
   breakableskeleton3:
@@ -248,7 +248,7 @@ SomniData_Ruined_City:
     health: 5
     model: Ruined_City_Skeleton_Sitting
     breakable_type: bone
-    table: ruinedcityskeleton
+    table: skeleton_body
     yaw: 0
     scale: 2,2,2
     translation: 0,0.5,0
