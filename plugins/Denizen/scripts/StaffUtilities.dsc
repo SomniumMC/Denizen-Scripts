@@ -366,10 +366,12 @@ Staff_Switch:
     debug: false
     description: This script is for staff to switch from player mode to staff mode and vice versa
     name: staffswitch
-    usage: /staffswitch
+    usage: /staffswitch <&lt>Group<&gt>
     permission: dscript.staffswitch
     aliases:
     - sswitch
+    tab completions:
+      1: <player.groups>
     script:
       #- narrate <player.luckperms_primary_group>
       - if !<player.has_flag[staff_switch]>:
@@ -413,3 +415,16 @@ Staff_Switch_Event:
     #- if <player.has_flag[staff_switch]>:
     #  - determine cancelled
    # - narrate "Nice <context.material>"
+
+Staff_Switch_Kits:
+  type: data
+  builder:
+    - furniture_kit_1x1_chair
+    - furniture_kit_1x1_table
+    - furniture_kit_1x2_table
+    - furniture_kit_1x3_table
+    - furniture_kit_2x2_table
+    - furniture_kit_decoration
+    - furniture_assembly_bench
+    - config_wrench
+    - staff_furniture_configurator
