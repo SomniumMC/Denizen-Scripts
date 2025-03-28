@@ -82,7 +82,7 @@ Alcohol_Mixer_GUI:
     gui: true
     procedural items:
     - define result <list>
-    - define mixer_inv <player.flag[mixer.id].inventory_contents>
+    - define mixer_inv <inventory[mixer_inventory_<player.flag[mixer.id]>].list_contents>
     # Add some logic!
     - determine <[mixer_inv]>
     slots:
