@@ -88,8 +88,8 @@ Alcohol_Mixer_GUI:
     slots:
     - [air] [air] [] [] [] [] [] [air] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
-    - [air] [] [] [air] [] [air] [] [] [air]
-    - [air] [air] [air] [air] [Alcohol_Fluid_Test] [air] [air] [air] [air]
+    - [air] [] [] [air] [Alcohol_Fluid_Test] [air] [] [] [air]
+    - [air] [air] [air] [air] [air] [air] [air] [air] [air]
 
 Alcohol_Mixing_Tub:
     type: item
