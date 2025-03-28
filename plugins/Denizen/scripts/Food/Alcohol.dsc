@@ -86,10 +86,10 @@ Alcohol_Mixer_GUI:
     # Add some logic!
     - determine <[mixer_inv]>
     slots:
-    - [GUINULL] [GUINULL] [] [] [] [] [] [GUINULL] [GUINULL]
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [GUINULL] [] [] [GUINULL] [] [GUINULL] [] [] [GUINULL]
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [Alcohol_Fluid_Test] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [air] [air] [] [] [] [] [] [air] [air]
+    - [air] [air] [air] [air] [air] [air] [air] [air] [air]
+    - [air] [] [] [air] [] [air] [] [] [air]
+    - [air] [air] [air] [air] [Alcohol_Fluid_Test] [air] [air] [air] [air]
 
 Alcohol_Mixing_Tub:
     type: item
