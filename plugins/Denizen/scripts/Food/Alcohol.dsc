@@ -60,9 +60,9 @@ Alcohol_Mixer_Event:
 
 Alcohol_Mixer_Storage:
     type: inventory
-    inventory: chest
+    inventory: hopper
     slots:
-    - [] [] [] [] [] [] [] [] []
+    - [] [] [] [] []
 
 Alcohol_Mixer_Setup:
     type: task
@@ -89,7 +89,7 @@ Alcohol_Mixer_GUI:
     - [GUINULL] [GUINULL] [] [] [] [] [] [GUINULL] [GUINULL]
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
     - [GUINULL] [] [] [GUINULL] [] [GUINULL] [] [] [GUINULL]
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [Alcohol_Fluid_Test] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
 Alcohol_Mixing_Tub:
     type: item
@@ -99,6 +99,15 @@ Alcohol_Mixing_Tub:
     mechanisms:
       components_patch:
         item_model: string:alcohol:mix_barrel
+
+Alcohol_Fluid_Test:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Fluid Test
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_test
 
 ## Alcohol Distillery
 
