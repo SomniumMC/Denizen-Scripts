@@ -78,7 +78,7 @@ Alcohol_Mixer_Setup:
 Alcohol_Mixer_GUI:
     type: inventory
     inventory: chest
-    title: こ
+    title: <white>七七七七七七七七こ
     gui: true
     procedural items:
     - define result <list>
