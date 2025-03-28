@@ -78,7 +78,7 @@ Alcohol_Mixer_Setup:
 Alcohol_Mixer_GUI:
     type: inventory
     inventory: chest
-    title: <gold>Alcohol Mixer
+    title: こ
     gui: true
     procedural items:
     - define result <list>
