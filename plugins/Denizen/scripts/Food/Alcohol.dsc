@@ -72,7 +72,7 @@ Alcohol_Mixer_Event:
                 - else:
                     - take item:<[item]> quantity:1
                     - give item:<[item]> quantity:1 to:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
-        on player left clicks Alcohol_Mixing_Tub_Interaction:
+        on player damages Alcohol_Mixing_Tub_Interaction:
         - define mixer <context.entity>
         - define mixer_location <[mixer].location>
         - narrate <[mixer]>
