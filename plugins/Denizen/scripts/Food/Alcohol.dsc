@@ -148,7 +148,11 @@ Alcohol_Mixer_Ingredients:
 
 Alcohol_Mixer_Recipes:
     type: data
-    key: value
+    recipes:
+        potato_mash:
+            ingredients:
+                - potato-10
+            stir: 12
 
 Alcohol_Mixing_Tub:
     type: item
