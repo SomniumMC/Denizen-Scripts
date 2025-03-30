@@ -85,10 +85,10 @@ Alcohol_Mixer_Event:
                 - if <[mixer].flag[mixer.recipe].if_null[null]> == null:
                     - narrate "<red>No recipe selected!"
                     - stop
-                - if <[mixer].flag[mixer.state]> == brewing:
+                - if <[mixer].flag[mixer.state].if_null[null]> == brewing:
                     - narrate "<red>Already brewing!"
                     - stop
-                - if <[mixer].flag[mixer.progress]> != 0:
+                - if <[mixer].flag[mixer.progress].if_null[null]> != 0:
                     - narrate "<red>Already brewing!"
                     - stop
                 - flag <[mixer]> mixer.state:brewing
