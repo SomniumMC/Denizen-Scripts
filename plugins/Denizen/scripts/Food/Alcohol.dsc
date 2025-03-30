@@ -60,7 +60,7 @@ Alcohol_Mixer_Event:
             - if <player.is_sneaking>:
                 - foreach <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].list_contents> as:stored_item:
                     - drop item:<[stored_item]> <[mixer_location].center>
-                    - take item:<[stored_item]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                - inventory clear destination:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
                 - stop
             - inventory open destination:Alcohol_Mixer_GUI
         - else:
