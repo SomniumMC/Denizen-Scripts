@@ -49,6 +49,7 @@ Alcohol_Mixer_Event:
     debug: true
     events:
         on player right clicks Alcohol_Mixing_Tub_Interaction:
+        - ratelimit <player> 5t
         - define mixer <context.entity>
         - define mixer_location <[mixer].location>
         - define item <context.item>
