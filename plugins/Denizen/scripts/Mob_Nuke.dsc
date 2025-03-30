@@ -5,9 +5,9 @@ Bat_Nuker:
         on bat spawns:
         - determine cancelled
 
-Zomb_Vilager_Nuker:
+Zomb_Villager_Nuker:
     type: world
     debug: false
     events:
-        on zombie_vilager spawns:
+        on zombie_villager spawns:
         - determine cancelled
