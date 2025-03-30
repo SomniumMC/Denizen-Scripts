@@ -75,6 +75,9 @@ Alcohol_Mixer_Event:
         on player clicks item in Alcohol_Mixer_GUI:
         - define mixer <player.flag[mixer.interaction]>
         - define slot <context.slot>
+        - if <[slot]> in <list[25|26]>:
+            - if <[slot]> == 25:
+                - inventory open destination:Alcohol_Mixer_Recipe_GUI
 
 Alcohol_Mixer_Storage:
     type: inventory
@@ -113,6 +116,30 @@ Alcohol_Mixer_GUI:
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
     - [air] [status] [progress] [air] [Alcohol_Fluid_Test] [air] [recipe] [confirm] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
+
+Alcohol_Mixer_Recipe_GUI:
+    type: inventory
+    inventory: chest
+    title: <gold>Select A Recipe
+    gui: true
+    procedural items:
+    - define result <list>
+    - define recipe_list <player.flag[recipe.alcohol].if_null[null]>
+    - if <[recipe_list]> != null:
+        - foreach <[recipe_list]> as:recipe_data key:recipe_name:
+            - define item <item[paper]>
+            - adjust def:item display:<gold><[recipe_name].replace_text[_].with[ ].to_titlecase>
+            - adjust def:item flag:recipe_data:<[recipe_data]>
+            - adjust def:item "lore:<green>Click to select this recipe!"
+            - define result:->:<[item]>
+    - determine <[result]>
+    slots:
+    - [] [] [] [] [] [] [] [] []
+    - [] [] [] [] [] [] [] [] []
+    - [] [] [] [] [] [] [] [] []
+    - [] [] [] [] [] [] [] [] []
+    - [] [] [] [] [] [] [] [] []
+    - [] [] [] [] [] [] [] [] []
 
 Alcohol_Mixer_Ingredients:
     type: data
