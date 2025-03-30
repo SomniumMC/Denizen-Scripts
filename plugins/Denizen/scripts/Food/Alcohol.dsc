@@ -136,7 +136,7 @@ Alcohol_Mixer_Stir:
     - if <[state]> == brewing:
         - flag <[mixer]> mixer.stir:+:1
         - flag <[mixer]> mixer.progress:<[mixer].flag[mixer.stir].div[<[mixer].flag[mixer.recipe.data].get[stir]>]>
-    - if <[mixer].flag[mixer.progress]> => 100:
+    - if <[mixer].flag[mixer.progress]> >= 100:
       - narrate "<green>Finished brewing!"
 
 Alcohol_Mixer_GUI:
@@ -149,6 +149,8 @@ Alcohol_Mixer_GUI:
       progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.progress].mul[100].round_to[1].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer.interaction].flag[mixer.recipe.data].get[stir].if_null[<red>0]>]>
       recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.recipe.name].replace_text[_].with[ ].to_titlecase.if_null[<red>None]>]>
       confirm: <item[green_concrete].with_single[display=<green>Confirm Recipe]>
+      fluid: <item[Alcohol_Fluid_GUI_<player.flag[mixer.interaction].flag[mixer.fluid_level]>].with_single[display=<player.flag[mixer.interaction].flag[mixer.fluid].if_null[<red>NULL]>]>
+      fluid_level: <item[cyan_stained_glass_pane].with_single[display=<green><player.flag[mixer.interaction].flag[mixer.fluid_level].mul[100].if_null[<red>NULL]><white>/<red>1000mb]>
     procedural items:
     - define result <list>
     - define mixer_inv <inventory[mixer_inventory_<player.flag[mixer.id]>].list_contents>
@@ -208,15 +210,86 @@ Alcohol_Mixing_Tub:
       components_patch:
         item_model: string:alcohol:mix_barrel
 
-Alcohol_Fluid_Test:
+Alcohol_Fluid_GUI_1:
     type: item
     debug: false
     material: string
-    display name: <gold>Fluid Test
+    display name: <gold>Default Fluid
     mechanisms:
       components_patch:
-        item_model: string:alcohol:fluid_test
-
+        item_model: string:alcohol:fluid_level_1
+Alcohol_Fluid_GUI_2:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_2
+Alcohol_Fluid_GUI_3:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_3
+Alcohol_Fluid_GUI_4:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_4
+Alcohol_Fluid_GUI_5:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_5
+Alcohol_Fluid_GUI_6:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_6
+Alcohol_Fluid_GUI_7:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_7
+Alcohol_Fluid_GUI_8:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_8
+Alcohol_Fluid_GUI_9:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_9
+Alcohol_Fluid_GUI_10:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_10
 ## Alcohol Distillery
 
 Alcohol_Distillery:
