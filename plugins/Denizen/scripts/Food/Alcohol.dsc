@@ -126,7 +126,8 @@ Alcohol_Mixer_Recipe_GUI:
     - define result <list>
     - define recipe_list <player.flag[recipe.alcohol].if_null[null]>
     - if <[recipe_list]> != null:
-        - foreach <[recipe_list]> as:recipe_data key:recipe_name:
+        - foreach <[recipe_list]> as:recipe_name:
+            - define recipe_data <script[Alcohol_Mixer_Recipes].data_key[recipes.<[recipe_name]>]>
             - define item <item[paper]>
             - adjust def:item display:<gold><[recipe_name].replace_text[_].with[ ].to_titlecase>
             - adjust def:item flag:recipe_data:<[recipe_data]>
