@@ -57,6 +57,14 @@ Alcohol_Mixer_Event:
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
             - inventory open destination:Alcohol_Mixer_GUI
+        - else:
+            - if <[item].script.name.if_null[null]> in <script[Alcohol_Mixer_Ingredients].data_key[ingredients]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].is_full>:
+                    - narrate "<red>Storage is full!"
+                    - stop
+                - else:
+                    - take item:<[item]> quantity:1
+                    - give item:<[item]> quantity:1 to:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
 
 Alcohol_Mixer_Storage:
     type: inventory
@@ -90,6 +98,15 @@ Alcohol_Mixer_GUI:
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
     - [air] [] [] [air] [Alcohol_Fluid_Test] [air] [] [] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
+
+Alcohol_Mixer_Ingredients:
+    type: data
+    ingredients:
+        - new_wheat
+
+Alcohol_Mixer_Recipes:
+    type: data
+    key: value
 
 Alcohol_Mixing_Tub:
     type: item
