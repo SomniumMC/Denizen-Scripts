@@ -78,6 +78,11 @@ Alcohol_Mixer_Event:
         - if <[slot]> in <list[25|26]>:
             - if <[slot]> == 25:
                 - inventory open destination:Alcohol_Mixer_Recipe_GUI
+        on player clicks item in Alcohol_Mixer_Recipe_GUI:
+        - define item <context.item>
+        - if <[item].has_flag[recipe_data]>:
+          - narrate <[item].flag[recipe_data]>
+          - inventory open destination:Alcohol_Mixer_GUI
 
 Alcohol_Mixer_Storage:
     type: inventory
