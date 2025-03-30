@@ -77,12 +77,34 @@ Alcohol_Mixer_Event:
         - define slot <context.slot>
         - if <[slot]> in <list[25|26]>:
             - if <[slot]> == 25:
+                - if <[mixer].flag[mixer.state]> == brewing:
+                    - narrate "<red>Already brewing!"
+                    - stop
                 - inventory open destination:Alcohol_Mixer_Recipe_GUI
+            - if <[slot]> == 26:
+                - if <[mixer].flag[mixer.recipe].if_null[null]> == null:
+                    - narrate "<red>No recipe selected!"
+                    - stop
+                - if <[mixer].flag[mixer.state]> == brewing:
+                    - narrate "<red>Already brewing!"
+                    - stop
+                - if <[mixer].flag[mixer.progress]> != 0:
+                    - narrate "<red>Already brewing!"
+                    - stop
+                - flag <[mixer]> mixer.state:brewing
+                - flag <[mixer]> mixer.progress:0
+                - flag <[mixer]> mixer.stir:0
+                #- flag <[mixer]> mixer.recipe.name:<[mixer].flag[mixer.recipe.name]>
+                #- flag <[mixer]> mixer.recipe.data:<[mixer].flag[mixer.recipe.data]>
+                - inventory close
         on player clicks item in Alcohol_Mixer_Recipe_GUI:
         - define item <context.item>
         - if <[item].has_flag[recipe_data]>:
-          - narrate <[item].flag[recipe_data]>
-          - inventory open destination:Alcohol_Mixer_GUI
+            #- narrate <[item].flag[recipe_data]>
+            - flag <player> mixer.recipe.name:<[item].flag[recipe]>
+            - flag <player> mixer.recipe.data:<[item].flag[recipe_data]>
+            - flag <player.flag[mixer.interaction]> mixer.recipe:<[item].flag[recipe]>
+            - inventory open destination:Alcohol_Mixer_GUI
 
 Alcohol_Mixer_Storage:
     type: inventory
@@ -108,7 +130,7 @@ Alcohol_Mixer_GUI:
     gui: true
     definitions:
       status: <item[paper].with_single[display=<green>Status<white><&co> <gold><player.flag[mixer].flag[mixer.state].if_null[<red>ERROR]>]>
-      progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co> <gold><player.flag[mixer].flag[mixer.progress].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co> <gold><player.flag[mixer].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer].flag[mixer.recipe.stir].if_null[<red>0]>]>
+      progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co> <gold><player.flag[mixer].flag[mixer.progress].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co> <gold><player.flag[mixer].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer].flag[mixer.recipe].get[stir].if_null[<red>0]>]>
       recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co> <gold><player.flag[mixer].flag[mixer.recipe.name].if_null[<red>None]>]>
       confirm: <item[green_concrete].with_single[display=<green>Confirm Recipe]>
     procedural items:
@@ -135,6 +157,7 @@ Alcohol_Mixer_Recipe_GUI:
             - define recipe_data <script[Alcohol_Mixer_Recipes].data_key[recipes.<[recipe_name]>]>
             - define item <item[paper]>
             - adjust def:item display:<gold><[recipe_name].replace_text[_].with[ ].to_titlecase>
+            - adjust def:item flag:recipe:<[recipe_name]>
             - adjust def:item flag:recipe_data:<[recipe_data]>
             - adjust def:item "lore:<green>Click to select this recipe!"
             - define result:->:<[item]>
