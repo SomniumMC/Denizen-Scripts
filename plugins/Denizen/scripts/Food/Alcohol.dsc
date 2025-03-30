@@ -209,7 +209,14 @@ Alcohol_Mixing_Tub:
     mechanisms:
       components_patch:
         item_model: string:alcohol:mix_barrel
-
+Alcohol_Fluid_GUI_0:
+    type: item
+    debug: false
+    material: string
+    display name: <gold>Default Fluid
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:fluid_level_0
 Alcohol_Fluid_GUI_1:
     type: item
     debug: false
