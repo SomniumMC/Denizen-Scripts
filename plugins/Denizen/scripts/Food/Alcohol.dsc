@@ -159,8 +159,8 @@ Alcohol_Mixer_GUI:
     slots:
     - [air] [air] [] [] [] [] [] [air] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
-    - [air] [status] [progress] [air] [Alcohol_Fluid_Test] [air] [recipe] [confirm] [air]
-    - [air] [air] [air] [air] [air] [air] [air] [air] [air]
+    - [air] [status] [progress] [air] [fluid] [air] [recipe] [confirm] [air]
+    - [air] [air] [air] [air] [fluid_level] [air] [air] [air] [air]
 
 Alcohol_Mixer_Recipe_GUI:
     type: inventory
