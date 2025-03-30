@@ -136,8 +136,13 @@ Alcohol_Mixer_Stir:
     - if <[state]> == brewing:
         - flag <[mixer]> mixer.stir:+:1
         - flag <[mixer]> mixer.progress:<[mixer].flag[mixer.stir].div[<[mixer].flag[mixer.recipe.data].get[stir]>]>
-    - if <[mixer].flag[mixer.progress]> >= 100:
-      - narrate "<green>Finished brewing!"
+    - if <[mixer].flag[mixer.progress].mul[100]> >= 100:
+        - narrate "<green>Finished brewing!"
+        - flag <[mixer]> mixer.state:idle
+        - flag <[mixer]> mixer.progress:0
+        - flag <[mixer]> mixer.stir:0
+        - flag <[mixer]> mixer.fluid_level:10
+        - flag <[mixer]> mixer.fluid:<[mixer].flag[mixer.recipe.name]>
 
 Alcohol_Mixer_GUI:
     type: inventory
@@ -149,7 +154,7 @@ Alcohol_Mixer_GUI:
       progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.progress].mul[100].round_to[1].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer.interaction].flag[mixer.recipe.data].get[stir].if_null[<red>0]>]>
       recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.recipe.name].replace_text[_].with[ ].to_titlecase.if_null[<red>None]>]>
       confirm: <item[green_concrete].with_single[display=<green>Confirm Recipe]>
-      fluid: <item[Alcohol_Fluid_GUI_<player.flag[mixer.interaction].flag[mixer.fluid_level]>].with_single[display=<player.flag[mixer.interaction].flag[mixer.fluid].if_null[<red>NULL]>]>
+      fluid: <item[Alcohol_Fluid_GUI_<player.flag[mixer.interaction].flag[mixer.fluid_level]>].with_single[display=<player.flag[mixer.interaction].flag[mixer.fluid].replace_text[_].with[ ].to_titlecase.if_null[<red>NULL]>]>
       fluid_level: <item[cyan_stained_glass_pane].with_single[display=<green><player.flag[mixer.interaction].flag[mixer.fluid_level].mul[100].if_null[<red>NULL]><white>/<red>1000mb]>
     procedural items:
     - define result <list>
