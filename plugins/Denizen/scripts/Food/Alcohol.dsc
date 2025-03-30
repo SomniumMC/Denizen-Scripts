@@ -132,7 +132,7 @@ Alcohol_Mixer_GUI:
     definitions:
       status: <item[paper].with_single[display=<green>Status<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.state].if_null[<red>ERROR]>]>
       progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.progress].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer.interaction].flag[mixer.recipe.data].get[stir].if_null[<red>0]>]>
-      recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.recipe.name].if_null[<red>None]>]>
+      recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.recipe.name].replace_text[_].with[ ].to_titlecase.if_null[<red>None]>]>
       confirm: <item[green_concrete].with_single[display=<green>Confirm Recipe]>
     procedural items:
     - define result <list>
