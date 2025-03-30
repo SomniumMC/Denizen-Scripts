@@ -57,6 +57,7 @@ Alcohol_Mixer_Event:
             - run Alcohol_Mixer_Setup def:<[mixer]>
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
+            - flag player mixer.interaction:<[mixer]>
             - if <player.is_sneaking>:
                 - foreach <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].list_contents> as:stored_item:
                     - drop item:<[stored_item]> <[mixer_location].center>
@@ -71,6 +72,9 @@ Alcohol_Mixer_Event:
                 - else:
                     - take item:<[item]> quantity:1
                     - give item:<[item]> quantity:1 to:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+        on player clicks item in Alcohol_Mixer_GUI:
+        - define mixer <player.flag[mixer.interaction]>
+        - define slot <context.slot>
 
 Alcohol_Mixer_Storage:
     type: inventory
@@ -94,6 +98,11 @@ Alcohol_Mixer_GUI:
     inventory: chest
     title: <white>七七七七七七七七こ
     gui: true
+    definitions:
+      status: <item[paper].with_single[display=<green>Status<white><&co><gold><player.flag[mixer].flag[mixer.state].if_null[<red>ERROR]>]>
+      progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co><gold><player.flag[mixer].flag[mixer.progress].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co><gold><player.flag[mixer].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer].flag[mixer.recipe.stir].if_null[<red>0]>]>
+      recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co><player.flag[mixer].flag[mixer.recipe.name].if_null[<red>None]>]>
+      confirm: <item[green_concrete].with_single[display=<green>Confirm Recipe]>
     procedural items:
     - define result <list>
     - define mixer_inv <inventory[mixer_inventory_<player.flag[mixer.id]>].list_contents>
@@ -102,7 +111,7 @@ Alcohol_Mixer_GUI:
     slots:
     - [air] [air] [] [] [] [] [] [air] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
-    - [air] [] [] [air] [Alcohol_Fluid_Test] [air] [] [] [air]
+    - [air] [status] [progress] [air] [Alcohol_Fluid_Test] [air] [recipe] [confirm] [air]
     - [air] [air] [air] [air] [air] [air] [air] [air] [air]
 
 Alcohol_Mixer_Ingredients:
