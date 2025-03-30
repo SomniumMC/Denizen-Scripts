@@ -72,6 +72,11 @@ Alcohol_Mixer_Event:
                 - else:
                     - take item:<[item]> quantity:1
                     - give item:<[item]> quantity:1 to:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+        on player left clicks Alcohol_Mixing_Tub_Interaction:
+        - define mixer <context.entity>
+        - define mixer_location <[mixer].location>
+        - narrate <[mixer]>
+        - look <[mixer]> yaw:<[mixer].flag[mixer.model].location.yaw.add[90]>
         on player clicks item in Alcohol_Mixer_GUI:
         - define mixer <player.flag[mixer.interaction]>
         - define slot <context.slot>
@@ -128,7 +133,7 @@ Alcohol_Mixer_GUI:
     title: <white>七七七七七七七七こ
     gui: true
     definitions:
-      status: <item[paper].with_single[display=<green>Status<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.state].if_null[<red>ERROR]>]>
+      status: <item[paper].with_single[display=<green>Status<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.state].to_titlecase.if_null[<red>ERROR]>]>
       progress: <item[glass_bottle].with_single[display=<green>Progress<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.progress].if_null[<red>ERROR]>%].with_single[lore=<yellow>Stir<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.stir].if_null[<red>0]>/<player.flag[mixer.interaction].flag[mixer.recipe.data].get[stir].if_null[<red>0]>]>
       recipe: <item[knowledge_book].with_single[display=<green>Select a Recipe].with_single[lore=<yellow>Selected Recipe<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.recipe.name].replace_text[_].with[ ].to_titlecase.if_null[<red>None]>]>
       confirm: <item[green_concrete].with_single[display=<green>Confirm Recipe]>
