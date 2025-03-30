@@ -76,7 +76,7 @@ Alcohol_Mixer_Event:
         - define mixer <context.entity>
         - define mixer_location <[mixer].location>
         - narrate <[mixer]>
-        - look <[mixer]> yaw:<[mixer].flag[mixer.model].location.yaw.add[90]>
+        - look <[mixer].flag[mixer.model]> yaw:<[mixer].flag[mixer.model].location.yaw.add[90]>
         on player clicks item in Alcohol_Mixer_GUI:
         - define mixer <player.flag[mixer.interaction]>
         - define slot <context.slot>
