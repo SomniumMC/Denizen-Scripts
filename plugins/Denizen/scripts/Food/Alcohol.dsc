@@ -75,8 +75,8 @@ Alcohol_Mixer_Event:
         on player damages Alcohol_Mixing_Tub_Interaction:
         - define mixer <context.entity>
         - define mixer_location <[mixer].location>
-        - narrate <[mixer]>
-        - look <[mixer].flag[mixer.model]> yaw:<[mixer].flag[mixer.model].location.yaw.add[90]>
+        #- narrate <[mixer]>
+        - run Alcohol_Mixer_Stir def:<[mixer]>
         on player clicks item in Alcohol_Mixer_GUI:
         - define mixer <player.flag[mixer.interaction]>
         - define slot <context.slot>
@@ -126,6 +126,18 @@ Alcohol_Mixer_Setup:
     - note <inventory[Alcohol_Mixer_Storage]> as:mixer_inventory_<[mixer_id]>
     - flag server mixer.total_id:<[mixer_id]>
     - flag <[mixer]> mixer.id:<[mixer_id]>
+
+Alcohol_Mixer_Stir:
+    type: task
+    definitions: mixer
+    script:
+    - look <[mixer].flag[mixer.model]> yaw:<[mixer].flag[mixer.model].location.yaw.add[90]>
+    - define state <[mixer].flag[mixer.state]>
+    - if <[state]> == brewing:
+        - flag <[mixer]> mixer.stir:+:1
+        - flag <[mixer]> mixer.progress:<[mixer].flag[mixer.stir].div[<[mixer].flag[mixer.recipe.data].get[stir]>]>
+    - if <[mixer].flag[mixer.progress]> => 100:
+      - narrate "<green>Finished brewing!"
 
 Alcohol_Mixer_GUI:
     type: inventory
