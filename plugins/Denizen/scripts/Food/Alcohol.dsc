@@ -88,15 +88,13 @@ Alcohol_Mixer_Event:
                 - if <[mixer].flag[mixer.state].if_null[null]> == brewing:
                     - narrate "<red>Already brewing!"
                     - stop
-                - if <[mixer].flag[mixer.progress].if_null[null]> != 0:
-                    - narrate "<red>Already brewing!"
-                    - stop
-                - flag <[mixer]> mixer.state:brewing
-                - flag <[mixer]> mixer.progress:0
-                - flag <[mixer]> mixer.stir:0
+                - if <[mixer].flag[mixer.state].if_null[null]> == idle:
+                    - flag <[mixer]> mixer.state:brewing
+                    - flag <[mixer]> mixer.progress:0
+                    - flag <[mixer]> mixer.stir:0
                 #- flag <[mixer]> mixer.recipe.name:<[mixer].flag[mixer.recipe.name]>
                 #- flag <[mixer]> mixer.recipe.data:<[mixer].flag[mixer.recipe.data]>
-                - inventory close
+                    - inventory close
         on player clicks item in Alcohol_Mixer_Recipe_GUI:
         - define item <context.item>
         - if <[item].has_flag[recipe_data]>:
