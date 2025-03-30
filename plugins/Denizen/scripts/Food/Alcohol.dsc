@@ -57,6 +57,8 @@ Alcohol_Mixer_Event:
             - run Alcohol_Mixer_Setup def:<[mixer]>
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
+            - if <player.is_sneaking>:
+                - inventory open destination:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
             - inventory open destination:Alcohol_Mixer_GUI
         - else:
             - if <[item].script.name.if_null[null]> in <script[Alcohol_Mixer_Ingredients].data_key[ingredients]>:
