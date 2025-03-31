@@ -33,7 +33,6 @@ Remove_Vanilla_Recipes:
           - minecraft:diamond_axe
           - minecraft:diamond_shovel
           - minecraft:diamond_hoe
-          - minecraft:paper
           - minecraft:bow
           - minecraft:bundle
           - minecraft:sugar
