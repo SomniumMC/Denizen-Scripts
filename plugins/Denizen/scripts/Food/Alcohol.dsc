@@ -252,6 +252,10 @@ Alcohol_Mixer_Ingredients:
     type: data
     ingredients:
         - new_wheat
+        - new_potato
+        - new_carrot
+        - new_apple
+        - new_sweet_berry
 
 Alcohol_Mixer_Recipes:
     type: data
