@@ -150,44 +150,44 @@ Alcohol_Mixer_Stir:
           - define ingredient<[loop_index]> <[item].before_last[-]>
         - choose <[recipe_amount]>:
             - case 1:
-                - if <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
                     - define success 1
-                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
             - case 2:
-                - if <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
                     - define success 1
-                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
             - case 3:
-                - if <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
                     - define success 1
-                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
             - case 4:
-                - if <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
                     - define success 1
-                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient4]> quantity:<[quantity4]> from:<inventory[<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient4]> quantity:<[quantity4]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
             - case 5:
-                - if <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
                     - define success 1
-                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient4]> quantity:<[quantity4]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient5]> quantity:<[quantity5]> from:<inventory[<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient4]> quantity:<[quantity4]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient5]> quantity:<[quantity5]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
             - case 6:
-                - if <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <inventory[<[mixer].flag[mixer.id]>].contains_item[<[ingredient6]>].quantity[<[quantity6]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
+                - if <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].contains_item[<[ingredient6]>].quantity[<[quantity6]>]> && <[fluid]> == <[recipe].get[fluid].before_last[-]> && <[fluid_level]> == <[recipe].get[fluid_level].after_last[-]>:
                     - define success 1
-                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient4]> quantity:<[quantity4]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient5]> quantity:<[quantity5]> from:<inventory[<[mixer].flag[mixer.id]>]>
-                    - take item:<[ingredient6]> quantity:<[quantity6]> from:<inventory[<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient1]> quantity:<[quantity1]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient2]> quantity:<[quantity2]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient3]> quantity:<[quantity3]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient4]> quantity:<[quantity4]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient5]> quantity:<[quantity5]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
+                    - take item:<[ingredient6]> quantity:<[quantity6]> from:<inventory[mixer_inventory_<[mixer].flag[mixer.id]>]>
         - if <[success]||0> == 1:
           - narrate "<green>Finished brewing!"
           - flag <[mixer]> mixer.state:idle
