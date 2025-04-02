@@ -97,6 +97,7 @@ Alcohol_Mixer_Event:
                 - if <[tool_fluid]> == <[mixer_fluid]> || <[mixer_fluid]> == empty:
                   - flag <[mixer]> mixer.fluid:<[tool_fluid]>
                   - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
+                  - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
                   - if <[tool_level]> == 1:
                     - inventory adjust slot:hand flag:fluid:empty
                     - inventory adjust slot:hand flag:level:0
