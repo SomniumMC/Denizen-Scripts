@@ -258,7 +258,7 @@ Alcohol_Mixer_Recipes:
     recipes:
         potato_mash:
             ingredients:
-                - potato-10
+                - new_potato-10
             fluid: water-10
             stir: 12
             output: potato_mash-4
