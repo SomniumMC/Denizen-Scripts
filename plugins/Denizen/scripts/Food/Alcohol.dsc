@@ -144,6 +144,7 @@ Alcohol_Mixer_Stir:
         - define fluid <[mixer].flag[mixer.fluid]>
         - define fluid_level <[mixer].flag[mixer.fluid_level]>
         - define recipe_ingredients <[recipe].get[ingredients]>
+        - define recipe_amount <[recipe_ingredients].size>
         - foreach <[recipe_ingredients]> as:item:
           - define quantity<[loop_index]> <[item].after_last[-]>
           - define ingredient<[loop_index]> <[item].before_last[-]>
