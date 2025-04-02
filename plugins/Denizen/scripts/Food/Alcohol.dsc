@@ -79,6 +79,8 @@ Alcohol_Mixer_Event:
                 - if <[tool_fluid]> == <[mixer_fluid]> || <[tool_fluid]> == empty:
                     - inventory adjust slot:hand flag:fluid:<[mixer_fluid]>
                     - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
+                    - inventory adjust slot:hand lore:<[item].lore.set[<gold>Contents<white><&co><red><[item].flag[level].add[1].mul[100]><white>/<blue>1000mb].at[3]>
+                    - inventory adjust slot:hand lore:<[item].lore.set[<yellow>Fluid<white><&co><light_purple><[mixer_fluid]>.replace_text[_].with[ ].to_titlecase].at[4]>
                     - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].sub[1]>
                     - if <[mixer_fluid_level]> == 1:
                         - flag <[mixer]> mixer.fluid:empty
@@ -98,9 +100,12 @@ Alcohol_Mixer_Event:
                   - flag <[mixer]> mixer.fluid:<[tool_fluid]>
                   - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
                   - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
+                  - inventory adjust slot:hand lore:<[item].lore.set[<gold>Contents<white><&co><red><[item].flag[level].sub[1].mul[100]><white>/<blue>1000mb].at[3]>
                   - if <[tool_level]> == 1:
                     - inventory adjust slot:hand flag:fluid:empty
                     - inventory adjust slot:hand flag:level:0
+                    - inventory adjust slot:hand lore:<[item].lore.set[<gold>Contents<white><&co><red>0<white>/<blue>1000mb].at[3]>
+                    - inventory adjust slot:hand lore:<[item].lore.set[<yellow>Fluid<white><&co><light_purple>Empty].at[4]>
 
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
@@ -475,6 +480,7 @@ Alcohol_Clay_Jug:
     - <green>Used to transfer liquids.
     - <white><element[ ].strikethrough.repeat[10]>
     - <gold>Contents<white><&co><red>0<white>/<blue>1000mb
+    - <yellow>Fluid<white><&co><light_purple>Empty
     - <white><element[ ].strikethrough.repeat[10]>
     - <blue>Shift-right click to fill with liquid.
     - <red>Right click to pour out liquid.
@@ -494,6 +500,7 @@ Alcohol_Wineskin:
     - <green>Can be drank from.
     - <white><element[ ].strikethrough.repeat[10]>
     - <gold>Contents<white><&co><red>0<white>/<blue>300mb
+    - <yellow>Fluid<white><&co><light_purple>Empty
     - <white><element[ ].strikethrough.repeat[10]>
     - <blue>Shift-right click to fill with liquid.
     - <red>Right click to pour out liquid.
