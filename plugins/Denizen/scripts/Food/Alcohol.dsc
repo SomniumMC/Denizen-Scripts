@@ -108,9 +108,6 @@ Alcohol_Mixer_Event:
             - flag <player> mixer.recipe.data:<[item].flag[recipe_data]>
             - flag <player.flag[mixer.interaction]> mixer.recipe.name:<[item].flag[recipe]>
             - flag <player.flag[mixer.interaction]> mixer.recipe.data:<[item].flag[recipe_data]>
-            - flag <player.flag[mixer.interaction]> mixer.state:brewing
-            - flag <player.flag[mixer.interaction]> mixer.progress:0
-            - flag <player.flag[mixer.interaction]> mixer.stir:0
             - inventory open destination:Alcohol_Mixer_GUI
 
 Alcohol_Mixer_Storage:
