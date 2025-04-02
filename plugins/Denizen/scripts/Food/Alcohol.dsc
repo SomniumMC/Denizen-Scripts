@@ -55,6 +55,50 @@ Alcohol_Mixer_Event:
         - define item <context.item>
         - if <[mixer].flag[mixer.id].if_null[null]> == null:
             - run Alcohol_Mixer_Setup def:<[mixer]>
+        - if <[item].script.name||null> == Alcohol_Clay_Jug || <[item].script.name||null> == Alcohol_Wineskin:
+            - define tool_fluid <[item].flag[fluid]>
+            - define tool_level <[item].flag[level]>
+            - define mixer_fluid <[mixer].flag[mixer.fluid]>
+            - define mixer_fluid_level <[mixer].flag[mixer.fluid_level]>
+            - if <player.is_sneaking>:
+                - if <[mixer_fluid]> == empty:
+                    - narrate "<red>Nothing to pour out!"
+                    - stop
+                - if <[mixer_fluid_level]> == 0:
+                    - narrate "<red>Nothing to pour out!"
+                    - stop
+                - choose <[item].script.name>:
+                    - case alcohol_clay_jug:
+                        - if <[tool_level]> >= 10:
+                            - narrate "<red>Tool is full!"
+                            - stop
+                    - case alcohol_wineskin:
+                        - if <[tool_level]> >= 3:
+                            - narrate "<red>Tool is full!"
+                            - stop
+                - if <[tool_fluid]> != <[mixer_fluid]>:
+                    - narrate "<red>Incompatible fluid!"
+                    - stop
+                - inventory adjust slot:hand flag:fluid:<[mixer_fluid]>
+                - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
+                - if <[mixer_fluid_level]> == 1:
+                    - flag <[mixer]> mixer.fluid:empty
+                    - flag <[mixer]> mixer.fluid_level:0
+                - stop
+            - else:
+                - if <[tool_fluid]> == empty:
+                    - narrate "<red>Nothing to pour out!"
+                    - stop
+                - if <[mixer_fluid_level]> == 10:
+                    - narrate "<red>Container is full!"
+                    - stop
+                - if <[tool_fluid]> == <[mixer_fluid]> || <[mixer_fluid]> == empty:
+                  - flag <[mixer]> mixer.fluid:<[tool_fluid]>
+                  - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
+                  - if <[tool_level]> == 1:
+                    - inventory adjust slot:hand flag:fluid:empty
+                    - inventory adjust slot:hand flag:level:0
+
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
             - flag player mixer.interaction:<[mixer]>
@@ -410,3 +454,37 @@ Alcohol_Mixing_Tub_Interaction:
   mechanisms:
     width: 1
     height: 1
+
+## Alcohol Tools
+
+Alcohol_Clay_Jug:
+    type: item
+    debug: false
+    material: clay_ball
+    display name: <gold>Clay Jug
+    flags:
+      fluid: empty
+      level: 0
+    lore:
+    - <green>Used to transfer liquids.
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <gold>Contents<white><&co><red>0<white>/<blue>1000mb
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <blue>Shift-right click to fill with liquid.
+    - <red>Right click to pour out liquid.
+
+Alcohol_Wineskin:
+    type: item
+    debug: false
+    material: leather
+    display name: <gold>Wineskin
+    flags:
+      fluid: empty
+      level: 0
+    lore:
+    - <green>Can be drank from.
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <gold>Contents<white><&co><red>0<white>/<blue>300mb
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <blue>Shift-right click to fill with liquid.
+    - <red>Right click to pour out liquid.
