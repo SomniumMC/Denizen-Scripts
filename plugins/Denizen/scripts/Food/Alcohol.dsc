@@ -465,6 +465,9 @@ Alcohol_Clay_Jug:
     flags:
       fluid: empty
       level: 0
+    mechanisms:
+      components_patch:
+        item_model: string:furniture:clay_jug
     lore:
     - <green>Used to transfer liquids.
     - <white><element[ ].strikethrough.repeat[10]>
@@ -481,6 +484,9 @@ Alcohol_Wineskin:
     flags:
       fluid: empty
       level: 0
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:wineskin
     lore:
     - <green>Can be drank from.
     - <white><element[ ].strikethrough.repeat[10]>
