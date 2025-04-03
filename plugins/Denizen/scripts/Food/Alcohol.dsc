@@ -560,6 +560,7 @@ Alcohol_Fermenter_Delta_Time:
                     - flag <[location]> fermenting.time:0
                     - flag <[location]> fermenting.fluid:<[conversion]>
                     - flag <[location]> fermenting.state:idle
+                    - flag server fermenters:<-:<[location]>
 
 Alcohol_Fermenter_Setup:
     type: task
