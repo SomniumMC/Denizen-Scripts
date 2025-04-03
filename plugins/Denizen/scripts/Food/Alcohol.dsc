@@ -575,8 +575,8 @@ Alcohol_Fermenter_GUI:
     inventory: dispenser
     gui: true
     definitions:
-      fluid: <item[Alcohol_Fluid_GUI_<player.flag[fermenter].flag[fermenter.fluid_level]>].with_single[display=<blue><player.flag[fermenter].flag[fermenter.fluid].replace_text[_].with[ ].to_titlecase.if_null[<red>NULL]>]>
-      fluid_level: <item[cyan_stained_glass_pane].with_single[display=<green><player.flag[fermenter].flag[fermenter.fluid_level].mul[100].if_null[<red>NULL]><white>/<red>1000mb]>
+      fluid: <item[Alcohol_Fluid_GUI_<player.flag[fermenter].flag[fermenting.fluid_level]>].with_single[display=<blue><player.flag[fermenter].flag[fermenting.fluid].replace_text[_].with[ ].to_titlecase.if_null[<red>NULL]>]>
+      fluid_level: <item[cyan_stained_glass_pane].with_single[display=<green><player.flag[fermenter].flag[fermenting.fluid_level].mul[100].if_null[<red>NULL]><white>/<red>1000mb]>
     slots:
     - [GUINULL] [GUINULL] [GUINULL]
     - [GUINULL] [fluid] [GUINULL]
