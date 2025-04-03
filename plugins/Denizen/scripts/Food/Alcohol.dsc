@@ -631,7 +631,7 @@ Alcohol_Clay_Jug:
 Alcohol_Wineskin:
     type: item
     debug: false
-    material: leather
+    material: rabbit_hide
     display name: <gold>Wineskin
     flags:
       fluid: empty
