@@ -472,7 +472,7 @@ Alcohol_Fermenter_Event:
                 - if <[item].material.name> == air:
                     - flag player fermenter:<[location]>
                     - inventory open d:Alcohol_Fermenter_GUI
-                - if <[fermenter_fluid]> != empty && <[item].script.name> == yeast:
+                - if <[fermenter_fluid]> != empty && <[item].script.name||null> == yeast:
                     - take item:yeast quantity:1
                     - flag <[location]> fermenting.state:fermenting
                     - flag server fermenters:->:<[location]>
@@ -556,9 +556,9 @@ Alcohol_Fermenter_Delta_Time:
                 - flag <[location]> fermenting.time:<[location].flag[fermenting.time].add[1].if_null[1]>
                 - if <[location].flag[fermenting.time].add[1]> >= 30:
                     - define fluid <[location].flag[fermenting.fluid]>
-                    - define conversion <script[alcohol_fermenter_conversions].data_key[recipes.<[fluid]>]>
+                    - define conversion <script[alcohol_fermenter_conversions].data_key[recipes.<[fluid]>].if_null[disgusting_fluid]>
                     - flag <[location]> fermenting.time:0
-                    - flag <[location]> fermenting.fluid:<[conversion].if_null[disgusting_fluid]>
+                    - flag <[location]> fermenting.fluid:<[conversion]>
                     - flag <[location]> fermenting.state:idle
                     - flag server fermenters:<-:<[location]>
 
