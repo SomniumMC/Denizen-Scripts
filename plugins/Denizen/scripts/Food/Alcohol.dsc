@@ -521,7 +521,7 @@ Alcohol_Fermenter_Event:
                         - if <[fermenter_fluid_level]> == 10:
                             - narrate "<red>Container is full!"
                             - stop
-                        - if <[tool_fluid]> == <[fermenter_fluid_level]> || <[fermenter_fluid_level]> == empty:
+                        - if <[tool_fluid]> == <[fermenter_fluid_level]> || <[fermenter_fluid]> == empty:
                           - flag <[location]> fermenting.fluid:<[tool_fluid]>
                           - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].add[1]>
                           - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
