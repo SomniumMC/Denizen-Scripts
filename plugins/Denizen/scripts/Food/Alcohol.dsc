@@ -545,6 +545,8 @@ Alcohol_Fermenter_Event:
             - drop item:Alcohol_Fermentation_Barrel <[location].center>
             - flag <[location]> fermenting:!
         on delta time secondly:
+        - if <server.flag[fermenters].is_empty>:
+            - stop
         - foreach <server.flag[fermenters]> as:location:
             - if <[location].chunk.is_loaded>:
                 - flag <[location]> fermenting.time:<[location].flag[fermenting.time].add[1].if_null[1]>
