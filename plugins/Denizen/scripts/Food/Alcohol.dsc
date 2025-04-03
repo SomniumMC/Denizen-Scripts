@@ -558,7 +558,7 @@ Alcohol_Fermenter_Delta_Time:
                     - define fluid <[location].flag[fermenting.fluid]>
                     - define conversion <script[alcohol_fermenter_conversions].data_key[recipes.<[fluid]>]>
                     - flag <[location]> fermenting.time:0
-                    - flag <[location]> fermenting.fluid:<[conversion]>
+                    - flag <[location]> fermenting.fluid:<[conversion].if_null[disgusting_fluid]>
                     - flag <[location]> fermenting.state:idle
                     - flag server fermenters:<-:<[location]>
 
