@@ -546,7 +546,7 @@ Alcohol_Fermenter_Event:
             - flag <[location]> fermenting:!
 Alcohol_Fermenter_Delta_Time:
     type: world
-    debug: true
+    debug: false
     events:
         on delta time secondly:
         - if <server.flag[fermenters].is_empty>:
