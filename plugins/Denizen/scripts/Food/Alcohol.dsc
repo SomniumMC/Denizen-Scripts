@@ -46,7 +46,7 @@ Alcohol_Station_Setup:
 
 Alcohol_Mixer_Event:
     type: world
-    debug: true
+    debug: false
     events:
         on player right clicks Alcohol_Mixing_Tub_Interaction:
         - ratelimit <player> 5t
@@ -58,6 +58,11 @@ Alcohol_Mixer_Event:
         - if <[item].script.name||null> == Alcohol_Clay_Jug || <[item].script.name||null> == Alcohol_Wineskin:
             - define tool_fluid <[item].flag[fluid]>
             - define tool_level <[item].flag[level]>
+            - choose <[item].script.name>:
+                - case alcohol_clay_jug:
+                    - define max_level 10
+                - case alcohol_wineskin:
+                    - define max_level 3
             - define mixer_fluid <[mixer].flag[mixer.fluid]>
             - define mixer_fluid_level <[mixer].flag[mixer.fluid_level]>
             - if <player.is_sneaking>:
@@ -79,8 +84,8 @@ Alcohol_Mixer_Event:
                 - if <[tool_fluid]> == <[mixer_fluid]> || <[tool_fluid]> == empty:
                     - inventory adjust slot:hand flag:fluid:<[mixer_fluid]>
                     - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><red><[item].flag[level].add[1].mul[100]><white>/<blue>1000mb].at[3]>
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><light_purple><[mixer_fluid].replace_text[_].with[ ].to_titlecase>].at[4]>
+                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[mixer_fluid].replace_text[_].with[ ].to_titlecase>].at[4]>
                     - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].sub[1]>
                     - if <[mixer_fluid_level]> == 1:
                         - flag <[mixer]> mixer.fluid:empty
@@ -100,12 +105,12 @@ Alcohol_Mixer_Event:
                   - flag <[mixer]> mixer.fluid:<[tool_fluid]>
                   - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
                   - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
-                  - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><red><[item].flag[level].sub[1].mul[100]><white>/<blue>1000mb].at[3]>
+                  - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
                   - if <[tool_level]> == 1:
                     - inventory adjust slot:hand flag:fluid:empty
                     - inventory adjust slot:hand flag:level:0
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><red>0<white>/<blue>1000mb].at[3]>
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><light_purple>Empty].at[4]>
+                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
+                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
 
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
@@ -165,12 +170,13 @@ Alcohol_Mixer_Event:
 Alcohol_Mixer_Storage:
     type: inventory
     inventory: hopper
+    debug: false
     slots:
     - [] [] [] [] []
 
 Alcohol_Mixer_Setup:
     type: task
-    debug: true
+    debug: false
     definitions: mixer
     script:
     - define mixer_location <[mixer].location>
@@ -181,6 +187,7 @@ Alcohol_Mixer_Setup:
 
 Alcohol_Mixer_Stir:
     type: task
+    debug: false
     definitions: mixer
     script:
     - look <[mixer].flag[mixer.model]> yaw:<[mixer].flag[mixer.model].location.yaw.add[90]>
@@ -256,6 +263,7 @@ Alcohol_Mixer_GUI:
     type: inventory
     inventory: chest
     title: <white>七七七七七七七七こ
+    debug: false
     gui: true
     definitions:
       status: <item[paper].with_single[display=<green>Status<white><&co> <gold><player.flag[mixer.interaction].flag[mixer.state].to_titlecase.if_null[<red>ERROR]>]>
@@ -279,6 +287,7 @@ Alcohol_Mixer_Recipe_GUI:
     type: inventory
     inventory: chest
     title: <gold>Select A Recipe
+    debug: false
     gui: true
     procedural items:
     - define result <list>
@@ -416,6 +425,14 @@ Alcohol_Fluid_GUI_10:
     mechanisms:
       components_patch:
         item_model: string:alcohol:fluid_level_10
+
+Alcohol_Mixing_Tub_Interaction:
+  type: entity
+  debug: false
+  entity_type: interaction
+  mechanisms:
+    width: 1
+    height: 1
 ## Alcohol Distillery
 
 Alcohol_Distillery:
@@ -426,6 +443,143 @@ Alcohol_Distillery:
     mechanisms:
       components_patch:
         item_model: string:alcohol:copper_distillery
+
+Alcohol_Distillery_Interaction:
+  type: entity
+  debug: false
+  entity_type: interaction
+  mechanisms:
+    width: 1
+    height: 1
+
+## Alcohol Fermenter
+
+Alcohol_Fermenter_Event:
+    type: world
+    debug: true
+    events:
+        on player right clicks block location_flagged:fermenting:
+        - ratelimit <player> 5t
+        - define location <context.location>
+        - define item <context.item>
+        - define fermenter_fluid <[location].flag[fermenting.fluid].if_null[null]>
+        - if <[fermenter_fluid]> == null:
+            - run Alcohol_Fermenter_Setup def:<[location]>
+            - stop
+        - else:
+            - define state <[location].flag[fermenting.state]>
+            - if <[state]> == idle:
+                - if <[item].material.name> == air:
+                    - flag player fermenter:<[location]>
+                    - inventory open d:Alcohol_Fermenter_GUI
+                - if <[fermenter_fluid]> != empty && <[item].script.name> == yeast:
+                    - take item:yeast quantity:1
+                    - flag <[location]> fermenting.state:fermenting
+                    - flag server fermenters:->:<[location]>
+                - if <[item].script.name||null> == Alcohol_Clay_Jug || <[item].script.name||null> == Alcohol_Wineskin:
+                    - define tool_fluid <[item].flag[fluid]>
+                    - define tool_level <[item].flag[level]>
+                    - choose <[item].script.name>:
+                        - case alcohol_clay_jug:
+                            - define max_level 10
+                        - case alcohol_wineskin:
+                            - define max_level 3
+                    - define fermenter_fluid_level <[location].flag[fermenting.fluid_level]>
+                    - if <player.is_sneaking>:
+                        - if <[fermenter_fluid]> == empty:
+                            - narrate "<red>Nothing to pour out!"
+                            - stop
+                        - if <[fermenter_fluid_level]> == 0:
+                            - narrate "<red>Nothing to pour out!"
+                            - stop
+                        - choose <[item].script.name>:
+                            - case alcohol_clay_jug:
+                                - if <[tool_level]> >= 10:
+                                    - narrate "<red>Tool is full!"
+                                    - stop
+                            - case alcohol_wineskin:
+                                - if <[tool_level]> >= 3:
+                                    - narrate "<red>Tool is full!"
+                                    - stop
+                        - if <[tool_fluid]> == <[fermenter_fluid]> || <[tool_fluid]> == empty:
+                            - inventory adjust slot:hand flag:fluid:<[fermenter_fluid]>
+                            - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
+                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[fermenter_fluid].replace_text[_].with[ ].to_titlecase>].at[4]>
+                            - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].sub[1]>
+                            - if <[fermenter_fluid_level]> == 1:
+                                - flag <[location]> fermenting.fluid:empty
+                                - flag <[location]> fermenting.fluid_level:0
+                            - stop
+                        - else:
+                            - narrate "<red>Incompatible fluid!"
+                            - stop
+                    - else:
+                        - if <[tool_fluid]> == empty:
+                            - narrate "<red>Nothing to pour out!"
+                            - stop
+                        - if <[fermenter_fluid_level]> == 10:
+                            - narrate "<red>Container is full!"
+                            - stop
+                        - if <[tool_fluid]> == <[fermenter_fluid_level]> || <[fermenter_fluid_level]> == empty:
+                          - flag <[location]> fermenting.fluid:<[tool_fluid]>
+                          - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].add[1]>
+                          - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
+                          - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                          - if <[tool_level]> == 1:
+                            - inventory adjust slot:hand flag:fluid:empty
+                            - inventory adjust slot:hand flag:level:0
+                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
+                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
+        on player breaks block location_flagged:fermenting:
+        - define location <context.location>
+        - if <[location].flag[fermenting.fluid].if_null[null]> != null:
+            - define fluid <[location].flag[fermenting.fluid]>
+            - if <[fluid]> == empty:
+                - flag <[location]> fermenting:!
+                - drop item:Alcohol_Fermentation_Barrel <[location].center>
+            - else:
+                - narrate "<red>Cannot break the fermenter while it is in use!"
+                - determine cancelled
+        - else:
+            - drop item:Alcohol_Fermentation_Barrel <[location].center>
+            - flag <[location]> fermenting:!
+        on delta time secondly:
+        - foreach <server.flag[fermenters]> as:location:
+            - if <[location].chunk.is_loaded>:
+                - flag <[location]> fermenting.time:<[location].flag[fermenting.time].add[1].if_null[1]>
+                - if <[location].flag[fermenting.time].add[1]> >= 30:
+                    - define fluid <[location].flag[fermenting.fluid]>
+                    - define conversion <script[alcohol_fermenter_conversions].data_key[recipes.<[fluid]>]>
+                    - flag <[location]> fermenting.time:0
+                    - flag <[location]> fermenting.fluid:<[conversion]>
+                    - flag <[location]> fermenting.state:idle
+
+Alcohol_Fermenter_Setup:
+    type: task
+    debug: true
+    definitions: location
+    script:
+    - flag <[location]> fermenting.fluid:empty
+    - flag <[location]> fermenting.fluid_level:0
+    - flag <[location]> fermenting.state:idle
+
+Alcohol_Fermenter_GUI:
+    type: inventory
+    inventory: dispenser
+    gui: true
+    definitions:
+      fluid: <item[Alcohol_Fluid_GUI_<player.flag[fermenter].flag[fermenter.fluid_level]>].with_single[display=<blue><player.flag[fermenter].flag[fermenter.fluid].replace_text[_].with[ ].to_titlecase.if_null[<red>NULL]>]>
+      fluid_level: <item[cyan_stained_glass_pane].with_single[display=<green><player.flag[fermenter].flag[fermenter.fluid_level].mul[100].if_null[<red>NULL]><white>/<red>1000mb]>
+    slots:
+    - [GUINULL] [GUINULL] [GUINULL]
+    - [GUINULL] [fluid] [GUINULL]
+    - [GUINULL] [fluid_level] [GUINULL]
+
+Alcohol_Fermenter_Conversions:
+    type: data
+    recipes:
+        potato_mash: vodka
 
 Alcohol_Fermentation_Barrel:
     type: item
@@ -445,23 +599,6 @@ Alcohol_Aging_Cask:
       components_patch:
         item_model: string:alcohol:copper_distillery
 
-
-
-Alcohol_Distillery_Interaction:
-  type: entity
-  debug: false
-  entity_type: interaction
-  mechanisms:
-    width: 1
-    height: 1
-
-Alcohol_Mixing_Tub_Interaction:
-  type: entity
-  debug: false
-  entity_type: interaction
-  mechanisms:
-    width: 1
-    height: 1
 
 ## Alcohol Tools
 
