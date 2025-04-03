@@ -544,6 +544,10 @@ Alcohol_Fermenter_Event:
         - else:
             - drop item:Alcohol_Fermentation_Barrel <[location].center>
             - flag <[location]> fermenting:!
+Alcohol_Fermenter_Delta_Time:
+    type: world
+    debug: true
+    events:
         on delta time secondly:
         - if <server.flag[fermenters].is_empty>:
             - stop
