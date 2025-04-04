@@ -52,60 +52,64 @@ Recipe_Forget:
     - narrate targets:<player> "<white>Forgotten recipe for <red><context.args.get[2].replace_text[_].with[ ].to_titlecase> <white>with an ID flag of <red><context.args.get[1]>.<context.args.get[2]>"
 
 Recipe_Mob_Drop:
-  type: world
-  debug: false
-  events:
-    on player kills entity:
-    - if <context.entity.entity_type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
-      - if <util.random_chance[5]>:
-        - drop item:Recipe_Pack quantity:1 <context.entity.location>
+    type: world
+    debug: false
+    events:
+      on player kills entity:
+      - if <context.entity.entity_type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
+        - if <util.random_chance[5]>:
+          - drop item:Recipe_Pack quantity:1 <context.entity.location>
 
 Recipe_Generator:
-  type: procedure
-  debug: false
-  script:
-  - choose <list[cooking|alcohol].random>:
-      - case cooking:
-          - define skill cooking
-          - define categories <list[fruit|dairy|grain|protein|sugar]>
-          - define recipe_name <script[cooking_master_data].data_key[<[categories].random>].keys.random.before_last[-]>
-      - case alcohol:
-          - define skill alcohol
-          - define recipe_name <script[Alcohol_Mixer_Recipes].data_key[recipes].keys.random>
-  - define recipe <item[Recipe].with_flag[Recipe:<[recipe_name]>].with_flag[skill:<[skill]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><[recipe_name].replace_text[_].with[ ].to_titlecase> <white>Recipe.<n><green>This recipe is for the <gold><[skill].to_titlecase> <white>skill.]>
-  - determine <[recipe]>
+    type: procedure
+    debug: false
+    script:
+    - if <util.random_chance[85]>:
+        - define chosen cooking
+    - else:
+        - define chosen alcohol
+    - choose <[chosen]>:
+        - case cooking:
+            - define skill cooking
+            - define categories <list[fruit|dairy|grain|protein|sugar]>
+            - define recipe_name <script[cooking_master_data].data_key[<[categories].random>].keys.random.before_last[-]>
+        - case alcohol:
+            - define skill alcohol
+            - define recipe_name <script[Alcohol_Mixer_Recipes].data_key[recipes].keys.random>
+    - define recipe <item[Recipe].with_flag[Recipe:<[recipe_name]>].with_flag[skill:<[skill]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><[recipe_name].replace_text[_].with[ ].to_titlecase> <white>Recipe.<n><green>This recipe is for the <gold><[skill].to_titlecase> <white>skill.]>
+    - determine <[recipe]>
 
 Recipe_Pack:
-  type: item
-  debug: false
-  material: brick
-  display name: <gold>Wrapped Recipe Pack
-  lore:
-  - <blue>Open this up to reveal a recipe!
-  #recipes:
-  #  1:
-  #    type: shaped
-  #    input:
-  #    - Cooking_Recipe_Fragment|Cooking_Recipe_Fragment|Cooking_Recipe_Fragment
-  #    - Cooking_Recipe_Fragment|Cooking_Recipe_Fragment|Cooking_Recipe_Fragment
-  #    - Cooking_Recipe_Fragment|Cooking_Recipe_Fragment|Cooking_Recipe_Fragment
+    type: item
+    debug: false
+    material: brick
+    display name: <gold>Wrapped Recipe Pack
+    lore:
+    - <blue>Open this up to reveal a recipe!
+    #recipes:
+    #  1:
+    #    type: shaped
+    #    input:
+    #    - Cooking_Recipe_Fragment|Cooking_Recipe_Fragment|Cooking_Recipe_Fragment
+    #    - Cooking_Recipe_Fragment|Cooking_Recipe_Fragment|Cooking_Recipe_Fragment
+    #    - Cooking_Recipe_Fragment|Cooking_Recipe_Fragment|Cooking_Recipe_Fragment
 
 Recipe:
-  type: item
-  debug: false
-  material: flower_banner_pattern
-  display name: <green>Recipe
-  mechanisms:
-    custom_model_data: 57
+    type: item
+    debug: false
+    material: flower_banner_pattern
+    display name: <green>Recipe
+    mechanisms:
+      custom_model_data: 57
 
 Recipe_Fragment:
-  type: item
-  debug: false
-  material: brick
-  display name: <blue>Cooking Recipe Fragment
-  lore:
-  - <gold>Combine this together to create an Unopened Recipe Pack
-  #recipes:
-  #  1:
-  #    type: shapeless
-  #    input: CookingRecipe
+    type: item
+    debug: false
+    material: brick
+    display name: <blue>Cooking Recipe Fragment
+    lore:
+    - <gold>Combine this together to create an Unopened Recipe Pack
+    #recipes:
+    #  1:
+    #    type: shapeless
+    #    input: CookingRecipe
