@@ -19,8 +19,8 @@ Recipe_Event:
                 - playsound <player> sound:entity.arrow.hit.player sound_category:blocks
             - else if <[Recipe]> in <player.flag[recipe.<[skill]>]>:
                 - narrate targets:<player> "<red>You already have this recipe unlocked."
-        on player right clicks block with:cooking_recipe_pack:
-        - take item:cooking_recipe_pack
+        on player right clicks block with:Recipe_Pack:
+        - take item:Recipe_Pack quantity:1
         - define recipe_item:<proc[recipe_generator]>
         - give item:<[recipe_item]>
         - flag player recipe_cooldown expire:5t
