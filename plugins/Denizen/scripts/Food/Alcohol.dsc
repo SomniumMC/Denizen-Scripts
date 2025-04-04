@@ -2,28 +2,29 @@
 
 # Created 3/26/2025
 
-## Jug Filling
+## Container Filling
 
 Alcohol_Container_Fill:
     type: world
     debug: true
     events:
-        on player right clicks water with:item_flagged:fluid:
+        on player right clicks block with:item_flagged:fluid:
         - ratelimit <player> 5t
         - if !<player.is_sneaking>:
           - stop
-        - define container <context.item>
-        - define container_fluid <[container].flag[fluid]>
-        - define container_level <[container].flag[level]>
-        - define container_max_level <[container].flag[max_level]>
-        - if <[container_fluid]> == empty:
-            - playsound sound:item.bucket.fill sound_category:player
-            - flag <[container]> fluid:water
-            - flag <[container]> level:<[container_level].add[1]>
-            - inventory adjust slot:hand flag:fluid:water
-            - inventory adjust slot:hand flag:level:<[container_level].add[1]>
-            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].add[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
-            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Water].at[4]>
+        - if <context.location.material.name> == water:
+            - define container <context.item>
+            - define container_fluid <[container].flag[fluid]>
+            - define container_level <[container].flag[level]>
+            - define container_max_level <[container].flag[max_level]>
+            - if <[container_fluid]> == empty:
+                - playsound sound:item.bucket.fill sound_category:player
+                - flag <[container]> fluid:water
+                - flag <[container]> level:<[container_level].add[1]>
+                - inventory adjust slot:hand flag:fluid:water
+                - inventory adjust slot:hand flag:level:<[container_level].add[1]>
+                - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].add[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
+                - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Water].at[4]>
 
 Alcohol_Station_Setup:
     type: world
