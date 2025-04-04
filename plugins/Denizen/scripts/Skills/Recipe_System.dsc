@@ -53,12 +53,12 @@ Recipe_Forget:
 
 Recipe_Mob_Drop:
   type: world
-  debug: true
+  debug: false
   events:
     on player kills entity:
     - if <context.entity.entity_type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
       - if <util.random_chance[5]>:
-        - drop item:Recipe_Pack quantity:1 <context.location>
+        - drop item:Recipe_Pack quantity:1 <context.entity.location>
 
 Recipe_Generator:
   type: procedure
