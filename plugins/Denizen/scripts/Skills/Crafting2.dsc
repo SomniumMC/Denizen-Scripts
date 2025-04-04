@@ -72,7 +72,7 @@ Crafting_Start_Event:
   events:
     on player right clicks Workbench_Interaction priority:-20:
     - ratelimit <player> 5t
-    - if <player.item_in_hand.script.name> == config_wrench:
+    - if <player.item_in_hand.script.name||null> == config_wrench:
       - stop
     - define workbench <context.entity.flag[workbench.home]>
     #- narrate <[workbench]>
