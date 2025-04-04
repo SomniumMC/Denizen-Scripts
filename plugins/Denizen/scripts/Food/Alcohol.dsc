@@ -310,25 +310,6 @@ Alcohol_Mixer_Recipe_GUI:
     - [] [] [] [] [] [] [] [] []
     - [] [] [] [] [] [] [] [] []
 
-Alcohol_Mixer_Ingredients:
-    type: data
-    ingredients:
-        - new_wheat
-        - new_potato
-        - new_carrot
-        - new_apple
-        - new_sweet_berry
-
-Alcohol_Mixer_Recipes:
-    type: data
-    recipes:
-        potato_mash:
-            ingredients:
-                - new_potato-10
-            fluid: water-10
-            stir: 12
-            output: potato_mash-4
-
 Alcohol_Mixing_Tub:
     type: item
     debug: false
@@ -574,6 +555,7 @@ Alcohol_Fermenter_Setup:
 Alcohol_Fermenter_GUI:
     type: inventory
     inventory: dispenser
+    title: <gold>Fermenter
     gui: true
     definitions:
       fluid: <item[Alcohol_Fluid_GUI_<player.flag[fermenter].flag[fermenting.fluid_level]>].with_single[display=<blue><player.flag[fermenter].flag[fermenting.fluid].replace_text[_].with[ ].to_titlecase.if_null[<red>NULL]>]>
@@ -582,11 +564,6 @@ Alcohol_Fermenter_GUI:
     - [GUINULL] [GUINULL] [GUINULL]
     - [GUINULL] [fluid] [GUINULL]
     - [GUINULL] [fluid_level] [GUINULL]
-
-Alcohol_Fermenter_Conversions:
-    type: data
-    recipes:
-        potato_mash: vodka
 
 Alcohol_Fermentation_Barrel:
     type: item
