@@ -35,7 +35,7 @@ Recipe_Creator:
     tab completions:
       default: Skill Recipe_ID
     script:
-    - give item:<item[Recipe].with_flag[Recipe:<context.args.get[2]>].with_flag[Skill:<context.args.get[1]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><context.raw_args.replace_text[_].with[ ].to_titlecase> <white>Recipe.]>
+    - give item:<item[Recipe].with_flag[Recipe:<context.args.get[2]>].with_flag[Skill:<context.args.get[1]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><context.raw_args.replace_text[_].with[ ].to_titlecase> <white>Recipe.<n><green>This recipe is for the <gold><context.args.get[1].to_titlecase> <white>skill.]>
     - narrate targets:<player> "<white>Created a recipe for <aqua><context.args.get[2].replace_text[_].with[ ].to_titlecase> <white>with an ID flag of <aqua><context.args.get[1]>.<context.args.get[2]>"
 
 Recipe_Forget:
@@ -72,7 +72,7 @@ Recipe_Generator:
       - case alcohol:
           - define skill alcohol
           - define recipe_name <script[Alcohol_Mixer_Recipes].data_key[recipes].keys.random>
-  - define recipe <item[Recipe].with_flag[Recipe:<[recipe_name]>].with_flag[skill:<[skill]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><[recipe_name].replace_text[_].with[ ].to_titlecase> <white>Recipe.]>
+  - define recipe <item[Recipe].with_flag[Recipe:<[recipe_name]>].with_flag[skill:<[skill]>].with_map[lore=<White>This unlocks the knowledge of the <aqua><[recipe_name].replace_text[_].with[ ].to_titlecase> <white>Recipe.<n><green>This recipe is for the <gold><[skill].to_titlecase> <white>skill.]>
   - determine <[recipe]>
 
 Recipe_Pack:
