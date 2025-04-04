@@ -57,7 +57,7 @@ Recipe_Mob_Drop:
     events:
       on player kills entity:
       - if <context.entity.entity_type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
-        - if <util.random_chance[5]>:
+        - if <util.random_chance[10]>:
           - drop item:Recipe_Pack quantity:1 <context.entity.location>
 
 Recipe_Generator:
