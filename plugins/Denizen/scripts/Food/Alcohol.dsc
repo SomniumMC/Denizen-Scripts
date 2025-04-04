@@ -18,7 +18,7 @@ Alcohol_Container_Fill:
             - define container_level <[container].flag[level]>
             - define container_max_level <[container].flag[max_level]>
             - if <[container_fluid]> == empty:
-                - playsound sound:item.bucket.fill sound_category:player
+                - playsound <player.location> sound:item.bucket.fill sound_category:player
                 - flag <[container]> fluid:water
                 - flag <[container]> level:<[container_level].add[1]>
                 - inventory adjust slot:hand flag:fluid:water
