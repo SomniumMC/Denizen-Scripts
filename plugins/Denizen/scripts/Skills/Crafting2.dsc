@@ -395,8 +395,6 @@ Crafting_Category_Select_GUI:
   inventory: chest
   title: <yellow>Select a Category
   gui: true
-  definitions:
-    name: item
   procedural items:
   - define workbench_data <player.flag[crafting.workbench].flag[workbench]>
   - define crafting_Skill <player.flag[crafting.skill]>
