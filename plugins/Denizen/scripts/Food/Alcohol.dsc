@@ -6,7 +6,7 @@
 
 Alcohol_Container_Fill:
     type: world
-    debug: false
+    debug: true
     events:
         on player right clicks water with:item_flagged:fluid:
         - ratelimit <player> 5t
