@@ -53,7 +53,7 @@ Recipe_Forget:
 
 Recipe_Mob_Drop:
   type: world
-  debug: false
+  debug: true
   events:
     on player kills entity:
     - if <context.entity.entity_type> in <list[zombie|skeleton|creeper|enderman|witch|spider]>:
