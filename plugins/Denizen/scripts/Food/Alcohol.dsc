@@ -12,7 +12,7 @@ Alcohol_Container_Fill:
         - ratelimit <player> 5t
         - if !<player.is_sneaking>:
           - stop
-        - if <context.location.material.name> == water:
+        - if <player.cursor_on[4.5].material.name.if_null[air]> == water:
             - define container <context.item>
             - define container_fluid <[container].flag[fluid]>
             - define container_level <[container].flag[level]>
