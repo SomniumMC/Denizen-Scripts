@@ -321,6 +321,23 @@ Crafting_Master_Data:
         - string-1
         - iron_ingot-1
         - redstone-4
+      alcohol_tools:
+        Alcohol_Mixing_Tub-1:
+        - oak_planks-6
+        - stick-4
+        - water_bucket-1
+        - iron_ingot-2
+        Alcohol_Fermentation_Barrel-1:
+        - oak_planks-8
+        - stick-4
+        - barrel-1
+        - iron_ingot-2
+        Alcohol_Wineskin-1:
+        - leather-2
+        - string-1
+        alcohol_clay_jug-1:
+        - clay_ball-8
+        - bucket-1
     farming:
       farming_storage:
         new_hay_block:
@@ -346,4 +363,3 @@ Crafting_Master_Data:
         - mud-12
         stone_bricks-64:
         - cobblestone-128
-

@@ -2,6 +2,29 @@
 
 # Created 3/26/2025
 
+## Jug Filling
+
+Alcohol_Container_Fill:
+    type: world
+    debug: false
+    events:
+        on player right clicks water with:item_flagged:fluid:
+        - ratelimit <player> 5t
+        - if !<player.is_sneaking>:
+          - stop
+        - define container <context.item>
+        - define container_fluid <[container].flag[fluid]>
+        - define container_level <[container].flag[level]>
+        - define container_max_level <[container].flag[max_level]>
+        - if <[container_fluid]> == empty:
+            - playsound sound:item.bucket.fill sound_category:player
+            - flag <[container]> fluid:water
+            - flag <[container]> level:<[container_level].add[1]>
+            - inventory adjust slot:hand flag:fluid:water
+            - inventory adjust slot:hand flag:level:<[container_level].add[1]>
+            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].add[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
+            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Water].at[4]>
+
 Alcohol_Station_Setup:
     type: world
     debug: true
@@ -55,14 +78,9 @@ Alcohol_Mixer_Event:
         - define item <context.item>
         - if <[mixer].flag[mixer.id].if_null[null]> == null:
             - run Alcohol_Mixer_Setup def:<[mixer]>
-        - if <[item].script.name||null> == Alcohol_Clay_Jug || <[item].script.name||null> == Alcohol_Wineskin:
+        - if <[item].has_flag[fluid]>:
             - define tool_fluid <[item].flag[fluid]>
             - define tool_level <[item].flag[level]>
-            - choose <[item].script.name>:
-                - case alcohol_clay_jug:
-                    - define max_level 10
-                - case alcohol_wineskin:
-                    - define max_level 3
             - define mixer_fluid <[mixer].flag[mixer.fluid]>
             - define mixer_fluid_level <[mixer].flag[mixer.fluid_level]>
             - if <player.is_sneaking>:
@@ -72,19 +90,13 @@ Alcohol_Mixer_Event:
                 - if <[mixer_fluid_level]> == 0:
                     - narrate "<red>Nothing to pour out!"
                     - stop
-                - choose <[item].script.name>:
-                    - case alcohol_clay_jug:
-                        - if <[tool_level]> >= 10:
-                            - narrate "<red>Tool is full!"
-                            - stop
-                    - case alcohol_wineskin:
-                        - if <[tool_level]> >= 3:
-                            - narrate "<red>Tool is full!"
-                            - stop
+                - if <[tool_level]> == <[item].flag[max_level]>:
+                    - narrate "<red>Tool is full!"
+                    - stop
                 - if <[tool_fluid]> == <[mixer_fluid]> || <[tool_fluid]> == empty:
                     - inventory adjust slot:hand flag:fluid:<[mixer_fluid]>
                     - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
                     - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[mixer_fluid].replace_text[_].with[ ].to_titlecase>].at[4]>
                     - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].sub[1]>
                     - if <[mixer_fluid_level]> == 1:
@@ -105,7 +117,7 @@ Alcohol_Mixer_Event:
                   - flag <[mixer]> mixer.fluid:<[tool_fluid]>
                   - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
                   - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
-                  - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                  - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
                   - if <[tool_level]> == 1:
                     - inventory adjust slot:hand flag:fluid:empty
                     - inventory adjust slot:hand flag:level:0
@@ -457,14 +469,9 @@ Alcohol_Fermenter_Event:
                     - take item:yeast quantity:1
                     - flag <[location]> fermenting.state:fermenting
                     - flag server fermenters:->:<[location]>
-                - if <[item].script.name||null> == Alcohol_Clay_Jug || <[item].script.name||null> == Alcohol_Wineskin:
+                - if <[item].has_flag[fluid]>:
                     - define tool_fluid <[item].flag[fluid]>
                     - define tool_level <[item].flag[level]>
-                    - choose <[item].script.name>:
-                        - case alcohol_clay_jug:
-                            - define max_level 10
-                        - case alcohol_wineskin:
-                            - define max_level 3
                     - define fermenter_fluid_level <[location].flag[fermenting.fluid_level]>
                     - if <player.is_sneaking>:
                         - if <[fermenter_fluid]> == empty:
@@ -473,19 +480,13 @@ Alcohol_Fermenter_Event:
                         - if <[fermenter_fluid_level]> == 0:
                             - narrate "<red>Nothing to pour out!"
                             - stop
-                        - choose <[item].script.name>:
-                            - case alcohol_clay_jug:
-                                - if <[tool_level]> >= 10:
-                                    - narrate "<red>Tool is full!"
-                                    - stop
-                            - case alcohol_wineskin:
-                                - if <[tool_level]> >= 3:
-                                    - narrate "<red>Tool is full!"
-                                    - stop
+                        - if <[tool_level]> == <[item].flag[max_level]>:
+                            - narrate "<red>Tool is full!"
+                            - stop
                         - if <[tool_fluid]> == <[fermenter_fluid]> || <[tool_fluid]> == empty:
                             - inventory adjust slot:hand flag:fluid:<[fermenter_fluid]>
                             - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
-                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
                             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[fermenter_fluid].replace_text[_].with[ ].to_titlecase>].at[4]>
                             - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].sub[1]>
                             - if <[fermenter_fluid_level]> == 1:
@@ -506,7 +507,7 @@ Alcohol_Fermenter_Event:
                           - flag <[location]> fermenting.fluid:<[tool_fluid]>
                           - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].add[1]>
                           - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
-                          - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[max_level].mul[100]>mb].at[3]>
+                          - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
                           - if <[tool_level]> == 1:
                             - inventory adjust slot:hand flag:fluid:empty
                             - inventory adjust slot:hand flag:level:0
@@ -593,6 +594,7 @@ Alcohol_Clay_Jug:
     display name: <gold>Clay Jug
     flags:
       fluid: empty
+      max_level: 5
       level: 0
     mechanisms:
       components_patch:
@@ -600,7 +602,7 @@ Alcohol_Clay_Jug:
     lore:
     - <green>Used to transfer liquids.
     - <white><element[ ].strikethrough.repeat[10]>
-    - <gold>Contents<white><&co><red>0<white>/<blue>1000mb
+    - <gold>Contents<white><&co><red>0<white>/<blue>500mb
     - <yellow>Fluid<white><&co><light_purple>Empty
     - <white><element[ ].strikethrough.repeat[10]>
     - <blue>Shift-right click to fill with liquid.
@@ -613,6 +615,7 @@ Alcohol_Wineskin:
     display name: <gold>Wineskin
     flags:
       fluid: empty
+      max_level: 3
       level: 0
     mechanisms:
       components_patch:

@@ -915,6 +915,19 @@ Crafting_Icon_Cooking_Tools:
   lore:
   - <white>Prepare tools for cooking
 
+Crafting_Icon_Alcohol_Stations:
+  type: item
+  debug: false
+  material: brewing_stand
+  display name: <red>Alcohol Stations
+  mechanisms:
+      components_patch:
+        item_model: string:alcohol:aging_barrel
+  flags:
+    category: alcohol_stations
+  lore:
+  - <white>Prepare stations for brewing alcohol
+
 Crafting_Icon_Farming_Storage:
   type: item
   debug: false
