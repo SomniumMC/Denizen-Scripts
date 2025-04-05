@@ -625,15 +625,15 @@ Alcohol_Tool_Retexture:
     - if <[reverse].if_null[null]> != null:
         - choose <[container].script.name.before[Alcohol_]>:
             - case mug:
-                - inventory adjust slot:hand components_patch:item_model:string:alcohol:mug
+                - inventory adjust slot:hand components_patch:<map[item_model:string:alcohol:mug]>
             - case wineglass:
-                - inventory adjust slot:hand components_patch:item_model:string:alcohol:wineglass2
+                - inventory adjust slot:hand components_patch:<map[item_model:string:alcohol:wineglass2]>
     - else:
         - choose <[container].script.name.after[Alcohol_]>:
             - case mug:
-                - inventory adjust slot:hand components_patch:item_model:string:alcohol:mug1
+                - inventory adjust slot:hand components_patch:<map[item_model:string:alcohol:mug1]>
             - case wineglass:
-                - inventory adjust slot:hand components_patch:item_model:string:alcohol:wineglass
+                - inventory adjust slot:hand components_patch:<map[item_model:string:alcohol:wineglass]>
 
 
 ## Alcohol Tools
