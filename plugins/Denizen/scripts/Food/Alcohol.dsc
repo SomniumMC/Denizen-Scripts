@@ -2,33 +2,6 @@
 
 # Created 3/26/2025
 
-## Container Filling
-
-Alcohol_Container_Fill:
-    type: world
-    debug: true
-    events:
-        on player right clicks block with:item_flagged:fluid:
-        - ratelimit <player> 5t
-        - if !<player.is_sneaking>:
-          - stop
-        - if <player.cursor_on[4.5].material.name.if_null[air]> == water:
-            - define container <context.item>
-            - define container_fluid <[container].flag[fluid]>
-            - define container_level <[container].flag[level]>
-            - define container_max_level <[container].flag[max_level]>
-            - if <[container_fluid]> == empty || <[container_fluid]> == water:
-                - if <[container_level]> == <[container_max_level]>:
-                    - narrate "<red>Container is full!"
-                    - stop
-                - playsound <player.location> sound:item.bucket.fill sound_category:player
-                - flag <[container]> fluid:water
-                - flag <[container]> level:<[container_level].add[1]>
-                - inventory adjust slot:hand flag:fluid:water
-                - inventory adjust slot:hand flag:level:<[container_level].add[1]>
-                - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].add[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
-                - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Water].at[4]>
-
 Alcohol_Station_Setup:
     type: world
     debug: true
@@ -588,13 +561,81 @@ Alcohol_Aging_Cask:
       components_patch:
         item_model: string:alcohol:copper_distillery
 
+## Container Filling
+
+Alcohol_Container_Events:
+    type: world
+    debug: true
+    events:
+        on player right clicks block with:item_flagged:fluid:
+        - ratelimit <player> 5t
+        - if !<player.is_sneaking>:
+            - stop
+        - if <player.cursor_on[4.5].material.name.if_null[air]> == water:
+            - define container <context.item>
+            - define container_fluid <[container].flag[fluid]>
+            - define container_level <[container].flag[level]>
+            - define container_max_level <[container].flag[max_level]>
+            - if <[container_fluid]> == empty || <[container_fluid]> == water:
+                - if <[container_level]> == <[container_max_level]>:
+                    - narrate "<red>Container is full!"
+                    - stop
+                - playsound <player.location> sound:item.bucket.fill sound_category:player
+                - flag <[container]> fluid:water
+                - flag <[container]> level:<[container_level].add[1]>
+                - if <[container].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                    - run alcohol_tool_retexture def:<[container]>
+                - inventory adjust slot:hand flag:fluid:water
+                - inventory adjust slot:hand flag:level:<[container_level].add[1]>
+                - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].add[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
+                - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Water].at[4]>
+        on player consumes item_flagged:fluid:
+        - define container <context.item>
+        - determine passively cancelled
+        - define container_fluid <[container].flag[fluid]>
+        - define container_level <[container].flag[level]>
+        - define container_max_level <[container].flag[max_level]>
+        - if <[container_fluid]> == empty:
+            - narrate "<red>Container is empty!"
+            - stop
+        - if <[container_level]> == 1:
+            - inventory adjust slot:hand flag:level:0
+            - inventory adjust slot:hand flag:fluid:empty
+            - if <[container].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                - run alcohol_tool_retexture def.cotnainer:<[container]> def.reverse:true
+            - inventory adjust slot:hand flag:level:<[container_level].sub[1]>
+            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue><[container_max_level].mul[100]>mb].at[3]>
+            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
+        - else:
+            - inventory adjust slot:hand flag:level:<[container_level].sub[1]>
+            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].sub[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
+            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[container_fluid].replace[_].with[ ].to_titlecase>].at[4]>
+
+Alcohol_Tool_Retexture:
+    type: task
+    definitions: container|reverse
+    debug: false
+    script:
+    - if <[reverse].if_null[null]> != null:
+        - choose <[container].script.name.before[Alcohol_]>:
+            - case mug:
+                - inventory adjust slot:hand components_patch:item_model:string:alcohol:mug
+            - case wineglass:
+                - inventory adjust slot:hand components_patch:item_model:string:alcohol:wineglass1
+    - else:
+        - choose <[container].script.name.after[Alcohol_]>:
+            - case mug:
+                - inventory adjust slot:hand components_patch:item_model:string:alcohol:mug1
+            - case wineglass:
+                - inventory adjust slot:hand components_patch:item_model:string:alcohol:wineglass
+
 
 ## Alcohol Tools
 
 Alcohol_Clay_Jug:
     type: item
     debug: false
-    material: clay_ball
+    material: flower_banner_pattern
     display name: <gold>Clay Jug
     flags:
       fluid: empty
@@ -615,7 +656,7 @@ Alcohol_Clay_Jug:
 Alcohol_Wineskin:
     type: item
     debug: false
-    material: rabbit_hide
+    material: flower_banner_pattern
     display name: <gold>Wineskin
     flags:
       fluid: empty
@@ -628,6 +669,51 @@ Alcohol_Wineskin:
     - <green>Can be drank from.
     - <white><element[ ].strikethrough.repeat[10]>
     - <gold>Contents<white><&co><red>0<white>/<blue>300mb
+    - <yellow>Fluid<white><&co><light_purple>Empty
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <blue>Shift-right click to fill with liquid.
+    - <red>Right click to pour out liquid.
+
+Alcohol_Mug:
+    type: item
+    debug: false
+    material: flower_banner_pattern
+    display name: <gold>Mug
+    flags:
+      fluid: empty
+      max_level: 1
+      level: 0
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:mug
+    lore:
+    - <green>Can be drank from.
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <gold>Contents<white><&co><red>0<white>/<blue>100mb
+    - <yellow>Fluid<white><&co><light_purple>Empty
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <blue>Shift-right click to fill with liquid.
+    - <red>Right click to pour out liquid.
+
+Alcohol_Wineglass:
+    type: item
+    debug: false
+    material: flower_banner_pattern
+    display name: <gold>Wineglass
+    flags:
+      fluid: empty
+      max_level: 1
+      level: 0
+    mechanisms:
+      components_patch:
+        item_model: string:alcohol:wineglass
+        consumable:
+          consume_seconds: 2
+          animation: drink
+    lore:
+    - <green>Can be drank from.
+    - <white><element[ ].strikethrough.repeat[10]>
+    - <gold>Contents<white><&co><red>0<white>/<blue>100mb
     - <yellow>Fluid<white><&co><light_purple>Empty
     - <white><element[ ].strikethrough.repeat[10]>
     - <blue>Shift-right click to fill with liquid.
