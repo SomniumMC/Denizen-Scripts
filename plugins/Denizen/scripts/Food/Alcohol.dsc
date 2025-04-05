@@ -621,7 +621,7 @@ Alcohol_Tool_Retexture:
             - case mug:
                 - inventory adjust slot:hand components_patch:item_model:string:alcohol:mug
             - case wineglass:
-                - inventory adjust slot:hand components_patch:item_model:string:alcohol:wineglass1
+                - inventory adjust slot:hand components_patch:item_model:string:alcohol:wineglass2
     - else:
         - choose <[container].script.name.after[Alcohol_]>:
             - case mug:
@@ -706,7 +706,7 @@ Alcohol_Wineglass:
       level: 0
     mechanisms:
       components_patch:
-        item_model: string:alcohol:wineglass1
+        item_model: string:alcohol:wineglass2
         consumable:
             consume_seconds: 2
             animation: drink
