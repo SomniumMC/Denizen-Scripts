@@ -625,7 +625,7 @@ Alcohol_Tool_Retexture:
     debug: true
     script:
     - if <[reverse].if_null[null]> != null:
-        - choose <[container].script.name.before[Alcohol_]>:
+        - choose <[container].script.name.after[Alcohol_]>:
             - case mug:
                 - inventory adjust slot:hand components_patch:<map[item_model=string:alcohol:mug]>
             - case wineglass:
