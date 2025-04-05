@@ -93,15 +93,17 @@ Alcohol_Mixer_Event:
                     - narrate "<red>Container is full!"
                     - stop
                 - if <[tool_fluid]> == <[mixer_fluid]> || <[mixer_fluid]> == empty:
-                  - flag <[mixer]> mixer.fluid:<[tool_fluid]>
-                  - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
-                  - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
-                  - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
-                  - if <[tool_level]> == 1:
-                    - inventory adjust slot:hand flag:fluid:empty
-                    - inventory adjust slot:hand flag:level:0
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
-                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
+                    - flag <[mixer]> mixer.fluid:<[tool_fluid]>
+                    - flag <[mixer]> mixer.fluid_level:<[mixer_fluid_level].add[1]>
+                    - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
+                    - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
+                    - if <[tool_level]> == 1:
+                        - if <[item].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                            - run alcohol_tool_retexture def.container:<[item]> def.reverse:true
+                        - inventory adjust slot:hand flag:fluid:empty
+                        - inventory adjust slot:hand flag:level:0
+                        - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
+                        - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
 
         - if <[item].material.name> == air:
             - flag player mixer.id:<[mixer].flag[mixer.id]>
@@ -613,8 +615,6 @@ Alcohol_Container_Events:
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue><[container_max_level].mul[100]>mb].at[3]>
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
         - else:
-            - if <[container].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
-                - run alcohol_tool_retexture def.container:<[container]> def.reverse:true
             - inventory adjust slot:hand flag:level:<[container_level].sub[1]>
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].sub[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[container_fluid].replace[_].with[ ].to_titlecase>].at[4]>
