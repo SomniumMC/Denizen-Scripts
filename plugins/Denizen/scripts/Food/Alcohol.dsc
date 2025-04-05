@@ -613,6 +613,8 @@ Alcohol_Container_Events:
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue><[container_max_level].mul[100]>mb].at[3]>
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
         - else:
+            - if <[container].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                - run alcohol_tool_retexture def.container:<[container]> def.reverse:true
             - inventory adjust slot:hand flag:level:<[container_level].sub[1]>
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[container_level].sub[1].mul[100]><white>/<blue><[container_max_level].mul[100]>mb].at[3]>
             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple><[container_fluid].replace[_].with[ ].to_titlecase>].at[4]>
