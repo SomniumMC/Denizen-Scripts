@@ -706,10 +706,11 @@ Alcohol_Wineglass:
       level: 0
     mechanisms:
       components_patch:
-        item_model: string:alcohol:wineglass
+        item_model: string:alcohol:wineglass1
         consumable:
-          consume_seconds: 2
-          animation: drink
+            consume_seconds: 2
+            animation: drink
+            has_consume_particles: false
     lore:
     - <green>Can be drank from.
     - <white><element[ ].strikethrough.repeat[10]>
