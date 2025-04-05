@@ -712,7 +712,7 @@ Alcohol_Wineglass:
       level: 0
     mechanisms:
       components_patch:
-        food: <map[nutrition=0;saturation=0]>
+        food: <map[nutrition=float:0;saturation=float:0]>
         item_model: string:alcohol:wineglass2
         consumable: <map[consume_seconds=float:2;animation=string:drink;sound=string:entity.generic.drink]>
     lore:
