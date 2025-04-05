@@ -622,7 +622,7 @@ Alcohol_Container_Events:
 Alcohol_Tool_Retexture:
     type: task
     definitions: container|reverse
-    debug: false
+    debug: true
     script:
     - if <[reverse].if_null[null]> != null:
         - choose <[container].script.name.before[Alcohol_]>:
