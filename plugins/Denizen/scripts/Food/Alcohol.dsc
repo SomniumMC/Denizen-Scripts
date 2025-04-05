@@ -664,7 +664,7 @@ Alcohol_Clay_Jug:
 Alcohol_Wineskin:
     type: item
     debug: false
-    material: flower_banner_pattern
+    material: water_bottle
     display name: <gold>Wineskin
     flags:
       fluid: empty
@@ -685,7 +685,7 @@ Alcohol_Wineskin:
 Alcohol_Mug:
     type: item
     debug: false
-    material: flower_banner_pattern
+    material: water_bottle
     display name: <gold>Mug
     flags:
       fluid: empty
@@ -706,7 +706,7 @@ Alcohol_Mug:
 Alcohol_Wineglass:
     type: item
     debug: false
-    material: flower_banner_pattern
+    material: water_bottle
     display name: <gold>Wineglass
     flags:
       fluid: empty
