@@ -485,13 +485,13 @@ Alcohol_Fermenter_Event:
                             - narrate "<red>Container is full!"
                             - stop
                         - if <[tool_fluid]> == <[fermenter_fluid]> || <[fermenter_fluid]> == empty:
-                            - if <[item].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
-                                - run alcohol_tool_retexture def.container:<[item]> def.reverse:true
                             - flag <[location]> fermenting.fluid:<[tool_fluid]>
                             - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].add[1]>
                             - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
                             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
                             - if <[tool_level]> == 1:
+                              - if <[item].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                                - run alcohol_tool_retexture def.container:<[item]> def.reverse:true
                               - inventory adjust slot:hand flag:fluid:empty
                               - inventory adjust slot:hand flag:level:0
                               - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
