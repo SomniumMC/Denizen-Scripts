@@ -71,6 +71,8 @@ Alcohol_Mixer_Event:
                     - narrate "<red>Tool is full!"
                     - stop
                 - if <[tool_fluid]> == <[mixer_fluid]> || <[tool_fluid]> == empty:
+                    - if <[item].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                        - run alcohol_tool_retexture def.cotnainer:<[item]>
                     - inventory adjust slot:hand flag:fluid:<[mixer_fluid]>
                     - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
                     - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
@@ -461,6 +463,8 @@ Alcohol_Fermenter_Event:
                             - narrate "<red>Tool is full!"
                             - stop
                         - if <[tool_fluid]> == <[fermenter_fluid]> || <[tool_fluid]> == empty:
+                            - if <[item].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                                - run alcohol_tool_retexture def.cotnainer:<[item]>
                             - inventory adjust slot:hand flag:fluid:<[fermenter_fluid]>
                             - inventory adjust slot:hand flag:level:<[item].flag[level].add[1]>
                             - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].add[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
@@ -481,15 +485,17 @@ Alcohol_Fermenter_Event:
                             - narrate "<red>Container is full!"
                             - stop
                         - if <[tool_fluid]> == <[fermenter_fluid]> || <[fermenter_fluid]> == empty:
-                          - flag <[location]> fermenting.fluid:<[tool_fluid]>
-                          - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].add[1]>
-                          - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
-                          - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
-                          - if <[tool_level]> == 1:
-                            - inventory adjust slot:hand flag:fluid:empty
-                            - inventory adjust slot:hand flag:level:0
-                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
-                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
+                            - if <[item].script.name> in <list[Alcohol_Mug|Alcohol_Wineglass]>:
+                                - run alcohol_tool_retexture def.cotnainer:<[item]> def.reverse:true
+                            - flag <[location]> fermenting.fluid:<[tool_fluid]>
+                            - flag <[location]> fermenting.fluid_level:<[fermenter_fluid_level].add[1]>
+                            - inventory adjust slot:hand flag:level:<[item].flag[level].sub[1]>
+                            - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red><[item].flag[level].sub[1].mul[100]><white>/<blue><[item].flag[max_level].mul[100]>mb].at[3]>
+                            - if <[tool_level]> == 1:
+                              - inventory adjust slot:hand flag:fluid:empty
+                              - inventory adjust slot:hand flag:level:0
+                              - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
+                              - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
         on player breaks block location_flagged:fermenting:
         - define location <context.location>
         - if <[location].flag[fermenting.fluid].if_null[null]> != null:
