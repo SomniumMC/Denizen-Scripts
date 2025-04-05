@@ -713,7 +713,7 @@ Alcohol_Wineglass:
     mechanisms:
       components_patch:
         item_model: string:alcohol:wineglass2
-        consumable: <map[consume_seconds=float:2;animation=string:drink;sound=string:entity.generic.drink;has_consume_particles=string:false]>
+        consumable: <map[consume_seconds=float:2;animation=string:drink;sound=string:entity.generic.drink]>
     lore:
     - <green>Can be drank from.
     - <white><element[ ].strikethrough.repeat[10]>
