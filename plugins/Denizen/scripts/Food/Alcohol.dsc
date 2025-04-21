@@ -177,6 +177,11 @@ Alcohol_Mixer_Setup:
     - note <inventory[Alcohol_Mixer_Storage]> as:mixer_inventory_<[mixer_id]>
     - flag server mixer.total_id:<[mixer_id]>
     - flag <[mixer]> mixer.id:<[mixer_id]>
+    - flag <[mixer]> mixer.state:idle
+    - flag <[mixer]> mixer.progress:0
+    - flag <[mixer]> mixer.stir:0
+    - flag <[mixer]> mixer.fluid:empty
+    - flag <[mixer]> mixer.fluid_level:0
 
 Alcohol_Mixer_Stir:
     type: task
