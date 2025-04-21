@@ -33,19 +33,19 @@ Alcohol_Mixer_Recipes:
         apple_juice:
             ingredients:
                 - new_apple-5
-            fluid: water-1
+            fluid: empty-0
             stir: 12
             output: apple_juice-2
         sweet_berry_juice:
             ingredients:
                 - new_sweet_berry-5
-            fluid: water-1
+            fluid: empty-0
             stir: 12
             output: sweet_berry_juice-2
         melon_juice:
             ingredients:
                 - new_melon_slice-10
-            fluid: water-1
+            fluid: empty-0
             stir: 12
             output: melon_juice-2
         ## Commented out until new crops are added
