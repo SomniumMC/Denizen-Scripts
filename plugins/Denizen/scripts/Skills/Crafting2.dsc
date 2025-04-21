@@ -182,7 +182,7 @@ Crafting_Recipe_Task:
         - adjust def:crafted_item flag:durability2:<[crafted_item].flag[durability1].round_up>
     - give item:<[crafted_item]> quantity:<[item].flag[recipe].after_last[-]>
     #- flag <player> crafting.item:<[crafted_item]>
-    - inventory close
+    #- inventory close
 
     #- run Crafting_Station_Push
 
