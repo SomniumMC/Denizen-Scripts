@@ -289,6 +289,15 @@ Crafting_Master_Data:
         Furniture_Kit_Decoration-1:
         - oak_planks-5
         - oak_slab-2
+        Enchantment_Table-1:
+        - iron_block-4
+        - amethyst_shard-8
+        - book-1
+        - steel_ingot-2
+        Jukebox-1:
+        - amethyst_shard-4
+        - oak_planks-8
+        - redstone-1
       cooking_tools:
         bakeware-1:
         - brick-8
