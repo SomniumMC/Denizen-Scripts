@@ -351,6 +351,8 @@ Crafting_Master_Data:
       farming_storage:
         new_hay_block-1:
         - new_wheat-9
+        new_wheat-9:
+        - new_hay_block-1
       seeds:
         seeds_wheat-1:
         - new_wheat-2
