@@ -26,6 +26,8 @@ Mining_Main_Event:
             - determine Geode
           #- case deepslate_coal_ore
           - case deepslate_iron_ore:
+            - if <util.random_chance[5]>:
+              - determine high_carbon_raw_iron
             - define xp 5
           - case deepslate_copper_ore:
             - define xp 5
