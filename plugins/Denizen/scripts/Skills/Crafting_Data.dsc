@@ -349,7 +349,7 @@ Crafting_Master_Data:
         - bucket-1
     farming:
       farming_storage:
-        new_hay_block:
+        new_hay_block-1:
         - new_wheat-9
       seeds:
         seeds_wheat-1:
