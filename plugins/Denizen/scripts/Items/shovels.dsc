@@ -109,7 +109,7 @@ Steel_Shovel:
     display name: <gold>Steel Shovel
     flags:
       lore: <gold>A basic steel shovel.
-      durability1: 320
+      durability1: 720
       blunt: 5
       damage_type: Blunt
       skill_base: Blacksmithing
@@ -139,7 +139,7 @@ Silver_Shovel:
     display name: <gold>Silver Shovel
     flags:
       lore: <gold>A basic silver shovel.
-      durability1: 100
+      durability1: 320
       blunt: 5
       damage_type: Blunt
       skill_base: Blacksmithing

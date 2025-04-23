@@ -110,7 +110,7 @@ Steel_Dagger:
     display name: <gold>Steel Dagger
     flags:
       lore: <gold>A basic steel dagger.
-      durability1: 320
+      durability1: 720
       slashing: 4
       damage_type: Slashing
       skill_base: Blacksmithing

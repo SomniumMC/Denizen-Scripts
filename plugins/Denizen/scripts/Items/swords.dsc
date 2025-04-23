@@ -147,7 +147,7 @@ Silver_Sword:
       level: 40
       recipe: silver_ingot_2|tool_rod_1
     enchantments:
-    - smite:3
+    - smite:2
 
 Slate_Silver_Sword:
     type: item

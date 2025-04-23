@@ -361,7 +361,7 @@ Steel_Helmet:
     display name: <gold>Steel Helmet
     flags:
       lore: <gold>A basic steel helmet.
-      durability1: 320
+      durability1: 720
 
 Steel_Chestplate:
     type: item
@@ -383,7 +383,7 @@ Steel_Chestplate:
     display name: <gold>Steel Chestplate
     flags:
       lore: <gold>A basic steel Chestplate.
-      durability1: 320
+      durability1: 720
 
 Steel_Leggings:
     type: item
@@ -405,7 +405,7 @@ Steel_Leggings:
     display name: <gold>Steel Leggings
     flags:
       lore: <gold>Basic steel leggings.
-      durability1: 320
+      durability1: 720
 
 Steel_Boots:
     type: item
@@ -427,7 +427,7 @@ Steel_Boots:
     display name: <gold>Steel Boots
     flags:
       lore: <gold>Basic steel boots.
-      durability1: 320
+      durability1: 720
 
 ## Silver
 Silver_Helmet:
@@ -449,8 +449,8 @@ Silver_Helmet:
         item_model: string:custom_armor:silver_helmet
     display name: <gold>Silver Helmet
     flags:
-      lore: <gold>A decorative silver helmet.
-      durability1: 100
+      lore: <gold>A gleaming silver helmet.
+      durability1: 320
 
 Silver_Chestplate:
     type: item
@@ -471,8 +471,8 @@ Silver_Chestplate:
         item_model: string:custom_armor:silver_chestplate
     display name: <gold>Silver Chestplate
     flags:
-      lore: <gold>A decorative silver Chestplate.
-      durability1: 100
+      lore: <gold>A gleaming silver chestplate.
+      durability1: 320
 
 Silver_Leggings:
     type: item
@@ -493,8 +493,8 @@ Silver_Leggings:
         item_model: string:custom_armor:silver_leggings
     display name: <gold>Silver Leggings
     flags:
-      lore: <gold>A decorative silver leggings.
-      durability1: 100
+      lore: <gold>Gleaming silver leggings.
+      durability1: 320
 
 Silver_Boots:
     type: item
@@ -515,8 +515,8 @@ Silver_Boots:
         item_model: string:custom_armor:silver_boots
     display name: <gold>Silver Boots
     flags:
-      lore: <gold>A decorative silver boots.
-      durability1: 100
+      lore: <gold>Gleaming silver boots.
+      durability1: 320
 
 ## Slate Silver
 Slate_Silver_Helmet:

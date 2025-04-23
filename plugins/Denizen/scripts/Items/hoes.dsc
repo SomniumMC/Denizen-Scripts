@@ -109,7 +109,7 @@ Steel_Hoe:
     display name: <gold>Steel Hoe
     flags:
       lore: <gold>A basic steel hoe.
-      durability1: 320
+      durability1: 720
       blunt: 5
       damage_type: Blunt
       skill_base: Blacksmithing

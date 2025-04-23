@@ -109,7 +109,7 @@ Steel_Spear:
     display name: <gold>Steel Spear
     flags:
       lore: <gold>A basic steel spear.
-      durability1: 320
+      durability1: 720
       slashing: 4
       damage_type: Slashing
       skill_base: Blacksmithing
@@ -146,7 +146,7 @@ Silver_Spear:
       level: 40
       recipe: silver_ingot_2|tool_rod_1
     enchantments:
-    - smite:3
+    - smite:2
 
 Slate_Silver_Spear:
     type: item

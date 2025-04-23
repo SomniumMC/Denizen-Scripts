@@ -109,7 +109,7 @@ Steel_Mace:
     display name: <gold>Steel Mace
     flags:
       lore: <gold>A basic steel mace.
-      durability1: 320
+      durability1: 720
       slashing: 4
       damage_type: Slashing
       skill_base: Blacksmithing

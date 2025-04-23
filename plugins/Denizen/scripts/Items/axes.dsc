@@ -112,7 +112,7 @@ Steel_Axe:
     display name: <gold>Steel Axe
     flags:
       lore: <gold>A basic steel axe.
-      durability1: 320
+      durability1: 720
       slashing: 5
       damage_type: Slashing
       skill_base: Blacksmithing
@@ -142,7 +142,7 @@ Silver_Axe:
     display name: <gold>Silver Axe
     flags:
       lore: <gold>A basic silver axe.
-      durability1: 100
+      durability1: 320
       slashing: 5
       damage_type: Slashing
       skill_base: Blacksmithing

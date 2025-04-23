@@ -103,7 +103,7 @@ Steel_Pickaxe:
     display name: <gold>Steel Pickaxe
     flags:
       lore: <gold>A basic steel pickaxe.
-      durability1: 1600
+      durability1: 720
       skill_base: Blacksmithing
       level: 30
       recipe: steel_ingot_3|tool_rod_2
@@ -131,7 +131,7 @@ Silver_Pickaxe:
     display name: <gold>Silver Pickaxe
     flags:
       lore: <gold>A basic silver pickaxe.
-      durability1: 100
+      durability1: 320
       skill_base: Blacksmithing
       level: 40
       recipe: silver_ingot_3|tool_rod_2

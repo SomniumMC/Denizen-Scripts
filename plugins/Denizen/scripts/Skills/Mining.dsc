@@ -11,7 +11,7 @@ Mining_Main_Event:
         - choose <[ore]>:
           #- case coal_ore
           - case iron_ore:
-            - if <util.random_chance[1]>:
+            - if <util.random_chance[5]>:
               - determine high_carbon_raw_iron
             - define xp 5
           - case copper_ore:
