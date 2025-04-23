@@ -104,9 +104,6 @@ Steel_Pickaxe:
     flags:
       lore: <gold>A basic steel pickaxe.
       durability1: 720
-      skill_base: Blacksmithing
-      level: 30
-      recipe: steel_ingot_3|tool_rod_2
 
 Silver_Pickaxe:
     type: item
@@ -132,9 +129,6 @@ Silver_Pickaxe:
     flags:
       lore: <gold>A basic silver pickaxe.
       durability1: 320
-      skill_base: Blacksmithing
-      level: 40
-      recipe: silver_ingot_3|tool_rod_2
 
 Slate_Silver_Pickaxe:
     type: item
@@ -160,9 +154,6 @@ Slate_Silver_Pickaxe:
     flags:
       lore: <gold>A basic slate silver pickaxe.
       durability1: 420
-      skill_base: Blacksmithing
-      level: 50
-      recipe: slate_silver_ingot_3|tool_rod_2
 
 Adamantine_Pickaxe:
     type: item
@@ -188,9 +179,6 @@ Adamantine_Pickaxe:
     flags:
       lore: <gold>A basic adamantine pickaxe.
       durability1: 420
-      skill_base: Blacksmithing
-      level: 70
-      recipe: adamantine_ingot_3|tool_rod_2
 
 Mythril_Pickaxe:
     type: item
@@ -216,9 +204,6 @@ Mythril_Pickaxe:
     flags:
       lore: <gold>A basic mythril pickaxe.
       durability1: 470
-      skill_base: Blacksmithing
-      level: 80
-      recipe: mythril_ingot_3|tool_rod_2
 
 
 
@@ -248,9 +233,6 @@ Crafted_Blast_Copper_Pickaxe:
       lore: <gold>A basic copper pickaxe.<n><red>This item is weaker due to improper smithing methods.
       durability1: 50
       durability2: 50
-      skill_base: Blacksmithing
-      level: 1
-      recipe: blast_copper_ingot_3|tool_rod_2
     #recipes:
     #  1:
     #    type: shaped
@@ -283,9 +265,6 @@ Crafted_Blast_Iron_Pickaxe:
       lore: <gold>A basic iron pickaxe.<n><red>This item is weaker due to improper smithing methods.
       durability1: 100
       durability2: 100
-      skill_base: Blacksmithing
-      level: 20
-      recipe: blast_iron_ingot_3|tool_rod_2
     #recipes:
     #  1:
     #    type: shaped
