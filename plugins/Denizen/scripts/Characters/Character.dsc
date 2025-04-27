@@ -220,7 +220,7 @@ Character_RPC_Events:
           - narrate <context.book.book_pages.get[1]>
           - take slot:hand
         on player signs book:
-        - if <context.book.script.name> == Character_RPC_EditBook:
+        - if <player.item_in_hand.script.name> == Character_RPC_EditBook:
           - determine NOT_SIGNING
         on player drops Character_RPC_EditBook:
         - playeffect at:<context.location> effect:smoke_large
