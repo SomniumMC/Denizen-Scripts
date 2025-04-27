@@ -17,8 +17,8 @@ rpc_command:
     description: Does something
     usage: /rpc
     script:
-    - if <context.args.get[2]||null> != null:
-      - define player_name <context.args.get[2]||null>
+    - if <context.args.get[1]||null> != null:
+      - define player_name <context.args.get[1]||null>
       - if <server.match_player[<[player_name]>]||null> == null:
         - narrate "<red>Player not found"
         - flag <player> rpc_viewing:<player>
