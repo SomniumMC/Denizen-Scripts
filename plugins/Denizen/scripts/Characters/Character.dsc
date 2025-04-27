@@ -219,7 +219,7 @@ Character_RPC_Events:
               #- take slot:hand
           - narrate <context.book.book_pages.get[1]>
           - take slot:hand
-        on player edits book:
+        on player signs book:
         - if <context.book.script.name> == Character_RPC_EditBook:
           - determine NOT_SIGNING
         on player drops Character_RPC_EditBook:
