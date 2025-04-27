@@ -128,6 +128,7 @@ Character_RPC_Events:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:name
               - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Name].at[2]>
+              - adjust def:edit_book book_pages:<player.flag[character.rpc.name].if_null[]>
               - give item:<[edit_book]>
               - inventory close
           - case description:
@@ -137,25 +138,27 @@ Character_RPC_Events:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:description
               - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Description].at[2]>
+              - adjust def:edit_book book_pages:<player.flag[character.rpc.description].if_null[]>
               - give item:<[edit_book]>
               - inventory close
-          - case lore:
-            - if <[click_type]> == left:
-              - define book <item[character_rpc_viewbook]>
-              - adjust def:book lore:<[book].lore.set[<red>Viewing<&co><&sp><gold>Lore].at[2]>
-              - adjust def:book book_pages:<player.flag[character.rpc.lore]>
-              - give item:<item[character_rpc_viewbook]>
-            - if <[click_type]> == right:
-              - define edit_book <item[character_rpc_editbook]>
-              - adjust def:edit_book flag:type:lore
-              - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Lore].at[2]>
-              - give item:<[edit_book]>
-              - inventory close
+          #- case lore:
+          #  - if <[click_type]> == left:
+          #    - define book <item[character_rpc_viewbook]>
+          #    - adjust def:book lore:<[book].lore.set[<red>Viewing<&co><&sp><gold>Lore].at[2]>
+          #    - adjust def:book book_pages:<player.flag[character.rpc.lore]>
+          #    - give item:<item[character_rpc_viewbook]>
+          #  - if <[click_type]> == right:
+          #    - define edit_book <item[character_rpc_editbook]>
+          #    - adjust def:edit_book flag:type:lore
+          #    - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Lore].at[2]>
+          #    - give item:<[edit_book]>
+          #    - inventory close
           - case age:
             - if <[click_type]> == right:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:age
               - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Age].at[2]>
+              - adjust def:edit_book book_pages:<player.flag[character.rpc.age].if_null[0]>
               - give item:<[edit_book]>
               - inventory close
           - case height:
@@ -163,6 +166,7 @@ Character_RPC_Events:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:height
               - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Height].at[2]>
+              - adjust def:edit_book book_pages:<player.flag[character.rpc.height].if_null[0'0"]>
               - give item:<[edit_book]>
               - inventory close
           - case profession:
@@ -170,6 +174,7 @@ Character_RPC_Events:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:profession
               - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Profession].at[2]>
+              - adjust def:edit_book book_pages:<player.flag[character.rpc.profession].if_null[]>
               - give item:<[edit_book]>
               - inventory close
           - case confirm:
