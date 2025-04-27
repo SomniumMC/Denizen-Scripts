@@ -18,6 +18,9 @@ rpc_command:
     usage: /rpc
     script:
     - if <context.args.get[1]||null> != null:
+      - if !<player.has_permission[dscript.rpc_staff]>:
+        - narrate "<red>You do not have permission to use this command."
+        - stop
       - define player_name <context.args.get[1]||null>
       - if <server.match_player[<[player_name]>]||null> == null:
         - narrate "<red>Player not found"
@@ -25,6 +28,8 @@ rpc_command:
         - stop
       - else:
         - flag <player> rpc_viewing:<server.match_player[<[player_name]>]||null>
+    - else:
+      - flag <player> rpc_viewing:<player>
     - inventory open d:Character_RPC_Menu
 
 Character_Menu_Controls:
