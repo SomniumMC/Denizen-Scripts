@@ -1,14 +1,31 @@
 # This file contains the command and guis that consist of the basic character profile of a player's character. Including Stats, Skills, RPC Info, ect.
 
-character:
+character_command:
     type: command
     debug: false
     name: character
-    description: Does something
+    description: Opens the character menu
     usage: /character
     alias: /char
     script:
     - inventory open d:character_menu
+
+rpc_command:
+    type: command
+    debug: false
+    name: rpc
+    description: Does something
+    usage: /rpc
+    script:
+    - if <context.args.get[2]||null> != null:
+      - define player_name <context.args.get[2]||null>
+      - if <server.match_player[<[player_name]>]||null> == null:
+        - narrate "<red>Player not found"
+        - flag <player> rpc_viewing:<player>
+        - stop
+      - else:
+        - flag <player> rpc_viewing:<server.match_player[<[player_name]>]||null>
+    - inventory open d:Character_RPC_Menu
 
 Character_Menu_Controls:
     type: world
@@ -216,11 +233,12 @@ Character_RPC_Menu:
     title: <green>RPC Info
     procedural items:
     - define item_list <list>
-    - if !<player.has_flag[character.rpc.submitted]>:
+    - define entity <player.flag[rpc_viewing]>
+    - if !<[entity].has_flag[character.rpc.submitted]>:
       - define item_list:->:<item[Character_RPC_Confirm]>
     - else:
       - define item_list:->:<item[Character_RPC_Locked]>
-    - define status <player.flag[character.rpc.status].if_null[not_submitted]>
+    - define status <[entity].flag[character.rpc.status].if_null[not_submitted]>
     - define status_item <item[Character_RPC_Status]>
     - choose <[status]>:
       - case not_submitted:
@@ -275,7 +293,7 @@ Character_RPC_Name:
     flags:
       type: name
     lore:
-    - <green>Current Name<&co><&sp><player.flag[character.rpc.name].if_null[<red><bold>Empty]>
+    - <green>Current Name<&co><&sp><player.flag[rpc_viewing].flag[character.rpc.name].if_null[<red><bold>Empty]>
     - <red>Right Click to edit
 
 Character_RPC_Desc:
@@ -308,7 +326,7 @@ Character_RPC_Age:
     flags:
       type: age
     lore:
-    - <green>Current Age<&co><&sp><player.flag[character.rpc.age].if_null[<red><bold>Empty]>
+    - <green>Current Age<&co><&sp><player.flag[rpc_viewing].flag[character.rpc.age].if_null[<red><bold>Empty]>
     - <red>Right Click to edit
 
 Character_RPC_Height:
@@ -319,7 +337,7 @@ Character_RPC_Height:
     flags:
       type: height
     lore:
-    - <green>Current Height<&co><&sp><player.flag[character.rpc.height].if_null[<red><bold>Empty]>
+    - <green>Current Height<&co><&sp><player.flag[rpc_viewing].flag[character.rpc.height].if_null[<red><bold>Empty]>
     - <red>Right Click to edit
 
 Character_RPC_Profession:
@@ -330,7 +348,7 @@ Character_RPC_Profession:
     flags:
       type: profession
     lore:
-    - <green>Current Profession<&co><&sp><player.flag[character.rpc.profession].if_null[<red><bold>Empty]>
+    - <green>Current Profession<&co><&sp><player.flag[rpc_viewing].flag[character.rpc.profession].if_null[<red><bold>Empty]>
     - <red>Right Click to edit
 
 Character_RPC_Journal:
