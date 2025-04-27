@@ -179,8 +179,6 @@ Character_RPC_Events:
               #- discordmessage id:mybot channel:1341502905554964550 "<player.name> has sent a app, this is a test"
         after player edits book:
         - if <context.old_book.script.name> == Character_RPC_EditBook:
-          - if <context.signing>:
-            - determine NOT_SIGNING
           - define type <context.old_book.flag[type]>
           - define contents <context.book.book_pages>
           - choose <[type]>:
@@ -221,6 +219,7 @@ Character_RPC_Events:
               #- take slot:hand
           - narrate <context.book.book_pages.get[1]>
           - take slot:hand
+          - determine NOT_SIGNING
         on player drops Character_RPC_EditBook:
         - playeffect at:<context.location> effect:smoke_large
         - remove <context.entity>
@@ -403,8 +402,6 @@ Character_RPC_AppSend:
       - define fail:->:name
     - if !<player.has_flag[character.rpc.description]>:
       - define fail:->:description
-    - if !<player.has_flag[character.rpc.lore]>:
-      - define fail:->:lore
     - if !<player.has_flag[character.rpc.age]>:
       - define fail:->:age
     - if !<player.has_flag[character.rpc.height]>:
@@ -417,8 +414,8 @@ Character_RPC_AppSend:
     - definemap app_data:
         player_name: <player.name>
         name: <player.flag[character.rpc.name]>
+        race: <player.flag[race.name]>
         description: <player.flag[character.rpc.description]>
-        lore: <player.flag[character.rpc.lore]>
         age: <player.flag[character.rpc.age]>
         height: <player.flag[character.rpc.height]>
         profession: <player.flag[character.rpc.profession]>
@@ -426,8 +423,8 @@ Character_RPC_AppSend:
     - narrate "<green>Processing Application..."
 
     - define formatted "Character Name<&co><&sp><[app_data].get[name]><n>
+      Race<&co><&sp><[app_data].get[race].to_titlecase><n>
       Basic Description<&co><&sp><[app_data].get[description]><n>
-      Character Lore<&co><&sp><[app_data].get[lore].get[1].strip_color>...<n>
       Character Age<&co><&sp><[app_data].get[age]><n>
       Character Height<&co><&sp><[app_data].get[height]><n>
       Character Profession<&co><&sp><[app_data].get[profession]>"
