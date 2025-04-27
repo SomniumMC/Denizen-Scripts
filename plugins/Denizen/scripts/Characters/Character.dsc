@@ -239,9 +239,9 @@ Character_RPC_Menu:
     - determine <[item_list]>
     slots:
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [GUINULL] [Character_RPC_Name] [GUINULL] [Character_RPC_Desc] [GUINULL] [Character_RPC_Lore] [GUINULL] [Character_RPC_Age] [GUINULL]
+    - [GUINULL] [Character_RPC_Name] [GUINULL] [Character_RPC_Desc] [GUINULL] [Character_RPC_Journal] [GUINULL] [Character_RPC_Age] [GUINULL]
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [GUINULL] [Character_RPC_Height] [GUINULL] [Character_RPC_Profession] [GUINULL] [Character_RPC_Journal] [GUINULL] [GUINULL] [GUINULL]
+    - [GUINULL] [Character_RPC_Height] [GUINULL] [Character_RPC_Profession] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [] [GUINULL] [GUINULL] [] [GUINULL]
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
