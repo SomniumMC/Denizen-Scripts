@@ -1,9 +1,9 @@
 # This file houses the dialog tree for the following NPC:
-## Lumberjack_Satus
+## Nameless_Lumberjack
 
 # First Created: 12/16/2024
 
-NPC_DialogTree_Lumberjack_Satus:
+NPC_DialogTree_Nameless_Lumberjack:
     type: data
     debug: false
     display: <yellow>Lumberjack

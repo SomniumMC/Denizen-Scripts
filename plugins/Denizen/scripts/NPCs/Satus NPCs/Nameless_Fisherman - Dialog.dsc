@@ -1,9 +1,9 @@
 # This file houses the dialog tree for the following NPC:
-## Fisherman_Satus
+## Nameless_Fisherman
 
 # First Created: 12/16/2024
 
-NPC_DialogTree_Fisherman_Satus:
+NPC_DialogTree_Nameless_Fisherman:
     type: data
     debug: false
     display: <yellow>Fisherman

@@ -1,9 +1,9 @@
 # This file houses the dialog tree for the following NPC:
-## Talfein_Satus
+## Talfein_Tavern
 
 # First Created: 2/28/2025
 
-NPC_DialogTree_Talfein_Satus:
+NPC_DialogTree_Talfein_Tavern:
   type: data
   debug: false
   welcome:

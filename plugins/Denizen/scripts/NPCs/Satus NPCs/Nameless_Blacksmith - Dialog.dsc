@@ -1,9 +1,9 @@
 # This file houses the dialog tree for the following NPC:
-## Blacksmith_Satus
+## Nameless_Blacksmith
 
 # First Created: 12/10/2024
 
-NPC_DialogTree_Blacksmith_Satus:
+NPC_DialogTree_Nameless_Blacksmith:
     type: data
     debug: false
     welcome:

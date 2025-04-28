@@ -39,26 +39,27 @@ NPC_ID_Storage:
     43: Ferryman_Satus
     44: Ferryman_Mainland
 
-    42: Bank_Satus
-    27: Blacksmith_Satus
-    28: Grocer_Satus
-    29: Tailor_Satus
-    30: Bank_Satus
-    31: Lumberjack_Satus
-    32: Glassblower_Satus
-    33: Generalstore_Satus
-    34: Leatherworker_Satus
-    35: Arenaworker_Satus
-    36: Jeweler_Satus
-    37: Florist_Satus
-    38: Baker_Satus
-    39: Auctioneer_Satus
-    40: Fairy_Renter_Satus
+    ## Satus NPCs
+    42: Namless_Bank_Satus
+    27: Nameless_Blacksmith
+    28: Nameless_Grocer
+    29: Nameless_Tailor
+    30: Nameless_Bank
+    31: Nameless_Lumberjack
+    #32: Nameless_Glassblower
+    33: Brynwen_GeneralStore
+    #34: Nameless_Leatherworker
+    #35: Arenaworker_Satus
+    #36: Nameless_Jeweler
+    #37: Nameless_Florist
+    #38: Nameless_Baker
+    #39: Auctioneer_Satus
+    #40: Fairy_Renter_Satus
 
-    41: Librarian_Satus
+    #41: Librarian_Satus
 
-    45: Ayla
-    46: Talfein_Satus
+    45: Ayla_Tavern
+    46: Talfein_Tavern
     47: Avalris
 
 NPC_Chat:

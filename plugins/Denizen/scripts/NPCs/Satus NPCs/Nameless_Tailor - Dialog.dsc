@@ -1,9 +1,9 @@
 # This file houses the dialog tree for the following NPC:
-## Tailor_Satus
+## Nameless_Tailor
 
 # First Created: 12/10/2024
 
-NPC_DialogTree_Tailor_Satus:
+NPC_DialogTree_Nameless_Tailor:
     type: data
     debug: false
     display: <yellow>Tailor

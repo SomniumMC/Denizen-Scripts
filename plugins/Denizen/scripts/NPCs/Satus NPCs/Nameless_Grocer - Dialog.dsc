@@ -1,10 +1,10 @@
 # This file houses the dialog tree for the following NPC:
-## Grocer_Satus
+## Nameless_Grocer
 
 # First Created: 12/16/2024
 
 
-NPC_DialogTree_Grocer_Satus:
+NPC_DialogTree_Nameless_Grocer:
     type: data
     debug: false
     display: <yellow>Grocer

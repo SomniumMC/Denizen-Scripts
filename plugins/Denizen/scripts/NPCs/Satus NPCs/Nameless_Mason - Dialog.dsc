@@ -1,10 +1,10 @@
 # This file houses the dialog tree for the following NPC:
-## Mason_Satus
+## Nameless_Mason
 
 # First Created: 12/16/2024
 
 
-NPC_DialogTree_Mason_Satus:
+NPC_DialogTree_Nameless_Mason:
     type: data
     debug: false
     display: <yellow>Mason

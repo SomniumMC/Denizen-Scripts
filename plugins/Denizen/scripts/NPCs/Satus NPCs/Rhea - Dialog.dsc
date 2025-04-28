@@ -6,6 +6,7 @@
 NPC_DialogTree_Rhea:
     type: data
     debug: false
+    display: <color[#f59b42]>Rhea
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
     welcome:
       dialog: <green>Good eve, Storm-sodden! Are you here for your delivery task?
