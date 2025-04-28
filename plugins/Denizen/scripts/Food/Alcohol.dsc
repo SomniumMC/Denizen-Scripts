@@ -55,6 +55,9 @@ Alcohol_Mixer_Event:
         - define item <context.item>
         - if <[mixer].flag[mixer.id].if_null[null]> == null:
             - run Alcohol_Mixer_Setup def:<[mixer]>
+        - if <[item].script.name||null> == config_wrench:
+            - flag <player> mixer.dissasemble:<[mixer]> expire:30s
+            - inventory open d:Alcohol_Mixer_Dissasemble_GUI
         - if <[item].has_flag[fluid]>:
             - define tool_fluid <[item].flag[fluid]>
             - define tool_level <[item].flag[level]>
@@ -321,6 +324,27 @@ Alcohol_Mixer_Recipe_Proc:
     - define lore <[lore]><n><aqua>Fluid<blue><&co><&sp><[recipe_data].get[fluid].before_last[-].to_titlecase><red>-<white><[recipe_data].get[fluid].after_last[-].mul[100]>mb
     - determine <[lore]>
 
+Alcohol_Mixer_Dissasemble_GUI:
+    type: inventory
+    inventory: dispenser
+    debug: false
+    title: <gold>Configuration
+    gui: true
+    slots:
+    - [GUINULL] [GUINULL] [GUINULL]
+    - [GUINULL] [red_concrete[display=<red>Deconstruct?]] [GUINULL]
+    - [GUINULL] [GUINULL] [GUINULL]
+
+Alcohol_Mixer_Dissasemble_Event:
+    type: world
+    events:
+        on player clicks red_concrete in Alcohol_Mixer_Dissasemble_GUI:
+        - define mixer <player.flag[mixer.dissasemble]>
+        - drop <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].list_contents> <[mixer].location.center>
+        - note remove mixer_inventory_<[mixer].flag[mixer.id]>
+        - remove <[mixer].flag[mixer.model]>
+        - remove <[mixer]>
+
 Alcohol_Mixing_Tub:
     type: item
     debug: false
@@ -448,7 +472,7 @@ Alcohol_Distillery_Interaction:
 
 Alcohol_Fermenter_Event:
     type: world
-    debug: true
+    debug: false
     events:
         on player right clicks block location_flagged:fermenting:
         - ratelimit <player> 5t
@@ -522,7 +546,7 @@ Alcohol_Fermenter_Event:
                     - stop
                 - else:
                     - narrate "<red>Fermenter is busy!"
-                    - narrate "<yellow>Current Time<white><&co> <[location].flag[fermenting.time]>/<red>30 seconds"
+                    - narrate "<yellow>Current Time<white><&co> <[location].flag[fermenting.time]>/<red>30 <white>seconds"
                     - stop
         on player breaks block location_flagged:fermenting:
         - define location <context.location>
@@ -599,7 +623,7 @@ Alcohol_Aging_Cask:
 
 Alcohol_Container_Events:
     type: world
-    debug: true
+    debug: false
     events:
         on player right clicks block with:item_flagged:fluid:
         - ratelimit <player> 5t
@@ -648,7 +672,7 @@ Alcohol_Container_Events:
 Alcohol_Tool_Retexture:
     type: task
     definitions: container|reverse
-    debug: true
+    debug: false
     script:
     - if <[reverse].if_null[null]> != null:
         - choose <[container].script.name.after[Alcohol_]>:
