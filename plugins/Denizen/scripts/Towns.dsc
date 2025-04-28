@@ -784,7 +784,7 @@ Town_Tiers_Data:
     debug: false
     Freeholding:
       name: <white>Freeholding
-      size: 3x3
+      size: 5x5
     Lordship: value
     Viscountcy: value
     Earldom: value

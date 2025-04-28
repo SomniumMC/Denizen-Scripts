@@ -569,6 +569,7 @@ Alcohol_Fermenter_Event:
                 - determine cancelled
         - else:
             - drop item:Alcohol_Fermentation_Barrel <[location].center>
+            - remove <[location].flag[fermenting.model]>
             - flag <[location]> fermenting:!
 Alcohol_Fermenter_Delta_Time:
     type: world
