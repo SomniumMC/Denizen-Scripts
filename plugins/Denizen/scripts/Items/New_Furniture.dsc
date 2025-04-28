@@ -433,7 +433,7 @@ Furniture_Assembly_Event:
     on player places Furniture_Assembly_Bench:
     - define location <context.location>
     - modifyblock <[location]> cyan_stained_glass
-    - spawn item_display[item=furniture_assembly_bench] <[location].center> save:bench_entity
+    - spawn item_display[item=furniture_assembly_bench] <[location].center.with_yaw[<player.location.yaw.round_to_precision[90]>]> save:bench_entity
     - spawn Furniture_Assembly_Bench_Interaction <[location].center.below[0.5]> save:bench_interaction
     - flag <entry[bench_interaction].spawned_entity> assembly.home:<[location]>
     - flag <entry[bench_interaction].spawned_entity> assembly.bench:<entry[bench_entity].spawned_entity>
