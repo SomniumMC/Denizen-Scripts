@@ -294,7 +294,7 @@ Alcohol_Mixer_Recipe_GUI:
         - foreach <[recipe_list]> as:recipe_name:
             - define recipe_data <script[Alcohol_Mixer_Recipes].data_key[recipes.<[recipe_name]>]>
             - define item <item[paper]>
-            - adjust def:item display:<gold><[recipe_name].replace_text[_].with[ ].to_titlecase>
+            - adjust def:item display:<gold><[recipe_name].replace_text[_].with[ ].to_titlecase><&sp><blue>x<[recipe_data].get[output].after_last[-]>
             - adjust def:item flag:recipe:<[recipe_name]>
             - adjust def:item flag:recipe_data:<[recipe_data]>
             - adjust def:item quantity:<[recipe_data].get[output].after_last[-]>
@@ -315,10 +315,10 @@ Alcohol_Mixer_Recipe_Proc:
     script:
     - define lore <dark_purple>Ingredients<white><&co>
     - foreach <[recipe_data].get[ingredients]> as:ingredient:
-        - define ingredient_formatted <blue><[ingredient].before_last[-].to_titlecase><&sp>x<[ingredient].after_last[-]>
+        - define ingredient_formatted <blue><[ingredient].before_last[-].replace[_].with[ ].to_titlecase><&sp>x<[ingredient].after_last[-]>
         - define ingredient_list:->:<[ingredient_formatted]>
     - define lore <[lore]><n><[ingredient_list].separated_by[<n>]>
-    - define lore <[lore]><n><aqua>Fluid<white><&co><&sp><[recipe_data].get[fluid].before_last[-].to_titlecase><red>-<white><[recipe_data].get[fluid].after_last[-].mul[100]>mb
+    - define lore <[lore]><n><aqua>Fluid<blue><&co><&sp><[recipe_data].get[fluid].before_last[-].to_titlecase><red>-<white><[recipe_data].get[fluid].after_last[-].mul[100]>mb
     - determine <[lore]>
 
 Alcohol_Mixing_Tub:
