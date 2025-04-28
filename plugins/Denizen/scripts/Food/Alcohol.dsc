@@ -315,10 +315,10 @@ Alcohol_Mixer_Recipe_Proc:
     script:
     - define lore <dark_purple>Ingredients<white><&co>
     - foreach <[recipe_data].get[ingredients]> as:ingredient:
-        - define ingredient_formatted <[ingredient].before_last[-].to_titlecase>x<[ingredient].after_last[-]>
+        - define ingredient_formatted <blue><[ingredient].before_last[-].to_titlecase><&sp>x<[ingredient].after_last[-]>
         - define ingredient_list:->:<[ingredient_formatted]>
     - define lore <[lore]><n><[ingredient_list].separated_by[<n>]>
-    - define lore <[lore]><n><aqua>Fluid<white><&co><&sp><[recipe_data].get[fluid].before_last[-]><red>-<[recipe_data].get[fluid].after_last[-].mul[100]>
+    - define lore <[lore]><n><aqua>Fluid<white><&co><&sp><[recipe_data].get[fluid].before_last[-].to_titlecase><red>-<white><[recipe_data].get[fluid].after_last[-].mul[100]>mb
     - determine <[lore]>
 
 Alcohol_Mixing_Tub:
