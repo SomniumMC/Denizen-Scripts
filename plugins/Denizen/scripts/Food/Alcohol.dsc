@@ -343,7 +343,9 @@ Alcohol_Mixer_Dissasemble_Event:
         - drop <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].list_contents> <[mixer].location.center>
         - note remove mixer_inventory_<[mixer].flag[mixer.id]>
         - remove <[mixer].flag[mixer.model]>
+        - drop item:Alcohol_Mixing_Tub <[mixer].location.center>
         - remove <[mixer]>
+        - inventory close
 
 Alcohol_Mixing_Tub:
     type: item
