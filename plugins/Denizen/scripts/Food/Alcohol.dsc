@@ -344,6 +344,7 @@ Alcohol_Mixer_Dissasemble_Event:
         - note remove mixer_inventory_<[mixer].flag[mixer.id]>
         - remove <[mixer].flag[mixer.model]>
         - drop item:Alcohol_Mixing_Tub <[mixer].location.center>
+        - flag <[mixer].location.below> mixer_fire:!
         - remove <[mixer]>
         - inventory close
 
@@ -355,6 +356,12 @@ Alcohol_Mixing_Tub:
     mechanisms:
       components_patch:
         item_model: string:alcohol:mix_barrel
+    lore:
+      - <gold>Used to mix ingredients and fluids.
+      - <white><element[ ].strikethrough.repeat[10]>
+      - <yellow>Combine ingredients and fluids to create new mixtures.
+      - <blue>Place on a campfire to use.
+      - <red>Interact to add or remove ingredients and fluids.
 Alcohol_Fluid_GUI_0:
     type: item
     debug: false
@@ -611,15 +618,25 @@ Alcohol_Fermentation_Barrel:
     mechanisms:
       components_patch:
         item_model: string:alcohol:fermentation_barrel
+    lore:
+        - <gold>Used to ferment fluids.
+        - <white><element[ ].strikethrough.repeat[10]>
+        - <red>Interact with a container to insert fluids.
+        - <blue>Interact with yeast to begin fermentation.
 
-Alcohol_Aging_Cask:
+Alcohol_Small_Aging_Cask:
     type: item
     debug: false
     material: string
-    display name: <gold>Aging Cask
+    display name: <gold>Small Aging Cask
     mechanisms:
       components_patch:
         item_model: string:alcohol:copper_distillery
+    lore:
+        - <gold>Used to age fluids.
+        - <white><element[ ].strikethrough.repeat[10]>
+        - <red>Interact with a container to insert fluids.
+        - <blue>Every hour will age the fluid inside.
 
 ## Container Filling
 
