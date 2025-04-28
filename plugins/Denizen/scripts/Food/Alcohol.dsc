@@ -297,7 +297,8 @@ Alcohol_Mixer_Recipe_GUI:
             - adjust def:item display:<gold><[recipe_name].replace_text[_].with[ ].to_titlecase>
             - adjust def:item flag:recipe:<[recipe_name]>
             - adjust def:item flag:recipe_data:<[recipe_data]>
-            - adjust def:item "lore:<green>Click to select this recipe!"
+            - adjust def:item quantity:<[recipe_data].get[output].after_last[-]>
+            - adjust def:item lore:<proc[Alcohol_Mixer_Recipe_Proc].context[<[recipe_data]>]>
             - define result:->:<[item]>
     - determine <[result]>
     slots:
@@ -307,6 +308,18 @@ Alcohol_Mixer_Recipe_GUI:
     - [] [] [] [] [] [] [] [] []
     - [] [] [] [] [] [] [] [] []
     - [] [] [] [] [] [] [] [] []
+
+Alcohol_Mixer_Recipe_Proc:
+    type: procedure
+    definitions: recipe_data
+    script:
+    - define lore <dark_purple>Ingredients<white><&co>
+    - foreach <[recipe_data].get[ingredients]> as:ingredient:
+        - define ingredient_formatted <[ingredient].before_last[-].to_titlecase>x<[ingredient].after_last[-]>
+        - define ingredient_list:->:<[ingredient_formatted]>
+    - define lore <[lore]><n><[ingredient_list].separated_by[<n>]>
+    - define lore <[lore]><n><aqua>Fluid<white><&co><&sp><[recipe_data].get[fluid].before_last[-]><red>-<[recipe_data].get[fluid].after_last[-].mul[100]>
+    - determine <[lore]>
 
 Alcohol_Mixing_Tub:
     type: item
