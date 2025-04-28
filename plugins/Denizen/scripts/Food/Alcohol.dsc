@@ -516,6 +516,14 @@ Alcohol_Fermenter_Event:
                               - inventory adjust slot:hand flag:level:0
                               - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<gold>Contents<white><&co><&sp><red>0<white>/<blue>1000mb].at[3]>
                               - inventory adjust slot:hand lore:<player.item_in_hand.lore.set[<yellow>Fluid<white><&co><&sp><light_purple>Empty].at[4]>
+            - if <[state]> == fermenting:
+                - if <[item].script.name> == yeast:
+                    - narrate "<red>Already fermenting!"
+                    - stop
+                - else:
+                    - narrate "<red>Fermenter is busy!"
+                    - narrate "<yellow>Current Time<white><&co> <[location].flag[fermenting.time]>/<red>30 seconds"
+                    - stop
         on player breaks block location_flagged:fermenting:
         - define location <context.location>
         - if <[location].flag[fermenting.fluid].if_null[null]> != null:
