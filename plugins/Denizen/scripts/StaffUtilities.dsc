@@ -443,7 +443,7 @@ Staff_Item_Edit:
     aliases:
     - ie
     tab completions:
-      1: display|lore|force
+      1: display|lore|force|cancel
     script:
         - if <player.item_in_hand.material.name> == air:
             - narrate "<red>Empty Hand"
@@ -453,7 +453,7 @@ Staff_Item_Edit:
             - stop
         - else:
             - define item <player.item_in_hand>
-            - if <context.args.get[1]> == force:
+            - if <context.args.get[1]> == force || <context.args.get[1]> == cancel:
                 - inventory set o:<player.flag[staff_item_edit].if_null[air]> slot:hand destination:<player.inventory>
                 - narrate "<green>Item reverted to last save!"
                 - stop
