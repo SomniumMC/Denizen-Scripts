@@ -490,11 +490,11 @@ Staff_Item_Edit_Book_Events:
             - case lore:
               - adjust def:item lore:<[contents].parsed>
             - case model:
-              - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1]>]
+              - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
             - case flags:
               - foreach <[contents]> as:line:
                 - if <[line].contains[:]>:
-                  - define split <[line].split[:]>
+                  - define split <[line].split[:].strip_color>
                   - adjust def:item flag:<[split].get[1]>:<[split].get[2]>
           - inventory set o:<[item]> slot:hand destination:<player.inventory>
           - narrate "<green>Item updated successfully!"
