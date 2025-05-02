@@ -435,7 +435,7 @@ Staff_Switch_Kits:
 
 Staff_Item_Edit:
     type: command
-    debug: false
+    debug: true
     description: This is a command to edit items in hand
     name: itemedit
     usage: /itemedit <&lt>Item_Name<&gt>
@@ -615,7 +615,7 @@ ItemEdit_ItemPreview:
 # Item Edit GUI Events
 Staff_Item_Edit_GUI_Events:
     type: world
-    debug: false
+    debug: true
     events:
         on player clicks in Staff_Item_Edit_GUI:
         - determine passively cancelled
