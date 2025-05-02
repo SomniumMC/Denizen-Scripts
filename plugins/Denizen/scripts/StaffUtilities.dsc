@@ -491,11 +491,6 @@ Staff_Item_Edit_Book_Events:
               - adjust def:item lore:<[contents].parsed>
             - case model:
               - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
-            - case flags:
-              - foreach <[contents]> as:line:
-                - if <[line].contains[:]>:
-                  - define split <[line].split[:].strip_color>
-                  - adjust def:item flag:<[split].get[1]>:<[split].get[2]>
           - inventory set o:<[item]> slot:hand destination:<player.inventory>
           - narrate "<green>Item updated successfully!"
         on player signs book:
@@ -513,10 +508,28 @@ Staff_Item_Edit_GUI:
     title: <green>Item Edit Menu
     size: 27
     gui: true
+    definitions:
+        ItemPreview: <player.flag[staff_item_edit].if_null[air]>
+        Display: <item[name_tag].with_single[display=<green>Edit Display Name].with_single[flags=type:display].with_single[lore=<yellow>Click to edit the display name of the item<n><gray>Current: <white><player.flag[staff_item_edit].display.if_null[<player.flag[staff_item_edit].material.name.replace_text[_].with[ ].to_titlecase>].if_null[None]>]>
+        lore: <item[paper].with_single[display=<green>Edit Lore].with_single[flags=type:lore].with_single[lore=<yellow>Click to edit the lore of the item<n><gray>Current Lines: <white><player.flag[staff_item_edit].lore.size||0.if_null[None]>]>
+        model: <item[painting].with_single[display=<green>Edit Item Model].with_single[flags=type:model].with_single[lore=<yellow>Click to edit the custom model data<n><gray>Current: <white><player.flag[staff_item_edit].components_patch.get[minecraft:item_model].replace[string:].with[].if_null[None]>]>
+        enchant: <item[enchanted_book].with_single[display=<green>Edit Enchantments].with_single[lore=<yellow>Click to edit item enchantments<n><gray>Not yet implemented]>
+        attribute: <item[diamond].with_single[display=<green>Edit Attributes].with_single[lore=<yellow>Click to edit item attributes<n><gray>Not yet implemented]>
+        components: <item[command_block].with_single[display=<red>Edit Components [Advanced]].with_single[lore=<yellow>Not yet implemented<n><gray>For advanced item customization]>
     slots:
-    - [GUINull] [GUINull] [GUINull] [GUINull] [ItemEdit_Display] [GUINull] [GUINull] [GUINull] [GUINull]
-    - [ItemEdit_Lore] [ItemEdit_Model] [ItemEdit_Enchant] [GUINull] [ItemEdit_ItemPreview] [GUINull] [ItemEdit_Attribute] [ItemEdit_Flags] [ItemEdit_Components]
+    - [GUINull] [GUINull] [GUINull] [GUINull] [display] [GUINull] [GUINull] [GUINull] [GUINull]
+    - [lore] [model] [enchant] [GUINull] [ItemPreview] [GUINull] [attribute] [GUINull] [components]
     - [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull]
+
+Staff_Item_Edit_Custom_GUI:
+    type: inventory
+    debug: false
+    inventory: chest
+    title: <green>Item Edit Menu [Custom]
+    size: 27
+    gui: true
+    slots:
+    - [GUINull] [GUINull] [GUINull] [GUINull] [ItemEdit_ItemPreview] [GUINull] [GUINull] [GUINull] [GUINull]
 
 Staff_Item_Edit_Book:
     type: item
@@ -528,88 +541,6 @@ Staff_Item_Edit_Book:
     lore:
     - <green>Open to edit item details
     - <empty>
-
-# Item Edit GUI Items
-ItemEdit_Display:
-    type: item
-    debug: false
-    material: name_tag
-    display name: <green>Edit Display Name
-    flags:
-      type: display
-    lore:
-    - <yellow>Click to edit the display name of the item
-    - <gray>Current: <white><player.flag[staff_item_edit].display.if_null[<player.flag[staff_item_edit].material.name.replace_text[_].with[ ].to_titlecase>].if_null[None]>
-
-ItemEdit_Lore:
-    type: item
-    debug: false
-    material: paper
-    display name: <green>Edit Lore
-    flags:
-      type: lore
-    lore:
-    - <yellow>Click to edit the lore of the item
-    - <gray>Current Lines: <white><player.flag[staff_item_edit].lore.size||0.if_null[None]>
-
-ItemEdit_Model:
-    type: item
-    debug: false
-    material: painting
-    display name: <green>Edit Item Model
-    flags:
-      type: model
-    lore:
-    - <yellow>Click to edit the custom model data
-    - <gray>Current: <white><player.flag[staff_item_edit].components_patch.get[minecraft:item_model].replace[string:].with[].if_null[None]>
-
-ItemEdit_Enchant:
-    type: item
-    debug: false
-    material: enchanted_book
-    display name: <green>Edit Enchantments
-    lore:
-    - <yellow>Click to edit item enchantments
-    - <gray>
-    - <yellow>Not yet implemented
-
-ItemEdit_Flags:
-    type: item
-    debug: false
-    material: cyan_banner
-    display name: <green>Edit Item Flags
-    flags:
-      type: flags
-    lore:
-    - <yellow>Click to edit item flags
-    - <gray>Format: <white>flag_name:value
-
-ItemEdit_Attribute:
-    type: item
-    debug: false
-    material: diamond
-    display name: <green>Edit Attributes
-    lore:
-    - <yellow>Click to edit item attributes
-    - <gray>
-    - <yellow>Not yet implemented
-
-ItemEdit_Components:
-    type: item
-    debug: false
-    material: command_block
-    display name: <red>Edit Components [Advanced]
-    lore:
-    - <yellow>Not yet implemented
-    - <gray>For advanced item customization
-
-ItemEdit_ItemPreview:
-    type: item
-    debug: false
-    material: glass_pane
-    display name: <green>Current Item
-    lore:
-    - <yellow>This is a preview of your current item
 
 # Item Edit GUI Events
 Staff_Item_Edit_GUI_Events:
@@ -629,6 +560,7 @@ Staff_Item_Edit_GUI_Events:
         - define edit_item <player.flag[staff_item_edit]>
         - if <[type].if_null[null]> == null:
           - stop
+        - inventory close
         - choose <[type]>:
             - case display:
                 - define edit_book <item[Staff_Item_Edit_Book]>
@@ -648,10 +580,5 @@ Staff_Item_Edit_GUI_Events:
                 - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
                 - adjust def:edit_book book_pages:<[edit_item].components_patch.get[minecraft:item_model].if_null[]>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
-            - case flags:
-                - define edit_book <item[Staff_Item_Edit_Book]>
-                - adjust def:edit_book flag:type:flags
-                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[edit_item].list_flags.separated_by[<n>]||None.if_null[]>
-                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
-        - inventory close
+            - case custom:
+                - inventory open d:Staff_Item_Edit_Custom_GUI
