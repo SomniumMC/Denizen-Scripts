@@ -443,7 +443,7 @@ Staff_Item_Edit:
     aliases:
     - ie
     tab completions:
-      1: display|lore
+      1: display|lore|force
     script:
         - if <player.item_in_hand.material.name> == air:
             - narrate "<red>Empty Hand"
@@ -453,6 +453,10 @@ Staff_Item_Edit:
             - stop
         - else:
             - define item <player.item_in_hand>
+            - if <context.args.get[1]> == force:
+                - inventory set o:<player.flag[staff_item_edit].if_null[air]> slot:hand destination:<player.inventory>
+                - narrate "<green>Item reverted to last save!"
+                - stop
             - flag player staff_item_edit:<[item]>
             - choose <context.args.get[1]>:
                 - case display:
@@ -531,15 +535,19 @@ ItemEdit_Display:
     debug: false
     material: name_tag
     display name: <green>Edit Display Name
+    flags:
+      type: display
     lore:
     - <yellow>Click to edit the display name of the item
-    - <gray>Current: <white><player.item_in_hand.display||<player.item_in_hand.material.name.to_titlecase>>
+    - <gray>Current: <white><player.item_in_hand.display.if_null[<player.item_in_hand.material.name.replace_text[_].with[ ]>]>
 
 ItemEdit_Lore:
     type: item
     debug: false
     material: paper
     display name: <green>Edit Lore
+    flags:
+      type: lore
     lore:
     - <yellow>Click to edit the lore of the item
     - <gray>Current Lines: <white><player.item_in_hand.lore.size||0>
@@ -548,10 +556,12 @@ ItemEdit_Model:
     type: item
     debug: false
     material: painting
-    display name: <green>Edit Custom Model Data
+    display name: <green>Edit Item Model
+    flags:
+      type: model
     lore:
     - <yellow>Click to edit the custom model data
-    - <gray>Current: <white><player.item_in_hand.custom_model_data||None>
+    - <gray>Current: <white><player.item_in_hand.components_patch.get[minecraft:item_model].replace[string:].with[]||None>
 
 ItemEdit_Enchant:
     type: item
@@ -560,14 +570,16 @@ ItemEdit_Enchant:
     display name: <green>Edit Enchantments
     lore:
     - <yellow>Click to edit item enchantments
-    - <gray>Format: <white>level:enchantment_name
-    - <gray>Example: <white>5:sharpness
+    - <gray>
+    - <yellow>Not yet implemented
 
 ItemEdit_Flags:
     type: item
     debug: false
     material: cyan_banner
     display name: <green>Edit Item Flags
+    flags:
+      type: flags
     lore:
     - <yellow>Click to edit item flags
     - <gray>Format: <white>flag_name:value
@@ -580,8 +592,8 @@ ItemEdit_Attribute:
     display name: <green>Edit Attributes
     lore:
     - <yellow>Click to edit item attributes
-    - <gray>Format: <white>attribute:amount:slot
-    - <gray>Example: <white>generic_attack_damage:5:main_hand
+    - <gray>
+    - <yellow>Not yet implemented
 
 ItemEdit_Components:
     type: item
@@ -599,8 +611,6 @@ ItemEdit_ItemPreview:
     display name: <green>Current Item
     lore:
     - <yellow>This is a preview of your current item
-    mechanisms:
-      nbt_attributes: <list[generic_armor/0/main_hand]>
 
 # Item Edit GUI Events
 Staff_Item_Edit_GUI_Events:
@@ -611,4 +621,13 @@ Staff_Item_Edit_GUI_Events:
         - determine passively cancelled
         after player opens Staff_Item_Edit_GUI:
         - define item <player.item_in_hand>
+        - if <[item].script.name||null> == Staff_Item_Edit_Book:
+          - narrate "<red>Please finish the current book before opening the GUI!"
+          - determine cancelled
+        - flag player staff_item_edit:<[item]>
         - inventory set o:<[item]> slot:14 destination:<player.open_inventory>
+        on player clicks item in Staff_Item_Edit_GUI:
+        - define item <context.item>
+        - define type <context.item.flag[type]>
+        - if <[type].if_null[null]> == null:
+          - stop
