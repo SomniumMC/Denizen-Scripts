@@ -626,31 +626,32 @@ Staff_Item_Edit_GUI_Events:
         on player clicks item in Staff_Item_Edit_GUI:
         - define item <context.item>
         - define type <context.item.flag[type]>
+        - define edit_item <player.flag[staff_item_edit]>
         - if <[type].if_null[null]> == null:
           - stop
         - choose <[type]>:
             - case display:
                 - define edit_book <item[Staff_Item_Edit_Book]>
                 - adjust def:edit_book flag:type:display
-                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[item].display.if_null[<[item].material.name.replace_text[_].with[ ].to_titlecase>]>
+                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[edit_item].display.if_null[<[edit_item].material.name.replace_text[_].with[ ].to_titlecase>]>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
             - case lore:
                 - define edit_book <item[Staff_Item_Edit_Book]>
                 - adjust def:edit_book flag:type:lore
-                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[item].lore.if_null[]>
+                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[edit_item].lore.if_null[]>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
             - case model:
                 - define edit_book <item[Staff_Item_Edit_Book]>
                 - adjust def:edit_book flag:type:model
-                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[item].components_patch.get[minecraft:item_model].if_null[string:]>
+                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[edit_item].components_patch.get[minecraft:item_model].if_null[string:]>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
             - case flags:
                 - define edit_book <item[Staff_Item_Edit_Book]>
                 - adjust def:edit_book flag:type:flags
-                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[item].list_flags.separated_by[<n>]||None.if_null[]>
+                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[edit_item].list_flags.separated_by[<n>]||None.if_null[]>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
         - inventory close
