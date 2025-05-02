@@ -477,7 +477,7 @@ Staff_Item_Edit:
 
 Staff_Item_Edit_Book_Events:
     type: world
-    debug: false
+    debug: true
     events:
         after player edits book:
         - if <context.old_book.script.name||null> == Staff_Item_Edit_Book:
