@@ -820,6 +820,9 @@ Town_Claim_Event:
       - case 3x3:
         - define total_chunks 9
         - define range 1
+      - case 5x5:
+        - define total_chunks 25
+        - define range 2
     - define x <element[1].mul[<[range]>]>
     - define y <element[1].mul[<[range]>]>
     - define corner1 <[town_center_chunk].add[<[x]>,<[y]>]>
