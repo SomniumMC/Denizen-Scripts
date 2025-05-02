@@ -583,7 +583,6 @@ ItemEdit_Flags:
     lore:
     - <yellow>Click to edit item flags
     - <gray>Format: <white>flag_name:value
-    - <gray>Current Flags: <white><player.flag[staff_item_edit].list_flags.separated_by[<n>]||None.if_null[None]>
 
 ItemEdit_Attribute:
     type: item
@@ -617,8 +616,6 @@ Staff_Item_Edit_GUI_Events:
     type: world
     debug: true
     events:
-        on player clicks in Staff_Item_Edit_GUI:
-        - determine passively cancelled
         after player opens Staff_Item_Edit_GUI:
         - define item <player.item_in_hand>
         - if <[item].script.name||null> == Staff_Item_Edit_Book:
