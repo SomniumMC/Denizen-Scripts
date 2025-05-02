@@ -486,7 +486,7 @@ Staff_Item_Edit_Book_Events:
           - define item <player.flag[staff_item_edit]>
           - choose <[type]>:
             - case display:
-              - adjust def:item display:<[contents].get[1]>
+              - adjust def:item display:<[contents].get[1].parsed>
             - case lore:
               - adjust def:item lore:<[contents].parsed>
             - case model:
@@ -539,7 +539,7 @@ ItemEdit_Display:
       type: display
     lore:
     - <yellow>Click to edit the display name of the item
-    - <gray>Current: <white><player.flag[staff_item_edit].display.if_null[<player.flag[staff_item_edit].material.name.replace_text[_].with[ ].to_titlecase>]>
+    - <gray>Current: <white><player.flag[staff_item_edit].display.if_null[<player.flag[staff_item_edit].material.name.replace_text[_].with[ ].to_titlecase>].if_null[None]>
 
 ItemEdit_Lore:
     type: item
@@ -550,7 +550,7 @@ ItemEdit_Lore:
       type: lore
     lore:
     - <yellow>Click to edit the lore of the item
-    - <gray>Current Lines: <white><player.flag[staff_item_edit].lore.size||0>
+    - <gray>Current Lines: <white><player.flag[staff_item_edit].lore.size||0.if_null[None]>
 
 ItemEdit_Model:
     type: item
@@ -561,7 +561,7 @@ ItemEdit_Model:
       type: model
     lore:
     - <yellow>Click to edit the custom model data
-    - <gray>Current: <white><player.flag[staff_item_edit].components_patch.get[minecraft:item_model].replace[string:].with[]||None>
+    - <gray>Current: <white><player.flag[staff_item_edit].components_patch.get[minecraft:item_model].replace[string:].with[].if_null[None]>
 
 ItemEdit_Enchant:
     type: item
@@ -583,7 +583,7 @@ ItemEdit_Flags:
     lore:
     - <yellow>Click to edit item flags
     - <gray>Format: <white>flag_name:value
-    - <gray>Current Flags: <white><player.flag[staff_item_edit].list_flags.separated_by[<n>]||None>
+    - <gray>Current Flags: <white><player.flag[staff_item_edit].list_flags.separated_by[<n>]||None.if_null[None]>
 
 ItemEdit_Attribute:
     type: item
@@ -631,3 +631,29 @@ Staff_Item_Edit_GUI_Events:
         - define type <context.item.flag[type]>
         - if <[type].if_null[null]> == null:
           - stop
+        - choose <[type]>:
+            - case display:
+                - define edit_book <item[Staff_Item_Edit_Book]>
+                - adjust def:edit_book flag:type:display
+                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[item].display.if_null[<[item].material.name.replace_text[_].with[ ].to_titlecase>]>
+                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+            - case lore:
+                - define edit_book <item[Staff_Item_Edit_Book]>
+                - adjust def:edit_book flag:type:lore
+                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[item].lore.if_null[]>
+                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+            - case model:
+                - define edit_book <item[Staff_Item_Edit_Book]>
+                - adjust def:edit_book flag:type:model
+                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[item].components_patch.get[minecraft:item_model].if_null[string:]>
+                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+            - case flags:
+                - define edit_book <item[Staff_Item_Edit_Book]>
+                - adjust def:edit_book flag:type:flags
+                - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[item].list_flags.separated_by[<n>]||None.if_null[]>
+                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+        - inventory close
