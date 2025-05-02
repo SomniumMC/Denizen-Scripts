@@ -432,3 +432,183 @@ Staff_Switch_Kits:
     - furniture_assembly_bench
     - config_wrench
     - staff_furniture_configurator
+
+Staff_Item_Edit:
+    type: command
+    debug: false
+    description: This is a command to edit items in hand
+    name: itemedit
+    usage: /itemedit <&lt>Item_Name<&gt>
+    permission: dscript.itemedit
+    aliases:
+    - ie
+    tab completions:
+      1: display|lore
+    script:
+        - if <player.item_in_hand.material.name> == air:
+            - narrate "<red>Empty Hand"
+            - stop
+        - if <context.args.is_empty>:
+            - inventory open d:Staff_Item_Edit_GUI
+            - stop
+        - else:
+            - define item <player.item_in_hand>
+            - flag player staff_item_edit:<[item]>
+            - choose <context.args.get[1]>:
+                - case display:
+                    - define edit_book <item[Staff_Item_Edit_Book]>
+                    - adjust def:edit_book flag:type:display
+                    - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
+                    - adjust def:edit_book book_pages:<[item].display>
+                    - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+                - case lore:
+                    - define edit_book <item[Staff_Item_Edit_Book]>
+                    - adjust def:edit_book flag:type:lore
+                    - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
+                    - adjust def:edit_book book_pages:<[item].lore>
+                    - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+                - default:
+                    - narrate "<red>Invalid Command"
+                    - stop
+
+Staff_Item_Edit_Book_Events:
+    type: world
+    debug: false
+    events:
+        after player edits book:
+        - if <context.old_book.script.name||null> == Staff_Item_Edit_Book:
+          - define type <context.old_book.flag[type]>
+          - define contents <context.book.book_pages>
+          - define item <player.flag[staff_item_edit]>
+          - choose <[type]>:
+            - case display:
+              - adjust def:item display:<[contents].get[1]>
+            - case lore:
+              - adjust def:item lore:<[contents]>
+            - case model:
+              - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1]>]
+            - case flags:
+              - foreach <[contents]> as:line:
+                - if <[line].contains[:]>:
+                  - define split <[line].split[:]>
+                  - adjust def:item flag:<[split].get[1]>:<[split].get[2]>
+          - inventory set o:<[item]> slot:hand destination:<player.inventory>
+          - narrate "<green>Item updated successfully!"
+        on player signs book:
+        - if <player.item_in_hand.script.name||null> == Staff_Item_Edit_Book:
+          - narrate "<red>Please click <white>Done<red>, don't sign it!"
+          - determine NOT_SIGNING
+        on player drops item:
+        - if <context.item.script.name||null> == Staff_Item_Edit_Book:
+          - determine cancelled
+
+Staff_Item_Edit_GUI:
+    type: inventory
+    debug: false
+    inventory: chest
+    title: <green>Item Edit Menu
+    size: 27
+    gui: true
+    slots:
+    - [GUINull] [GUINull] [GUINull] [GUINull] [ItemEdit_Display] [GUINull] [GUINull] [GUINull] [GUINull]
+    - [ItemEdit_Lore] [ItemEdit_Model] [ItemEdit_Enchant] [GUINull] [ItemEdit_ItemPreview] [GUINull] [ItemEdit_Attribute] [ItemEdit_Flags] [ItemEdit_Components]
+    - [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull]
+
+Staff_Item_Edit_Book:
+    type: item
+    debug: false
+    material: writable_book
+    display name: <green>Item Edit Book
+    flags:
+      type: name
+    lore:
+    - <green>Open to edit item details
+    - <empty>
+
+# Item Edit GUI Items
+ItemEdit_Display:
+    type: item
+    debug: false
+    material: name_tag
+    display name: <green>Edit Display Name
+    lore:
+    - <yellow>Click to edit the display name of the item
+    - <gray>Current: <white><player.item_in_hand.display||<player.item_in_hand.material.name.to_titlecase>>
+
+ItemEdit_Lore:
+    type: item
+    debug: false
+    material: paper
+    display name: <green>Edit Lore
+    lore:
+    - <yellow>Click to edit the lore of the item
+    - <gray>Current Lines: <white><player.item_in_hand.lore.size||0>
+
+ItemEdit_Model:
+    type: item
+    debug: false
+    material: painting
+    display name: <green>Edit Custom Model Data
+    lore:
+    - <yellow>Click to edit the custom model data
+    - <gray>Current: <white><player.item_in_hand.custom_model_data||None>
+
+ItemEdit_Enchant:
+    type: item
+    debug: false
+    material: enchanted_book
+    display name: <green>Edit Enchantments
+    lore:
+    - <yellow>Click to edit item enchantments
+    - <gray>Format: <white>level:enchantment_name
+    - <gray>Example: <white>5:sharpness
+
+ItemEdit_Flags:
+    type: item
+    debug: false
+    material: cyan_banner
+    display name: <green>Edit Item Flags
+    lore:
+    - <yellow>Click to edit item flags
+    - <gray>Format: <white>flag_name:value
+    - <gray>Current Flags: <white><player.item_in_hand.list_flags.separated_by[<n>]||None>
+
+ItemEdit_Attribute:
+    type: item
+    debug: false
+    material: diamond
+    display name: <green>Edit Attributes
+    lore:
+    - <yellow>Click to edit item attributes
+    - <gray>Format: <white>attribute:amount:slot
+    - <gray>Example: <white>generic_attack_damage:5:main_hand
+
+ItemEdit_Components:
+    type: item
+    debug: false
+    material: command_block
+    display name: <red>Edit Components [Advanced]
+    lore:
+    - <yellow>Not yet implemented
+    - <gray>For advanced item customization
+
+ItemEdit_ItemPreview:
+    type: item
+    debug: false
+    material: glass_pane
+    display name: <green>Current Item
+    lore:
+    - <yellow>This is a preview of your current item
+    mechanisms:
+      nbt_attributes: <list[generic_armor/0/main_hand]>
+
+# Item Edit GUI Events
+Staff_Item_Edit_GUI_Events:
+    type: world
+    debug: false
+    events:
+        on player clicks in Staff_Item_Edit_GUI:
+        - determine passively cancelled
+        after player opens Staff_Item_Edit_GUI:
+        - define item <player.item_in_hand>
+        - inventory set o:<[item]> slot:14 destination:<player.open_inventory>
