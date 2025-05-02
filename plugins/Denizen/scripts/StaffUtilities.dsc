@@ -503,7 +503,7 @@ Staff_Item_Edit_Book_Events:
 
 Staff_Item_Edit_GUI:
     type: inventory
-    debug: false
+    debug: true
     inventory: chest
     title: <green>Item Edit Menu
     size: 27
