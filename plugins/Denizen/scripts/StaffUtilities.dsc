@@ -488,7 +488,7 @@ Staff_Item_Edit_Book_Events:
             - case display:
               - adjust def:item display:<[contents].get[1]>
             - case lore:
-              - adjust def:item lore:<[contents]>
+              - adjust def:item lore:<[contents].parsed>
             - case model:
               - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1]>]
             - case flags:
