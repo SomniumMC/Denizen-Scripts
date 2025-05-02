@@ -488,7 +488,7 @@ Staff_Item_Edit_Book_Events:
             - case display:
               - adjust def:item display:<[contents].get[1].parsed>
             - case lore:
-              - adjust def:item lore:<[contents].separated_by[<n>].parsed>
+              - adjust def:item lore:<[contents].parsed>
             - case model:
               - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1]>]
             - case flags:
@@ -646,7 +646,7 @@ Staff_Item_Edit_GUI_Events:
                 - define edit_book <item[Staff_Item_Edit_Book]>
                 - adjust def:edit_book flag:type:model
                 - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[edit_item].components_patch.get[minecraft:item_model].if_null[string:]>
+                - adjust def:edit_book book_pages:<[edit_item].components_patch.get[minecraft:item_model].if_null[]>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
             - case flags:
                 - define edit_book <item[Staff_Item_Edit_Book]>
