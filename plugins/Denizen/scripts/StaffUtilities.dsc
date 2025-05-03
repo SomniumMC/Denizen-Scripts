@@ -486,31 +486,33 @@ Staff_Item_Edit_Book_Events:
     events:
         after player edits book:
         - if <context.old_book.script.name||null> == Staff_Item_Edit_Book:
-          - define type <context.old_book.flag[type]>
-          - define contents <context.book.book_pages>
-          - define item <player.flag[staff_item_edit]>
-          - choose <[type]>:
-            - case display:
-              - adjust def:item display:<[contents].get[1].parsed>
-            - case lore:
-              - adjust def:item lore:<[contents].parsed>
-              - adjust def:item flag:lore:<[contents].parsed>
-            - case model:
-              - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
-            - case current_dura:
-              - adjust def:item flag:durability1:<[contents].get[1].strip_color>
-            - case max_dura:
-              - adjust def:item flag:durability2:<[contents].get[1].strip_color>
-          - inventory set o:<[item]> slot:hand destination:<player.inventory>
-          - run update_item_task def:<player>|<player.inventory.slot[hand]>|hand
-          - narrate "<green>Item updated successfully!"
+            - define type <context.old_book.flag[type]>
+            - define contents <context.book.book_pages>
+            - define item <player.flag[staff_item_edit]>
+            - choose <[type]>:
+                - case display:
+                  - adjust def:item display:<[contents].get[1].parsed>
+                - case lore:
+                  - adjust def:item lore:<[contents].parsed>
+                  - if <[item].has_flag[durability1]>:
+                      - adjust def:item flag:lore:<[contents].parsed>
+                - case model:
+                    - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
+                - case current_dura:
+                    - adjust def:item flag:durability1:<[contents].get[1].strip_color>
+                - case max_dura:
+                    - adjust def:item flag:durability2:<[contents].get[1].strip_color>
+            - inventory set o:<[item]> slot:hand destination:<player.inventory>
+            - if <[item].has_flag[durability1]>:
+                - run update_item_task def:<player>|<player.inventory.slot[hand]>|hand
+            - narrate "<green>Item updated successfully!"
         on player signs book:
         - if <player.item_in_hand.script.name||null> == Staff_Item_Edit_Book:
-          - narrate "<red>Please click <white>Done<red>, don't sign it!"
-          - determine NOT_SIGNING
+            - narrate "<red>Please click <white>Done<red>, don't sign it!"
+            - determine NOT_SIGNING
         on player drops item:
         - if <context.item.script.name||null> == Staff_Item_Edit_Book:
-          - determine cancelled
+            - determine cancelled
 
 Staff_Item_Edit_GUI:
     type: inventory
