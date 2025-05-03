@@ -524,7 +524,7 @@ Staff_Item_Edit_GUI:
     definitions:
         ItemPreview: <player.flag[staff_item_edit].if_null[air]>
         Display: <item[name_tag].with_single[display=<green>Edit Display Name].with_single[flag=type:display].with_single[lore=<yellow>Click to edit the display name of the item<n><gray>Current: <white><player.flag[staff_item_edit].display.if_null[<player.flag[staff_item_edit].material.name.replace_text[_].with[ ].to_titlecase>].if_null[None]>]>
-        lore: <item[paper].with_single[display=<green>Edit Lore].with_single[flag=type:lore].with_single[lore=<yellow>Click to edit the lore of the item<n><gray>Current Lines: <white><player.flag[staff_item_edit].lore.size||0>]>
+        lore: <item[paper].with_single[display=<green>Edit Lore].with_single[flag=type:lore].with_single[lore=<yellow>Click to edit the lore of the item<n><gray>Current Lines: <white><player.flag[staff_item_edit].flag[lore].size.if_null[<player.flag[staff_item_edit].lore.size||0>]>]>
         model: <item[painting].with_single[display=<green>Edit Item Model].with_single[flag=type:model].with_single[lore=<yellow>Click to edit the custom model data<n><gray>Current: <white><player.flag[staff_item_edit].components_patch.get[minecraft:item_model].replace[string:].with[].if_null[None]>]>
         enchant: <item[enchanted_book].with_single[display=<green>Edit Enchantments].with_single[lore=<yellow>Click to edit item enchantments<n><gray>Not yet implemented]>
         attribute: <item[diamond].with_single[display=<green>Edit Attributes].with_single[lore=<yellow>Click to edit item attributes<n><gray>Not yet implemented]>
