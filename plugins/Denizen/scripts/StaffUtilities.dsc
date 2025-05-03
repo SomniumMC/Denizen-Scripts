@@ -498,9 +498,9 @@ Staff_Item_Edit_Book_Events:
             - case model:
               - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
             - case current_dura:
-              - adjust def:item flag:durability1:<[contents].get[1].parsed>
+              - adjust def:item flag:durability1:<[contents].get[1].strip_color>
             - case max_dura:
-              - adjust def:item flag:durability2:<[contents].get[1].parsed>
+              - adjust def:item flag:durability2:<[contents].get[1].strip_color>
           - inventory set o:<[item]> slot:hand destination:<player.inventory>
           - run update_item_task def:<player>|<player.inventory.slot[hand]>|hand
           - narrate "<green>Item updated successfully!"
