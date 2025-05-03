@@ -107,7 +107,7 @@ update_item_task:
     - define lore <[lore]><blue><[2].flag[lore]>
     - define test t
   - if <[2].has_flag[durability1]>:
-    - define lore "<[lore]><n><element[                          ].strikethrough><n><gold>Durability: <[2].flag[durability1].round_up> / <[2].flag[durability2].round_up>"
+    - define lore "<[lore]><n><element[                          ].strikethrough><n><gold>Durability: <[2].flag[durability1].round_up> / <[2].flag[durability2].round_up.if_null[<[2].flag[durability1].round_up>]>"
     - define test t
   - if <[2].has_flag[damage_type]>:
     - if <[2].flag[damage_type]> == slashing:
