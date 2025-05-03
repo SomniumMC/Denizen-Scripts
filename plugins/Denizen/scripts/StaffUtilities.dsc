@@ -495,7 +495,7 @@ Staff_Item_Edit_Book_Events:
                 - case lore:
                   - adjust def:item lore:<[contents].parsed>
                   - if <[item].has_flag[durability1]>:
-                      - adjust def:item flag:lore:<[contents].parsed>
+                      - adjust def:item flag:lore:<[contents].get[1].parsed>
                 - case model:
                     - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
                 - case current_dura:
