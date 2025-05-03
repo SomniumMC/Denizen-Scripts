@@ -474,7 +474,12 @@ Staff_Item_Edit:
                     - define edit_book <item[Staff_Item_Edit_Book]>
                     - adjust def:edit_book flag:type:lore
                     - adjust def:edit_book lore:<[item].lore><n><red>Editing<&co><&sp><gold>Lore
-                    - adjust def:edit_book book_pages:<[item].lore.if_null[]>
+                    - adjust def:edit_book book_pages:<[item].lore.separated_by[<n>].if_null[]>
+                    - if <[item].has_flag[durability1]>:
+                        - if <[item].has_flag[lore]>:
+                            - adjust def:edit_book book_pages:<[item].flag[lore].separated_by[<n>].if_null[]>
+                        - else:
+                            - adjust def:edit_book book_pages:<empty>
                     - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
                 - default:
                     - narrate "<red>Invalid Command"
@@ -493,9 +498,9 @@ Staff_Item_Edit_Book_Events:
                 - case display:
                     - adjust def:item display:<[contents].get[1].parsed>
                 - case lore:
-                    - adjust def:item lore:<[contents].strip_color.parsed>
+                    - adjust def:item lore:<[contents].parsed>
                     - if <[item].has_flag[durability1]>:
-                        - adjust def:item flag:lore:<[contents].strip_color.parsed>
+                        - adjust def:item flag:lore:<[contents].parsed>
                 - case model:
                     - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
                 - case current_dura:
