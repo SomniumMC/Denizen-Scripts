@@ -593,10 +593,10 @@ Staff_Item_Edit_GUI_Events:
                 - define edit_book <item[Staff_Item_Edit_Book]>
                 - adjust def:edit_book flag:type:lore
                 - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
-                - adjust def:edit_book book_pages:<[edit_item].lore.if_null[]>
+                - adjust def:edit_book book_pages:<[edit_item].lore.separated_by[<n>].if_null[]>
                 - if <[edit_item].has_flag[durability1]>:
                     - if <[edit_item].has_flag[lore]>:
-                        - adjust def:edit_book book_pages:<[edit_item].flag[lore]>
+                        - adjust def:edit_book book_pages:<[edit_item].flag[lore].separated_by[<n>].if_null[]>
                     - else:
                         - adjust def:edit_book book_pages:<empty>
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
