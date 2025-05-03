@@ -449,6 +449,11 @@ Staff_Item_Edit:
             - narrate "<red>Empty Hand"
             - stop
         - if <context.args.is_empty>:
+            - define item <player.item_in_hand>
+            - if <[item].script.name||null> == Staff_Item_Edit_Book:
+              - narrate "<red>Please finish the current book before opening the GUI!"
+              - determine cancelled
+            - flag player staff_item_edit:<[item]>
             - inventory open d:Staff_Item_Edit_GUI
             - stop
         - else:
@@ -489,9 +494,11 @@ Staff_Item_Edit_Book_Events:
               - adjust def:item display:<[contents].get[1].parsed>
             - case lore:
               - adjust def:item lore:<[contents].parsed>
+              - adjust def:item flag:lore:<[contents].parsed>
             - case model:
               - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
           - inventory set o:<[item]> slot:hand destination:<player.inventory>
+          - run update_item_task def:<player>|<player.inventory.slot[hand]>|hand
           - narrate "<green>Item updated successfully!"
         on player signs book:
         - if <player.item_in_hand.script.name||null> == Staff_Item_Edit_Book:
@@ -515,7 +522,7 @@ Staff_Item_Edit_GUI:
         model: <item[painting].with_single[display=<green>Edit Item Model].with_single[flag=type:model].with_single[lore=<yellow>Click to edit the custom model data<n><gray>Current: <white><player.flag[staff_item_edit].components_patch.get[minecraft:item_model].replace[string:].with[].if_null[None]>]>
         enchant: <item[enchanted_book].with_single[display=<green>Edit Enchantments].with_single[lore=<yellow>Click to edit item enchantments<n><gray>Not yet implemented]>
         attribute: <item[diamond].with_single[display=<green>Edit Attributes].with_single[lore=<yellow>Click to edit item attributes<n><gray>Not yet implemented]>
-        components: <item[command_block].with_single[display=<red>Edit Components [Advanced]].with_single[flag=type:custom].with_single[lore=<yellow>Not yet implemented<n><gray>For advanced item customization]>
+        components: <item[command_block].with_single[display=<red>Edit Components [Advanced]].with_single[flag=type:custom].with_single[lore=<yellow>For advanced item customization]>
     slots:
     - [GUINull] [GUINull] [GUINull] [GUINull] [display] [GUINull] [GUINull] [GUINull] [GUINull]
     - [lore] [model] [enchant] [GUINull] [ItemPreview] [GUINull] [attribute] [GUINull] [components]
@@ -530,10 +537,12 @@ Staff_Item_Edit_Custom_GUI:
     gui: true
     definitions:
         ItemPreview: <player.flag[staff_item_edit].if_null[air]>
+        CurrentDura: <item[anvil].with_single[display=<green>Edit Current Custom Durability].with_single[flag=type:current_dura].with_single[lore=<yellow>Click to edit the current durability<n><gray>Current Durability: <white><player.flag[staff_item_edit].flag[durability1].if_null[None]>]>
+        MaxDura: <item[anvil].with_single[display=<green>Edit Max Custom Durability].with_single[flag=type:max_dura].with_single[lore=<yellow>Click to edit the current durability<n><gray>Current Durability: <white><player.flag[staff_item_edit].flag[durability1].if_null[None]>]>
     slots:
     - [GUINull] [GUINull] [GUINull] [GUINull] [ItemPreview] [GUINull] [GUINull] [GUINull] [GUINull]
-    - [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull]
-    - [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull]
+    - [CurrentDura] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull]
+    - [MaxDura] [GUINull] [GUINull] [GUINull] [GUIReturn] [GUINull] [GUINull] [GUINull] [GUINull]
 
 Staff_Item_Edit_Book:
     type: item
@@ -551,13 +560,6 @@ Staff_Item_Edit_GUI_Events:
     type: world
     debug: true
     events:
-        after player opens Staff_Item_Edit_GUI:
-        - define item <player.item_in_hand>
-        - if <[item].script.name||null> == Staff_Item_Edit_Book:
-          - narrate "<red>Please finish the current book before opening the GUI!"
-          - determine cancelled
-        - flag player staff_item_edit:<[item]>
-        - inventory set o:<[item]> slot:14 destination:<player.open_inventory>
         on player clicks item in Staff_Item_Edit_GUI:
         - define item <context.item>
         - define type <context.item.flag[type]>
@@ -586,3 +588,23 @@ Staff_Item_Edit_GUI_Events:
                 - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
             - case custom:
                 - inventory open d:Staff_Item_Edit_Custom_GUI
+        on player clicks item in Staff_Item_Edit_Custom_GUI:
+        - define item <context.item>
+        - define type <context.item.flag[type]>
+        - define edit_item <player.flag[staff_item_edit]>
+        - if <[type].if_null[null]> == null:
+          - stop
+        - inventory close
+        - choose <[type]>:
+            - case current_dura:
+                - define edit_book <item[Staff_Item_Edit_Book]>
+                - adjust def:edit_book flag:type:current_dura
+                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[edit_item].flag[durability1].if_null[]>
+                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
+            - case max_dura:
+                - define edit_book <item[Staff_Item_Edit_Book]>
+                - adjust def:edit_book flag:type:max_dura
+                - adjust def:edit_book lore:<[edit_item].lore><n><red>Editing<&co><&sp><gold>Lore
+                - adjust def:edit_book book_pages:<[edit_item].flag[durability2].if_null[]>
+                - inventory set o:<[edit_book]> slot:hand destination:<player.inventory>
