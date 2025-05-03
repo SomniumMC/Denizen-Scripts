@@ -165,6 +165,8 @@ update_item_task:
     - inventory adjust slot:<[3]> flag:appraised:1 destination:<[1].inventory>
     #- run SKILL_LEVEL_TASK def:<[1]>|Appraisal|<[2].quantity>|Intelligence
   - inventory adjust slot:<[3]> lore:<[lore]> destination:<[1].inventory>
+  - if <[2].has_flag[durability1]> && <[2].has_flag[durability2].not>:
+    - inventory adjust slot:<[3]> flag:durability2:<[2].flag[durability1]> destination:<[1].inventory>
 
 Attributes_Lore_Proc:
   type: procedure
