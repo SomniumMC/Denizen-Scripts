@@ -451,8 +451,8 @@ Staff_Item_Edit:
         - if <context.args.is_empty>:
             - define item <player.item_in_hand>
             - if <[item].script.name||null> == Staff_Item_Edit_Book:
-              - narrate "<red>Please finish the current book before opening the GUI!"
-              - determine cancelled
+                - narrate "<red>Please finish the current book before opening the GUI!"
+                - determine cancelled
             - flag player staff_item_edit:<[item]>
             - inventory open d:Staff_Item_Edit_GUI
             - stop
@@ -491,17 +491,26 @@ Staff_Item_Edit_Book_Events:
             - define item <player.flag[staff_item_edit]>
             - choose <[type]>:
                 - case display:
-                  - adjust def:item display:<[contents].get[1].parsed>
+                    - adjust def:item display:<[contents].get[1].parsed>
                 - case lore:
-                  - adjust def:item lore:<[contents].strip_color.parsed>
-                  - if <[item].has_flag[durability1]>:
-                      - adjust def:item flag:lore:<[contents].strip_color.parsed>
+                    - adjust def:item lore:<[contents].strip_color.parsed>
+                    - if <[item].has_flag[durability1]>:
+                        - adjust def:item flag:lore:<[contents].strip_color.parsed>
                 - case model:
                     - adjust def:item components_patch:[minecraft:item_model=string:<[contents].get[1].strip_color>]
                 - case current_dura:
+                    - if !<[contents].get[1].strip_color.is_integer>:
+                        - narrate "<red>Needs to be a number!"
+                        - stop
+                    - else:
+                        - adjust def:item flag:durability1:<[contents].get[1].strip_color>
                     - adjust def:item flag:durability1:<[contents].get[1].strip_color>
                 - case max_dura:
-                    - adjust def:item flag:durability2:<[contents].get[1].strip_color>
+                    - if !<[contents].get[1].strip_color.is_integer>:
+                        - narrate "<red>Needs to be a number!"
+                        - stop
+                    - else:
+                        - adjust def:item flag:durability2:<[contents].get[1].strip_color>
             - inventory set o:<[item]> slot:hand destination:<player.inventory>
             - if <[item].has_flag[durability1]>:
                 - run update_item_task def:<player>|<player.inventory.slot[hand]>|hand
