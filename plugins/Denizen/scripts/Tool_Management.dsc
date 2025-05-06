@@ -35,11 +35,12 @@ Tool_Bag_Event:
     events:
         on player right clicks block with:tool_bag:
         - define item <player.item_in_hand>
-        - define id <[item].flag[id]>
-        - if <[id]||null> == null:
+        - define id <[item].flag[id].if_null[null]>
+        - if <[id]> == null:
             - flag server satchel.total_id:+:1
             - inventory adjust slot:hand flag:id:<server.flag[satchel.total_id]> destination:<player.inventory>
             - note <inventory[Tool_Bag_Inventory_Base]> as:tool_bag_<[id]>
+            - stop
         - else:
             - inventory open d:tool_bag_<[id]>'
         on player clicks item in Tool_Bag_Inventory_Base:
