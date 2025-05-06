@@ -39,10 +39,10 @@ Tool_Bag_Event:
         - if <[id]> == null:
             - flag server satchel.total_id:+:1
             - inventory adjust slot:hand flag:id:<server.flag[satchel.total_id]> destination:<player.inventory>
-            - note <inventory[Tool_Bag_Inventory_Base]> as:tool_bag_<[id]>
+            - note <inventory[Tool_Bag_Inventory_Base]> as:tool_bag_<server.flag[satchel.total_id]>
             - stop
         - else:
-            - inventory open d:tool_bag_<[id]>'
+            - inventory open d:tool_bag_<[id]>
         on player clicks item in Tool_Bag_Inventory_Base:
         - narrate test
 
