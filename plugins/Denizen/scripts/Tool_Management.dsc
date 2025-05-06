@@ -44,7 +44,12 @@ Tool_Bag_Event:
         - else:
             - inventory open d:tool_bag_<[id]>
         on player clicks item in Tool_Bag_Inventory_Base:
-        - narrate test
+        - define inventory_item <context.item>
+        - if <[inventory_item].has_flag[tool]> && <context.slot> != -998:
+          - playsound <player> sound_category:blocks sound:item_bundle_insert
+          - stop
+        - else:
+          - determine passively cancelled
 
 Tool_Bag_Inventory_Base:
     type: inventory
