@@ -132,7 +132,7 @@ Crafting_Master_Data:
         - iron_nugget-5
         lockpick-3:
         - steel_ingot-1
-        key_ring:
+        key_ring-1:
         - iron_ingot-1
         - iron_nugget-2
         - copper_block-1
@@ -261,10 +261,10 @@ Crafting_Master_Data:
         - iron_block-1
         - campfire-1
         - glass-2
-        cooking_oven_burner:
+        cooking_oven_burner-1:
         - iron_ingot-1
         - charcoal-4
-        cooking_storage_block:
+        cooking_storage_block-1:
         - oak_planks-5
         - chest-1
         - iron_ingot-4
@@ -325,7 +325,7 @@ Crafting_Master_Data:
         skillet-1:
         - iron_ingot-2
         - stick-1
-        cooking_link_tool:
+        cooking_link_tool-1:
         - stick-1
         - string-1
         - iron_ingot-1
