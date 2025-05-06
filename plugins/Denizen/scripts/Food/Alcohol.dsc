@@ -341,7 +341,7 @@ Alcohol_Mixer_Dissasemble_Event:
         on player clicks red_concrete in Alcohol_Mixer_Dissasemble_GUI:
         - define mixer <player.flag[mixer.dissasemble]>
         - drop <inventory[mixer_inventory_<[mixer].flag[mixer.id]>].list_contents> <[mixer].location.center>
-        - note remove mixer_inventory_<[mixer].flag[mixer.id]>
+        - note remove as:mixer_inventory_<[mixer].flag[mixer.id]>
         - remove <[mixer].flag[mixer.model]>
         - drop item:Alcohol_Mixing_Tub <[mixer].location.center>
         - flag <[mixer].location.below> mixer_fire:!
