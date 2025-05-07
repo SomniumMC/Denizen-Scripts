@@ -104,7 +104,7 @@ update_item_task:
   - wait 1t
   - define lore <empty>
   - if <[2].has_flag[lore]>:
-    - define lore <[lore]><blue><[2].flag[lore].separated_by[<n>].if_null[<[2].flag[lore].get[1]>]>
+    - define lore <[lore]><blue><[2].flag[lore].separated_by[<n>].if_null[<[2].flag[lore]>]>
     - define test t
   - if <[2].has_flag[durability1]>:
     - define lore "<[lore]><n><element[                          ].strikethrough><n><gold>Durability: <[2].flag[durability1].round_up> / <[2].flag[durability2].round_up.if_null[<[2].flag[durability1].round_up>]>"
