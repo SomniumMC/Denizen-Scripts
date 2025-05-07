@@ -81,7 +81,7 @@ Tool_Bag_Putaway:
     - define bag <player.item_in_hand>
     - adjust def:bag components_patch:[minecraft:item_model=string:minecraft:leather]
     - adjust def:bag flag:tool:!
-    - inventory adjust slot:hand o:<[bag]> destination:<player.inventory>
+    - inventory set slot:hand o:<[bag]> destination:<player.inventory>
 
 Tool_Bag_Inventory_Base:
     type: inventory
