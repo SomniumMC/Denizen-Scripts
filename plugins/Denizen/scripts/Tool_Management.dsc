@@ -46,13 +46,13 @@ Tool_Bag_Event:
         on player clicks item in Tool_Bag_Inventory_Base:
         - define inventory_item <context.item>
         - define click_type <context.click>
-        - if <[click_type]> == left_click:
+        - if <[click_type]> == left:
             - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 || <[inventory_item].material.name> == air && <context.slot> != -998:
                 - playsound <player> sound_category:blocks sound:item.bundle.insert
                 - stop
             - else:
               - determine passively cancelled
-        - if <[click_type]> == right_click:
+        - if <[click_type]> == right:
             - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 && <context.clicked_inventory.script.name> == Tool_Bag_Inventory_Base:
                 - playsound <player> sound_category:blocks sound:entity.arrow.hit_player
                 - run Tool_Bag_Select def:<[inventory_item]>
