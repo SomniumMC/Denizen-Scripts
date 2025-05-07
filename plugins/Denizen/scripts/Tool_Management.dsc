@@ -45,7 +45,7 @@ Tool_Bag_Event:
             - inventory open d:tool_bag_<[id]>
         on player clicks item in Tool_Bag_Inventory_Base:
         - define inventory_item <context.item>
-        - define click_type <context.click_type>
+        - define click_type <context.click>
         - if <[click_type]> == left_click:
             - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 || <[inventory_item].material.name> == air && <context.slot> != -998:
                 - playsound <player> sound_category:blocks sound:item.bundle.insert
