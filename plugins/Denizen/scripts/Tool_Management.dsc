@@ -20,7 +20,7 @@ Tool_Management_Event_Main:
         - if <[item].script.name.if_null[null]> == config_wrench:
             - flag player tool_bench:<[tool_bench]> expire:30s
             - inventory open d:Tool_Management_Dissasemble_GUI
-        - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>]>
+        - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].if_null[null]>
 
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
@@ -64,17 +64,20 @@ Tool_Bag_Event:
             - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 && <context.clicked_inventory.script.name> == Tool_Bag_Inventory_Base:
                 - playsound <player> sound_category:blocks sound:entity.arrow.hit_player
                 - inventory close
-                - run Tool_Bag_Select def:<[inventory_item]>
+                - run Tool_Bag_Select def.tool:<[inventory_item]> def.slot:<[slot]>
             - else:
               - determine passively cancelled
 
 Tool_Bag_Select:
     type: task
     debug: true
-    definitions: tool
+    definitions: tool|slot
     script:
-    - inventory adjust slot:hand components_patch:[minecraft:item_model=string:<[tool].components_patch.get[minecraft:item_model].replace[string:].with[]>] destination:<player.inventory>
-    - inventory adjust slot:hand flag:tool:<[tool].flag[tool]> destination:<player.inventory>
+    - define bag <player.item_in_hand>
+    - adjust def:bag components_patch:[minecraft:item_model=string:<[tool].components_patch.get[minecraft:item_model].replace[string:].with[]>]
+    - adjust def:bag flag:tool:<[tool].flag[tool]>
+    - adjust def:bag flag:slot:<[slot]>
+    - inventory set slot:hand o:<[bag]> destination:<player.inventory>
 
 Tool_Bag_Putaway:
     type: task
@@ -83,6 +86,7 @@ Tool_Bag_Putaway:
     - define bag <player.item_in_hand>
     - adjust def:bag components_patch:[minecraft:item_model=string:minecraft:leather]
     - adjust def:bag flag:tool:!
+    - adjust def:bag flag:slot:!
     - inventory set slot:hand o:<[bag]> destination:<player.inventory>
 
 Tool_Bag_Inventory_Base:
