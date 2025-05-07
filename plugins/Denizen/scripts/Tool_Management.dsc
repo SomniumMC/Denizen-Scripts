@@ -45,11 +45,28 @@ Tool_Bag_Event:
             - inventory open d:tool_bag_<[id]>
         on player clicks item in Tool_Bag_Inventory_Base:
         - define inventory_item <context.item>
-        - if <[inventory_item].has_flag[tool]> && <context.slot> != -998:
-          - playsound <player> sound_category:blocks sound:item_bundle_insert
-          - stop
-        - else:
-          - determine passively cancelled
+        - define click_type <context.click_type>
+        - if <[click_type]> == left_click:
+            - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 || <[inventory_item].material.name> == air && <context.slot> != -998:
+                - playsound <player> sound_category:blocks sound:item.bundle.insert
+                - stop
+            - else:
+              - determine passively cancelled
+        - if <[click_type]> == right_click:
+            - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 && <context.clicked_inventory.script.name> == Tool_Bag_Inventory_Base:
+                - playsound <player> sound_category:blocks sound:entity.arrow.hit_player
+                - run Tool_Bag_Select def:<[inventory_item]>
+                - stop
+            - else:
+              - determine passively cancelled
+
+Tool_Bag_Select:
+    type: task
+    debug: true
+    definitions: tool
+    script:
+    - inventory adjust slot:hand components_patch:[minecraft:item_model=string:<[tool].components_patch.get[minecraft:item_model].replace[string:].with[]>] destination:<player.inventory>
+
 
 Tool_Bag_Inventory_Base:
     type: inventory

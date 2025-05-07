@@ -106,8 +106,8 @@ Satchel_Interact:
         - define list <script[satchel_storage_data].data_key[satchels.<[Satchel].flag[type]>].if_null[null]>
         - if <[list]> == null:
           - determine passively cancelled
-        - if <[inventory_item].material.name||null> in <[list]> || <[inventory_item].script.name||null> in <[list]> && <context.slot> != -998:
-          - playsound <player> sound_category:blocks sound:item_bundle_insert
+        - if <[inventory_item].material.name||null> in <[list]> && <context.slot> != -998 || <[inventory_item].script.name||null> in <[list]> && <context.slot> != -998:
+          - playsound <player> sound_category:blocks sound:item.bundle.insert
           - stop
         - else:
           - determine passively cancelled
