@@ -45,6 +45,8 @@ Tool_Bag_Event:
             - if <player.is_sneaking>:
                 - run tool_bag_putaway
             - else:
+                - if <[item].has_flag[tool]>:
+                    - stop
                 - inventory open d:tool_bag_<[id]>
         on player clicks item in Tool_Bag_Inventory_Base:
         - define inventory_item <context.item>
