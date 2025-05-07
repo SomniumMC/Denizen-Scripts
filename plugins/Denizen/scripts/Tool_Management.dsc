@@ -42,11 +42,16 @@ Tool_Bag_Event:
             - note <inventory[Tool_Bag_Inventory_Base]> as:tool_bag_<server.flag[satchel.total_id]>
             - stop
         - else:
-            - inventory open d:tool_bag_<[id]>
+            - if <player.is_sneaking>:
+                - run tool_bag_putaway
+            - else:
+                - inventory open d:tool_bag_<[id]>
         on player clicks item in Tool_Bag_Inventory_Base:
         - define inventory_item <context.item>
         - define click_type <context.click>
         - define slot <context.slot>
+        - if <[inventory_item].script.name.if_null[null]> == tool_bag:
+            - determine cancelled
         - if <[click_type]> == left:
             - if <[inventory_item].has_flag[tool]> || <[inventory_item].material.name> == air && <context.slot> != -998:
                 - playsound <player> sound_category:blocks sound:item.bundle.insert
@@ -67,7 +72,16 @@ Tool_Bag_Select:
     definitions: tool
     script:
     - inventory adjust slot:hand components_patch:[minecraft:item_model=string:<[tool].components_patch.get[minecraft:item_model].replace[string:].with[]>] destination:<player.inventory>
+    - inventory adjust slot:hand flag:tool:<[tool].flag[tool]> destination:<player.inventory>
 
+Tool_Bag_Putaway:
+    type: task
+    debug: true
+    script:
+    - define bag <player.item_in_hand>
+    - adjust def:bag components_patch:[minecraft:item_model=string:minecraft:leather]
+    - adjust def:bag flag:tool:!
+    - inventory adjust slot:hand o:<[bag]> destination:<player.inventory>
 
 Tool_Bag_Inventory_Base:
     type: inventory
