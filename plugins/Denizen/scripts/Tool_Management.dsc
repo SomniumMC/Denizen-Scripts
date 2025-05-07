@@ -173,6 +173,9 @@ Copper_File:
     debug: false
     display name: <gold>Copper File
     material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:chisel
     flags:
         lore: <yellow>A file made of copper.<n><light_purple>Tier 1 Filing
         durability1: 100
