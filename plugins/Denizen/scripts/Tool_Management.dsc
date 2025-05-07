@@ -47,7 +47,7 @@ Tool_Bag_Event:
         - define inventory_item <context.item>
         - define click_type <context.click>
         - if <[click_type]> == left:
-            - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 || <[inventory_item].material.name> == air && <context.slot> != -998:
+            - if <[inventory_item].has_flag[tool]> || <[inventory_item].material.name> == air && <context.slot> != -998:
                 - playsound <player> sound_category:blocks sound:item.bundle.insert
                 - stop
             - else:
