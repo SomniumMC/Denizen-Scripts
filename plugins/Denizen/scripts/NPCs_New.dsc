@@ -52,7 +52,7 @@ NPC_Edit_Event:
         - flag <player> npc_edit.prev:<player.flag[npc_edit.path]>
         - flag <player> npc_edit.path:<[path]>
         - if <[click_type]> == left:
-            - inventory open d:NPC_Edit_Book
+            - inventory open d:NPC_Edit_Menu_Main
         - if <[click_type]> == right:
             - if <[type]> == message:
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Message
