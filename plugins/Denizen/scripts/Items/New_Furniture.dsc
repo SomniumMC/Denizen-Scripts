@@ -34,7 +34,7 @@ Furniture_Main_Event:
         - define item <context.item_in_hand>
         - define right_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].forward_flat[1]>
         - define left_block <[location].with_yaw[<player.location.yaw.round_to_precision[90].add[90]>].backward_flat[1]>
-        - define block_list <list[<[location]>|<[right_block]>]>
+        - define block_list <list[<[location]>|<[right_block]>|<[left_block]>]>
         - foreach <[block_list]> as:block:
           - if <[block].material.name> !in <list[air|tripwire]>:
             - narrate "<red>Area blocked!"

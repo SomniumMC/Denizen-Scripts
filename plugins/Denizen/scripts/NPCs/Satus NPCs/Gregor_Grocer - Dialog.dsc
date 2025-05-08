@@ -1,13 +1,13 @@
 # This file houses the dialog tree for the following NPC:
-## Nameless_Grocer
+## Gregor_Grocer
 
 # First Created: 12/16/2024
 
 
-NPC_DialogTree_Nameless_Grocer:
+NPC_DialogTree_Gregor_Grocer:
     type: data
     debug: false
-    display: <yellow>Grocer
+    display: <yellow>Gregor
     welcome:
       dialog: <green>Fresh produce and seasoning for sale! How can I help you?
       option1:
@@ -42,7 +42,7 @@ NPC_DialogTree_Nameless_Grocer:
         text: <white>Thanks for letting me know!
         type: end
 
-NPC_ShopData_Grocer_Satus:
+NPC_ShopData_Gregor_Grocer:
   type: data
   debug: false
   shop:

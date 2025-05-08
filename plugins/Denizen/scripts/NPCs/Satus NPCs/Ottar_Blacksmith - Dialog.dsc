@@ -1,11 +1,12 @@
 # This file houses the dialog tree for the following NPC:
-## Nameless_Blacksmith
+## Ottar_Blacksmith
 
 # First Created: 12/10/2024
 
-NPC_DialogTree_Nameless_Blacksmith:
+NPC_DialogTree_Ottar_Blacksmith:
     type: data
     debug: false
+    display: <yellow>Ottar
     welcome:
       dialog: <green> Who'sit Huh?!? What do ya need? Metals cooling, no time wasting!
       option1:
@@ -108,7 +109,7 @@ NPC_DialogTree_Nameless_Blacksmith:
           flag: quest.tutorial_beginnings.stage
           value: 9
 
-NPC_ShopData_Blacksmith_Satus:
+NPC_ShopData_Ottar_Blacksmith:
   type: data
   debug: false
   shop:

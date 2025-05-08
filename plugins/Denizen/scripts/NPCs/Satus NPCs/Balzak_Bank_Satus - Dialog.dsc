@@ -1,13 +1,13 @@
 # This file houses the dialog tree for the following NPC:
-## Nameless_Bank_Satus
+## Balzak_Bank_Satus
 
 # First Created: 11/20/2024
 
-NPC_DialogTree_Nameless_Bank_Satus:
+NPC_DialogTree_Balzak_Bank_Satus:
     type: data
     debug: false
     # this opens the first welcome dialog with the npc saying the "dialog" part and giving the options to the player with the "option" part.
-    display: <yellow>Satus Banker
+    display: <yellow>Balzak
     welcome:
       dialog: <green>Hey there, would you like to view your bank?
       option1:

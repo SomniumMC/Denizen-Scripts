@@ -40,11 +40,10 @@ NPC_ID_Storage:
     44: Ferryman_Mainland
 
     ## Satus NPCs
-    42: Namless_Bank_Satus
-    27: Nameless_Blacksmith
-    28: Nameless_Grocer
+    42: Balzak_Bank_Satus
+    27: Ottar_Blacksmith
+    28: Gregor_Grocer
     29: Nameless_Tailor
-    30: Nameless_Bank
     31: Nameless_Lumberjack
     #32: Nameless_Glassblower
     33: Brynwen_GeneralStore
