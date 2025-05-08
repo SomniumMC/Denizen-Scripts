@@ -61,7 +61,14 @@ NPC_Edit_Event:
         - if <[click_type]> == right:
             - if <[type]> == message:
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Message
+                - adjust def:edit_book type:message
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.message].if_null[]>
+                - give <[edit_book]>
+                - inventory close
+            - if <[type]> == response:
+                - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Response
+                - adjust def:edit_book type:response
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
                 - give <[edit_book]>
                 - inventory close
         after player edits book:
@@ -70,9 +77,13 @@ NPC_Edit_Event:
             - define contents <context.book.book_pages>
             - define id <player.flag[npc_edit.id]>
             - define path <player.flag[npc_edit.path]>
-            - flag server npc.<[id]>.<[path]>.message:<[contents]>
+            - if <[type]> == message:
+                - flag server npc.<[id]>.<[path]>.message:<[contents]>
+                - narrate "<green>Saved Data to NPC!"
+            - if <[type]> == response:
+                - flag server npc.<[id]>.<[path]>.response:<[contents]>
+                - narrate "<green>Saved Data to NPC!"
             - take item:NPC_Edit_Book
-            - narrate "<green>Saved Data to NPC!"
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
             - inventory open d:NPC_Edit_Menu_Main
         on player signs book:
@@ -95,11 +106,11 @@ NPC_Edit_Menu_Main:
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
         - define item <item[red_concrete]>
         - adjust def:item display:<yellow>Option<&sp><[option].after[option]>
-        - if <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[message].if_null[null]> != null:
+        - if <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[response].if_null[null]> != null:
             - adjust def:item material:green_concrete
             - adjust def:item flag:type:<[option]>
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
-            - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.message]><n><yellow>Left Click to View Dialog Tree"
+            - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.text]><n><green>Right Click to Edit<n><yellow>Left Click to View Dialog Tree"
         - else:
             - adjust def:item flag:type:new_option
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
