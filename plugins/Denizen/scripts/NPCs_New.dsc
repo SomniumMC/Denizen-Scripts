@@ -48,61 +48,61 @@ NPC_Edit_Event:
                 - flag <player> npc_edit.path:welcome
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Welcome
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.welcome].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option1:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option1
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>1
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option1].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option2:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option2
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>2
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option2].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option3:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option3
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>3
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option3].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option4:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option4
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>4
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option4].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option5:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option5
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>5
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option5].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option6:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option6
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>6
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option6].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option7:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option7
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>7
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option7].if_null[]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option8:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option8
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>8
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option8]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
             - case option9:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option9
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>9
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option9]>
-                - give item:<[edit_book]> destination:<player.inventory>
+                - give <[edit_book]>
         on player edits book:
         - if <context.old_book.script.name||null> == NPC_Edit_Book:
             - define type <context.old_book.flag[type]>
