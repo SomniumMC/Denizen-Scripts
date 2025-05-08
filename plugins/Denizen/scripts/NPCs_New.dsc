@@ -107,7 +107,7 @@ NPC_Edit_Menu_Main:
         - define result:->:<[item]>
     - determine <[result]>
     slots:
-    - [GUIL] [GUINULL] [GUINULL] [GUINULL] [welcome] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [back_button] [GUINULL] [GUINULL] [GUINULL] [welcome] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
     - [] [] [] [] [] [] [] [] []
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
