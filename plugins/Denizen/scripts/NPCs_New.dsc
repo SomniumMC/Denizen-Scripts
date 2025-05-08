@@ -29,6 +29,7 @@ NPC_Edit_Command:
           - stop
         - flag <player> npc_edit.id:<[npc_id]>
         - flag <player> npc_edit.path:welcome
+        - flag <player> npc_edit.prev:welcome
         - inventory open d:NPC_Edit_Menu_Main
 
 NPC_Edit_Event:
@@ -41,6 +42,10 @@ NPC_Edit_Event:
         - define type <[item].flag[type]||null>
         - define path <[item].flag[path]||null>
         - define click_type <context.click>
+        - if <[type]> == GUIL:
+            - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
+            - inventory open d:NPC_Edit_Menu_Main
+            - stop
         - if <[path]> == null:
             - stop
         - if <[type]> == new_option:
@@ -84,6 +89,7 @@ NPC_Edit_Menu_Main:
     gui: true
     definitions:
         welcome: <item[paper].with_single[display=<yellow>Message].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.message].if_null[<red>Empty]><n><green>Right<&sp>Click<&sp>to<&sp>Edit].with_single[flag=path:<player.flag[npc_edit.path].if_null[welcome]>].with_single[flag=type:message]>
+        back_button: <item[GUIL].with_single[display=<yellow>Back].with_single[lore=<green>Left Click to go back].with_single[flag=type:GUIL]>
     procedural items:
     - define result <list>
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
@@ -101,7 +107,7 @@ NPC_Edit_Menu_Main:
         - define result:->:<[item]>
     - determine <[result]>
     slots:
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [welcome] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [GUIL] [GUINULL] [GUINULL] [GUINULL] [welcome] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
     - [] [] [] [] [] [] [] [] []
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
