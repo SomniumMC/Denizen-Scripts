@@ -42,6 +42,9 @@ NPC_Edit_Event:
         - define path <[item].flag[path]||null>
         - if <[path]> == null:
             - stop
+        - if <[type]> == new_option:
+            - flag <player> npc_edit.path:<[path]>
+            - inventory open d:npc_edit_menu_main
         - flag <player> npc_edit.task:<[type]>
         - define edit_book <item[NPC_Edit_Book]>
         #- adjust def:edit_book flag:type:<[type]>
@@ -138,7 +141,7 @@ NPC_Edit_Menu_Main:
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
             - adjust def:item lore:<server.flag[npc.<player.flag[npc_edit.id]>.<[option]>.message]><n><green>Left<&sp>Click<&sp>to<&sp>Edit
         - else:
-            - adjust def:item flag:type:<[option]>
+            - adjust def:item flag:type:new_option
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
             - adjust def:item lore:<red>Option<&sp>is<&sp>empty.<n><green>Left<&sp>Click<&sp>to<&sp>Edit
         - define result:->:<[item]>
