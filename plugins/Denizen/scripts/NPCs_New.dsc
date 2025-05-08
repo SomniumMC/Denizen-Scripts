@@ -47,49 +47,49 @@ NPC_Edit_Event:
                 - adjust def:edit_book flag:type:welcome
                 - flag <player> npc_edit.path:welcome
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Welcome
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.welcome]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.welcome].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option1:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option1
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>1
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option1]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option1].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option2:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option2
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>2
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option2]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option2].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option3:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option3
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>3
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option3]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option3].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option4:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option4
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>4
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option4]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option4].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option5:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option5
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>5
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option5]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option5].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option6:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option6
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>6
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option6]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option6].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option7:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book flag:type:option7
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Option<&sp>7
-                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option7]>
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option7].if_null[]>
                 - give item:<[edit_book]> destination:<player.inventory>
             - case option8:
                 - define edit_book <item[NPC_Edit_Book]>
@@ -123,7 +123,7 @@ NPC_Edit_Menu_Main:
     inventory: chest
     gui: true
     definitions:
-        welcome: <item[paper].with_single[display=<yellow>Welcome].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.welcome]><n><green>Left<&sp>Click<&sp>to<&sp>Edit].with_single[flag=type:welcome]>
+        welcome: <item[paper].with_single[display=<yellow>Welcome].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.welcome].if_null[<red>Empty]><n><green>Left<&sp>Click<&sp>to<&sp>Edit].with_single[flag=type:welcome]>
     procedural items:
     - define result <list>
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
