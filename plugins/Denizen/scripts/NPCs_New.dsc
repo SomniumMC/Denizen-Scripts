@@ -51,6 +51,7 @@ NPC_Edit_Event:
         - if <[type]> == new_option:
             - if <[click_type]> == right:
                 - define edit_book <item[NPC_Edit_Book]>
+                - flag <player> npc_edit.path:<[path]>
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Response
                 - adjust def:edit_book flag:type:response
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
