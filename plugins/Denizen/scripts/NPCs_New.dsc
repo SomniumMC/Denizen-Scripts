@@ -114,7 +114,7 @@ NPC_Edit_Event:
             - define id <player.flag[npc_edit.id]>
             - define path <player.flag[npc_edit.path]>
             - flag server npc.<[id]>.<[path]>.message:<[contents]>
-            - inventory set o:air slot:hand destination:<player.inventory>
+            - take item:NPC_Edit_Book
             - narrate "<green>Saved Data to NPC!"
         on player signs book:
         - if <player.item_in_hand.script.name||null> == NPC_Edit_Book:
@@ -135,11 +135,11 @@ NPC_Edit_Menu_Main:
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
         - define item <item[red_concrete]>
         - adjust def:item display:<yellow>Option<&sp><[option].after[option]>
-        - if <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].if_null[null]> != null:
+        - if <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[message].if_null[null]> != null:
             - adjust def:item material:green_concrete
             - adjust def:item flag:type:<[option]>
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
-            - adjust def:item lore:<server.flag[npc.<player.flag[npc_edit.id]>.<[option]>.message]><n><green>Left<&sp>Click<&sp>to<&sp>Edit
+            - adjust def:item lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.message]><n><green>Left<&sp>Click<&sp>to<&sp>Edit
         - else:
             - adjust def:item flag:type:new_option
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
