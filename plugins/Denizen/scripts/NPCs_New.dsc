@@ -136,6 +136,7 @@ NPC_Edit_Menu_Main:
         - else:
             - adjust def:item flag:type:<[option]>
             - adjust def:item lore:<red>Option<&sp><&sp>is<&sp>empty.
+        - define result:->:<[item]>
     - determine <[result]>
     slots:
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [welcome] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
