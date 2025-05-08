@@ -49,8 +49,14 @@ NPC_Edit_Event:
         - if <[path]> == null:
             - stop
         - if <[type]> == new_option:
-            - flag <player> npc_edit.path:<[path]>
-            - inventory open d:npc_edit_menu_main
+            - if <[click_type]> == right:
+                - define edit_book <item[NPC_Edit_Book]>
+                - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Response
+                - adjust def:edit_book type:response
+                - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
+                - give <[edit_book]>
+                - inventory close
+            - stop
         - flag <player> npc_edit.task:<[type]>
         - define edit_book <item[NPC_Edit_Book]>
         #- adjust def:edit_book flag:type:<[type]>
@@ -109,7 +115,7 @@ NPC_Edit_Menu_Main:
         - adjust def:item display:<yellow>Option<&sp><[option].after[option]>
         - if <[data].get[response].if_null[null]> != null:
             - adjust def:item material:green_concrete
-            - adjust def:item flag:type:<[option]>
+            - adjust def:item flag:type:response
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
             - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.response]><n><green>Right Click to Edit<n><yellow>Left Click to View Dialog Tree"
             - if <[data].get[message].if_null[null]> == null:
