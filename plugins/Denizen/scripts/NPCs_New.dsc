@@ -104,13 +104,13 @@ NPC_Edit_Event:
             #    - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.option9]>
             #    - give <[edit_book]>
         - inventory close
-        on player edits book:
+        after player edits book:
         - if <context.old_book.script.name||null> == NPC_Edit_Book:
             - define type <context.old_book.flag[type]>
             - define contents <context.book.book_pages>
             - define id <player.flag[npc_edit.id]>
             - define path <player.flag[npc_edit.path]>
-            - flag server npc.<[id]>.<[path]>:<[contents]>
+            - flag server npc.<[id]>.<[path]>.message:<[contents]>
             - inventory set o:air slot:hand destination:<player.inventory>
             - narrate "<green>Saved Data to NPC!"
         on player signs book:
