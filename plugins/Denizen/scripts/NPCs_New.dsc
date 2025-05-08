@@ -52,7 +52,7 @@ NPC_Edit_Event:
             - if <[click_type]> == right:
                 - define edit_book <item[NPC_Edit_Book]>
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Response
-                - adjust def:edit_book type:response
+                - adjust def:edit_book flag:type:response
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
                 - give <[edit_book]>
                 - inventory close
@@ -67,13 +67,13 @@ NPC_Edit_Event:
         - if <[click_type]> == right:
             - if <[type]> == message:
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Message
-                - adjust def:edit_book type:message
+                - adjust def:edit_book flag:type:message
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.message].if_null[]>
                 - give <[edit_book]>
                 - inventory close
             - if <[type]> == response:
                 - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Response
-                - adjust def:edit_book type:response
+                - adjust def:edit_book flag:type:response
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
                 - give <[edit_book]>
                 - inventory close
