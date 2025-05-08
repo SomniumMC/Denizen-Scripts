@@ -1,12 +1,12 @@
 # This file houses the dialog tree for the following NPC:
-## Nameless_Lumberjack
+## Cenwalh_Lumberjack
 
 # First Created: 12/16/2024
 
-NPC_DialogTree_Nameless_Lumberjack:
+NPC_DialogTree_Cenwalh_Lumberjack:
     type: data
     debug: false
-    display: <yellow>Lumberjack
+    display: <yellow>Cenwalh
     welcome:
       dialog: <green>Ugh... this axe is so heavy! Want to buy some lumber?
       option1:

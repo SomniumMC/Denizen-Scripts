@@ -1,12 +1,12 @@
 # This file houses the dialog tree for the following NPC:
-## Nameless_Tailor
+## Treshtog_Tailor
 
 # First Created: 12/10/2024
 
-NPC_DialogTree_Nameless_Tailor:
+NPC_DialogTree_Treshtog_Tailor:
     type: data
     debug: false
-    display: <yellow>Tailor
+    display: <yellow>Treshtog
     welcome:
       dialog: <green>Hello lovely, here for fine fabrics and garments?
       option1:
