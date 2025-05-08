@@ -32,7 +32,7 @@ NPC_Edit_Command:
 
 NPC_Edit_Event:
     type: world
-    debug: false
+    debug: true
     events:
         on player clicks item in NPC_Edit_Menu_Main:
         - define item <context.item>
