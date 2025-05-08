@@ -110,6 +110,8 @@ NPC_Edit_Event:
             - define id <player.flag[npc_edit.id]>
             - define path <player.flag[npc_edit.path]>
             - flag server npc.<[id]>.<[path]>:<[contents]>
+            - take item:NPC_Edit_Book
+            - narrate "<green>Saved Data to NPC!"
         on player signs book:
         - if <player.item_in_hand.script.name||null> == NPC_Edit_Book:
             - narrate "<red>Please click <white>Done<red>, don't sign it!"
