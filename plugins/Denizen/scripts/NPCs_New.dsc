@@ -105,16 +105,23 @@ NPC_Edit_Menu_Main:
     - define result <list>
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
         - define item <item[red_concrete]>
+        - define data <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>]>
         - adjust def:item display:<yellow>Option<&sp><[option].after[option]>
-        - if <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[response].if_null[null]> != null:
+        - if <[data].get[response].if_null[null]> != null:
             - adjust def:item material:green_concrete
             - adjust def:item flag:type:<[option]>
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
-            - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.text]><n><green>Right Click to Edit<n><yellow>Left Click to View Dialog Tree"
-        - else:
-            - adjust def:item flag:type:new_option
-            - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
-            - adjust def:item "lore:<red>Option is empty.<n><yellow>Left Click to View Dialog Tree"
+            - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.response]><n><green>Right Click to Edit<n><yellow>Left Click to View Dialog Tree"
+            - if <[data].get[message].if_null[null]> == null:
+                - adjust def:item material:orange_concrete
+                - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
+                - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.response]><n><green>Right Click to Edit<n><n><red>Message in dialog is empty.<yellow>Left Click to View Dialog Tree"
+            - else if <[data].get[message].if_null[null]> != null:
+                - adjust def:item material:red_concrete
+                - adjust def:item flag:type:new_option
+                - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
+                - adjust def:item "lore:<red>Response Option is empty.<n><green>Right Click to Add Response"
+        - else if 
         - define result:->:<[item]>
     - determine <[result]>
     slots:
