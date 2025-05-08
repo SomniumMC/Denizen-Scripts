@@ -40,11 +40,11 @@ NPC_Edit_Event:
         - define npc_id <player.flag[npc_edit.id]>
         - define type <[item].flag[type]||null>
         - define path <[item].flag[path]||null>
-        - if <[type]> == null:
+        - if <[path]> == null:
             - stop
         - flag <player> npc_edit.task:<[type]>
         - define edit_book <item[NPC_Edit_Book]>
-        - adjust def:edit_book flag:type:<[type]>
+        #- adjust def:edit_book flag:type:<[type]>
         - flag <player> npc_edit.path:<[path]>
         - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Message
         - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.message].if_null[]>
