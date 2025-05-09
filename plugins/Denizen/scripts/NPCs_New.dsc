@@ -35,11 +35,11 @@ NPC_Chat:
     - flag <player> chatting:<[npc]> expire:1m
 
     - narrate <&sp.repeat[40].strikethrough>
-    - narrate "<&lb><[npc_display]><&rb> <white>- <[data].get[message].parsed>"
-    - foreach <[data].keys.exclude[message|type]> as:option:
-        - define option_data <[data].get[<[option]>].separated_by[<n>]>
+    - narrate "<&lb><[npc_display]><&rb> <white>- <[data].get[message].separated_by[<n>].parsed>"
+    - foreach <[data].keys.exclude[message|type|response]> as:option:
+        - define option_data <[data].get[<[option]>]>
 
-        - narrate "<[loop_index]><&co> <element[<[option_data].get[response].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
+        - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
     - narrate <&sp.repeat[40].strikethrough>
     #- foreach <[data].keys.exclude[dialog]> as:option:
         #  - define option_data <[data].get[<[option]>]>
