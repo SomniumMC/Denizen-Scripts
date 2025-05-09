@@ -16,6 +16,111 @@ NPC_Event_Main:
 
         - run NPC_Dialog_Welcome def.npc_id:<[npc_id]>
 
+NPC_Dialog_Welcome:
+    type: task
+    debug: false
+    definitions: npc_id
+    script:
+        - define path welcome
+        - define dialog_data <server.flag[npc.<[npc_id]>.<[path]>]>
+        - define npc_display <npc[<[npc_id]>].name.parsed>
+
+        - run NPC_Chat def.npc:<[npc_id]> def.type:chatting def.data:<[dialog_data]> def.npc_display:<[npc_display]> def.path:<[path]>
+
+NPC_Chat:
+    type: task
+    debug: false
+    definitions: data|type|npc|npc_display|path
+    script:
+    - flag <player> chatting:<[npc]> expire:1m
+
+    - narrate <&sp.repeat[40].strikethrough>
+    - narrate "<&lb><[npc_display]><&rb> <white>- <[data].get[dialog].parsed>"
+    - foreach <[data].keys.exclude[message|type]> as:option:
+        - define option_data <[data].get[<[option]>]>
+
+        - narrate "<[loop_index]><&co> <element[<[option_data].get[response].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
+    - narrate <&sp.repeat[40].strikethrough>
+    #- foreach <[data].keys.exclude[dialog]> as:option:
+        #  - define option_data <[data].get[<[option]>]>
+        #  - define req_flag <[option_data].get[req_flag]||null>
+        #  - define deny_flag <[option_data].get[deny_flag]||null>
+        #  - define deny_has_flag <[option_data].get[deny_has_flag]||null>
+        #  - define has_flag <[option_data].get[has_flag]||null>
+        #  - if <[req_flag]> != null:
+        #    - if <[req_flag].get[target]> == player:
+        #      - if <player.flag[<[req_flag].get[flag]>]> != <[req_flag].get[value]>:
+        #        - foreach next
+        #  - if <[has_flag]> != null:
+        #    - if <[has_flag].get[target]> == player:
+        #      - choose <[has_flag].get[bool]>:
+        #        - case true:
+        #          - if <player.has_flag[<[has_flag].get[flag]>]>:
+        #            - define success
+        #          - else:
+        #            - foreach next
+        #        - case false:
+        #          - if !<player.has_flag[<[has_flag].get[flag]>]>:
+        #            - define success
+        #          - else:
+        #            - foreach next
+        #  - if <[deny_flag]> != null:
+        #    - if <[deny_flag].get[target]> == player:
+        #      - if <player.flag[<[deny_flag].get[flag]>]> == <[deny_flag].get[value]>:
+        #        - foreach next
+        #  - if <[deny_has_flag]> != null:
+        #    - if <[deny_flag].get[target]> == player:
+        #      - if <player.has_flag[<[deny_has_flag].get[flag]>]>:
+        #        - foreach next
+            #
+            #
+            #- flag player chat_option<[loop_index]>:<[option_data]> expire:30s
+            #- narrate "<[loop_index]><&co> <element[<[option_data].get[text].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> chat_option<[loop_index]>].type[run_command]>"
+        
+        #  - case end:
+        #    - flag <player> chatting:<empty>
+        #    #- narrate <[data]>
+        #    #- if <[data].get[key]>
+        #    - narrate "<gray><italic>You have finished talking with them."
+        #  - case quest_start:
+        #    - flag <player> chatting:<empty>
+        #    - narrate "<gold><italic>You have started the Quest: <script[quest_data_<[data]>].data_key[quest_name].parsed>!"
+        #  - case quest_end:
+        #    - flag <player> chatting:<empty>
+        #    #- define quest_data 
+        #    - narrate "<gold><italic>You have finished the Quest: <script[quest_data_<[data]>].data_key[quest_name].parsed>!"
+        #  - case quest_progress:
+        #    - flag <player> chatting:<empty>
+        #    - narrate "<gold><italic>You have progressed in your current Quest."
+        #  - case inventory:
+        #    - inventory open d:<[data]>
+        #  - case teleport:
+        #    - teleport <player> <location[<[data]>]>
+        #  - case shop:
+        #    - flag <player> shop_data:<script[NPC_ShopData_<[npc]>]>
+        #    - inventory open d:NPC_Shop_GUI
+
+NPC_Chat_Command:
+    type: command
+    debug: false
+    name: npcchat
+    description: Does something
+    usage: /npcchat npc chat_flag
+    script:
+    - define npc <context.args.get[1]>
+    - define chat_data <server.flag[npc.<[npc]>.<context.args.get[2]>]>
+    - define type <[chat_data].get[type]>
+    - define key <[chat_data].get[key]>
+    - define npc_display <npc[<[npc]>].name.parsed>
+    - if <[chat_data]> == null:
+      - narrate "<red>Options Expired!"
+      - flag <player> chatting:<empty>
+      - stop
+
+    - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]>
+
+## NPC Editor Block
+
 NPC_Edit_Command:
     type: command
     name: npcedit
