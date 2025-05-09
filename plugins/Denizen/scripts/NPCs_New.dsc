@@ -43,7 +43,7 @@ NPC_Edit_Event:
         - define path <[item].flag[path]||null>
         - define click_type <context.click>
         - if <[type]> == GUIL:
-            - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
+            - flag <player> npc_edit.path:welcome
             - inventory open d:NPC_Edit_Menu_Main
             - stop
         - if <[path]> == null:
@@ -107,7 +107,7 @@ NPC_Edit_Menu_Main:
     gui: true
     definitions:
         welcome: <item[paper].with_single[display=<yellow>Message].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.message].if_null[<red>Empty]><n><green>Right<&sp>Click<&sp>to<&sp>Edit].with_single[flag=path:<player.flag[npc_edit.path].if_null[welcome]>].with_single[flag=type:message]>
-        back_button: <item[GUIL].with_single[display=<yellow>Back].with_single[lore=<green>Left Click to go back].with_single[flag=type:GUIL]>
+        back_button: <item[GUIL].with_single[display=<yellow>Back].with_single[lore=<green>Left Click to go home].with_single[flag=type:GUIL]>
     procedural items:
     - define result <list>
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
@@ -123,7 +123,7 @@ NPC_Edit_Menu_Main:
             - if <[data].get[message].if_null[null]> == null:
                 - adjust def:item material:orange_concrete
                 - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
-                - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.response]><n><green>Right Click to Edit<n><n><red>Message in dialog is empty.<yellow>Left Click to View Dialog Tree"
+                - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.response]><n><green>Right Click to Edit<n><n><red>Message in dialog is empty.<n><yellow>Left Click to View Dialog Tree"
             - define success:true
         - else if <[success].not>:
             - adjust def:item material:red_concrete
