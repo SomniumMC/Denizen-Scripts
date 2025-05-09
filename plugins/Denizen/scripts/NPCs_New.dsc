@@ -23,7 +23,7 @@ NPC_Edit_Command:
     usage: /npcedit
     permission: dscript.npcedit
     script:
-        - define npc_id <player.target.id>
+        - define npc_id <player.target.id.if_null[null]>
         - if <[npc_id]> == null:
           - narrate "<red>You must be looking at an NPC to edit it."
           - stop
@@ -106,7 +106,7 @@ NPC_Edit_Menu_Main:
     inventory: chest
     gui: true
     definitions:
-        welcome: <item[paper].with_single[display=<yellow>Message].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.message].if_null[<red>Empty]><n><green>Right<&sp>Click<&sp>to<&sp>Edit<n><aqua>Current Path<&co><player.flag[npc_edit.path]>].with_single[flag=path:<player.flag[npc_edit.path].if_null[welcome]>].with_single[flag=type:message]>
+        welcome: <item[paper].with_single[display=<yellow>Message].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.message].if_null[<red>Empty]><n><green>Right<&sp>Click<&sp>to<&sp>Edit<n><aqua>Current Path<&co><n><&lb><player.flag[npc_edit.path]><&rb>].with_single[flag=path:<player.flag[npc_edit.path].if_null[welcome]>].with_single[flag=type:message]>
         back_button: <item[GUIL].with_single[display=<yellow>Back].with_single[lore=<green>Left Click to go home].with_single[flag=type:GUIL]>
     procedural items:
     - define result <list>
