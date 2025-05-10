@@ -113,9 +113,16 @@ NPC_Chat_Command:
     - define key <[chat_data].get[key]>
     - define npc_display <npc[<[npc]>].name.parsed>
     - if <[chat_data]> == null:
-      - narrate "<red>Options Expired!"
-      - flag <player> chatting:<empty>
-      - stop
+        - narrate "<red>Options Expired!"
+        - flag <player> chatting:<empty>
+        - stop
+    - if <[type]> == end:
+        - flag <player> chatting:<empty>
+        - narrate <&sp.repeat[80].strikethrough>
+        - narrate "<&lb><[npc_display]><&rb> <white>- <[chat_data].get[message].separated_by[<n>].parsed>"
+        - narrate "<gray><italic>You have finished talking with them."
+        - narrate <&sp.repeat[80].strikethrough>
+        - stop
 
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
 
