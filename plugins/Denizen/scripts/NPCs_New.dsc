@@ -125,7 +125,7 @@ NPC_Chat_Command:
         - stop
     - if <[type]> == teleport:
         - teleport <player> <location[<[chat_data].get[location]>]>
-        - narrate <[chat_data].separated_by[<n>].get[message].parsed>
+        - narrate <[chat_data].get[message].separated_by[<n>].parsed>
         - flag <player> chatting:<empty>
         - stop
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
@@ -314,7 +314,7 @@ NPC_Edit_Menu_Main:
             - case shop:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Shop"
             - case teleport:
-                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].location>"
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].flag[location]>"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
