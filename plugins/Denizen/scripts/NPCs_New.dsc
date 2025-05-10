@@ -125,7 +125,7 @@ NPC_Chat_Command:
         - stop
     - if <[type]> == teleport:
         - teleport <player> <location[<[chat_data].get[location]>]>
-        - narrate "<green>Teleported to <[chat_data].get[message]>."
+        - narrate <[chat_data].separated_by[<n>].get[message].parsed>
         - flag <player> chatting:<empty>
         - stop
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
@@ -248,7 +248,7 @@ NPC_Edit_Event:
                     - flag server npc.<[id]>.<[path]>.type:chatting
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == teleport:
-                - flag server npc.<[id]>.<[path]>.location:<[contents].strip_color.separated_by[<n>]>
+                - flag server npc.<[id]>.<[path]>.location:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
             - take item:NPC_Edit_Book
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
@@ -314,7 +314,7 @@ NPC_Edit_Menu_Main:
             - case shop:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Shop"
             - case teleport:
-                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location"
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].location>"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
