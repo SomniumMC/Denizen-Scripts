@@ -123,7 +123,11 @@ NPC_Chat_Command:
         - narrate "<gray><italic>You have finished talking with them."
         - narrate <&sp.repeat[80].strikethrough>
         - stop
-
+    - if <[type]> == teleport:
+        - teleport <player> <location[<[chat_data].get[location]>]>
+        - narrate "<green>Teleported to <[chat_data].get[message]>."
+        - flag <player> chatting:<empty>
+        - stop
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
 
 ## NPC Editor Block
@@ -159,19 +163,35 @@ NPC_Edit_Event:
             - if <[click_type]> == left:
                 - if <[chat_type]> == chatting:
                     - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
-                    - flag server npc.<[npc_id]>.<[path]>.type:shop
-                    - narrate "<green>Changed to Shop"
-                    - inventory open d:NPC_Edit_Menu_Main
-                - if <[chat_type]> == shop:
-                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:end
                     - narrate "<green>Changed to End"
                     - inventory open d:NPC_Edit_Menu_Main
                 - if <[chat_type]> == end:
                     - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:shop
+                    - narrate "<green>Changed to Shop"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[chat_type]> == shop:
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:teleport
+                    - narrate "<green>Changed to Teleport"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[chat_type]> == teleport:
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:chatting
                     - narrate "<green>Changed to Chatting"
                     - inventory open d:NPC_Edit_Menu_Main
+            - if <[click_type]> == right:
+                - if <[chat_type]> == shop:
+                    - stop
+                - if <[chat_type]> == teleport:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - flag <player> npc_edit.path:<[path]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Teleport<&sp>Location
+                    - adjust def:edit_book flag:type:teleport
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
             - stop
         - if <[type]> == GUIL:
             - flag <player> npc_edit.path:welcome
@@ -227,6 +247,9 @@ NPC_Edit_Event:
                 - if <server.flag[npc.<[id]>.<[path]>.type].if_null[null]> == null:
                     - flag server npc.<[id]>.<[path]>.type:chatting
                 - narrate "<green>Saved Data to NPC!"
+            - if <[type]> == teleport:
+                - flag server npc.<[id]>.<[path]>.location:<[contents].strip_color.get[1]>
+                - narrate "<green>Saved Data to NPC!"
             - take item:NPC_Edit_Book
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
             - inventory open d:NPC_Edit_Menu_Main
@@ -279,14 +302,19 @@ NPC_Edit_Menu_Main:
                 - define item <item[emerald]>
             - case end:
                 - define item <item[oak_door]>
+            - case teleport:
+                - define item <item[ender_pearl]>
             - default:
                 - define item <item[guinull]>
                 - define result:->:<[item]>
                 - foreach next
         - adjust def:item display:<yellow><[data].get[type].to_titlecase>
         - adjust def:item "lore:<yellow>Left Click to cycle Chat Type"
-        - if <[data].get[type]> == shop:
-            - adjust def:item "lore:<yellow>Left Click to cycle Chat Type<n><green>Right Click to Edit Shop"
+        - choose <[data].get[type]>:
+            - case shop:
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Shop"
+            - case teleport:
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
