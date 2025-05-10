@@ -265,7 +265,7 @@ NPC_Edit_Menu_Main:
     slots:
     - [back_button] [GUINULL] [GUINULL] [GUINULL] [welcome] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
     - [] [] [] [] [] [] [] [] []
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [] [] [] [] [] [] [] [] []
 
 NPC_Edit_Book:
     type: item
