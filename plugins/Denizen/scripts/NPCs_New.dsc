@@ -108,6 +108,7 @@ NPC_Chat_Command:
     script:
     - define npc <context.args.get[1]>
     - define chat_data <server.flag[npc.<[npc]>.<context.args.get[2]>]>
+    - define path <context.args.get[2]>
     - define type <[chat_data].get[type]>
     - define key <[chat_data].get[key]>
     - define npc_display <npc[<[npc]>].name.parsed>
@@ -116,7 +117,7 @@ NPC_Chat_Command:
       - flag <player> chatting:<empty>
       - stop
 
-    - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]>
+    - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
 
 ## NPC Editor Block
 
@@ -182,7 +183,7 @@ NPC_Edit_Event:
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
                 - give <[edit_book]>
                 - inventory close
-        - if <[click_type]> == middle:
+        - if <[click_type]> == middle && <[type]> == response:
             - flag server npc.<[npc_id]>.<[path]>:!
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
             - inventory open d:NPC_Edit_Menu_Main
@@ -215,7 +216,7 @@ NPC_Edit_Menu_Main:
     gui: true
     definitions:
         welcome: <item[paper].with_single[display=<yellow>Message].with_single[lore=<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.message].if_null[<red>Empty]><n><green>Right<&sp>Click<&sp>to<&sp>Edit<n><aqua>Current Path<&co><n><white><&lb><gold><player.flag[npc_edit.path]><white><&rb>].with_single[flag=path:<player.flag[npc_edit.path].if_null[welcome]>].with_single[flag=type:message]>
-        back_button: <item[GUIL].with_single[display=<yellow>Back].with_single[lore=<green>Left Click to go home].with_single[flag=type:GUIL]>
+        back_button: <item[GUIL].with_single[display=<yellow>Back to Welcome].with_single[lore=<green>Left Click to go home].with_single[flag=type:GUIL]>
     procedural items:
     - define result <list>
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
