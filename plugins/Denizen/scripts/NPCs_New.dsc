@@ -76,7 +76,6 @@ NPC_Chat:
             #
             #- flag player chat_option<[loop_index]>:<[option_data]> expire:30s
             #- narrate "<[loop_index]><&co> <element[<[option_data].get[text].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> chat_option<[loop_index]>].type[run_command]>"
-        
         #  - case end:
         #    - flag <player> chatting:<empty>
         #    #- narrate <[data]>
@@ -183,6 +182,8 @@ NPC_Edit_Event:
                 - adjust def:edit_book book_pages:<server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.response].if_null[]>
                 - give <[edit_book]>
                 - inventory close
+        - if <[click_type]> == middle:
+            - flag server npc.<[npc_id]>.<[path]>:!
         after player edits book:
         - if <context.old_book.script.name||null> == NPC_Edit_Book:
             - define type <context.old_book.flag[type]>
