@@ -314,7 +314,7 @@ NPC_Edit_Menu_Main:
             - case shop:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Shop"
             - case teleport:
-                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[location]>"
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><gold>Teleport<&sp>Location<&co><white><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[location]>"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
