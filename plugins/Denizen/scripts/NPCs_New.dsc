@@ -184,6 +184,8 @@ NPC_Edit_Event:
                 - inventory close
         - if <[click_type]> == middle:
             - flag server npc.<[npc_id]>.<[path]>:!
+            - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
+            - inventory open d:NPC_Edit_Menu_Main
         after player edits book:
         - if <context.old_book.script.name||null> == NPC_Edit_Book:
             - define type <context.old_book.flag[type]>
