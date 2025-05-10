@@ -147,6 +147,24 @@ NPC_Edit_Event:
         - define type <[item].flag[type]||null>
         - define path <[item].flag[path]||null>
         - define click_type <context.click>
+        - if <[item].has_flag[chat_type]>:
+            - if <[click_type]> == left:
+                - if <[type]> == chatting:
+                    - flag <player> npc_edit.path:<[path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:shop
+                    - narrate "<green>Changed to Shop"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[type]> == shop:
+                    - flag <player> npc_edit.path:<[path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:end
+                    - narrate "<green>Changed to End"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[type]> == end:
+                    - flag <player> npc_edit.path:<[path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:chatting
+                    - narrate "<green>Changed to Chatting"
+                    - inventory open d:NPC_Edit_Menu_Main
+            - stop
         - if <[type]> == GUIL:
             - flag <player> npc_edit.path:welcome
             - inventory open d:NPC_Edit_Menu_Main
@@ -258,6 +276,9 @@ NPC_Edit_Menu_Main:
                 - define result:->:<[item]>
                 - foreach next
         - adjust def:item display:<yellow><[data].get[type].to_titlecase>
+        - adjust def:item "lore:<yellow>Left Click to cycle Chat Type"
+        - if <[data].get[type]> == shop:
+            - adjust def:item "lore:<yellow>Left Click to cycle Chat Type<n><green>Right Click to Edit Shop"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
