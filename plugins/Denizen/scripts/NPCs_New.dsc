@@ -151,17 +151,17 @@ NPC_Edit_Event:
             - define chat_type <[item].flag[chat_type]>
             - if <[click_type]> == left:
                 - if <[chat_type]> == chatting:
-                    - flag <player> npc_edit.path:<[path]>
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:shop
                     - narrate "<green>Changed to Shop"
                     - inventory open d:NPC_Edit_Menu_Main
                 - if <[chat_type]> == shop:
-                    - flag <player> npc_edit.path:<[path]>
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:end
                     - narrate "<green>Changed to End"
                     - inventory open d:NPC_Edit_Menu_Main
                 - if <[chat_type]> == end:
-                    - flag <player> npc_edit.path:<[path]>
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:chatting
                     - narrate "<green>Changed to Chatting"
                     - inventory open d:NPC_Edit_Menu_Main
