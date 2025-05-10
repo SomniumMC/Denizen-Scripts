@@ -248,7 +248,7 @@ NPC_Edit_Event:
                     - flag server npc.<[id]>.<[path]>.type:chatting
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == teleport:
-                - flag server npc.<[id]>.<[path]>.location:<[contents].strip_color.get[1]>
+                - flag server npc.<[id]>.<[path]>.location:<[contents].strip_color.separated_by[<n>]>
                 - narrate "<green>Saved Data to NPC!"
             - take item:NPC_Edit_Book
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
@@ -295,7 +295,7 @@ NPC_Edit_Menu_Main:
 
     - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
         - define data <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].if_null[null]>
-        - choose <[data].get[type]>:
+        - choose <[data].get[type].if_null[null]>:
             - case chatting:
                 - define item <item[player_head]>
             - case shop:
