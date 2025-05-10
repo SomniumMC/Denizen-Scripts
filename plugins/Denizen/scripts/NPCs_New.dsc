@@ -11,7 +11,7 @@ NPC_Event_Main:
         - define npc_id <context.entity.id>
         #- narrate <[npc_name]>
 
-        - if <server.flag[npc.<[npc_id]>]> == null:
+        - if <server.flag[npc.<[npc_id]>].if_null[null]> == null:
           - stop
 
         - run NPC_Dialog_Welcome def.npc_id:<[npc_id]>
