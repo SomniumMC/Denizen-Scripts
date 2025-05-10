@@ -34,13 +34,13 @@ NPC_Chat:
     script:
     - flag <player> chatting:<[npc]> expire:1m
 
-    - narrate <&sp.repeat[40].strikethrough>
+    - narrate <&sp.repeat[80].strikethrough>
     - narrate "<&lb><[npc_display]><&rb> <white>- <[data].get[message].separated_by[<n>].parsed>"
     - foreach <[data].keys.exclude[message|type|response]> as:option:
         - define option_data <[data].get[<[option]>]>
 
         - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
-    - narrate <&sp.repeat[40].strikethrough>
+    - narrate <&sp.repeat[80].strikethrough>
     #- foreach <[data].keys.exclude[dialog]> as:option:
         #  - define option_data <[data].get[<[option]>]>
         #  - define req_flag <[option_data].get[req_flag]||null>
@@ -198,6 +198,8 @@ NPC_Edit_Event:
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == response:
                 - flag server npc.<[id]>.<[path]>.response:<[contents]>
+                - if <server.flag[npc.<[id]>.<[path]>.type].if_null[null]> == null:
+                    - flag server npc.<[id]>.<[path]>.type:chatting
                 - narrate "<green>Saved Data to NPC!"
             - take item:NPC_Edit_Book
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
@@ -223,7 +225,6 @@ NPC_Edit_Menu_Main:
         - define item <item[red_concrete]>
         - define success:false
         - define data <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].if_null[null]>
-        - adjust def:item display:<yellow>Option<&sp><[option].after[option]>
         - if <[data].get[response].if_null[null]> != null:
             - adjust def:item material:green_concrete
             - adjust def:item flag:type:response
@@ -234,11 +235,31 @@ NPC_Edit_Menu_Main:
                 - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
                 - adjust def:item "lore:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>.response]><n><green>Right Click to Edit<n><n><red>Message in dialog is empty.<n><yellow>Left Click to View Dialog Tree"
             - define success:true
+
         - else if <[success].not>:
             - adjust def:item material:red_concrete
             - adjust def:item flag:type:new_option
             - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
             - adjust def:item "lore:<red>Response Option is empty.<n><green>Right Click to Add Response"
+        - adjust def:item display:<yellow>Option<&sp><[option].after[option]>
+        - define result:->:<[item]>
+
+    - foreach <list[option1|option2|option3|option4|option5|option6|option7|option8|option9]> as:option:
+        - define data <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].if_null[null]>
+        - choose <[data].get[type]>:
+            - case chatting:
+                - define item <item[player_head]>
+            - case shop:
+                - define item <item[emerald]>
+            - case end:
+                - define item <item[oak_door]>
+            - default:
+                - define item <item[guinull]>
+                - define result:->:<[item]>
+                - foreach next
+        - adjust def:item display:<yellow><[data].get[type].to_titlecase>
+        - adjust def:item flag:chat_type:<[data].get[type]>
+        - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
     - determine <[result]>
     slots:
