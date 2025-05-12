@@ -35,7 +35,7 @@ NPC_Chat:
     - flag <player> chatting:<[npc]> expire:1m
 
     - narrate <&sp.repeat[80].strikethrough>
-    - narrate "<&lb><[npc_display]><&rb> <white>- <[data].get[message].separated_by[<n>].parsed>"
+    - narrate "<white><&lb><[npc_display]><white><&rb> <white>- <[data].get[message].separated_by[<n>].parsed>"
     - foreach <[data].keys.exclude[message|type|response]> as:option:
         - define option_data <[data].get[<[option]>]>
 
@@ -259,7 +259,8 @@ NPC_Edit_Event:
             - determine NOT_SIGNING
         on player drops item:
         - if <context.item.script.name||null> == NPC_Edit_Book:
-            - determine cancelled
+            - playeffect at:<context.location> effect:smoke_large
+            - remove <context.entity>
 
 NPC_Edit_Menu_Main:
     type: inventory
@@ -335,3 +336,284 @@ NPC_Edit_Book:
     lore:
     - <green>Open to edit NPC details
     - <empty>
+
+NPC_Shop_Edit_Event:
+    type: world
+    events:
+        on player clicks item in NPC_Shop_Edit_Menu:
+        - define item <context.item>
+        - define click_type <context.click>
+        - define npc_id <player.flag[npc_edit.id]>
+        - define path <player.flag[npc_edit.path]>
+        - define type <[item].flag[type]||null>
+        - define slot <[item].flag[slot]||null>
+
+        - if <[item].flag[type]||null> == finish:
+            - run NPC_Shop_Update
+            - stop
+
+        - if <[item].script.name||null> == GUINULL || <[item].flag[type]||null> == blocked:
+            - determine cancelled
+
+        - if <context.clicked_inventory.script.name> == NPC_Shop_Edit_Menu:
+            - if <[click_type]> == right:
+                - flag <player> npc_edit.shop.item:<[item]>
+                - inventory open d:NPC_Shop_Data_Menu
+
+NPC_Shop_Update:
+    type: task
+    script:
+    - define inventory <player.open_inventory>
+    - define npc_id <player.flag[npc_edit.id]>
+    - define path <player.flag[npc_edit.path]>
+    - definemap shop_contents:
+        slot1:
+            item: <[inventory].slot[13].if_null[<item[air]>]>
+            price: <[inventory].slot[13].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[13].flag[shop.sell_price].if_null[null]>
+        slot2:
+            item: <[inventory].slot[14].if_null[<item[air]>]>
+            price: <[inventory].slot[14].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[14].flag[shop.sell_price].if_null[null]>
+        slot3:
+            item: <[inventory].slot[15].if_null[<item[air]>]>
+            price: <[inventory].slot[15].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[15].flag[shop.sell_price].if_null[null]>
+        slot4:
+            item: <[inventory].slot[16].if_null[<item[air]>]>
+            price: <[inventory].slot[16].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[16].flag[shop.sell_price].if_null[null]>
+        slot5:
+            item: <[inventory].slot[17].if_null[<item[air]>]>
+            price: <[inventory].slot[17].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[17].flag[shop.sell_price].if_null[null]>
+        slot6:
+            item: <[inventory].slot[22].if_null[<item[air]>]>
+            price: <[inventory].slot[22].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[22].flag[shop.sell_price].if_null[null]>
+        slot7:
+            item: <[inventory].slot[23].if_null[<item[air]>]>
+            price: <[inventory].slot[23].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[23].flag[shop.sell_price].if_null[null]>
+        slot8:
+            item: <[inventory].slot[24].if_null[<item[air]>]>
+            price: <[inventory].slot[24].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[24].flag[shop.sell_price].if_null[null]>
+        slot9:
+            item: <[inventory].slot[25].if_null[<item[air]>]>
+            price: <[inventory].slot[25].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[25].flag[shop.sell_price].if_null[null]>
+        slot10:
+            item: <[inventory].slot[26].if_null[<item[air]>]>
+            price: <[inventory].slot[26].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[26].flag[shop.sell_price].if_null[null]>
+        slot11:
+            item: <[inventory].slot[31].if_null[<item[air]>]>
+            price: <[inventory].slot[31].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[31].flag[shop.sell_price].if_null[null]>
+        slot12:
+            item: <[inventory].slot[32].if_null[<item[air]>]>
+            price: <[inventory].slot[32].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[32].flag[shop.sell_price].if_null[null]>
+        slot13:
+            item: <[inventory].slot[33].if_null[<item[air]>]>
+            price: <[inventory].slot[33].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[33].flag[shop.sell_price].if_null[null]>
+        slot14:
+            item: <[inventory].slot[34].if_null[<item[air]>]>
+            price: <[inventory].slot[34].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[34].flag[shop.sell_price].if_null[null]>
+        slot15:
+            item: <[inventory].slot[35].if_null[<item[air]>]>
+            price: <[inventory].slot[35].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[35].flag[shop.sell_price].if_null[null]>
+        slot16:
+            item: <[inventory].slot[40].if_null[<item[air]>]>
+            price: <[inventory].slot[40].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[40].flag[shop.sell_price].if_null[null]>
+        slot17:
+            item: <[inventory].slot[41].if_null[<item[air]>]>
+            price: <[inventory].slot[41].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[41].flag[shop.sell_price].if_null[null]>
+        slot18:
+            item: <[inventory].slot[42].if_null[<item[air]>]>
+            price: <[inventory].slot[42].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[42].flag[shop.sell_price].if_null[null]>
+        slot19:
+            item: <[inventory].slot[43].if_null[<item[air]>]>
+            price: <[inventory].slot[43].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[43].flag[shop.sell_price].if_null[null]>
+        slot20:
+            item: <[inventory].slot[44].if_null[<item[air]>]>
+            price: <[inventory].slot[44].flag[shop.price].if_null[null]>
+            sell_price: <[inventory].slot[44].flag[shop.sell_price].if_null[null]>
+    - flag server npc.<[npc_id]>.<[path]>.shop:<[shop_contents]>
+
+NPC_Shop_Data_Menu:
+    type: inventory
+    inventory: hopper
+    title: <white>Item Data
+    gui: true
+    definitions:
+        itempreview: <player.flag[npc_edit.shop.item].if_null[<item[red_concrete].with_single[display=<red>ERROR]>]>
+        quantity: <item[paper].with_single[display=<yellow>Quantity].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>].with_flag[quantity:<player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>]>
+        sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_flag[sell_price:<player.flag[npc_edit.shop.item].flag[shop.sell_price].if_null[0]>].with_flag[sell_price_type:<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>
+        buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_flag[price:<player.flag[npc_edit.shop.item].flag[shop.price].if_null[0]>].with_flag[price_type:<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>]>
+        stock: <item[paper].with_single[display=<yellow>Stock].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]><n><red>If set to -1, stock is infinite].with_flag[stock:<player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]>]>
+    slots:
+    - [itempreview] [quantity] [sellprice] [buyprice] [stock] [GuiNull] [GuiNull] [GuiNull] [GUIReturn]
+
+NPC_Shop_Edit_Menu:
+    type: inventory
+    inventory: chest
+    gui: false
+    definitions:
+      GUIBLOCK: <item[red_concrete].with_single[display=<yellow>Currency Slot].with_single[flag=type:blocked]>
+    procedural items:
+    - define result <list>
+    # Add some logic!
+    - determine <[result]>
+    slots:
+    - [GuiNull] [GuiNull] [GuiNull] [GuiL] [GuiNull] [GuiNull] [GuiNull] [GuiR] [GuiNull]
+    - [GuiNull] [currency1] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [currency2] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [currency3] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [currency4] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull]
+
+NPC_Shop_GUI:
+  type: inventory
+  debug: false
+  inventory: chest
+  title: <green>Shop
+  gui: true
+  procedural items:
+  - define result <list>
+  - define shop_data <player.flag[shop_data].data_key[shop]>
+  - foreach <[shop_data].keys> as:entry:
+    - define entry_data <player.flag[shop_data].data_key[shop.<[entry]>]>
+    - define reference_item <item[<[entry]>]>
+
+    - define construct_item <item[<[reference_item].material>].with_single[custom_model_data=<[reference_item].custom_model_data>]>
+    - adjust def:construct_item components_patch:<[reference_item].components_patch>
+
+    - adjust def:construct_item flag:reference_item:<[entry]>
+    - adjust def:construct_item flag:entry_data:<[entry_data]>
+    - adjust def:construct_item flag:price:<[entry_data].get[value]>
+    - adjust def:construct_item quantity:<[entry_data].get[quantity]||1>
+    - if <[entry_data].get[markup]||null> != null:
+      - adjust def:construct_item flag:sell_price:<[entry_data].get[value].before[$].mul[0.<[entry_data].get[markup]>].round_to[1]>$<[entry_data].get[value].after[$]>
+
+    - adjust def:construct_item display:<[reference_item].display>
+    - adjust def:construct_item lore:<proc[NPC_Shop_PriceDisplay_Proc].context[<[construct_item]>]>
+
+
+
+    - define result:->:<[construct_item]>
+  - determine <[result]>
+  slots:
+  - [GuiNull] [GuiNull] [GuiNull] [GuiL] [GuiNull] [GuiNull] [GuiNull] [GuiR] [GuiNull]
+  - [GuiNull] [currency1] [GuiNull] [] [] [] [] [] [GuiNull]
+  - [GuiNull] [currency2] [GuiNull] [] [] [] [] [] [GuiNull]
+  - [GuiNull] [currency3] [GuiNull] [] [] [] [] [] [GuiNull]
+  - [GuiNull] [currency4] [GuiNull] [] [] [] [] [] [GuiNull]
+  - [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull]
+
+NPC_Shop_Event:
+  type: world
+  debug: false
+  events:
+    on player clicks item in NPC_Shop_GUI:
+    - define item <context.item>
+    - define click_type <context.click>
+    - if <context.slot> !in <list[13|14|15|16|17|22|23|24|25|26|31|32|33|34|35|40|41|42|43|44]>:
+      - determine cancelled
+    - define item_price <[item].flag[price]>
+    - define sell_price <[item].flag[sell_price]||null>
+    - define quantity <[item].quantity>
+    - choose <[item_price].after[$]>:
+      - case 1:
+        - define currency_slot 11
+      - case 2:
+        - define currency_slot 20
+      - case 3:
+        - define currency_slot 29
+      - case 4:
+        - define currency_slot 38
+    - if <[click_type]> == left:
+      - if <player.open_inventory.slot[<[currency_slot]>].flag[stored]> >= <[item_price].before[$]>:
+        - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> flag:stored:<player.open_inventory.slot[<[currency_slot]>].flag[stored].sub[<[item_price].before[$]>]>
+        - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
+        - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
+
+        - give item:<proc[Apply_Info_Proc].context[<item[<context.item.flag[reference_item]>]>]> quantity:<[quantity]>
+      - else:
+        - narrate "<red>You don't have enough of this currency!"
+    - else if <[click_type]> == right:
+      - if <[sell_price]> == null:
+        - narrate "<red>You cannot sell this item!"
+        - stop
+      - if <player.inventory.contains_item[<[item].flag[reference_item]>].quantity[<[quantity]>]>:
+        - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> flag:stored:<player.open_inventory.slot[<[currency_slot]>].flag[stored].add[<[sell_price].before[$]>]>
+        - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
+        - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
+
+        - take item:<[item].flag[reference_item]> quantity:<[quantity]>
+      - else:
+        - narrate "<red>You are missing this item!"
+    after player opens NPC_Shop_GUI:
+    - define slot1 11
+    - define slot2 20
+    - define slot3 29
+    - define slot4 38
+
+    - define purse_slot <player.inventory.find_all_items[coinpurse].first.if_null[null]>
+    - inventory adjust slot:11 destination:<player.open_inventory> flag:purse_slot:<[purse_slot]>
+    - definemap currencies:
+        currency1: <player.inventory.slot[<[purse_slot]>].flag[currency1]>
+        currency2: <player.inventory.slot[<[purse_slot]>].flag[currency2]>
+        currency3: <player.inventory.slot[<[purse_slot]>].flag[currency3]>
+        currency4: <player.inventory.slot[<[purse_slot]>].flag[currency4]>
+
+    - inventory adjust slot:<[slot1]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[currency1].display.before[<item[currency1].display.strip_color>]><[currencies].get[currency1]><white>/<light_purple>300
+    - inventory adjust slot:<[slot1]> destination:<player.open_inventory> flag:stored:<[currencies].get[currency1]>
+    - inventory adjust slot:<[slot2]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[currency2].display.before[<item[currency2].display.strip_color>]><[currencies].get[currency2]><white>/<light_purple>300
+    - inventory adjust slot:<[slot2]> destination:<player.open_inventory> flag:stored:<[currencies].get[currency2]>
+    - inventory adjust slot:<[slot3]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[currency3].display.before[<item[currency3].display.strip_color>]><[currencies].get[currency3]><white>/<light_purple>300
+    - inventory adjust slot:<[slot3]> destination:<player.open_inventory> flag:stored:<[currencies].get[currency3]>
+    - inventory adjust slot:<[slot4]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[currency4].display.before[<item[currency4].display.strip_color>]><[currencies].get[currency4]><white>/<light_purple>300
+    - inventory adjust slot:<[slot4]> destination:<player.open_inventory> flag:stored:<[currencies].get[currency4]>
+    on player closes NPC_Shop_GUI:
+    - definemap currencies:
+        currency1: <context.inventory.slot[11].flag[stored]>
+        currency2: <context.inventory.slot[20].flag[stored]>
+        currency3: <context.inventory.slot[29].flag[stored]>
+        currency4: <context.inventory.slot[38].flag[stored]>
+    - define purse_slot <context.inventory.slot[11].flag[purse_slot]>
+    - run CoinPurse_Update_Task defmap:<[currencies]> def.slot:<[purse_slot]>
+
+NPC_Shop_PriceDisplay_Proc:
+  type: procedure
+  debug: false
+  definitions: item
+  script:
+  - define entry_data <[item].flag[entry_data]>
+
+  - define price <[entry_data].get[value]>
+
+  - if <[entry_data].get[markup]||null> != null:
+    - define sell_price <[item].flag[sell_price].before[$]>
+    - define sell_check <white><&lt><gold>Right<&sp>Click<white><&gt><&sp>to<&sp>sell<&sp><gold>1<n>
+    - define sell_text  <n><red>Sell<&sp>Price<&co><&sp><item[currency<[price].after[$]>].display.before[<item[currency<[price].after[$]>].display.strip_color>]><[sell_price]><&sp><item[currency<[price].after[$]>].display.strip_color>
+
+
+  - define buttons <white><&lt><blue>Left<&sp>Click<white><&gt><&sp>to<&sp>purchase<&sp><gold>1<n><[sell_check].if_null[]><white><&lt><light_purple>Middle<&sp>Click<white><&gt><&sp><white>to<&sp>toggle<&sp><white><&lb><green>Description<white><&rb>
+  - define break <n><&sp.repeat[40].strikethrough>
+
+
+  - define buy_text <aqua>Price<&co><&sp><item[currency<[price].after[$]>].display.before[<item[currency<[price].after[$]>].display.strip_color>]><[price].before[$]><&sp><item[currency<[price].after[$]>].display.strip_color>
+  - define price_info <n><[buy_text]><[sell_text].if_null[ ]>
+
+  - define lore <[buttons]><[break]><[price_info]>
+
+  - determine <[lore]>
