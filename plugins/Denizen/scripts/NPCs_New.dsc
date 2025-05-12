@@ -356,7 +356,7 @@ NPC_Shop_Edit_Event:
         - define npc_id <player.flag[npc_edit.id]>
         - define path <player.flag[npc_edit.path]>
         - define type <[item].flag[type]||null>
-        - define slot <[item].flag[slot]||null>
+        - define slot <context.slot||null>
 
         - if <[item].flag[type]||null> == finish:
             - run NPC_Shop_Update
