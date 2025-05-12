@@ -183,7 +183,14 @@ NPC_Edit_Event:
                     - inventory open d:NPC_Edit_Menu_Main
             - if <[click_type]> == right:
                 - if <[chat_type]> == shop:
-                    - stop
+                    - if <server.flag[npc.<[npc_id]>.<[path]>.shop].if_null[null]> == null:
+                        - inventory open d:Npc_Shop_Edit_Menu
+                        - run npc_shop_update
+                        - wait 1t
+                        - narrate "<green>Generating Shop Menu..."
+                        - inventory close
+                        - wait 2s
+                        - inventory open d:Npc_Shop_Edit_Menu
                 - if <[chat_type]> == teleport:
                     - define edit_book <item[NPC_Edit_Book]>
                     - flag <player> npc_edit.path:<[path]>
@@ -471,7 +478,12 @@ NPC_Shop_Edit_Menu:
       GUIBLOCK: <item[red_concrete].with_single[display=<yellow>Currency Slot].with_single[flag=type:blocked]>
     procedural items:
     - define result <list>
-    # Add some logic!
+    - define shop_data <player.flag[npc_edit.shop.item].flag[shop]>
+    - foreach <[shop_data]> as:data key:slotname:
+        - if <[data].get[item].material.name> == air:
+            - foreach next
+        - define item <[data].get[item]>
+        - define result:->:<[item]>
     - determine <[result]>
     slots:
     - [GuiNull] [GuiNull] [GuiNull] [GuiL] [GuiNull] [GuiNull] [GuiNull] [GuiR] [GuiNull]
