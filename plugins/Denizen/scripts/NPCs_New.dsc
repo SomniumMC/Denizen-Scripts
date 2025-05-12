@@ -192,6 +192,8 @@ NPC_Edit_Event:
                         - inventory close
                         - wait 2s
                         - inventory open d:Npc_Shop_Edit_Menu
+                    - else:
+                        - inventory open d:Npc_Shop_Edit_Menu
                 - if <[chat_type]> == teleport:
                     - define edit_book <item[NPC_Edit_Book]>
                     - flag <player> npc_edit.path:<[path]>
