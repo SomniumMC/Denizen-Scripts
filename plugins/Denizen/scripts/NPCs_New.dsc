@@ -458,7 +458,7 @@ NPC_Shop_Update:
 
 NPC_Shop_Data_Menu:
     type: inventory
-    inventory: hopper
+    inventory: chest
     title: <white>Item Data
     gui: true
     definitions:
@@ -487,10 +487,10 @@ NPC_Shop_Edit_Menu:
     - determine <[result]>
     slots:
     - [GuiNull] [GuiNull] [GuiNull] [GuiL] [GuiNull] [GuiNull] [GuiNull] [GuiR] [GuiNull]
-    - [GuiNull] [currency1] [GuiNull] [] [] [] [] [] [GuiNull]
-    - [GuiNull] [currency2] [GuiNull] [] [] [] [] [] [GuiNull]
-    - [GuiNull] [currency3] [GuiNull] [] [] [] [] [] [GuiNull]
-    - [GuiNull] [currency4] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
+    - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
     - [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull]
 
 NPC_Shop_GUI:
