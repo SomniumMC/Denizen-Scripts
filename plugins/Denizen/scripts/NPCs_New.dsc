@@ -492,6 +492,7 @@ NPC_Shop_Edit_Menu:
     gui: false
     definitions:
       GUIBLOCK: <item[red_concrete].with_single[display=<yellow>Currency Slot].with_single[flag=type:blocked]>
+      GUIFinish: <item[green_concrete].with_single[display=<green>Finish].with_single[lore=<green>Left Click to finish editing].with_single[flag=type:finish]>
     procedural items:
     - define result <list>
     - define shop_data <player.flag[npc_edit.shop.item].flag[shop]>
@@ -502,7 +503,7 @@ NPC_Shop_Edit_Menu:
         - define result:->:<[item]>
     - determine <[result]>
     slots:
-    - [GuiNull] [GuiNull] [GuiNull] [GuiL] [GuiNull] [GuiNull] [GuiNull] [GuiR] [GuiNull]
+    - [GuiNull] [GuiNull] [GuiNull] [GuiL] [GuiNull] [GuiNull] [GuiNull] [GuiR] [GUIFinish]
     - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
     - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
     - [GuiNull] [GUIBLOCK] [GuiNull] [] [] [] [] [] [GuiNull]
