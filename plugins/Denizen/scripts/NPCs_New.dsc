@@ -366,7 +366,20 @@ NPC_Shop_Edit_Event:
         - if <context.clicked_inventory.script.name> == NPC_Shop_Edit_Menu:
             - if <[click_type]> == right:
                 - flag <player> npc_edit.shop.item:<[item]>
+                - flag <player> npc_edit.shop.slot:<[slot]>
                 - inventory open d:NPC_Shop_Data_Menu
+        on player clicks item in NPC_Shop_Data_Menu:
+        - define item <context.item>
+        - define click_type <context.click>
+        - if <[item].script.name||null> == GUIReturn:
+            - inventory open d:NPC_Shop_Edit_Menu
+            - define edit_item <player.flag[npc_edit.shop.item]>
+            - adjust def:edit_item flag:shop.quantity:<context.inventory.slot[2].flag[shop.quantity]>
+            - adjust def:edit_item flag:shop.price:<context.inventory.slot[3].flag[shop.price]>
+            - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[4].flag[shop.sell_price]>
+            - adjust def:edit_item flag:shop.stock:<context.inventory.slot[5].flag[shop.stock]>
+            - wait 1t
+            - inventory set o:<player.flag[npc_edit.shop.item]> slot:<player.flag[npc_edit.shop.slot]> destination:<player.open_inventory>
 
 NPC_Shop_Update:
     type: task
