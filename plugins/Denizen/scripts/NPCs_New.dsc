@@ -377,8 +377,8 @@ NPC_Shop_Edit_Event:
             #- inventory open d:NPC_Shop_Edit_Menu
             - define edit_item <player.flag[npc_edit.shop.item]>
             - adjust def:edit_item flag:shop.quantity:<context.inventory.slot[2].flag[quantity]>
-            - adjust def:edit_item flag:shop.price:<context.inventory.slot[3].flag[price]>
-            - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[4].flag[sell_price]>
+            - adjust def:edit_item flag:shop.price:<context.inventory.slot[3].flag[sell_price]>
+            - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[4].flag[price]>
             - adjust def:edit_item flag:shop.stock:<context.inventory.slot[5].flag[stock]>
             - wait 1t
             - inventory set o:<[edit_item]> slot:<player.flag[npc_edit.shop.slot]> destination:<player.open_inventory>
@@ -482,9 +482,10 @@ NPC_Shop_Data_Menu:
         quantity: <item[paper].with_single[display=<yellow>Quantity].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>].with_single[flag=quantity:<player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>]>
         sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>].display>].with_single[flag=sell_price:<map[price=<player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>]>
         buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_single[flag=price:<map[price=<player.flag[npc_edit.shop.item].flag[shop.price].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>]>]>
-        stock: <item[paper].with_single[display=<yellow>Stock].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]><n><red>If set to -1, stock is infinite].with_single[stock:<player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]>]>
+        stock: <item[paper].with_single[display=<yellow>Stock].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]><n><red>If set to -1, stock is infinite].with_single[flag=stock:<player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]>]>
     slots:
     - [itempreview] [quantity] [sellprice] [buyprice] [stock] [GuiNull] [GuiNull] [GuiNull] [GUIReturn]
+    - [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull] [GuiNull]
 
 NPC_Shop_Edit_Menu:
     type: inventory
