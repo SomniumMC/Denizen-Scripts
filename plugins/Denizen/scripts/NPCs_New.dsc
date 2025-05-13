@@ -480,8 +480,8 @@ NPC_Shop_Data_Menu:
     definitions:
         itempreview: <player.flag[npc_edit.shop.item].if_null[<item[red_concrete].with_single[display=<red>ERROR]>]>
         quantity: <item[paper].with_single[display=<yellow>Quantity].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>].with_flag[quantity:<player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>]>
-        sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_flag[sell_price:<map[price=<player.flag[npc_edit.shop.item].flag[shop.sell_price].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>]>
-        buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_flag[price.value:<map[price=<player.flag[npc_edit.shop.item].flag[shop.sell_price].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>]>
+        sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_flag[sell_price:<player.flag[npc_edit.shop.item].flag[shop.sell_price].if_null[0]>].with_flag[sell_price_type:<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>
+        buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_flag[price:<player.flag[npc_edit.shop.item].flag[shop.price].if_null[0]>].with_flag[price_type:<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>]>
         stock: <item[paper].with_single[display=<yellow>Stock].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]><n><red>If set to -1, stock is infinite].with_flag[stock:<player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]>]>
     slots:
     - [itempreview] [quantity] [sellprice] [buyprice] [stock] [GuiNull] [GuiNull] [GuiNull] [GUIReturn]
@@ -492,7 +492,7 @@ NPC_Shop_Edit_Menu:
     gui: false
     definitions:
       GUIBLOCK: <item[red_concrete].with_single[display=<yellow>Currency Slot].with_single[flag=type:blocked]>
-      GUIFinish: <item[green_concrete].with_single[display=<green>Finish].with_single[lore=<green>Left Click to finish editing].with_single[flag=type:finish]>
+      GUIFinish: <item[green_concrete].with_single[display=<yellow>Finish].with_single[lore=<green>Left Click to Finish].with_single[flag=type:finish]>
     procedural items:
     - define result <list>
     - define shop_data <player.flag[npc_edit.shop.item].flag[shop]>
