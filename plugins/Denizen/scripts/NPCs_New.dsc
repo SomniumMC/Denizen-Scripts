@@ -358,8 +358,9 @@ NPC_Shop_Edit_Event:
         - define type <[item].flag[type]||null>
         - define slot <context.slot||null>
 
-        - if <[item].flag[type]||null> == finish:
+        - if <[type]> == finish:
             - run NPC_Shop_Update
+            - determine passively cancelled
             - stop
 
         - if <[item].script.name||null> == GUINULL || <[item].flag[type]||null> == blocked:
