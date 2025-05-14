@@ -497,7 +497,7 @@ NPC_Shop_Edit_Menu:
       GUIFinish: <item[green_concrete].with_single[display=<yellow>Finish].with_single[lore=<green>Left Click to Finish].with_single[flag=type:finish]>
     procedural items:
     - define result <list>
-    - define shop_data <server.flag[npc.<player.flag[npc_edit.id]>.shop]>
+    - define shop_data <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.shop]>
     - foreach <[shop_data]> as:data key:slotname:
         - if <[data].get[item].material.name> == air:
             - foreach next
