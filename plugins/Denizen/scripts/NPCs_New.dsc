@@ -185,7 +185,7 @@ NPC_Edit_Event:
                 - if <[chat_type]> == shop:
                     - flag <player> npc_edit.path:<[path]>
                     - if <server.flag[npc_shop.<[npc_id]>.<player.flag[npc_edit.path]>.shop.id].if_null[null]> == null:
-                        - flag server npc_shop_total_ID:++:1
+                        - flag server npc_shop_total_ID:++
                         - flag server npc.<[npc_id]>.<[path]>.shop.id:<server.flag[npc_shop_total_ID]>
                         - inventory open d:Npc_Shop_Edit_Menu
                         - run npc_shop_update
