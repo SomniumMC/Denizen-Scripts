@@ -184,10 +184,12 @@ NPC_Edit_Event:
             - if <[click_type]> == right:
                 - if <[chat_type]> == shop:
                     - flag <player> npc_edit.path:<[path]>
-                    - if <server.flag[npc_shop.<[npc_id]>.<player.flag[npc_edit.path]>.shop].if_null[null]> == null:
+                    - if <server.flag[npc_shop.<[npc_id]>.<player.flag[npc_edit.path]>.shop.id].if_null[null]> == null:
+                        - flag server npc_shop_total_ID:++:1
+                        - flag server npc.<[npc_id]>.<[path]>.shop.id:<server.flag[npc_shop_total_ID]>
                         - inventory open d:Npc_Shop_Edit_Menu
                         - run npc_shop_update
-                        - wait 1t
+                        - wait 1s
                         - narrate "<green>Generating Shop Menu..."
                         - inventory close
                         - wait 2s
@@ -477,7 +479,7 @@ NPC_Shop_Update:
             item: <[inventory].slot[44].if_null[<item[air]>]>
             price: <[inventory].slot[44].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[44].flag[shop.sell_price].if_null[null]>
-    - flag server npc_shop.<[npc_id]>.<[path]>.shop:<[shop_contents]>
+    - flag server npc_shop.<server.flag[npc.<[npc_id]>.<[path]>.shop.id]>.contents:<[shop_contents]>
 
 NPC_Shop_Data_Menu:
     type: inventory
@@ -503,7 +505,7 @@ NPC_Shop_Edit_Menu:
       GUIFinish: <item[green_concrete].with_single[display=<yellow>Finish].with_single[lore=<green>Left Click to Finish].with_single[flag=type:finish]>
     procedural items:
     - define result <list>
-    - define shop_data <server.flag[npc_shop.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.shop]>
+    - define shop_data <server.flag[npc_shop.<server.flag[npc_shop.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.shop.id]>.contents]>
     - foreach <[shop_data]> as:data key:slotname:
         - if <[data].get[item].material.name> == air:
             - foreach next
