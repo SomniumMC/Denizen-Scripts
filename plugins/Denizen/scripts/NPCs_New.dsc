@@ -184,7 +184,7 @@ NPC_Edit_Event:
             - if <[click_type]> == right:
                 - if <[chat_type]> == shop:
                     - flag <player> npc_edit.path:<[path]>
-                    - if <server.flag[npc.<[npc_id]>.<player.flag[npc_edit.path]>.shop].if_null[null]> == null:
+                    - if <server.flag[npc_shop.<[npc_id]>.<player.flag[npc_edit.path]>.shop].if_null[null]> == null:
                         - inventory open d:Npc_Shop_Edit_Menu
                         - run npc_shop_update
                         - wait 1t
@@ -374,6 +374,7 @@ NPC_Shop_Edit_Event:
         on player clicks item in NPC_Shop_Data_Menu:
         - define item <context.item>
         - define click_type <context.click>
+        - define slot <context.slot||null>
         - if <[item].script.name||null> == GUIReturn:
             - define edit_item <player.flag[npc_edit.shop.item]>
             - adjust def:edit_item flag:shop.quantity:<context.inventory.slot[2].flag[quantity]>
@@ -383,6 +384,11 @@ NPC_Shop_Edit_Event:
             - wait 1t
             - inventory open d:NPC_Shop_Edit_Menu
             - inventory set o:<[edit_item]> slot:<player.flag[npc_edit.shop.slot]> destination:<player.open_inventory>
+            - stop
+        - if <[click_type]> == left:
+            - choose <[slot]>:
+                - case quantity:
+                    - inventory close
 
 NPC_Shop_Update:
     type: task
@@ -471,7 +477,7 @@ NPC_Shop_Update:
             item: <[inventory].slot[44].if_null[<item[air]>]>
             price: <[inventory].slot[44].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[44].flag[shop.sell_price].if_null[null]>
-    - flag server npc.<[npc_id]>.<[path]>.shop:<[shop_contents]>
+    - flag server npc_shop.<[npc_id]>.<[path]>.shop:<[shop_contents]>
 
 NPC_Shop_Data_Menu:
     type: inventory
@@ -497,7 +503,7 @@ NPC_Shop_Edit_Menu:
       GUIFinish: <item[green_concrete].with_single[display=<yellow>Finish].with_single[lore=<green>Left Click to Finish].with_single[flag=type:finish]>
     procedural items:
     - define result <list>
-    - define shop_data <server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.shop]>
+    - define shop_data <server.flag[npc_shop.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.shop]>
     - foreach <[shop_data]> as:data key:slotname:
         - if <[data].get[item].material.name> == air:
             - foreach next
