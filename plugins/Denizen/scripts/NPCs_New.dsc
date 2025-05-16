@@ -35,11 +35,11 @@ NPC_Chat:
     - flag <player> chatting:<[npc]> expire:1m
 
     - narrate <&sp.repeat[80].strikethrough>
-    - narrate "<white><&lb><[npc_display]><white><&rb> <white>- <[data].get[message].separated_by[<n>].parsed>"
+    - narrate "<white><&lb><[npc_display]><white><&rb> <white>- <[data].get[message].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>"
     - foreach <[data].keys.exclude[message|type|response]> as:option:
         - define option_data <[data].get[<[option]>]>
 
-        - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
+        - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
     - narrate <&sp.repeat[80].strikethrough>
     #- foreach <[data].keys.exclude[dialog]> as:option:
         #  - define option_data <[data].get[<[option]>]>
@@ -262,6 +262,39 @@ NPC_Edit_Event:
             - if <[type]> == teleport:
                 - flag server npc.<[id]>.<[path]>.location:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
+            - if <[type]> == quantity:
+                - if !<[contents].strip_color.is_integer>:
+                    - narrate "<red>Requires a number!"
+                    - stop
+                - if <[contents].strip_color> >= 1 && <[contents].strip_color> <= 64:
+                    - flag <player.flag[npc_edit.shop.item]> shop.quantity:<[contents].strip_color>
+                    - narrate "<green>Saved Data to NPC!"
+                    - inventory open d:NPC_Shop_Data_Menu
+                - else:
+                    - narrate "<red>Requires a number between 1 and 64!"
+                    - stop
+            - if <[type]> == price:
+                - if !<[contents].strip_color.is_integer>:
+                    - narrate "<red>Requires a number!"
+                    - stop
+                - flag <player.flag[npc_edit.shop.item]> shop.price.value:<[contents].strip_color>
+                - narrate "<green>Saved Data to NPC!"
+                - inventory open d:NPC_Shop_Data_Menu
+            - if <[type]> == sell_price:
+                - if !<[contents].strip_color.is_integer>:
+                    - narrate "<red>Requires a number!"
+                    - stop
+                - flag <player.flag[npc_edit.shop.item]> shop.sell_price.value:<[contents].strip_color>
+                - narrate "<green>Saved Data to NPC!"
+                - inventory open d:NPC_Shop_Data_Menu
+            - if <[type]> == stock:
+                - if !<[contents].strip_color.is_integer>:
+                    - narrate "<red>Requires a number!"
+                    - stop
+                - flag <player.flag[npc_edit.shop.item]> shop.stock:<[contents].strip_color>
+                - narrate "<green>Saved Data to NPC!"
+                - inventory open d:NPC_Shop_Data_Menu
+
             - take item:NPC_Edit_Book
             - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
             - inventory open d:NPC_Edit_Menu_Main
@@ -390,6 +423,32 @@ NPC_Shop_Edit_Event:
         - if <[click_type]> == left:
             - choose <[slot]>:
                 - case quantity:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Quantity
+                    - adjust def:edit_book flag:type:quantity
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
+                - case price:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Price
+                    - adjust def:edit_book flag:type:price
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
+                - case sell_price:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Sell<&sp>Price
+                    - adjust def:edit_book flag:type:sell_price
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
+                - case stock:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Stock
+                    - adjust def:edit_book flag:type:stock
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
                     - inventory close
 
 NPC_Shop_Update:
@@ -403,82 +462,122 @@ NPC_Shop_Update:
             item: <[inventory].slot[13].if_null[<item[air]>]>
             price: <[inventory].slot[13].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[13].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot2:
             item: <[inventory].slot[14].if_null[<item[air]>]>
             price: <[inventory].slot[14].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[14].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot3:
             item: <[inventory].slot[15].if_null[<item[air]>]>
             price: <[inventory].slot[15].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[15].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot4:
             item: <[inventory].slot[16].if_null[<item[air]>]>
             price: <[inventory].slot[16].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[16].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot5:
             item: <[inventory].slot[17].if_null[<item[air]>]>
             price: <[inventory].slot[17].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[17].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot6:
             item: <[inventory].slot[22].if_null[<item[air]>]>
             price: <[inventory].slot[22].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[22].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot7:
             item: <[inventory].slot[23].if_null[<item[air]>]>
             price: <[inventory].slot[23].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[23].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot8:
             item: <[inventory].slot[24].if_null[<item[air]>]>
             price: <[inventory].slot[24].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[24].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot9:
             item: <[inventory].slot[25].if_null[<item[air]>]>
             price: <[inventory].slot[25].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[25].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot10:
             item: <[inventory].slot[26].if_null[<item[air]>]>
             price: <[inventory].slot[26].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[26].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot11:
             item: <[inventory].slot[31].if_null[<item[air]>]>
             price: <[inventory].slot[31].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[31].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot12:
             item: <[inventory].slot[32].if_null[<item[air]>]>
             price: <[inventory].slot[32].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[32].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot13:
             item: <[inventory].slot[33].if_null[<item[air]>]>
             price: <[inventory].slot[33].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[33].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot14:
             item: <[inventory].slot[34].if_null[<item[air]>]>
             price: <[inventory].slot[34].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[34].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot15:
             item: <[inventory].slot[35].if_null[<item[air]>]>
             price: <[inventory].slot[35].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[35].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot16:
             item: <[inventory].slot[40].if_null[<item[air]>]>
             price: <[inventory].slot[40].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[40].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot17:
             item: <[inventory].slot[41].if_null[<item[air]>]>
             price: <[inventory].slot[41].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[41].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot18:
             item: <[inventory].slot[42].if_null[<item[air]>]>
             price: <[inventory].slot[42].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[42].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot19:
             item: <[inventory].slot[43].if_null[<item[air]>]>
             price: <[inventory].slot[43].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[43].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
         slot20:
             item: <[inventory].slot[44].if_null[<item[air]>]>
             price: <[inventory].slot[44].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[44].flag[shop.sell_price].if_null[null]>
+            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
     - flag server npc_shop.<server.flag[npc.<[npc_id]>.<[path]>.shop.id]>.contents:<[shop_contents]>
 
 NPC_Shop_Data_Menu:
