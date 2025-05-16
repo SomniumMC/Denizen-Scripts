@@ -264,35 +264,35 @@ NPC_Edit_Event:
                 - narrate "<green>Saved Data to NPC!"
 
             - if <[type]> == quantity:
-                - if !<[contents].strip_color.is_integer>:
+                - if !<[contents].strip_color.get[1].is_integer>:
                     - narrate "<red>Requires a number!"
                     - stop
-                - if <[contents].strip_color> >= 1 && <[contents].strip_color> <= 64:
-                    - flag <player.flag[npc_edit.shop.item]> shop.quantity:<[contents].strip_color>
+                - if <[contents].strip_color.get[1]> >= 1 && <[contents].strip_color.get[1]> <= 64:
+                    - flag <player.flag[npc_edit.shop.item]> shop.quantity:<[contents].strip_color.get[1]>
                     - narrate "<green>Saved Data to NPC!"
                     - inventory open d:NPC_Shop_Data_Menu
                 - else:
                     - narrate "<red>Requires a number between 1 and 64!"
                     - stop
             - if <[type]> == price:
-                - if !<[contents].strip_color.is_integer>:
+                - if !<[contents].strip_color.get[1].is_integer>:
                     - narrate "<red>Requires a number!"
                     - stop
-                - flag <player.flag[npc_edit.shop.item]> shop.price.value:<[contents].strip_color>
+                - flag <player.flag[npc_edit.shop.item]> shop.price.value:<[contents].strip_color.get[1]>
                 - narrate "<green>Saved Data to NPC!"
                 - inventory open d:NPC_Shop_Data_Menu
             - if <[type]> == sell_price:
-                - if !<[contents].strip_color.is_integer>:
+                - if !<[contents].strip_color.get[1].is_integer>:
                     - narrate "<red>Requires a number!"
                     - stop
-                - flag <player.flag[npc_edit.shop.item]> shop.sell_price.value:<[contents].strip_color>
+                - flag <player.flag[npc_edit.shop.item]> shop.sell_price.value:<[contents].strip_color.get[1]>
                 - narrate "<green>Saved Data to NPC!"
                 - inventory open d:NPC_Shop_Data_Menu
             - if <[type]> == stock:
-                - if !<[contents].strip_color.is_integer>:
+                - if !<[contents].strip_color.is_integer.get[1]>:
                     - narrate "<red>Requires a number!"
                     - stop
-                - flag <player.flag[npc_edit.shop.item]> shop.stock:<[contents].strip_color>
+                - flag <player.flag[npc_edit.shop.item]> shop.stock:<[contents].strip_color.get[1]>
                 - narrate "<green>Saved Data to NPC!"
                 - inventory open d:NPC_Shop_Data_Menu
 
