@@ -262,6 +262,7 @@ NPC_Edit_Event:
             - if <[type]> == teleport:
                 - flag server npc.<[id]>.<[path]>.location:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
+
             - if <[type]> == quantity:
                 - if !<[contents].strip_color.is_integer>:
                     - narrate "<red>Requires a number!"
@@ -422,28 +423,28 @@ NPC_Shop_Edit_Event:
             - stop
         - if <[click_type]> == left:
             - choose <[slot]>:
-                - case quantity:
+                - case 2:
                     - define edit_book <item[NPC_Edit_Book]>
                     - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Quantity
                     - adjust def:edit_book flag:type:quantity
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
-                - case price:
+                - case 4:
                     - define edit_book <item[NPC_Edit_Book]>
                     - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Price
                     - adjust def:edit_book flag:type:price
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
-                - case sell_price:
+                - case 3:
                     - define edit_book <item[NPC_Edit_Book]>
                     - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Sell<&sp>Price
                     - adjust def:edit_book flag:type:sell_price
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
-                - case stock:
+                - case 5:
                     - define edit_book <item[NPC_Edit_Book]>
                     - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Stock
                     - adjust def:edit_book flag:type:stock
