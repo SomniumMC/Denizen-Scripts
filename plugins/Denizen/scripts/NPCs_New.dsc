@@ -270,7 +270,7 @@ NPC_Edit_Event:
                 - if <[contents].get[1].strip_color> >= 1 && <[contents].get[1].strip_color> <= 64:
                     - flag <player.flag[npc_edit.shop.item]> shop.quantity:<[contents].get[1].strip_color>
                     - narrate "<green>Saved Data to NPC!"
-                    - inventory open d:NPC_Shop_Data_Menu
+                    - define editing:shop
                 - else:
                     - narrate "<red>Requires a number between 1 and 64!"
                     - stop
@@ -280,25 +280,28 @@ NPC_Edit_Event:
                     - stop
                 - flag <player.flag[npc_edit.shop.item]> shop.price.value:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
-                - inventory open d:NPC_Shop_Data_Menu
+                - define editing:shop
             - if <[type]> == sell_price:
                 - if !<[contents].get[1].strip_color.is_integer>:
                     - narrate "<red>Requires a number!"
                     - stop
                 - flag <player.flag[npc_edit.shop.item]> shop.sell_price.value:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
-                - inventory open d:NPC_Shop_Data_Menu
+                - define editing:shop
             - if <[type]> == stock:
                 - if !<[contents].get[1].strip_color.is_integer>:
                     - narrate "<red>Requires a number!"
                     - stop
                 - flag <player.flag[npc_edit.shop.item]> shop.stock:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
-                - inventory open d:NPC_Shop_Data_Menu
+                - define editing:shop
 
             - take item:NPC_Edit_Book
-            - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
-            - inventory open d:NPC_Edit_Menu_Main
+            - if <[editing]> == shop:
+                - inventory open d:NPC_Shop_Data_Menu
+            - else:
+                - flag <player> npc_edit.path:<player.flag[npc_edit.prev]>
+                - inventory open d:NPC_Edit_Menu_Main
         on player signs book:
         - if <player.item_in_hand.script.name||null> == NPC_Edit_Book:
             - narrate "<red>Please click <white>Done<red>, don't sign it!"
