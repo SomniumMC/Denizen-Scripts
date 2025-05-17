@@ -672,6 +672,7 @@ NPC_Shop_Edit_Menu:
         - if <[data].get[item].material.name> == air:
             - foreach next
         - define item <[data].get[item]>
+        - define quantity_text <aqua>Quantity<White><&co><&sp><[data].get[quantity].if_null[1]>
         - if <[data].deep_get[price.value]> == 0:
             - define price <red>Unpurchasable
         - else:
@@ -687,7 +688,7 @@ NPC_Shop_Edit_Menu:
         - else:
             - define stock_amount:<[data].get[stock]>
         - define stock_text <gold>Available<&sp>Stock<White><&co><&sp><[stock_amount]>
-        - adjust def:item "lore:<[data].get[shop_lore].if_null[<&sp>]><n><yellow><&sp.repeat[40].strikethrough><n><[price_text]><n><[sell_text]><n><[stock_text]><n><red>Right Click to open Edit Menu"
+        - adjust def:item "lore:<[data].get[shop_lore].if_null[<&sp>]><n><yellow><&sp.repeat[40].strikethrough><n><[quantity_text]><n><[price_text]><n><[sell_text]><n><[stock_text]><n><red>Right Click to open Edit Menu"
         - define result:->:<[item]>
     - determine <[result]>
     slots:
