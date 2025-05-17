@@ -425,6 +425,10 @@ NPC_Shop_Edit_Event:
             - wait 1t
             - inventory open d:NPC_Shop_Edit_Menu
             - inventory set o:<[edit_item]> slot:<player.flag[npc_edit.shop.slot]> destination:<player.open_inventory>
+            - narrate "<green>Updating Menu..."
+            - run NPC_Shop_Update
+            - wait 1s
+            - inventory open d:NPC_Shop_Edit_Menu
             - stop
         - if <[click_type]> == left:
             - choose <[slot]>:
