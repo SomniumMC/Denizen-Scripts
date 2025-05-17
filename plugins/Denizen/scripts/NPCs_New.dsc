@@ -460,6 +460,30 @@ NPC_Shop_Edit_Event:
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
+        - if <[click_type]> == right:
+            - choose <[slot]>:
+                - case 3:
+                    - if <player.flag[npc_edit.shop.item].flag[shop.sell_price.type]> == 1:
+                        - flag <player.flag[npc_edit.shop.item]> shop.sell_price.type:2
+                        - narrate "<green>Changed to Coin Type to Silver"
+                    - else if <player.flag[npc_edit.shop.item].flag[shop.sell_price.type]> == 2:
+                        - flag <player.flag[npc_edit.shop.item]> shop.sell_price.type:3
+                        - narrate "<green>Changed to Coin Type to Gold"
+                    - else if <player.flag[npc_edit.shop.item].flag[shop.sell_price.type]> == 3:
+                        - flag <player.flag[npc_edit.shop.item]> shop.sell_price.type:4
+                        - narrate "<green>Changed to Coin Type to Platinum"
+                    - inventory open d:NPC_Shop_Data_Menu
+                - case 4:
+                    - if <player.flag[npc_edit.shop.item].flag[shop.price.type]> == 1:
+                        - flag <player.flag[npc_edit.shop.item]> shop.price.type:2
+                        - narrate "<green>Changed to Coin Type to Silver"
+                    - else if <player.flag[npc_edit.shop.item].flag[shop.price.type]> == 2:
+                        - flag <player.flag[npc_edit.shop.item]> shop.price.type:3
+                        - narrate "<green>Changed to Coin Type to Gold"
+                    - else if <player.flag[npc_edit.shop.item].flag[shop.price.type]> == 3:
+                        - flag <player.flag[npc_edit.shop.item]> shop.price.type:4
+                        - narrate "<green>Changed to Coin Type to Platinum"
+                    - inventory open d:NPC_Shop_Data_Menu
 
 NPC_Shop_Update:
     type: task
