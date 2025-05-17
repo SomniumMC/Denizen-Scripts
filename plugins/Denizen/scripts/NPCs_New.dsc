@@ -635,9 +635,21 @@ NPC_Shop_Edit_Menu:
         - if <[data].get[item].material.name> == air:
             - foreach next
         - define item <[data].get[item]>
-        - define price_text <red>Buy<&sp>Price<White><&co><&sp><item[currency<[data].deep_get[price.type]>].display.before[<item[currency<[data].deep_get[price.type]>].display.strip_color>]><[data].deep_get[price.price]><&sp><item[currency<[data].deep_get[price.type]>].display.strip_color>
-        - define sell_text <blue>Sell<&sp>Price<White><&co><&sp><item[currency<[data].deep_get[sell_price.type]>].display.before[<item[currency<[data].deep_get[sell_price.type]>].display.strip_color>].if_null[<red>N/A]><[data].deep_get[sell_price.price].if_null[<empty>]><&sp><item[currency<[data].deep_get[sell_price.type]>].display.strip_color.if_null[<empty>]>
-        - define stock_text <gold>Available<&sp>Stock<White><&co><&sp><[data].get[stock].if_null[<red>Infinite]>
+        - if <[data].deep_get[price.type]> == 0:
+            - define price <red>Unpurchasable
+        - else:
+            - define price <item[currency<[data].deep_get[price.type]>].display.before[<item[currency<[data].deep_get[price.type]>].display.strip_color>]><[data].deep_get[price.price]><&sp><item[currency<[data].deep_get[price.type]>].display.strip_color>
+        - define price_text <red>Buy<&sp>Price<White><&co><&sp><[price]>
+        - if <[data].deep_get[sell_price.price]> == 0:
+            - define sell_price <red>Unsellable
+        - else:
+            - define sell_price <item[currency<[data].deep_get[sell_price.type]>].display.before[<item[currency<[data].deep_get[sell_price.type]>].display.strip_color>].if_null[<red>N/A]><[data].deep_get[sell_price.price].if_null[<empty>]><&sp><item[currency<[data].deep_get[sell_price.type]>].display.strip_color.if_null[<empty>]>
+        - define sell_text <blue>Sell<&sp>Price<White><&co><&sp><[sell_price]>
+        - if <[data].get[stock]> == -1:
+            - define stock_text <red>Infinite
+        - else:
+            - define stock_amount:<[data].get[stock]>
+        - define stock_text <gold>Available<&sp>Stock<White><&co><&sp><[stock_amount]>
         - adjust def:item "lore:<[data].get[shop_lore].if_null[<&sp>]><n><[price_text]><n><[sell_text]><n><[stock_text]><n><red>Right Click to open Edit Menu"
         - define result:->:<[item]>
     - determine <[result]>
