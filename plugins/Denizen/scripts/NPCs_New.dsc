@@ -614,8 +614,8 @@ NPC_Shop_Data_Menu:
     definitions:
         itempreview: <player.flag[npc_edit.shop.item].if_null[<item[red_concrete].with_single[display=<red>ERROR]>]>
         quantity: <item[paper].with_single[display=<yellow>Quantity].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>].with_single[flag=quantity:<player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>]>
-        sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>].display>].with_single[flag=sell_price:<map[price=<player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>]>
-        buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_single[flag=price:<map[price=<player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>]>]>
+        sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>].display>].with_single[flag=sell_price:<map[value=<player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.sell_price.price_type].if_null[1]>]>]>
+        buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>].display>].with_single[flag=price:<map[value=<player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.price.price_type].if_null[1]>]>]>
         stock: <item[paper].with_single[display=<yellow>Stock].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]><n><red>If set to -1, stock is infinite].with_single[flag=stock:<player.flag[npc_edit.shop.item].flag[shop.stock].if_null[-1]>]>
     slots:
     - [itempreview] [quantity] [sellprice] [buyprice] [stock] [GuiNull] [GuiNull] [GuiNull] [GUIReturn]
@@ -635,15 +635,15 @@ NPC_Shop_Edit_Menu:
         - if <[data].get[item].material.name> == air:
             - foreach next
         - define item <[data].get[item]>
-        - if <[data].deep_get[price.price]> == 0:
+        - if <[data].deep_get[price.value]> == 0:
             - define price <red>Unpurchasable
         - else:
-            - define price <item[currency<[data].deep_get[price.type]>].display.before[<item[currency<[data].deep_get[price.type]>].display.strip_color>]><[data].deep_get[price.price]><&sp><item[currency<[data].deep_get[price.type]>].display.strip_color>
+            - define price <item[currency<[data].deep_get[price.type]>].display.before[<item[currency<[data].deep_get[price.type]>].display.strip_color>]><[data].deep_get[price.value]><&sp><item[currency<[data].deep_get[price.type]>].display.strip_color>
         - define price_text <red>Buy<&sp>Price<White><&co><&sp><[price]>
-        - if <[data].deep_get[sell_price.price]> == 0:
+        - if <[data].deep_get[sell_price.value]> == 0:
             - define sell_price <red>Unsellable
         - else:
-            - define sell_price <item[currency<[data].deep_get[sell_price.type]>].display.before[<item[currency<[data].deep_get[sell_price.type]>].display.strip_color>].if_null[<red>N/A]><[data].deep_get[sell_price.price].if_null[<empty>]><&sp><item[currency<[data].deep_get[sell_price.type]>].display.strip_color.if_null[<empty>]>
+            - define sell_price <item[currency<[data].deep_get[sell_price.type]>].display.before[<item[currency<[data].deep_get[sell_price.type]>].display.strip_color>].if_null[<red>N/A]><[data].deep_get[sell_price.value].if_null[<empty>]><&sp><item[currency<[data].deep_get[sell_price.type]>].display.strip_color.if_null[<empty>]>
         - define sell_text <blue>Sell<&sp>Price<White><&co><&sp><[sell_price]>
         - if <[data].get[stock]> == -1:
             - define stock_amount <red>Infinite
