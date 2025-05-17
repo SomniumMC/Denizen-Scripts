@@ -407,9 +407,9 @@ NPC_Shop_Edit_Event:
 
         - if <context.clicked_inventory.script.name> == NPC_Shop_Edit_Menu:
             - if <[click_type]> == right:
+                - if !<[item].has_flag[shop_lore]>:
+                    - adjust def:item flag:shop_lore:<[item].lore>
                 - flag <player> npc_edit.shop.item:<[item]>
-                - if !<[item].has_flag[shop.lore]>:
-                    - flag <player> npc_edit.shop.item_lore:<[item].lore>
                 - flag <player> npc_edit.shop.slot:<[slot]>
                 - inventory open d:NPC_Shop_Data_Menu
         on player clicks item in NPC_Shop_Data_Menu:
