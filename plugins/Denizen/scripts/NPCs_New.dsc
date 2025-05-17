@@ -119,7 +119,7 @@ NPC_Chat_Command:
     - if <[type]> == end:
         - flag <player> chatting:<empty>
         - narrate <&sp.repeat[80].strikethrough>
-        - narrate "<&lb><[npc_display]><&rb> <white>- <[chat_data].get[message].separated_by[<n>].parsed>"
+        - narrate "<&lb><[npc_display]><&rb> <white>- <[chat_data].get[message].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>"
         - narrate "<gray><italic>You have finished talking with them."
         - narrate <&sp.repeat[80].strikethrough>
         - stop
@@ -419,8 +419,8 @@ NPC_Shop_Edit_Event:
         - if <[item].script.name||null> == GUIReturn:
             - define edit_item <player.flag[npc_edit.shop.item]>
             - adjust def:edit_item flag:shop.quantity:<context.inventory.slot[2].flag[quantity]>
-            - adjust def:edit_item flag:shop.price:<context.inventory.slot[3].flag[sell_price]>
-            - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[4].flag[price]>
+            - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[3].flag[sell_price]>
+            - adjust def:edit_item flag:shop.price:<context.inventory.slot[4].flag[price]>
             - adjust def:edit_item flag:shop.stock:<context.inventory.slot[5].flag[stock]>
             - wait 1t
             - inventory open d:NPC_Shop_Edit_Menu
@@ -435,17 +435,17 @@ NPC_Shop_Edit_Event:
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
-                - case 4:
-                    - define edit_book <item[NPC_Edit_Book]>
-                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Price
-                    - adjust def:edit_book flag:type:price
-                    - adjust def:edit_book book_pages:<empty>
-                    - give <[edit_book]>
-                    - inventory close
                 - case 3:
                     - define edit_book <item[NPC_Edit_Book]>
                     - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Sell<&sp>Price
                     - adjust def:edit_book flag:type:sell_price
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
+                - case 4:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Price
+                    - adjust def:edit_book flag:type:price
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
