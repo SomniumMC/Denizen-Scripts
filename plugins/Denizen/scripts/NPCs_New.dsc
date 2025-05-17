@@ -408,6 +408,8 @@ NPC_Shop_Edit_Event:
         - if <context.clicked_inventory.script.name> == NPC_Shop_Edit_Menu:
             - if <[click_type]> == right:
                 - flag <player> npc_edit.shop.item:<[item]>
+                - if !<[item].has_flag[shop.lore]>:
+                    - flag <player> npc_edit.shop.item_lore:<[item].lore>
                 - flag <player> npc_edit.shop.slot:<[slot]>
                 - inventory open d:NPC_Shop_Data_Menu
         on player clicks item in NPC_Shop_Data_Menu:
@@ -423,6 +425,7 @@ NPC_Shop_Edit_Event:
             - wait 1t
             - inventory open d:NPC_Shop_Edit_Menu
             - inventory set o:<[edit_item]> slot:<player.flag[npc_edit.shop.slot]> destination:<player.open_inventory>
+            - run NPC_Shop_Update
             - stop
         - if <[click_type]> == left:
             - choose <[slot]>:
@@ -468,120 +471,140 @@ NPC_Shop_Update:
             sell_price: <[inventory].slot[13].flag[shop.sell_price].if_null[null]>
             quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[13].flag[shop_lore].if_null[null]>
         slot2:
             item: <[inventory].slot[14].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[14].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[14].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[14].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[14].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[14].flag[shop_lore].if_null[null]>
         slot3:
             item: <[inventory].slot[15].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[15].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[15].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[15].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[15].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[15].flag[shop_lore].if_null[null]>
         slot4:
             item: <[inventory].slot[16].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[16].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[16].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[16].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[16].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[16].flag[shop_lore].if_null[null]>
         slot5:
             item: <[inventory].slot[17].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[17].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[17].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[17].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[17].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[17].flag[shop_lore].if_null[null]>
         slot6:
             item: <[inventory].slot[22].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[22].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[22].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[22].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[22].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[22].flag[shop_lore].if_null[null]>
         slot7:
             item: <[inventory].slot[23].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[23].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[23].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[23].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[23].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[23].flag[shop_lore].if_null[null]>
         slot8:
             item: <[inventory].slot[24].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[24].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[24].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[24].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[24].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[24].flag[shop_lore].if_null[null]>
         slot9:
             item: <[inventory].slot[25].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[25].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[25].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[25].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[25].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[25].flag[shop_lore].if_null[null]>
         slot10:
             item: <[inventory].slot[26].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[26].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[26].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[26].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[26].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[26].flag[shop_lore].if_null[null]>
         slot11:
             item: <[inventory].slot[31].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[31].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[31].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[31].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[31].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[31].flag[shop_lore].if_null[null]>
         slot12:
             item: <[inventory].slot[32].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[32].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[32].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[32].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[32].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[32].flag[shop_lore].if_null[null]>
         slot13:
             item: <[inventory].slot[33].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[33].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[33].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[33].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[33].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[33].flag[shop_lore].if_null[null]>
         slot14:
             item: <[inventory].slot[34].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[34].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[34].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[34].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[34].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[34].flag[shop_lore].if_null[null]>
         slot15:
             item: <[inventory].slot[35].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[35].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[35].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[35].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[35].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[35].flag[shop_lore].if_null[null]>
         slot16:
             item: <[inventory].slot[40].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[40].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[40].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[40].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[40].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[40].flag[shop_lore].if_null[null]>
         slot17:
             item: <[inventory].slot[41].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[41].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[41].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[41].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[41].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[41].flag[shop_lore].if_null[null]>
         slot18:
             item: <[inventory].slot[42].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[42].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[42].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[42].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[42].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[42].flag[shop_lore].if_null[null]>
         slot19:
             item: <[inventory].slot[43].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[43].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[43].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[43].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[43].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[43].flag[shop_lore].if_null[null]>
         slot20:
             item: <[inventory].slot[44].with_single[flag=shop:!].if_null[<item[air]>]>
             price: <[inventory].slot[44].flag[shop.price].if_null[null]>
             sell_price: <[inventory].slot[44].flag[shop.sell_price].if_null[null]>
-            quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
-            stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
+            quantity: <[inventory].slot[44].flag[shop.quantity].if_null[null]>
+            stock: <[inventory].slot[44].flag[shop.stock].if_null[null]>
+            shop_lore: <[inventory].slot[44].flag[shop_lore].if_null[null]>
     - flag server npc_shop.<server.flag[npc.<[npc_id]>.<[path]>.shop.id]>.contents:<[shop_contents]>
 
 NPC_Shop_Data_Menu:
@@ -613,7 +636,10 @@ NPC_Shop_Edit_Menu:
         - if <[data].get[item].material.name> == air:
             - foreach next
         - define item <[data].get[item]>
-
+        - define price_text <red>Price<White><&co><&sp><item[currency<[data].get[price.price_type]>].display.before[<item[currency<[data].get[price.price_type]>].display.strip_color>]><[data].get[price.value]><&sp><item[currency<[data].get[price.price_type]>].display.strip_color>
+        - define sell_text <blue>Sell<&sp>Price<White><&co><&sp><item[currency<[data].get[sell_price.price_type]>].display.before[<item[currency<[data].get[sell_price.price_type]>].display.strip_color>].if_null[<empty>]><[data].get[sell_price.value].if_null[<empty>]><&sp><item[currency<[data].get[sell_price.price_type]>].display.strip_color.if_null[<empty>]>
+        - define stock_text <gold>Available<&sp>Stock<White><&co><&sp><[data].get[stock].if_null[<red>Infinite]>
+        - adjust def:item "lore:<[data].get[shop_lore].if_null[<&sp>]><n><[price_text]><n><[sell_text]><n><[stock_text]><n><red>Right Click to open Edit Menu"
         - define result:->:<[item]>
     - determine <[result]>
     slots:
