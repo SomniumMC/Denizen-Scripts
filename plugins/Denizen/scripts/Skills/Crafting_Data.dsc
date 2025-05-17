@@ -289,7 +289,7 @@ Crafting_Master_Data:
         Furniture_Kit_Decoration-1:
         - oak_planks-5
         - oak_slab-2
-        Enchantment_Table-1:
+        Enchanting_Table-1:
         - iron_block-4
         - amethyst_shard-8
         - book-1
