@@ -422,6 +422,7 @@ NPC_Shop_Edit_Event:
             - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[3].flag[sell_price]>
             - adjust def:edit_item flag:shop.price:<context.inventory.slot[4].flag[price]>
             - adjust def:edit_item flag:shop.stock:<context.inventory.slot[5].flag[stock]>
+            - flag <player> npc_edit.shop.item:<[edit_item]>
             - wait 1t
             - inventory open d:NPC_Shop_Data_Menu
         - if <[item].script.name||null> == GUIReturn:
