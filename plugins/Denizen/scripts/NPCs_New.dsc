@@ -129,7 +129,7 @@ NPC_Chat_Command:
         - flag <player> chatting:<empty>
         - stop
     - if <[type]> == shop:
-        - flag <player> shop_id:<server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.shop.id]>
+        - flag <player> shop_id:<[chat_data].get[shop.id]>
         - inventory open d:NPC_Shop_GUI
         - flag <player> chatting:<empty>
         - stop
