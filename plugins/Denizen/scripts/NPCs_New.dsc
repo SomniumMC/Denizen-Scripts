@@ -774,8 +774,8 @@ NPC_Shop_Event:
                 - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
                 - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
                 - adjust def:item flag:shop:!
-                - adjust def:item flag:Shop_lore:!
                 - adjust def:item lore:<[item].flag[shop_lore]>
+                - adjust def:item flag:Shop_lore:!
 
                 - give item:<[item]> quantity:<[quantity]>
             - else:
