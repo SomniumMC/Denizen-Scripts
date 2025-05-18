@@ -775,6 +775,7 @@ NPC_Shop_Event:
                 - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
                 - adjust def:item flag:shop:!
                 - adjust def:item flag:Shop_lore:!
+                - adjust def:item lore:<[item].flag[shop_lore]>
 
                 - give item:<[item]> quantity:<[quantity]>
             - else:
