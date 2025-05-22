@@ -20,7 +20,8 @@ Durability_Triggers:
               - run Durability_Update_Task def.slot:hand
         - if <context.entity.entity_type> == player:
           - foreach <list[head|chest|legs|feet]> as:slot:
-            - run Durability_Update_Task def.slot:<[slot]> player:<context.entity>
+            - if <player.item_in_hand.has_flag[durability1]>:
+              - run Durability_Update_Task def.slot:<[slot]> player:<context.entity>
         on player shoots item:
         - if <context.bow.has_flag[durability1]>:
           - run Durability_Update_Task def.slot:<context.hand>
@@ -69,7 +70,8 @@ Mending_Delta:
       - foreach <list[head|chest|legs|feet|hand|offhand]> as:slot:
         - define item <player.inventory.slot[<[slot]>]>
         - if mending in <[item].enchantment_map.keys>:
-          - run Mending_Task def.item:<[item]> def.slot:<[slot]>
+          - if <player.item_in_hand.has_flag[durability1]>:
+            - run Mending_Task def.item:<[item]> def.slot:<[slot]>
 
 Mending_Task:
   type: task
