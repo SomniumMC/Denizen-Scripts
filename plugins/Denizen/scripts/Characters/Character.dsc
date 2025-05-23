@@ -67,7 +67,7 @@ Character_Stats_Menu:
     slots:
     - [GUIReturn] [GUINULL] [GUINULL] [GUINULL] [Character_Head] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
     - [GUINull] [Stat_Strength] [Stat_Agility] [Stat_Toughness] [Stat_Endurance] [Stat_Vitality] [Stat_Wisdom] [Stat_Intelligence] [GUINull]
-    - [<item[Race_<player.flag[race]>_Head].with_single[display=<green>Selected Race<white><&co><&sp><gold><player.flag[race]>]>] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [<item[Race_<player.flag[race.name]>_Head].with_single[display=<green>Selected Race<white><&co><&sp><gold><player.flag[race.name]>]>] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
 Character_RPC:
     type: item
@@ -122,6 +122,8 @@ Character_RPC_Events:
         on player clicks item in Character_RPC_Menu:
         - define item <context.item>
         - define click_type <context.click>
+        - if <context.clicked_inventory.script.name> != character_rpc_menu:
+          - stop
         - choose <[item].flag[type]>:
           - case Name:
             - if <[click_type]> == right:
