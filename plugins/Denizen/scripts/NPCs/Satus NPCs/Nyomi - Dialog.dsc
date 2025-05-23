@@ -79,7 +79,7 @@ Nyomi_race_Events:
     debug: true
     events:
         after player clicks guireturn in race_select_inventory:
-        - if <player.flag[chatting]> == nyomi:
+        - if !<player.has_flag[tutorial_race_check]>:
             - define npc_display <npc[0].name.parsed>
             #- define 
             - run NPC_Chat def.npc:Nyomi def.type:chatting def.data:<server.flag[npc.0.welcome.option1]> def.npc_display:<[npc_display]> def.path:welcome.option1
