@@ -122,7 +122,7 @@ Character_RPC_Events:
         on player clicks item in Character_RPC_Menu:
         - define item <context.item>
         - define click_type <context.click>
-        - if <context.clicked_inventory.script.name> != character_rpc_menu:
+        - if <context.clicked_inventory.script.name.if_null[null]> != character_rpc_menu:
           - stop
         - choose <[item].flag[type]>:
           - case Name:
