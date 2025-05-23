@@ -110,7 +110,7 @@ NPC_Chat_Command:
     - define chat_data <server.flag[npc.<[npc]>.<context.args.get[2]>]>
     - define path <context.args.get[2]>
     - define type <[chat_data].get[type]>
-    - define key <[chat_data].get[key]>
+    #- define key <[chat_data].get[key]>
     - define npc_display <npc[<[npc]>].name.parsed>
     - if <[chat_data]> == null:
         - narrate "<red>Options Expired!"

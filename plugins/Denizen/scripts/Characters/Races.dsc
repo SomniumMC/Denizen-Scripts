@@ -118,7 +118,7 @@ Race_Select_Inventory:
     inventory: chest
     gui: true
     slots:
-    - [GUINull] [GUINull] [GUINull] [GUINull] [<item[Race_<player.flag[race.name]>_Head].with_single[display=<green>Selected Race<white><&co><&sp><gold><player.flag[race]>]>] [GUINull] [GUINull] [GUINull] [GUINull]
+    - [GUINull] [GUINull] [GUINull] [GUINull] [<item[Race_<player.flag[race.name]>_Head].with_single[display=<green>Selected Race<white><&co><&sp><gold><player.flag[race.name]>]>] [GUINull] [GUINull] [GUINull] [GUINull]
     - [GUINull] [Stat_Strength] [Stat_Agility] [Stat_Toughness] [Stat_Endurance] [Stat_Vitality] [Stat_Wisdom] [Stat_Intelligence] [GUINull]
     - [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull] [GUINull]
     - [GUINull] [Race_Human_Head] [Race_Elf_Head] [Race_Dwarf_Head] [Race_Fairy_Head] [Race_Orc_Head] [Race_Finfolk_Head] [Race_Zoaki_Head] [GUINull]

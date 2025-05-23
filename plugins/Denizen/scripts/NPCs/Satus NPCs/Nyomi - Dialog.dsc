@@ -76,7 +76,7 @@
 
 Nyomi_race_Events:
     type: world
-    debug: false
+    debug: true
     events:
         after player clicks guireturn in race_select_inventory:
         - if <player.flag[chatting]> == nyomi:
