@@ -133,12 +133,12 @@ Character_RPC_Events:
               - inventory close
           - case description:
             - if <[click_type]> == left:
-              - narrate <player.flag[character.rpc.description]>
+              - narrate <player.flag[rpc_viewing].flag[character.rpc.description]>
             - if <[click_type]> == right:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:description
               - adjust def:edit_book lore:<[edit_book].lore.set[<red>Editing<&co><&sp><gold>Description].at[2]>
-              - adjust def:edit_book book_pages:<player.flag[character.rpc.description].if_null[]>
+              - adjust def:edit_book book_pages:<player.flag[rpc_viewing].flag[character.rpc.description].if_null[]>
               - give item:<[edit_book]>
               - inventory close
           - case age:
@@ -332,7 +332,7 @@ Character_RPC_Age:
 Character_RPC_Height:
     type: item
     debug: false
-    material: iron_boots
+    material: chainmail_boots
     display name: <green>Character Height
     flags:
       type: height
