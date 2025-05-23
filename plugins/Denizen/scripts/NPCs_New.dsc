@@ -183,6 +183,11 @@ NPC_Edit_Event:
                     - inventory open d:NPC_Edit_Menu_Main
                 - if <[chat_type]> == teleport:
                     - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:inventory
+                    - narrate "<green>Changed to Inventory"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[chat_type]> == inventory:
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:chatting
                     - narrate "<green>Changed to Chatting"
                     - inventory open d:NPC_Edit_Menu_Main
@@ -266,6 +271,9 @@ NPC_Edit_Event:
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == teleport:
                 - flag server npc.<[id]>.<[path]>.location:<[contents].get[1].strip_color>
+                - narrate "<green>Saved Data to NPC!"
+            - if <[type]> == inventory:
+                - flag server npc.<[id]>.<[path]>.inventory:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
 
             - if <[type]> == quantity:
@@ -360,6 +368,8 @@ NPC_Edit_Menu_Main:
                 - define item <item[oak_door]>
             - case teleport:
                 - define item <item[ender_pearl]>
+            - case inventory:
+                - define item <item[chest]>
             - default:
                 - define item <item[guinull]>
                 - define result:->:<[item]>
@@ -371,6 +381,8 @@ NPC_Edit_Menu_Main:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Shop"
             - case teleport:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><gold>Teleport<&sp>Location<&co><white><&sp><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[location].if_null[<red>Empty]>"
+            - case inventory:
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Inventory<n><gold>Inventory<&sp>Location<&co><white><&sp><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[inventory].if_null[<red>Empty]>"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
