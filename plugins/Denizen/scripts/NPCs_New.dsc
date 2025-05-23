@@ -125,7 +125,7 @@ NPC_Chat_Command:
         - stop
     - if <[type]> == teleport:
         - teleport <player> <location[<[chat_data].get[location]>]>
-        - narrate <[chat_data].get[message].separated_by[<n>].parsed>
+        - narrate <[chat_data].get[message].separated_by[<n>].parsed.if_null[<empty>]>
         - flag <player> chatting:<empty>
         - stop
     - if <[type]> == shop:
