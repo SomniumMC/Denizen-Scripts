@@ -135,7 +135,6 @@ NPC_Chat_Command:
         - stop
     - if <[type]> == inventory:
         - inventory open d:<[chat_data].get[inventory]>
-        - flag <player> chatting:<empty>
         - stop
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
 
