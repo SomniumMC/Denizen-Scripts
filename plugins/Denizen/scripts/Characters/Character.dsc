@@ -43,6 +43,7 @@ Character_Menu_Controls:
         on player clicks GUIReturn in Character_Stats_Menu:
         - inventory open d:Character_Menu
         on player clicks Character_RPC in Character_Menu:
+        - flag <player> rpc_viewing:<player>
         - inventory open d:Character_RPC_Menu
         #after player opens Character_Menu:
         #- inventory adjust slot:11 destination:<player.open_inventory> skull_skin:<player.name>
