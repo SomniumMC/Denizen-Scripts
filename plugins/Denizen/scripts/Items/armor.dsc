@@ -356,7 +356,7 @@ Steel_Helmet:
            amount: 3
            slot: head
      components_patch:
-        equippable: <map[slot=string:head;asset_id=string:custom_armor:heavy_steel_plate]>
+        equippable: <map[slot=string:head;asset_id=string:custom_armor:steel_plate]>
         item_model: string:custom_armor:steel_helmet
     display name: <gold>Steel Helmet
     flags:
@@ -378,7 +378,7 @@ Steel_Chestplate:
            slot: chest
      hides: unbreakable|armor_trim|attributes
      components_patch:
-        equippable: <map[slot=string:chest;asset_id=string:custom_armor:heavy_steel_plate]>
+        equippable: <map[slot=string:chest;asset_id=string:custom_armor:steel_plate]>
         item_model: string:custom_armor:steel_chestplate
     display name: <gold>Steel Chestplate
     flags:
@@ -400,7 +400,7 @@ Steel_Leggings:
             slot: legs
       hides: unbreakable|armor_trim|attributes
       components_patch:
-        equippable: <map[slot=string:legs;asset_id=string:custom_armor:heavy_steel_plate]>
+        equippable: <map[slot=string:legs;asset_id=string:custom_armor:steel_plate]>
         item_model: string:custom_armor:steel_leggings
     display name: <gold>Steel Leggings
     flags:
@@ -422,7 +422,7 @@ Steel_Boots:
            slot: feet
      hides: unbreakable|armor_trim|attributes
      components_patch:
-        equippable: <map[slot=string:feet;asset_id=string:custom_armor:heavy_steel_plate]>
+        equippable: <map[slot=string:feet;asset_id=string:custom_armor:steel_plate]>
         item_model: string:custom_armor:steel_boots
     display name: <gold>Steel Boots
     flags:
