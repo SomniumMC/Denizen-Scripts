@@ -20,6 +20,11 @@ Storm_Player_Check:
         - narrate targets:<player> "<red><bold>Bells can be heard ringing in the distance while the skys start turning for the worst."
       - if <server.flag[storm.stage]> in <list[warning|finished]>:
         - flag <player> storm:!
+        - flag <player> storm_grace:!
+      - if <server.flag[storm.stage]> in <list[started|danger]>:
+        - narrate targets:<player> "<red><bold>The storm rages around you, you have been gifted with temporary protection!"
+        - flag <player> storm:!
+        - flag <player> storm_grace:120
       on delta time secondly:
       - if <server.flag[storm.stage]> in <list[started|danger]>:
         - foreach <server.online_players> as:__player:
@@ -61,6 +66,13 @@ Storm_Check:
     debug: false
     definitions: player
     script:
+    - if <player.has_flag[storm_grace]>:
+        - if <player.flag[storm_grace]> > 0:
+          - flag <player> storm_grace:-:1
+        - else:
+          - narrate targets:<player> "<red><bold>Your protection has worn away, may you have fortune."
+          - flag <player> storm_grace:!
+        - stop
     - if <player.has_flag[storm]>:
       - if <player.location.is_in[area_flagged:bunker]>:
         - flag <player> storm:!
