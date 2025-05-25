@@ -36,7 +36,7 @@ NPC_Chat:
 
     - narrate <&sp.repeat[80].strikethrough>
     - narrate "<white><&lb><[npc_display]><white><&rb> <white>- <[data].get[message].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>"
-    - foreach <[data].keys.filter[starts_with=option]> as:option:
+    - foreach <[data].keys.exclude[message|type|response|teleport|inventory|shop]> as:option:
         - define option_data <[data].get[<[option]>]>
 
         - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
