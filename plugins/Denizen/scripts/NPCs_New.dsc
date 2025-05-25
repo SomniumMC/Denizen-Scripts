@@ -29,7 +29,7 @@ NPC_Dialog_Welcome:
 
 NPC_Chat:
     type: task
-    debug: false
+    debug: true
     definitions: data|type|npc|npc_display|path
     script:
     - flag <player> chatting:<[npc]> expire:1m
