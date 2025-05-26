@@ -20,6 +20,7 @@ Greylist_Blocker:
             - teleport <player> greylist_tele
         on player right clicks npc priority:-20:
         - if <context.entity.id> == 43:
+            - ratelimit <player> 5t
             - define status:<player.flag[character.rpc.status].if_null[null]>
             - if <[status]> == null:
                 - narrate targets:<player> "<red><bold>You must create a character before you can leave Satus!"
