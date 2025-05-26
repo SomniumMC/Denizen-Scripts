@@ -20,17 +20,21 @@ Greylist_Blocker:
             - teleport <player> greylist_tele
         on player right clicks npc priority:-20:
         - if <context.entity.id> == 43:
-            - ratelimit <player> 5t
+            - if <player.has_flag[greylist_temp_flag]>:
+                - determine cancelled
             - define status:<player.flag[character.rpc.status].if_null[null]>
             - if <[status]> == null:
                 - narrate targets:<player> "<red><bold>You must create a character before you can leave Satus!"
                 #- teleport <player> greylist_tele
+                - flag <player> greylist_temp_Flag expire:5s
                 - determine cancelled
             - if <[status]> in <list[info_needed|denied]>:
                 - narrate targets:<player> "<red><bold>You must make a ticket to resubmit your character application!"
                 #- teleport <player> greylist_tele
+                - flag <player> greylist_temp_Flag expire:5s
                 - determine cancelled
             - if <[status]> == submitted:
                 - narrate targets:<player> "<red><bold>Your character is still under review, please wait for staff to review your application!"
                 #- teleport <player> greylist_tele
+                - flag <player> greylist_temp_Flag expire:5s
                 - determine cancelled
