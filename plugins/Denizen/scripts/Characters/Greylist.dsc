@@ -3,3 +3,33 @@
 # To get onto the greylist, the player must create a character and be accepted by the server staff.
 
 # Created: 4/27/2025
+
+Greylist_Blocker:
+    type: world
+    events:
+        on player exits satus:
+        - define status:<player.flag[character.rpc.status].if_null[null]>
+        - if <[status]> == null:
+            - narrate targets:<player> "<red><bold>You must create a character before you can leave Satus!"
+            - teleport <player> greylist_tele
+        - if <[status]> in <list[info_needed|denied]>:
+            - narrate targets:<player> "<red><bold>You must make a ticket to resubmit your character application!"
+            - teleport <player> greylist_tele
+        - if <[status]> == submitted:
+            - narrate targets:<player> "<red><bold>Your character is still under review, please wait for staff to review your application!"
+            - teleport <player> greylist_tele
+        on player right clicks npc priority:-20:
+        - if <context.entity.id> == 43:
+            - define status:<player.flag[character.rpc.status].if_null[null]>
+            - if <[status]> == null:
+                - narrate targets:<player> "<red><bold>You must create a character before you can leave Satus!"
+                #- teleport <player> greylist_tele
+                - determine cancelled
+            - if <[status]> in <list[info_needed|denied]>:
+                - narrate targets:<player> "<red><bold>You must make a ticket to resubmit your character application!"
+                #- teleport <player> greylist_tele
+                - determine cancelled
+            - if <[status]> == submitted:
+                - narrate targets:<player> "<red><bold>Your character is still under review, please wait for staff to review your application!"
+                #- teleport <player> greylist_tele
+                - determine cancelled

@@ -186,7 +186,7 @@ Character_RPC_Events:
               - flag player character.rpc.name:<[contents].get[1].strip_color>
             - case Description:
               - if <context.book.book_pages.get[1].to_list.size> > 52:
-                - narrate "<red>Max Characters 50!"
+                - narrate "<red>Max Characters 100!"
                 - take slot:hand
                 - stop
               - flag player character.rpc.description:<[contents].get[1].strip_color>
@@ -215,6 +215,7 @@ Character_RPC_Events:
               #- take slot:hand
           - narrate <context.book.book_pages.get[1]>
           - take slot:hand
+          - inventory open d:Character_RPC_Menu
         on player signs book:
         - if <player.item_in_hand.script.name> == Character_RPC_EditBook:
           - narrate "<red>Please click <white>Done<red>, don't sign it!"
@@ -256,6 +257,9 @@ Character_RPC_Menu:
       - case info_needed:
         - adjust def:status_item "lore:<[status_item].lore><yellow>Needs More Information<n><white>Please submit a ticket."
         - adjust def:status_item material:yellow_stained_glass
+      - case submitted:
+        - adjust def:status_item "lore:<[status_item].lore><yellow>Submitted<n><white>Please wait for staff to review your application."
+        - adjust def:status_item material:clock
     - define item_list:->:<item[<[status_item]>]>
     - determine <[item_list]>
     slots:
@@ -420,6 +424,7 @@ Character_RPC_AppSend:
         profession: <player.flag[character.rpc.profession]>
 
     - narrate "<green>Processing Application..."
+    - flag <player> character.rpc.status:submitted
 
     - define formatted "Character Name<&co><&sp><[app_data].get[name]><n>
       Race<&co><&sp><[app_data].get[race].to_titlecase><n>
