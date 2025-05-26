@@ -12,6 +12,8 @@ Greylist_Blocker:
         - if <[status]> == null:
             - narrate targets:<player> "<red><bold>You must create a character before you can leave Satus!"
             - teleport <player> greylist_tele
+            - flag <player> rpc_viewing:<player>
+            - inventory open d:Character_RPC_Menu
         - if <[status]> in <list[info_needed|denied]>:
             - narrate targets:<player> "<red><bold>You must make a ticket to resubmit your character application!"
             - teleport <player> greylist_tele
@@ -27,6 +29,8 @@ Greylist_Blocker:
                 - narrate targets:<player> "<red><bold>You must create a character before you can leave Satus!"
                 #- teleport <player> greylist_tele
                 - flag <player> greylist_temp_Flag expire:5s
+                - flag <player> rpc_viewing:<player>
+                - inventory open d:Character_RPC_Menu
                 - determine cancelled
             - if <[status]> in <list[info_needed|denied]>:
                 - narrate targets:<player> "<red><bold>You must make a ticket to resubmit your character application!"
