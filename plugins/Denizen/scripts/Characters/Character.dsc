@@ -170,7 +170,6 @@ Character_RPC_Events:
               - inventory close
           - case confirm:
             - run Character_RPC_AppSend
-            - flag <player> character.rpc.submitted:true
             - inventory close
               #- discordmessage id:mybot channel:1341502905554964550 "<player.name> has sent a app, this is a test"
         after player edits book:
@@ -424,6 +423,7 @@ Character_RPC_AppSend:
         profession: <player.flag[character.rpc.profession]>
 
     - narrate "<green>Processing Application..."
+    - flag <player> character.rpc.submitted:true
     - flag <player> character.rpc.status:submitted
 
     - define formatted "Character Name<&co><&sp><[app_data].get[name]><n>
