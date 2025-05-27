@@ -70,7 +70,7 @@ Mending_Delta:
       - foreach <list[head|chest|legs|feet|hand|offhand]> as:slot:
         - define item <player.inventory.slot[<[slot]>]>
         - if mending in <[item].enchantment_map.keys>:
-          - if <player.item_in_hand.has_flag[durability1]>:
+          - if <[item].has_flag[durability1]>:
             - run Mending_Task def.item:<[item]> def.slot:<[slot]>
 
 Mending_Task:
