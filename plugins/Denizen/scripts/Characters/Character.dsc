@@ -306,10 +306,11 @@ Character_RPC_Desc:
     type: item
     debug: false
     material: paper
-    display name: <green>Character Description
+    display name: <green>Character Physical Description
     flags:
       type: description
     lore:
+    - <gold>This describes what your character looks like, their clothing, hair, eyes, ect.
     - <green>Click to view
     - <red>Right Click to edit
 
