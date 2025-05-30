@@ -1001,7 +1001,7 @@ Crafting_Icon_Satchels:
 Crafting_Icon_Concrete:
   type: item
   debug: false
-  material: concrete
+  material: red_concrete
   display name: <red>Concrete
   flags:
     category: concrete
