@@ -374,7 +374,7 @@ Crafting_Master_Data:
         - mud-12
         stone_bricks-64:
         - cobblestone-128
-      conrete:
+      concrete:
         white_concrete_powder-32:
         - sand-4
         - gravel-4
