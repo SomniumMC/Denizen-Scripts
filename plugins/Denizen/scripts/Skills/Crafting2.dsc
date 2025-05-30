@@ -446,6 +446,7 @@ Crafting_Recipe_Select_GUI:
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
+  - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
 
 Crafting_Recipe_Proc:
