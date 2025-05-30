@@ -218,10 +218,10 @@ SomniData_Sentient_Undergrowth:
       health: 10
       area: sentientundergrowth2
       somni: Sentient_Undergrowth
-    exit1:
-      type: returnportal
-      pos1: 41|22|-22
-      somni: Sentient_Undergrowth
+    #exit1:
+    #  type: returnportal
+    #  pos1: 41|22|-22
+    #  somni: Sentient_Undergrowth
     exit2:
       type: returnportal
       pos1: 3|9|-32
