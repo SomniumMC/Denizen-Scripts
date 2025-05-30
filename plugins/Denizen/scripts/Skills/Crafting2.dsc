@@ -1005,8 +1005,5 @@ Crafting_Icon_Concrete:
   display name: <red>Concrete
   flags:
     category: concrete
-  mechanisms:
-      components_patch:
-        item_model: string:minecraft:concrete_powder
   lore:
   - <white>Prepare materials for crafting solid concrete and powder
