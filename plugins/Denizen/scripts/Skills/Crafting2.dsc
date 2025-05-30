@@ -997,3 +997,16 @@ Crafting_Icon_Satchels:
         item_model: string:minecraft:bundle
   lore:
   - <white>Prepare materials for crafting satchels
+
+Crafting_Icon_Concrete:
+  type: item
+  debug: false
+  material: concrete
+  display name: <red>Concrete
+  flags:
+    category: concrete
+  mechanisms:
+      components_patch:
+        item_model: string:minecraft:concrete_powder
+  lore:
+  - <white>Prepare materials for crafting solid concrete and powder

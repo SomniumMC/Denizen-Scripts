@@ -374,3 +374,149 @@ Crafting_Master_Data:
         - mud-12
         stone_bricks-64:
         - cobblestone-128
+      conrete:
+        white_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - white_dye-1
+        light_gray_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - light_gray_dye-1
+        gray_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - gray_dye-1
+        black_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - black_dye-1
+        brown_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - brown_dye-1
+        red_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - red_dye-1
+        orange_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - orange_dye-1
+        yellow_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - yellow_dye-1
+        lime_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - lime_dye-1
+        green_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - green_dye-1
+        cyan_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - cyan_dye-1
+        light_blue_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - light_blue_dye-1
+        blue_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - blue_dye-1
+        purple_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - purple_dye-1
+        magenta_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - magenta_dye-1
+        pink_concrete_powder-32:
+        - sand-4
+        - gravel-4
+        - pink_dye-1
+        # Full concrete
+        white_concrete-32:
+        - sand-4
+        - gravel-4
+        - white_dye-1
+        - fresh_water-1
+        light_gray_concrete-32:
+        - sand-4
+        - gravel-4
+        - light_gray_dye-1
+        - fresh_water-1
+        gray_concrete-32:
+        - sand-4
+        - gravel-4
+        - gray_dye-1
+        - fresh_water-1
+        black_concrete-32:
+        - sand-4
+        - gravel-4
+        - black_dye-1
+        - fresh_water-1
+        brown_concrete-32:
+        - sand-4
+        - gravel-4
+        - brown_dye-1
+        - fresh_water-1
+        red_concrete-32:
+        - sand-4
+        - gravel-4
+        - red_dye-1
+        - fresh_water-1
+        orange_concrete-32:
+        - sand-4
+        - gravel-4
+        - orange_dye-1
+        - fresh_water-1
+        yellow_concrete-32:
+        - sand-4
+        - gravel-4
+        - yellow_dye-1
+        - fresh_water-1
+        lime_concrete-32:
+        - sand-4
+        - gravel-4
+        - lime_dye-1
+        - fresh_water-1
+        green_concrete-32:
+        - sand-4
+        - gravel-4
+        - green_dye-1
+        - fresh_water-1
+        cyan_concrete-32:
+        - sand-4
+        - gravel-4
+        - cyan_dye-1
+        - fresh_water-1
+        light_blue_concrete-32:
+        - sand-4
+        - gravel-4
+        - light_blue_dye-1
+        - fresh_water-1
+        blue_concrete-32:
+        - sand-4
+        - gravel-4
+        - blue_dye-1
+        - fresh_water-1
+        purple_concrete-32:
+        - sand-4
+        - gravel-4
+        - purple_dye-1
+        - fresh_water-1
+        magenta_concrete-32:
+        - sand-4
+        - gravel-4
+        - magenta_dye-1
+        - fresh_water-1
+        pink_concrete-32:
+        - sand-4
+        - gravel-4
+        - pink_dye-1
+        - fresh_water-1
