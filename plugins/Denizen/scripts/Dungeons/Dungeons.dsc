@@ -713,7 +713,7 @@ SomniMenu_Data:
     cost: 0
     description: <light_purple>Ancient overgrown ruins with a story to tell.
     danger: moderate
-    enabled: false
+    enabled: true
     entrance: sentient_undergrowthentrance
     exit: sentient_undergrowthexit
     icon: vine
