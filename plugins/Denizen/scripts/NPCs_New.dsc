@@ -322,8 +322,8 @@ NPC_Edit_Event:
                 - flag server npc.<[id]>.<[path]>.task:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == flag:
-                - define line1 <[contents].get[1].strip_color.separated_by[<n>].get[1]>
-                - define line2 <[contents].get[1].strip_color.separated_by[<n>].get[2]>
+                - define line1 <[contents].get[1].separated_by[<n>].get[1].strip_color>
+                - define line2 <[contents].get[1].separated_by[<n>].get[2].strip_color>
                 - if <[line1].if_null[null]> == null || <[line2].if_null[null]> == null:
                     - narrate "<red>Requires a flag in the format: flag_name<n>value"
                     - stop
