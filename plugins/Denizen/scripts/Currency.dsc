@@ -303,6 +303,14 @@ Bank_Vault:
   material: chest
   display name: <light_purple>Bank Vault<white><&co><&sp><gold>
 
+Bank_Fallback_Check:
+    type: world
+    events:
+        on player opens Bank_GUI:
+        - if <player.flag[bank_location].if_null[null]> == null:
+          - narrate "<red><bold>You must first create a bank account before you can access the bank!"
+          - inventory close
+
 #Gui And Inventories
 Bank_GUI:
   type: inventory
@@ -312,7 +320,7 @@ Bank_GUI:
   gui: true
   procedural items:
   - define result <list>
-  - define bank_location <player.flag[bank_location]>
+  - define bank_location <player.flag[bank_location].if_null[satus]>
   - foreach <player.flag[bank.<[bank_location]>.vaults].keys> as:vault:
     - define item <item[Bank_Vault]>
     - define vault_data <player.flag[bank.<[bank_location]>.vaults].get[<[vault]>]>
@@ -380,7 +388,7 @@ Bank_Account_Create:
   type: task
   debug: false
   script:
-  - define bank_location <player.flag[bank_location]>
+  - define bank_location <player.flag[bank_location].if_null[satus]>
   - definemap vault_data:
       display: <light_purple>Bank Vault<white><&co><&sp><gold>1
       contents: <list[<empty>]>
