@@ -136,6 +136,8 @@ NPC_Chat_Command:
     - if <[type]> == inventory:
         - inventory open d:<[chat_data].get[inventory]>
         - stop
+    - if <[type]> == task:
+        - run <[chat_data].get[task]>
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
 
 ## NPC Editor Block
@@ -190,6 +192,11 @@ NPC_Edit_Event:
                     - narrate "<green>Changed to Inventory"
                     - inventory open d:NPC_Edit_Menu_Main
                 - if <[chat_type]> == inventory:
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:Task
+                    - narrate "<green>Changed to Task"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[chat_type]> == task:
                     - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:chatting
                     - narrate "<green>Changed to Chatting"
@@ -284,6 +291,9 @@ NPC_Edit_Event:
                 - flag server npc.<[id]>.<[path]>.location:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == inventory:
+                - flag server npc.<[id]>.<[path]>.inventory:<[contents].get[1].strip_color>
+                - narrate "<green>Saved Data to NPC!"
+            - if <[type]> == task:
                 - flag server npc.<[id]>.<[path]>.inventory:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
 
@@ -381,6 +391,8 @@ NPC_Edit_Menu_Main:
                 - define item <item[ender_pearl]>
             - case inventory:
                 - define item <item[chest]>
+            - case task:
+                - define item <item[book]>
             - default:
                 - define item <item[guinull]>
                 - define result:->:<[item]>
