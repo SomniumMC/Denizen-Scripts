@@ -309,7 +309,9 @@ Bank_Fallback_Check:
         on player opens Bank_GUI:
         - if <player.flag[bank.<player.flag[bank_location]>].if_null[null]> == null:
           - narrate "<red><bold>You must first create a bank account before you can access the bank!"
+          - wait 1t
           - inventory close
+          - determine cancelled
 
 #Gui And Inventories
 Bank_GUI:
