@@ -487,7 +487,11 @@ NPC_Shop_Edit_Event:
         - if <context.clicked_inventory.script.name> == NPC_Shop_Edit_Menu:
             - if <[click_type]> == right:
                 - if !<[item].has_flag[shop_lore]>:
-                    - adjust def:item flag:shop_lore:<[item].lore>
+                    - adjust def:item flag:shop_lore:<[item].lore.if_null[<empty>]>
+                - if <[item].script.name.if_null[null]> != null:
+                    - adjust def:item flag:script_name:<[item].script.name>
+                - else:
+                    - adjust def:item flag:material_name:<[item].material.name>
                 - flag <player> npc_edit.shop.item:<[item]>
                 - flag <player> npc_edit.shop.slot:<[slot]>
                 - inventory open d:NPC_Shop_Data_Menu
@@ -510,6 +514,10 @@ NPC_Shop_Edit_Event:
             - adjust def:edit_item flag:shop.sell_price:<context.inventory.slot[3].flag[sell_price]>
             - adjust def:edit_item flag:shop.price:<context.inventory.slot[4].flag[price]>
             - adjust def:edit_item flag:shop.stock:<context.inventory.slot[5].flag[stock]>
+            - if <[item].has_flag[script_name]>:
+                - adjust def:edit_item flag:script_name:<[item].flag[script_name]>
+            - else if <[item].has_flag[material_name]>:
+                - adjust def:edit_item flag:material_name:<[item].flag[material_name]>
             - wait 1t
             - inventory open d:NPC_Shop_Edit_Menu
             - inventory set o:<[edit_item]> slot:<player.flag[npc_edit.shop.slot]> destination:<player.open_inventory>
@@ -587,6 +595,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[13].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[13].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[13].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[13].flag[script_name].if_null[null]>
         slot2:
             item: <[inventory].slot[14].if_null[<item[air]>]>
             price: <[inventory].slot[14].flag[shop.price].if_null[null]>
@@ -594,6 +603,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[14].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[14].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[14].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[14].flag[script_name].if_null[null]>
         slot3:
             item: <[inventory].slot[15].if_null[<item[air]>]>
             price: <[inventory].slot[15].flag[shop.price].if_null[null]>
@@ -601,6 +611,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[15].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[15].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[15].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[15].flag[script_name].if_null[null]>
         slot4:
             item: <[inventory].slot[16].if_null[<item[air]>]>
             price: <[inventory].slot[16].flag[shop.price].if_null[null]>
@@ -608,6 +619,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[16].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[16].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[16].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[16].flag[script_name].if_null[null]>
         slot5:
             item: <[inventory].slot[17].if_null[<item[air]>]>
             price: <[inventory].slot[17].flag[shop.price].if_null[null]>
@@ -615,6 +627,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[17].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[17].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[17].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[13].flag[script_name].if_null[null]>
         slot6:
             item: <[inventory].slot[22].if_null[<item[air]>]>
             price: <[inventory].slot[22].flag[shop.price].if_null[null]>
@@ -622,6 +635,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[22].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[22].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[22].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[22].flag[script_name].if_null[null]>
         slot7:
             item: <[inventory].slot[23].if_null[<item[air]>]>
             price: <[inventory].slot[23].flag[shop.price].if_null[null]>
@@ -629,6 +643,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[23].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[23].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[23].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[23].flag[script_name].if_null[null]>
         slot8:
             item: <[inventory].slot[24].if_null[<item[air]>]>
             price: <[inventory].slot[24].flag[shop.price].if_null[null]>
@@ -636,6 +651,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[24].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[24].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[24].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[24].flag[script_name].if_null[null]>
         slot9:
             item: <[inventory].slot[25].if_null[<item[air]>]>
             price: <[inventory].slot[25].flag[shop.price].if_null[null]>
@@ -643,6 +659,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[25].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[25].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[25].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[25].flag[script_name].if_null[null]>
         slot10:
             item: <[inventory].slot[26].if_null[<item[air]>]>
             price: <[inventory].slot[26].flag[shop.price].if_null[null]>
@@ -650,6 +667,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[26].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[26].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[26].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[26].flag[script_name].if_null[null]>
         slot11:
             item: <[inventory].slot[31].if_null[<item[air]>]>
             price: <[inventory].slot[31].flag[shop.price].if_null[null]>
@@ -657,6 +675,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[31].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[31].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[31].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[31].flag[script_name].if_null[null]>
         slot12:
             item: <[inventory].slot[32].if_null[<item[air]>]>
             price: <[inventory].slot[32].flag[shop.price].if_null[null]>
@@ -664,6 +683,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[32].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[32].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[32].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[32].flag[script_name].if_null[null]>
         slot13:
             item: <[inventory].slot[33].if_null[<item[air]>]>
             price: <[inventory].slot[33].flag[shop.price].if_null[null]>
@@ -671,6 +691,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[33].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[33].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[33].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[33].flag[script_name].if_null[null]>
         slot14:
             item: <[inventory].slot[34].if_null[<item[air]>]>
             price: <[inventory].slot[34].flag[shop.price].if_null[null]>
@@ -678,6 +699,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[34].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[34].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[34].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[34].flag[script_name].if_null[null]>
         slot15:
             item: <[inventory].slot[35].if_null[<item[air]>]>
             price: <[inventory].slot[35].flag[shop.price].if_null[null]>
@@ -685,6 +707,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[35].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[35].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[35].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[35].flag[script_name].if_null[null]>
         slot16:
             item: <[inventory].slot[40].if_null[<item[air]>]>
             price: <[inventory].slot[40].flag[shop.price].if_null[null]>
@@ -692,6 +715,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[40].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[40].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[40].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[40].flag[script_name].if_null[null]>
         slot17:
             item: <[inventory].slot[41].if_null[<item[air]>]>
             price: <[inventory].slot[41].flag[shop.price].if_null[null]>
@@ -699,6 +723,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[41].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[41].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[41].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[41].flag[script_name].if_null[null]>
         slot18:
             item: <[inventory].slot[42].if_null[<item[air]>]>
             price: <[inventory].slot[42].flag[shop.price].if_null[null]>
@@ -706,6 +731,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[42].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[42].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[42].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[42].flag[script_name].if_null[null]>
         slot19:
             item: <[inventory].slot[43].if_null[<item[air]>]>
             price: <[inventory].slot[43].flag[shop.price].if_null[null]>
@@ -713,6 +739,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[43].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[43].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[43].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[43].flag[script_name].if_null[null]>
         slot20:
             item: <[inventory].slot[44].if_null[<item[air]>]>
             price: <[inventory].slot[44].flag[shop.price].if_null[null]>
@@ -720,6 +747,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[44].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[44].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[44].flag[shop_lore].if_null[null]>
+            script_name: <[inventory].slot[44].flag[script_name].if_null[null]>
     - flag server npc_shop.<server.flag[npc.<[npc_id]>.<[path]>.shop.id]>.contents:<[shop_contents]>
 
 NPC_Shop_Data_Menu:
@@ -729,6 +757,7 @@ NPC_Shop_Data_Menu:
     gui: true
     definitions:
         itempreview: <player.flag[npc_edit.shop.item].with_single[lore=<player.flag[npc_edit.shop.item].flag[shop_lore]>].if_null[<item[red_concrete].with_single[display=<red>ERROR]>]>
+        #<player.flag[npc_edit.shop.item].with_single[lore=<player.flag[npc_edit.shop.item].flag[shop_lore]>].if_null[<item[red_concrete].with_single[display=<red>ERROR]>]>
         quantity: <item[paper].with_single[display=<yellow>Quantity].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>].with_single[flag=quantity:<player.flag[npc_edit.shop.item].flag[shop.quantity].if_null[1]>]>
         sellprice: <item[paper].with_single[display=<yellow>Sell Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.sell_price.type].if_null[1]>].display><n><red>Right Click to swap Coin Type].with_single[flag=sell_price:<map[value=<player.flag[npc_edit.shop.item].flag[shop.sell_price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.sell_price.type].if_null[1]>]>]>
         buyprice: <item[paper].with_single[display=<yellow>Buy Price].with_single[lore=<green>Left Click to Edit<n><gold>Current<&sp>Amount<&co><&sp><light_purple><player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]><&sp><item[currency<player.flag[npc_edit.shop.item].flag[shop.price.type].if_null[1]>].display><n><red>Right Click to swap Coin Type].with_single[flag=price:<map[value=<player.flag[npc_edit.shop.item].flag[shop.price.value].if_null[0]>;type=<player.flag[npc_edit.shop.item].flag[shop.price.type].if_null[1]>]>]>
@@ -791,6 +820,10 @@ NPC_Shop_GUI:
         - if <[data].get[item].material.name> == air:
             - foreach next
         - define item <[data].get[item]>
+        - if <[data].get[script_name].if_null[null]> != null:
+            - adjust def:item flag:script_name:<[data].get[script_name]>
+        - else:
+            - adjust def:item flag:material_name:<[data].get[item].material.name>
         - define quantity_text <aqua>Quantity<White><&co><&sp><[data].get[quantity].if_null[1]>
         - if <[data].deep_get[price.value]> == 0:
             - define price <red>Unpurchasable
@@ -851,21 +884,36 @@ NPC_Shop_Event:
                 - adjust def:item lore:<[item].flag[shop_lore]>
                 - adjust def:item flag:Shop_lore:!
 
-                - give item:<[item]> quantity:<[quantity]>
+                - if <[item].has_flag[script_name]>:
+                    - give item:<item[<[item].flag[script_name]>]> quantity:<[quantity]>
+                - else:
+                    - give item:<item[<[item].flag[material_name]>]> quantity:<[quantity]>
             - else:
                 - narrate "<red>You don't have enough of this currency!"
         - else if <[click_type]> == right:
             - if <[sell_price]> == null:
                 - narrate "<red>You cannot sell this item!"
                 - stop
-            - if <player.inventory.contains_item[<[item]>].quantity[<[quantity]>]>:
-                - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> flag:stored:<player.open_inventory.slot[<[currency_slot]>].flag[stored].add[<[sell_price].get[value]>]>
-                - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
-                - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
+            - if <[item].has_flag[script_name]>:
+                - if <player.inventory.contains_item[<[item].flag[script_name]>].quantity[<[quantity]>]>:
+                    - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> flag:stored:<player.open_inventory.slot[<[currency_slot]>].flag[stored].add[<[sell_price].get[value]>]>
+                    - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
+                    - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
 
-                - take item:<[item]> quantity:<[quantity]>
+                    - take item:<[item].flag[script_name]> quantity:<[quantity]>
+
+                - else:
+                    - narrate "<red>You are missing this item!"
             - else:
-                - narrate "<red>You are missing this item!"
+                - if <player.inventory.contains_item[<[item].flag[material_name]>].quantity[<[quantity]>]>:
+                    - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> flag:stored:<player.open_inventory.slot[<[currency_slot]>].flag[stored].add[<[sell_price].get[value]>]>
+                    - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
+                    - playsound sound:BLOCK.CHAIN.STEP <player> sound_category:players volume:0.7
+
+                    - take item:<[item].flag[material_name]> quantity:<[quantity]>
+                - else:
+                    - narrate "<red>You are missing this item!"
+
         after player opens NPC_Shop_GUI:
         - define slot1 11
         - define slot2 20
