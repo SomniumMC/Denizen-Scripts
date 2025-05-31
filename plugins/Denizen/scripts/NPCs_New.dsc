@@ -322,9 +322,9 @@ NPC_Edit_Event:
                 - flag server npc.<[id]>.<[path]>.task:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == flag:
-                - define line1 <[contents].get[1].separated_by[<n>].get[1].strip_color>
-                - define line2 <[contents].get[1].separated_by[<n>].get[2].strip_color>
-                - if <[line1].if_null[null]> == null || <[line2].if_null[null]> == null:
+                - define line1 <[contents].get[1].strip_color.if_null[null]>
+                - define line2 <[contents].get[2].strip_color.if_null[null]>
+                - if <[line1]> == null || <[line2]> == null:
                     - narrate "<red>Requires a flag in the format: flag_name<n>value"
                     - stop
                 - flag server npc.<[id]>.<[path]>.flag:<[line1]>&<[line2]>
