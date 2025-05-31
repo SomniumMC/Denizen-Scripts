@@ -391,6 +391,9 @@ Bank_Account_Create:
   debug: false
   script:
   - define bank_location <player.flag[bank_location].if_null[satus]>
+  - if <player.flag[bank.<[bank_location]>].if_null[null]> != null:
+    - narrate "<red><bold>You already have a bank account at <[bank_location].to_titlecase>!"
+    - stop
   - definemap vault_data:
       display: <light_purple>Bank Vault<white><&co><&sp><gold>1
       contents: <list[<empty>]>
