@@ -241,6 +241,22 @@ NPC_Edit_Event:
                     - adjust def:edit_book book_pages:<empty>
                     - give <[edit_book]>
                     - inventory close
+                - if <[chat_type]> == task:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - flag <player> npc_edit.path:<[path]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Task
+                    - adjust def:edit_book flag:type:task
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
+                - if <[chat_type]> == flag:
+                    - define edit_book <item[NPC_Edit_Book]>
+                    - flag <player> npc_edit.path:<[path]>
+                    - adjust def:edit_book lore:<red>Editing<&co><&sp><gold>Flag
+                    - adjust def:edit_book flag:type:flag
+                    - adjust def:edit_book book_pages:<empty>
+                    - give <[edit_book]>
+                    - inventory close
             - stop
         - if <[type]> == GUIL:
             - flag <player> npc_edit.path:welcome
