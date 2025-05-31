@@ -882,6 +882,9 @@ NPC_Shop_Event:
             - case 4:
                 - define currency_slot 38
         - if <[click_type]> == left:
+            - if <[item_price].get[value]> == 0:
+                - narrate "<red>This item is not purchasable!"
+                - stop
             - if <player.open_inventory.slot[<[currency_slot]>].flag[stored]> >= <[item_price].get[value]>:
                 - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> flag:stored:<player.open_inventory.slot[<[currency_slot]>].flag[stored].sub[<[item_price].get[value]>]>
                 - inventory adjust slot:<[currency_slot]> destination:<player.open_inventory> lore:<gold>Current<&sp>Amount<&co><&sp><light_purple><item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.before[<item[<player.open_inventory.slot[<[currency_slot]>].script.name>].display.strip_color>]><player.open_inventory.slot[<[currency_slot]>].flag[stored]><white>/<light_purple>300
@@ -898,7 +901,7 @@ NPC_Shop_Event:
             - else:
                 - narrate "<red>You don't have enough of this currency!"
         - else if <[click_type]> == right:
-            - if <[sell_price]> == null:
+            - if <[sell_price]> == 0:
                 - narrate "<red>You cannot sell this item!"
                 - stop
             - if <[item].has_flag[script_name]>:
