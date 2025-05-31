@@ -307,7 +307,7 @@ Bank_Fallback_Check:
     type: world
     events:
         on player opens Bank_GUI:
-        - if <player.flag[bank_location].if_null[null]> == null:
+        - if <player.flag[bank.<player.flag[bank_location]>].if_null[null]> == null:
           - narrate "<red><bold>You must first create a bank account before you can access the bank!"
           - inventory close
 
