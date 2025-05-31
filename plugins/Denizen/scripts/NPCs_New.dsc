@@ -901,7 +901,7 @@ NPC_Shop_Event:
             - else:
                 - narrate "<red>You don't have enough of this currency!"
         - else if <[click_type]> == right:
-            - if <[sell_price]> == 0:
+            - if <[sell_price].get[value]> == 0:
                 - narrate "<red>You cannot sell this item!"
                 - stop
             - if <[item].has_flag[script_name]>:
