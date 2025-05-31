@@ -138,6 +138,10 @@ NPC_Chat_Command:
         - stop
     - if <[type]> == task:
         - run <[chat_data].get[task]>
+    - if <[type]> == flag:
+        - define flag_name:<[chat_data].get[flag].before[&]>
+        - define flag_value:<[chat_data].get[flag].after[&]>
+        - flag <player> <[flag_name]>:<[flag_value]>
     - run NPC_Chat def.npc:<[npc]> def.type:<[type]> def.data:<[chat_data]> def.npc_display:<[npc_display]> def.path:<[path]>
 
 ## NPC Editor Block
@@ -197,6 +201,11 @@ NPC_Edit_Event:
                     - narrate "<green>Changed to Task"
                     - inventory open d:NPC_Edit_Menu_Main
                 - if <[chat_type]> == task:
+                    - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
+                    - flag server npc.<[npc_id]>.<[path]>.type:flag
+                    - narrate "<green>Changed to Flag"
+                    - inventory open d:NPC_Edit_Menu_Main
+                - if <[chat_type]> == flag:
                     - flag <player> npc_edit.path:<player.flag[npc_edit.path]>
                     - flag server npc.<[npc_id]>.<[path]>.type:chatting
                     - narrate "<green>Changed to Chatting"
@@ -294,7 +303,15 @@ NPC_Edit_Event:
                 - flag server npc.<[id]>.<[path]>.inventory:<[contents].get[1].strip_color>
                 - narrate "<green>Saved Data to NPC!"
             - if <[type]> == task:
-                - flag server npc.<[id]>.<[path]>.inventory:<[contents].get[1].strip_color>
+                - flag server npc.<[id]>.<[path]>.task:<[contents].get[1].strip_color>
+                - narrate "<green>Saved Data to NPC!"
+            - if <[type]> == flag:
+                - define line1 <[contents].get[1].strip_color.separated_by[<n>].get[1].if_null[null]>
+                - define line2 <[contents].get[1].strip_color.separated_by[<n>].get[2].if_null[null]>
+                - if <[line1]> == null || <[line2]> == null:
+                    - narrate "<red>Requires a flag in the format: flag_name<n>value"
+                    - stop
+                - flag server npc.<[id]>.<[path]>.flag:<[line1]>&<[line2]>
                 - narrate "<green>Saved Data to NPC!"
 
             - if <[type]> == quantity:
@@ -393,6 +410,8 @@ NPC_Edit_Menu_Main:
                 - define item <item[chest]>
             - case task:
                 - define item <item[book]>
+            - case flag:
+                - define item <item[target]>
             - default:
                 - define item <item[guinull]>
                 - define result:->:<[item]>
