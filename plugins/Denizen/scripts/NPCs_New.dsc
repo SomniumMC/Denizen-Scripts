@@ -425,6 +425,10 @@ NPC_Edit_Menu_Main:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Teleport Location<n><gold>Teleport<&sp>Location<&co><white><&sp><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[location].if_null[<red>Empty]>"
             - case inventory:
                 - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Inventory<n><gold>Inventory<&sp>Location<&co><white><&sp><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[inventory].if_null[<red>Empty]>"
+            - case task:
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Task<n><gold>Task<&sp>Name<&co><white><&sp><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[task].if_null[<red>Empty]>"
+            - case flag:
+                - adjust def:item "lore:<[item].lore><n><green>Right Click to Edit Flag<n><gold>Flag<&co><white><&sp><server.flag[npc.<player.flag[npc_edit.id]>.<player.flag[npc_edit.path]>.<[option]>].get[flag].replace[&].with[:].if_null[<red>Empty]>"
         - adjust def:item flag:chat_type:<[data].get[type]>
         - adjust def:item flag:path:<player.flag[npc_edit.path]>.<[option]>
         - define result:->:<[item]>
