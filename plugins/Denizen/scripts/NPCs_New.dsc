@@ -568,6 +568,9 @@ NPC_Shop_Edit_Event:
                     - else if <player.flag[npc_edit.shop.item].flag[shop.sell_price.type]> == 3:
                         - flag <player.flag[npc_edit.shop.item]> shop.sell_price.type:4
                         - narrate "<green>Changed to Coin Type to Platinum"
+                    - else if <player.flag[npc_edit.shop.item].flag[shop.sell_price.type]> == 4:
+                        - flag <player.flag[npc_edit.shop.item]> shop.sell_price.type:1
+                        - narrate "<green>Changed to Coin Type to Copper"
                     - inventory open d:NPC_Shop_Data_Menu
                 - case 4:
                     - if <player.flag[npc_edit.shop.item].flag[shop.price.type]> == 1:
@@ -579,6 +582,9 @@ NPC_Shop_Edit_Event:
                     - else if <player.flag[npc_edit.shop.item].flag[shop.price.type]> == 3:
                         - flag <player.flag[npc_edit.shop.item]> shop.price.type:4
                         - narrate "<green>Changed to Coin Type to Platinum"
+                    - else if <player.flag[npc_edit.shop.item].flag[shop.price.type]> == 4:
+                        - flag <player.flag[npc_edit.shop.item]> shop.price.type:1
+                        - narrate "<green>Changed to Coin Type to Copper"
                     - inventory open d:NPC_Shop_Data_Menu
 
 NPC_Shop_Update:
