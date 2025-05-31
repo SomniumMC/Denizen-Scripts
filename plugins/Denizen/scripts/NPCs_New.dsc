@@ -891,7 +891,8 @@ NPC_Shop_Event:
                 - adjust def:item flag:Shop_lore:!
 
                 - if <[item].has_flag[script_name]>:
-                    - give item:<item[<[item].flag[script_name]>]> quantity:<[quantity]>
+                    - define sold_item <item[<[item].flag[script_name]>]>
+                    - give item:<proc[apply_info_proc].context[<[sold_item]>]> quantity:<[quantity]>
                 - else:
                     - give item:<item[<[item].flag[material_name]>]> quantity:<[quantity]>
             - else:
