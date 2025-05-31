@@ -633,7 +633,7 @@ NPC_Shop_Update:
             quantity: <[inventory].slot[17].flag[shop.quantity].if_null[null]>
             stock: <[inventory].slot[17].flag[shop.stock].if_null[null]>
             shop_lore: <[inventory].slot[17].flag[shop_lore].if_null[null]>
-            script_name: <[inventory].slot[13].flag[script_name].if_null[null]>
+            script_name: <[inventory].slot[17].flag[script_name].if_null[null]>
         slot6:
             item: <[inventory].slot[22].if_null[<item[air]>]>
             price: <[inventory].slot[22].flag[shop.price].if_null[null]>
