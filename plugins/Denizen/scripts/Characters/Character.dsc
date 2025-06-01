@@ -184,7 +184,7 @@ Character_RPC_Events:
                 - stop
               - flag player character.rpc.name:<[contents].get[1].strip_color>
             - case Description:
-              - if <context.book.book_pages.get[1].to_list.size> > 52:
+              - if <context.book.book_pages.get[1].to_list.size> > 150:
                 - narrate "<red>Max Characters 150!"
                 - take slot:hand
                 - stop
