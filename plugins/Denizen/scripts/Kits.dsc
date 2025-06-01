@@ -68,10 +68,10 @@ IronSet_Kit_Data:
     type: data
     debug: false
     kit:
-    - Iron_Helmet-1
-    - Iron_Chestplate-1
-    - Iron_Leggings-1
-    - Iron_Boots-1
+    - IronSet_Helmet-1
+    - IronSet_Chestplate-1
+    - IronSet_Leggings-1
+    - IronSet_Boots-1
 
 RangedSet_Kit_Data:
     type: data
@@ -100,3 +100,53 @@ BuildingSet_Kit_Data:
     - iron_axe-1
     - iron_pickaxe-1
     - stone_brick-256
+
+## Kit Items
+
+# Iron Set
+IronSet_Helmet:
+    type: item
+    debug: false
+    material: iron_helmet
+    mechanisms:
+      unbreakable: true
+      components_patch:
+        equippable: <map[slot=string:head]>
+        item_model: string:custom_armor:bear_hat
+    display name: <gold>Alpharien Helmet
+    flags:
+      lore: <gray>Armor said to be<n><gray>from the earliest<n><gray>days, Its sturdy.
+      durability1: 250
+
+IronSet_Chestplate:
+    type: item
+    debug: false
+    material: iron_chestplate
+    mechanisms:
+      unbreakable: true
+    display name: <gold>Alpharien Chestplate
+    flags:
+      lore: <gray>Armor said to be<n><gray>from the earliest<n><gray>days, Its sturdy.
+      durability1: 250
+
+IronSet_Leggings:
+    type: item
+    debug: false
+    material: iron_leggings
+    mechanisms:
+      unbreakable: true
+    display name: <gold>Alpharien Leggings
+    flags:
+      lore: <gray>Armor said to be<n><gray>from the earliest<n><gray>days, Its sturdy.
+      durability1: 250
+
+IronSet_Boots:
+    type: item
+    debug: false
+    material: iron_boots
+    mechanisms:
+      unbreakable: true
+    display name: <gold>Alpharien Boots
+    flags:
+      lore: <gray>Armor said to be<n><gray>from the earliest<n><gray>days, Its sturdy.
+      durability1: 250
