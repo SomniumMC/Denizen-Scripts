@@ -136,7 +136,7 @@ Character_RPC_Events:
               - inventory close
           - case description:
             - if <[click_type]> == left:
-              - narrate <player.flag[rpc_viewing].flag[character.rpc.description]>
+              - narrate <player.flag[rpc_viewing].flag[character.rpc.description].if_null[<red><bold>Empty]>
             - if <[click_type]> == right:
               - define edit_book <item[character_rpc_editbook]>
               - adjust def:edit_book flag:type:description
