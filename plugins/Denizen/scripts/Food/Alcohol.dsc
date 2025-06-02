@@ -17,11 +17,11 @@ Alcohol_Station_Setup:
         - modifyblock <[location]> cyan_stained_glass
         - spawn item_display[item=Alcohol_Fermentation_Barrel] <[location].center> save:Fermentation_Barrel_model
         - flag <[location]> fermenting.model:<entry[Fermentation_Barrel_model].spawned_entity>
-        on player places Alcohol_Aging_Cask:
-        - define location <context.location>
-        - modifyblock <[location]> cyan_stained_glass
-        - spawn item_display[item=Alcohol_Aging_Cask] <[location].center> save:Cask_model
-        - flag <[location]> cask.model:<entry[Cask_model].spawned_entity>
+        #on player places Alcohol_Aging_Cask:
+        #- define location <context.location>
+        #- modifyblock <[location]> cyan_stained_glass
+        #- spawn item_display[item=Alcohol_Aging_Cask] <[location].center> save:Cask_model
+        #- flag <[location]> cask.model:<entry[Cask_model].spawned_entity>
         on player places Alcohol_Mixing_Tub:
         - define location <context.location>
         - define bottom <[location].below[1]>
