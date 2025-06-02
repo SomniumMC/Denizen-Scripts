@@ -4,7 +4,7 @@
 
 Tool_Management_Event_Main:
     type: world
-    debug: true
+    debug: false
     events:
         on player places Tool_Bench:
         - define location <context.location>
@@ -31,7 +31,7 @@ Tool_Management_Event_Main:
 
 Tool_Bag_Event:
     type: world
-    debug: true
+    debug: false
     events:
         on player right clicks block with:tool_bag:
         - define item <player.item_in_hand>
@@ -70,7 +70,7 @@ Tool_Bag_Event:
 
 Tool_Bag_Select:
     type: task
-    debug: true
+    debug: false
     definitions: tool|slot
     script:
     - define bag <player.item_in_hand>
@@ -81,7 +81,7 @@ Tool_Bag_Select:
 
 Tool_Bag_Putaway:
     type: task
-    debug: true
+    debug: false
     script:
     - define bag <player.item_in_hand>
     - adjust def:bag components_patch:[minecraft:item_model=string:minecraft:leather]

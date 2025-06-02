@@ -4,7 +4,7 @@
 
 Alcohol_Station_Setup:
     type: world
-    debug: true
+    debug: false
     events:
         on player places alcohol_distillery:
         - define location <context.location>
@@ -591,7 +591,7 @@ Alcohol_Fermenter_Delta_Time:
 
 Alcohol_Fermenter_Setup:
     type: task
-    debug: true
+    debug: false
     definitions: location
     script:
     - flag <[location]> fermenting.fluid:empty

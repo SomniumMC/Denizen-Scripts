@@ -372,7 +372,7 @@ SU_Skeleton_Hanging:
 
 Sentient_Undergrowth_Events:
   type: world
-  debug: true
+  debug: false
   events:
     on player enters sentientundergrowthteleporter:
     - define player <context.entity>

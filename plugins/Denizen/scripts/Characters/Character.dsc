@@ -12,7 +12,7 @@ character_command:
 
 rpc_command:
     type: command
-    debug: true
+    debug: false
     name: rpc
     description: Does something
     usage: /rpc

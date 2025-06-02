@@ -435,7 +435,7 @@ Staff_Switch_Kits:
 
 Staff_Item_Edit:
     type: command
-    debug: true
+    debug: false
     description: This is a command to edit items in hand
     name: itemedit
     usage: /itemedit <&lt>Item_Name<&gt>
@@ -487,7 +487,7 @@ Staff_Item_Edit:
 
 Staff_Item_Edit_Book_Events:
     type: world
-    debug: true
+    debug: false
     events:
         after player edits book:
         - if <context.old_book.script.name||null> == Staff_Item_Edit_Book:
@@ -530,7 +530,7 @@ Staff_Item_Edit_Book_Events:
 
 Staff_Item_Edit_GUI:
     type: inventory
-    debug: true
+    debug: false
     inventory: chest
     title: <green>Item Edit Menu
     size: 27
@@ -578,7 +578,7 @@ Staff_Item_Edit_Book:
 # Item Edit GUI Events
 Staff_Item_Edit_GUI_Events:
     type: world
-    debug: true
+    debug: false
     events:
         on player clicks item in Staff_Item_Edit_GUI:
         - define item <context.item>

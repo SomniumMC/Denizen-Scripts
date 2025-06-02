@@ -227,7 +227,7 @@ SomniReturnPortal:
 
 SomniTeleporter:
     type: task
-    debug: true
+    debug: false
     definitions: pos1|origin|note
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -235,7 +235,7 @@ SomniTeleporter:
 
 SomniCrawl:
     type: task
-    debug: true
+    debug: false
     definitions: pos1|origin|yaw
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
@@ -542,7 +542,7 @@ SomniReturnPortal_Event:
 
 SomniMob_Spawner_Event:
   type: world
-  #debug: false
+  debug: false
   events:
     on player damages Dungeon_Spawner_Interaction:
     - define entity <context.entity>
@@ -568,7 +568,7 @@ SomniMob_Spawner_Event:
 
 SomniCrawl_Event:
   type: world
-  debug: true
+  debug: false
   events:
     on player right clicks Somni_Crawl_Interaction:
     - ratelimit <player> 5t
