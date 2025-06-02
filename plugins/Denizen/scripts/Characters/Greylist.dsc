@@ -6,6 +6,7 @@
 
 Greylist_Blocker:
     type: world
+    debug: false
     events:
         on player exits satus:
         - define status:<player.flag[character.rpc.status].if_null[null]>
