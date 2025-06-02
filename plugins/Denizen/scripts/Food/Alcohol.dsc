@@ -6,12 +6,12 @@ Alcohol_Station_Setup:
     type: world
     debug: false
     events:
-        on player places alcohol_distillery:
-        - define location <context.location>
-        - modifyblock <[location]> air
-        - spawn item_display[item=Alcohol_Distillery] <[location].center> save:distillery_model
-        - spawn Alcohol_Distillery_Interaction <[location].center.below[0.5]> save:distillery_interaction
-        - flag <entry[distillery_interaction].spawned_entity> distillery.model:<entry[distillery_model].spawned_entity>
+        #on player places alcohol_distillery:
+        #- define location <context.location>
+        #- modifyblock <[location]> air
+        #- spawn item_display[item=Alcohol_Distillery] <[location].center> save:distillery_model
+        #- spawn Alcohol_Distillery_Interaction <[location].center.below[0.5]> save:distillery_interaction
+        #- flag <entry[distillery_interaction].spawned_entity> distillery.model:<entry[distillery_model].spawned_entity>
         on player places Alcohol_Fermentation_Barrel:
         - define location <context.location>
         - modifyblock <[location]> cyan_stained_glass
