@@ -727,3 +727,17 @@ SomniMenu_Data:
     exit: ruined_cityexit
     icon: cobblestone
 
+
+
+## Dungeon Dimension Emergency Portal
+
+Dungeon_Return_Portal_Event:
+  type: world
+  debug: false
+  events:
+    on player enters dungeon_dim_exit:
+    - define exit <player.bed_spawn.if_null[null]>
+    - if <[exit]> == null:
+      - teleport <player> somnidungeon_stone_warp
+    - else:
+      - teleport <player> <[exit]>
