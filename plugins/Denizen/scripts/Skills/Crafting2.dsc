@@ -442,7 +442,7 @@ Crafting_Recipe_Select_GUI:
   # Add some logic!
   - determine <[result]>
   slots:
-  - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
