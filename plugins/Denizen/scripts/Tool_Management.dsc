@@ -103,6 +103,9 @@ Tool_Bench:
     debug: false
     display name: <gold>Tool Bench
     material: anvil
+    mechanisms:
+        components_patch:
+            item_model: string:furniture:tool_bench
     lore:
         - <yellow>A workbench for repairing and salvaging tools.
         - <blue>Right-click to open the tool management menu.
@@ -122,15 +125,12 @@ Tool_Management_GUI:
     gui: true
     definitions:
       ItemPreview: <player.item_in_hand>
-    procedural items:
-    - define result <list>
-    # Add some logic!
-    - determine <[result]>
+      Inactive_Button: <item[gray_concrete].with_single[display=<white>Inactive Button].with_single[lore=<gold>This will be available after the current task is finished.]>
     slots:
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [GUINULL] [GUINULL] [GUINULL] [Item_Preview] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [air] [air] [GUINULL] [Item_Preview] [GUINULL] [GUINULL] [air] [air]
+    - [air] [air] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [air] [air]
+    - [GUINULL] [GUINULL] [GUINULL] [Inactive_Button] [GUINULL] [Inactive_Button] [GUINULL] [GUINULL]
 
 Tool_Management_Dissasemble_GUI:
     type: inventory
@@ -164,6 +164,9 @@ Copper_Hammer:
     debug: false
     display name: <gold>Copper Hammer
     material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:iron_hammer
     flags:
         lore: <yellow>A hammer made of copper.<n><light_purple>Tier 1 Hammering
         durability1: 100
@@ -174,6 +177,9 @@ Copper_Saw:
     debug: false
     display name: <gold>Copper Saw
     material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:chisel
     flags:
         lore: <yellow>A saw made of copper.<n><light_purple>Tier 1 Sawing
         durability1: 100
@@ -184,6 +190,9 @@ Copper_Knife:
     debug: false
     display name: <gold>Copper Knife
     material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:chisel
     flags:
         lore: <yellow>A knife made of copper.<n><light_purple>Tier 1 Cutting
         durability1: 100

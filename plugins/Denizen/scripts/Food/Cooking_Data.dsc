@@ -75,7 +75,7 @@ Cooking_Master_Data:
       - new_apple-1
       - caramel-1
       - stick-1
-      - stick
+      - cutting_board
       apple_sauce-1:
       - new_apple-2
       - new_sugar-1
@@ -649,19 +649,6 @@ Cooking_Master_Data:
       - flour-1
       - fresh_water-1
       - mixing_bowl
-      Sauce_Stew_Base-1:
-      - cooking_salt-1
-      - egg-1
-      - mixing_bowl
-      Broth_Stew_Base-1:
-      - stock-1
-      - cooking_salt-1
-      - bone-1
-      - mixing_bowl
-      Alcohol_Stew_Base-1:
-      - yeast-1
-      - new_sugar-1
-      - mixing_bowl
 
 
       cooking_recipe_pack-1:
@@ -679,3 +666,11 @@ Cooking_Vanilla_Ingredients:
     - egg
     - sugar_cane
     - gold_nugget
+    - orange_dye
+    - blue_dye
+    - bowl
+    - red_dye
+    - green_dye
+    - yellow_dye
+    - pink_dye
+    - ink_sac

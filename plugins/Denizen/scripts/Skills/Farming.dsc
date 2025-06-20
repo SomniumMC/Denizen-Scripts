@@ -316,16 +316,16 @@ Cooking_Crop_Break:
           - adjustblock <context.location> type:berries
           - playeffect effect:BONE_MEAL_USE at:<context.location>
           - playsound sound:BONE_MEAL_USE at:<context.location> sound_category:blocks
-        on nether_wart drops nether_wart from breaking:
-        - determine passively cancelled
-        after player breaks nether_wart bukkit_priority:HIGHEST:
-        - if <context.material.age> == 3:
-          - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:<util.random.int[1].to[3]>
-        - if <context.material.age> < 3:
-          - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:1
+        #on nether_wart drops nether_wart from breaking:
+        #- determine passively cancelled
+        #after player breaks nether_wart bukkit_priority:HIGHEST:
+        #- if <context.material.age> == 3:
+        #  - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:<util.random.int[1].to[3]>
+        #- if <context.material.age> < 3:
+        #  - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:1
         on player right clicks nether_wart:
         - if <context.location.material.age> == 3:
-          - drop <proc[apply_info_proc].context[<item[new_netherwart]>]> <context.location> quantity:<util.random.int[1].to[3]>
+          - drop item:nether_wart <context.location> quantity:<util.random.int[1].to[3]>
           - adjustblock <context.location> age:0
           - playsound <context.location> sound:block_azalea_leaves_break sound_category:blocks
 
