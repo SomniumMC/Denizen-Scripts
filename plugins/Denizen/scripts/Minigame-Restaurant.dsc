@@ -46,6 +46,8 @@ Cooking_Storage_Display_Create:
     - define player_yaw <player.eye_location.yaw.round_to_precision[90]>
     - define yaw_mod <[center].with_yaw[<proc[Restaurant_Reverse_Facer_Proc].context[<[player_yaw]>]>]>
     - spawn text_display <[yaw_mod].forward[0.51]> save:text_display
+    - adjust <entry[text_display].spawned_entity> default_background:false
+    - adjust <entry[text_display].spawned_entity> background_color:TRANSPARENT
     - spawn item_display[item=air;scale=0.3,0.3,0.001] <[yaw_mod].forward[0.51].down[0.25]> save:item
     - look <entry[item].spawned_entity> yaw:<[player_yaw]>
     - spawn Cooking_Storage_Interaction <[yaw_mod].forward[0.07].down[0.45]> save:interaction
