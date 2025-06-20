@@ -109,7 +109,7 @@ Cooking_Pot:
     material: BRICK
     display name: <white>Cooking Pot
     mechanisms:
-      components_patch: minecraft:item_model=string:utensils:cookpot
+      components_patch: minecraft:item_model=string:cooking:tools/cooking_pot
       custom_model_data: 106
     lore:
     - <green>Tool
