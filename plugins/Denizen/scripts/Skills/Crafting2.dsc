@@ -103,6 +103,9 @@ Crafting_Start_Event:
       - inventory open d:Crafting_Category_Select_GUI
     on player clicks item in Crafting_Category_Select_GUI:
     - define item <context.item>
+    - if <[item].script.name.if_null[null]> == GUIReturn:
+        - inventory open d:Crafting_Station_Select_GUI
+        - stop
     - if <context.slot> in <util.list_numbers[from=11;to=17].include[<util.list_numbers[from=20;to=26]>]> && <context.clicked_inventory.script.name> == Crafting_Category_Select_GUI:
       - if <context.item.material.name> == air:
         - stop
@@ -112,6 +115,9 @@ Crafting_Start_Event:
       - inventory open d:Crafting_Recipe_Select_GUI
     on player clicks item in Crafting_Recipe_Select_GUI:
     - define item <context.item>
+    - if <[item].script.name.if_null[null]> == GUIReturn:
+        - inventory open d:Crafting_Station_Select_GUI
+        - stop
     - if <context.slot> in <util.list_numbers[from=11;to=17].include[<util.list_numbers[from=20;to=26]>].include[<util.list_numbers[from=29;to=35]>].include[<util.list_numbers[from=38;to=44]>].include[<util.list_numbers[from=47;to=53]>]> && <context.clicked_inventory.script.name> == Crafting_Recipe_Select_GUI:
       - if <context.item.material.name> == air:
         - stop
@@ -408,7 +414,7 @@ Crafting_Category_Select_GUI:
   # Add some logic!
   - determine <[result]>
   slots:
-  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUIReturn[display=<green>Previous Page]] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
@@ -442,7 +448,7 @@ Crafting_Recipe_Select_GUI:
   # Add some logic!
   - determine <[result]>
   slots:
-  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+  - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUIReturn[display=<green>Previous Page]] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
   - [GUINULL] [] [] [] [] [] [] [] [GUINULL]
