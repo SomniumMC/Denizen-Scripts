@@ -10,6 +10,7 @@ Remove_Vanilla_Recipes:
           - minecraft:iron_block
           - minecraft:iron_trapdoor
           - minecraft:anvil
+          - minecraft:enchanting_table
           - minecraft:hopper
           - minecraft:copper_block
           - minecraft:copper_ingot
