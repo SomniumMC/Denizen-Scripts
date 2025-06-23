@@ -151,7 +151,10 @@ Tool_Bag:
     type: item
     debug: false
     display name: <gold>Tool Bag
-    material: leather
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:toolbag
     lore:
     - <yellow>A bag for storing tools.
     - <white><&lt><light_purple>Right Click<white><&gt> To open the tool management menu.
