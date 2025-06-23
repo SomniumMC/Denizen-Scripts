@@ -84,7 +84,7 @@ Tool_Bag_Putaway:
     debug: false
     script:
     - define bag <player.item_in_hand>
-    - adjust def:bag components_patch:[minecraft:item_model=string:minecraft:leather]
+    - adjust def:bag components_patch:[minecraft:item_model=string:tools:toolbag]
     - adjust def:bag flag:tool:!
     - adjust def:bag flag:slot:!
     - inventory set slot:hand o:<[bag]> destination:<player.inventory>
