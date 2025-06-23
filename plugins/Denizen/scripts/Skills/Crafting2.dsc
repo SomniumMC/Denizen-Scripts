@@ -112,7 +112,7 @@ Crafting_Start_Event:
       - inventory open d:Crafting_Recipe_Select_GUI
     on player clicks item in Crafting_Recipe_Select_GUI:
     - define item <context.item>
-    - if <context.slot> in <util.list_numbers[from=11;to=17].include[<util.list_numbers[from=20;to=26]>]> && <context.clicked_inventory.script.name> == Crafting_Recipe_Select_GUI:
+    - if <context.slot> in <util.list_numbers[from=11;to=17].include[<util.list_numbers[from=20;to=26]>].include[<util.list_numbers[from=29;to=35]>].include[<util.list_numbers[from=38;to=44]>].include[<util.list_numbers[from=47;to=53]>]> && <context.clicked_inventory.script.name> == Crafting_Recipe_Select_GUI:
       - if <context.item.material.name> == air:
         - stop
       #- narrate <[item].flag[path]>
@@ -122,7 +122,7 @@ Crafting_Start_Event:
 
 Crafting_Recipe_Task:
   type: task
-  debug: true
+  debug: false
   definitions: item
   script:
   - define path <[item].flag[path]>
