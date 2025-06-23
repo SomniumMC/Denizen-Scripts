@@ -122,7 +122,7 @@ Crafting_Start_Event:
 
 Crafting_Recipe_Task:
   type: task
-  debug: false
+  debug: true
   definitions: item
   script:
   - define path <[item].flag[path]>
