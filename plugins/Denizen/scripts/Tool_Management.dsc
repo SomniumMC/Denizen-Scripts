@@ -14,14 +14,33 @@ Tool_Management_Event_Main:
         - define tool_bench <entry[tool_bench_entity].spawned_entity>
         - flag <[tool_bench]> tool_bench.location:<[location]>
         - flag <[tool_bench]> tool_bench.model:<entry[tool_bench].spawned_entity>
+
         on player right clicks Tool_Bench_Entity:
         - define tool_bench <context.entity>
-        - define item <player.item_in_hand>
-        - if <[item].script.name.if_null[null]> == config_wrench:
+        - define tool <player.item_in_hand>
+        - define bench_state <[tool_bench].flag[state].if_null[null]>
+        - if <[tool].script.name.if_null[null]> == config_wrench:
             - flag player tool_bench:<[tool_bench]> expire:30s
             - inventory open d:Tool_Management_Dissasemble_GUI
         - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].if_null[null]>
+        - if <[tool].script.name> in <script[Tool_Management_Repair_List]>:
+            - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].script.name>]>
+        - else if <[tool].material.name> in <script[Tool_Management_Repair_List]>:
+            - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].material.name>]>
+        - if <[repair_data].if_null[null]> != null:
+            - narrate "<red>This item cannot be repaired."
+            - stop
 
+        - inventory open d:Tool_Management_GUI
+
+        - define ingredient_list <[repair_data].get[ingredients]>
+        - foreach <[ingredient_list]> as:ingredient:
+            - define ingredient_material <[ingredient].before_last[-]>
+            - define ingredient_amount <[ingredient].after_last[-]>
+            - define ingredient_item <item[<[ingredient_material]>].with_single[quantity=<[ingredient_amount]>]>
+            - adjust def:ingredient_item flag:ingredient_data:<[ingredient]>
+            - define new_ingredient_list:->:<[ingredient_item]>
+        - inventory fill slot:<list[10|11|12|19|20|21]> o:<[new_ingredient_list]> destination:<player.open_inventory>
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
@@ -128,8 +147,8 @@ Tool_Management_GUI:
       Inactive_Button: <item[gray_concrete].with_single[display=<white>Inactive Button].with_single[lore=<gold>This will be available after the current task is finished.]>
     slots:
     - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [air] [air] [GUINULL] [Item_Preview] [GUINULL] [GUINULL] [air] [air]
-    - [air] [air] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [air] [air]
+    - [air] [air] [air] [Item_Preview] [GUINULL] [GUINULL] [air] [air]
+    - [air] [air] [air] [GUINULL] [GUINULL] [GUINULL] [air] [air]
     - [GUINULL] [GUINULL] [GUINULL] [Inactive_Button] [GUINULL] [Inactive_Button] [GUINULL] [GUINULL]
 
 Tool_Management_Dissasemble_GUI:
@@ -142,6 +161,21 @@ Tool_Management_Dissasemble_GUI:
     - [GUINULL] [GUINULL] [GUINULL]
     - [GUINULL] [confirm_button] [GUINULL]
     - [GUINULL] [GUINULL] [GUINULL]
+
+## Repair List
+Tool_Management_Repair_List:
+    type: data
+    debug: false
+    data:
+    # Vanilla Tools
+        wooden_axe:
+            ingredients:
+                - oak_planks-3
+            default_dura: 59
+            tools:
+                - saw_1
+                - knife_1
+
 
 
 
