@@ -4,7 +4,7 @@
 
 Tool_Management_Event_Main:
     type: world
-    debug: false
+    debug: true
     events:
         on player places Tool_Bench:
         - define location <context.location>
