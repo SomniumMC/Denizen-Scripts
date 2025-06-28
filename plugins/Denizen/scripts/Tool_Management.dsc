@@ -24,11 +24,11 @@ Tool_Management_Event_Main:
             - flag player tool_bench:<[tool_bench]> expire:30s
             - inventory open d:Tool_Management_Dissasemble_GUI
         - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].if_null[null]>
-        - if <[tool].script.name> in <script[Tool_Management_Repair_List]>:
-            - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].script.name>]>
+        - if <[tool].script.name.if_null[null]> in <script[Tool_Management_Repair_List]>:
+            - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].script.name>].if_null[null]>
         - else if <[tool].material.name> in <script[Tool_Management_Repair_List]>:
-            - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].material.name>]>
-        - if <[repair_data].if_null[null]> != null:
+            - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].material.name>].if_null[null]>
+        - if <[repair_data]> != null:
             - narrate "<red>This item cannot be repaired."
             - stop
 
