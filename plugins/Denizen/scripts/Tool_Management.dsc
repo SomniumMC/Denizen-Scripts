@@ -24,7 +24,7 @@ Tool_Management_Event_Main:
             - flag player tool_bench:<[tool_bench]> expire:30s
             - inventory open d:Tool_Management_Dissasemble_GUI
         - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].if_null[null]>
-        - if <[tool].script.name.if_null[null]> in <script[Tool_Management_Repair_List]>:
+        - if <[tool].script.name.if_null[null]> in <script[Tool_Management_Repair_List].list_keys.exclude[type]>:
             - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].script.name>].if_null[null]>
         - else if <[tool].material.name> in <script[Tool_Management_Repair_List]>:
             - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].material.name>].if_null[null]>
@@ -167,15 +167,14 @@ Tool_Management_Dissasemble_GUI:
 Tool_Management_Repair_List:
     type: data
     debug: false
-    data:
     # Vanilla Tools
-        wooden_axe:
-            ingredients:
-                - oak_planks-3
-            default_dura: 59
-            tools:
-                - saw_1
-                - knife_1
+    wooden_axe:
+        ingredients:
+            - oak_planks-3
+        default_dura: 59
+        tools:
+            - saw_1
+            - knife_1
 
 
 
