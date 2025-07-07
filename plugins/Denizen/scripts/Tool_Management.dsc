@@ -41,7 +41,11 @@ Tool_Management_Event_Main:
             - define ingredient_item <item[<[ingredient_material]>].with_single[quantity=<[ingredient_amount]>]>
             - adjust def:ingredient_item flag:ingredient_data:<[ingredient]>
             - define new_ingredient_list:->:<[ingredient_item]>
-        - inventory fill slot:<list[10|11|12|19|20|21]> o:<[new_ingredient_list]> destination:<player.open_inventory>
+        - foreach <list[10|11|12|19|20|21]> as:slot:
+            - define current_item <[new_ingredient_list].get[1]>
+            - inventory set slot:<[slot]> o:<[current_item]> destination:<player.open_inventory>
+            - define new_ingredient_list:<-:<[current_item]>
+        #- inventory fill slot:<list[10|11|12|19|20|21]> o:<[new_ingredient_list]> destination:<player.open_inventory>
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
