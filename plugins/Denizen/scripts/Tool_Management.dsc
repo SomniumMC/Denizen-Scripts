@@ -152,8 +152,10 @@ Tool_Management_GUI:
     definitions:
       ItemPreview: <player.item_in_hand>
       Inactive_Button: <item[gray_concrete].with_single[display=<white>Inactive Button].with_single[lore=<gold>This will be available after the current task is finished.]>
+      FullRepair_Icon: <item[paper].with_single[display=<green>Items Required].with_single[lore=<gold>These items are required to fully repair the equipment.]>
+      Tools_Icon: <item[paper].with_single[display=<green>Tools Required].with_single[lore=<gold>These tools are required to repair the equipment.]>
     slots:
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [GUINULL] [FullRepair_Icon] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [Tools_Icon] [GUINULL]
     - [air] [air] [air] [GUINULL] [ItemPreview] [GUINULL] [GUINULL] [air] [air]
     - [air] [air] [air] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [air] [air]
     - [GUINULL] [GUINULL] [GUINULL] [Inactive_Button] [GUINULL] [Inactive_Button] [GUINULL] [GUINULL] [GUINULL]
