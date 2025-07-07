@@ -65,6 +65,9 @@ Tool_Management_Event_Main:
             - define new_tool_list:<-:<[current_item]>
         #- inventory fill slot:<list[10|11|12|19|20|21]> o:<[new_ingredient_list]> destination:<player.open_inventory>
 
+        - inventory set slot:40 o:<item[green_concrete].with_single[display=<green>Start Repairs?]> destination:<player.open_inventory>
+        - inventory set slot:41 o:<item[red_concrete].with_single[display=<red>Disassemble Tool?]> destination:<player.open_inventory>
+
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
         - remove <[tool_bench].flag[tool_bench.model]>
@@ -195,6 +198,7 @@ Tool_Management_Repair_List:
     wooden_axe:
         ingredients:
             - oak_planks-3
+            - stick-2
         default_dura: 59
         tools:
             - saw_1
