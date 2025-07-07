@@ -43,6 +43,8 @@ Tool_Management_Event_Main:
             - define new_ingredient_list:->:<[ingredient_item]>
         - foreach <list[10|11|12|19|20|21]> as:slot:
             - define current_item <[new_ingredient_list].get[1]>
+            - if <[current_item].if_null[null]> == null:
+                - foreach stop
             - inventory set slot:<[slot]> o:<[current_item]> destination:<player.open_inventory>
             - define new_ingredient_list:<-:<[current_item]>
         #- inventory fill slot:<list[10|11|12|19|20|21]> o:<[new_ingredient_list]> destination:<player.open_inventory>
