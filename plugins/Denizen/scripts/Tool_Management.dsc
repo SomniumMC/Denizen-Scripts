@@ -43,8 +43,8 @@ Tool_Management_Event_Main:
             - adjust def:ingredient_item flag:ingredient_data:<[ingredient]>
             - define new_ingredient_list:->:<[ingredient_item]>
         - foreach <[tool_list]> as:tool:
-            - define tool_type <[tool].before_last[-]>
-            - define tool_tier <[tool].after_last[-]>
+            - define tool_type <[tool].before_last[_]>
+            - define tool_tier <[tool].after_last[_]>
             - choose <[tool_tier]>:
                 - case 1:
                     - define tool_material copper
