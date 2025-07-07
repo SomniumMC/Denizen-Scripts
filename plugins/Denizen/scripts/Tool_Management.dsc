@@ -48,7 +48,7 @@ Tool_Management_Event_Main:
             - choose <[tool_tier]>:
                 - case 1:
                     - define tool_material copper
-            - define tool_item <item[<[tool_material]>_<[tool_type]>]>
+            - define tool_item <item[<[tool_material]>_<[tool_type]>].with_single[lore=<item[<[tool_material]>_<[tool_type]>].flag[lore]>]>
             - adjust def:tool_item flag:tool:<[tool]>
             - define new_tool_list:->:<[tool_item]>
         - foreach <list[10|11|12|19|20|21]> as:slot:
