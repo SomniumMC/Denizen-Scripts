@@ -28,7 +28,7 @@ Tool_Management_Event_Main:
             - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].script.name>].if_null[null]>
         - else if <[tool].material.name> in <script[Tool_Management_Repair_List].list_keys.exclude[type|debug]>:
             - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].material.name>].if_null[null]>
-        - if <[repair_data]> == null:
+        - if <[repair_data].if_null[null]> == null:
             - narrate "<red>This item cannot be repaired."
             - stop
 
