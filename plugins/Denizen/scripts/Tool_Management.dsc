@@ -151,10 +151,10 @@ Tool_Management_GUI:
       ItemPreview: <player.item_in_hand>
       Inactive_Button: <item[gray_concrete].with_single[display=<white>Inactive Button].with_single[lore=<gold>This will be available after the current task is finished.]>
     slots:
-    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
-    - [air] [air] [air] [Item_Preview] [GUINULL] [GUINULL] [air] [air]
-    - [air] [air] [air] [GUINULL] [GUINULL] [GUINULL] [air] [air]
-    - [GUINULL] [GUINULL] [GUINULL] [Inactive_Button] [GUINULL] [Inactive_Button] [GUINULL] [GUINULL]
+    - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
+    - [air] [air] [air] [GUINULL] [Item_Preview] [GUINULL] [GUINULL] [air] [air]
+    - [air] [air] [air] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [air] [air]
+    - [GUINULL] [GUINULL] [GUINULL] [Inactive_Button] [GUINULL] [Inactive_Button] [GUINULL] [GUINULL] [GUINULL]
 
 Tool_Management_Dissasemble_GUI:
     type: inventory
