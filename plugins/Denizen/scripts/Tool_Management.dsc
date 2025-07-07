@@ -42,8 +42,8 @@ Tool_Management_Event_Main:
             - adjust def:ingredient_item flag:ingredient_data:<[ingredient]>
             - define new_ingredient_list:->:<[ingredient_item]>
         - foreach <list[10|11|12|19|20|21]> as:slot:
-            - define current_item <[new_ingredient_list].get[1]>
-            - if <[current_item].if_null[null]> == null:
+            - define current_item <[new_ingredient_list].get[1].if_null[null]>
+            - if <[current_item]> == null:
                 - foreach stop
             - inventory set slot:<[slot]> o:<[current_item]> destination:<player.open_inventory>
             - define new_ingredient_list:<-:<[current_item]>
