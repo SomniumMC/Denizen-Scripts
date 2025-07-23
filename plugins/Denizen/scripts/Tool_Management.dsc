@@ -337,7 +337,7 @@ Tool_Management_Repair_List:
         default_dura: 59
         tools:
             - hammer_1
-            - chisel_1
+            - file_1
 
 
 
