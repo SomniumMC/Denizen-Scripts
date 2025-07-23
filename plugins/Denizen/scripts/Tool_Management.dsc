@@ -67,12 +67,38 @@ Tool_Management_Event_Main:
 
         - inventory set slot:31 o:<item[green_concrete].with_single[display=<green>Start Repairs?]> destination:<player.open_inventory>
         - inventory set slot:33 o:<item[red_concrete].with_single[display=<red>Disassemble Tool?]> destination:<player.open_inventory>
+        - inventory adjust slot:32 flag:repair_data:<[repair_data]> destination:<player.open_inventory>
+
+        on player clicks green_concrete in Tool_Management_GUI:
+        - define tool_bench <player.flag[tool_bench]>
+        - define tool_bench_location <[tool_bench].flag[tool_bench.location]>
+        - define item <player.item_in_hand>
+        - define repair_data <player.open_inventory.slot[32].flag[repair_data].if_null[null]>
+        - if <[repair_data]> == null:
+            - narrate "<red>An error has occured while trying to repair this item."
+            - stop
+        - flag <[tool_bench]> state:repairing
+        - flag <[tool_bench]> item:<[item]>
+        - define ingredient_list <[repair_data].get[ingredients]>
+        - define tool_list <[repair_data].get[tools]>
+        - foreach <[ingredient_list]> as:ingredient:
+            - define ingredient_material <[ingredient].before_last[-]>
+            - define ingredient_amount <[ingredient].after_last[-]>
+            - define ingredient_item <item[<[ingredient_material]>].with_single[quantity=<[ingredient_amount]>]>
+            - define ingredient_data <[ingredient_item].flag[ingredient_data].if_null[null]>
+            - define formatted_ingredients:->:<[ingredient_item]>
+
+        on player clicks item in Tool_Management_GUI:
+        - define item <context.item>
+        - narrate <context.inventory.name>
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
         - remove <[tool_bench].flag[tool_bench.model]>
         - modifyblock <[tool_bench].flag[tool_bench.location]> air
         - remove <[tool_bench]>
+
+
 
 Tool_Bag_Event:
     type: world
