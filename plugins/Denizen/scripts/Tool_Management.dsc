@@ -90,7 +90,7 @@ Tool_Management_Event_Main:
 
         on player clicks item in Tool_Management_GUI:
         - define item <context.item>
-        - narrate <context.inventory.name>
+        - narrate <context.clicked_inventory.name>
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
