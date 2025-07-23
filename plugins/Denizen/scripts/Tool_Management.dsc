@@ -160,8 +160,15 @@ Tool_Bench_Display:
     definitions: tool_bench
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
-    - spawn item_display[item=<[tool_bench].flag[item]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<player.location.yaw.round_to_precision[90]>]> save:repair_display
+    - define item <[tool_bench].flag[item]>
+    - define player_yaw <player.location.yaw.round_to_precision[90]>
+    - spawn item_display[item=;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[player_yaw]>]> save:repair_display
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
+    - define target_dura <[tool_bench].flag[item_recipe].get[default_dura]>
+    - define current_dura <[tool_bench].flag[item].flag[durability1].if_null[<[item].max_durability.sub[<[item].durability>]>]>
+    - spawn text_display[text=<[current_dura]>/<[target_dura]>] save:durability_text
+    - flag <[tool_bench]> tool_bench.display.durability:<entry[durability_text].spawned_entity>
+
 
 Tool_Bench_Display_Cleanup:
     type: task
