@@ -163,6 +163,15 @@ Tool_Bench_Display:
     - spawn item_display[item=<[tool_bench].flag[item]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<player.location.yaw.round_to_precision[90]>]> save:repair_display
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
 
+Tool_Bench_Display_Cleanup:
+    type: task
+    debug: false
+    definitions: tool_bench
+    script:
+    - foreach <[tool_bench].flag[tool_bench.display]> as:display:
+        - remove <[display]>
+    - flag <[tool_bench]> tool_bench.display:!
+
 Tool_Bag_Event:
     type: world
     debug: false
