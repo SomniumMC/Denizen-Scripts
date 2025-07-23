@@ -135,9 +135,9 @@ Tool_Management_Event_Main:
               - take item:<[ingredient5]> quantity:<[quantity5]>
               - take item:<[ingredient6]> quantity:<[quantity6]>
         - if <[success]||0> == 1:
-            - take item:<[item]> quantity:1
             - flag <[tool_bench]> item:<[item]>
             - flag <[tool_bench]> item_recipe:<[repair_data]>
+            - take item:<[item]> quantity:1
             - inventory close
             - run Tool_Bench_Display def.tool_bench:<[tool_bench]>
 
