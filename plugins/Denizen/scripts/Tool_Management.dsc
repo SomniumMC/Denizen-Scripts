@@ -194,10 +194,10 @@ Tool_Bench_Spawn_Clickers:
     - define recipe_data <[tool_bench].flag[item_recipe]>
     - define tools <[recipe_data].get[tools]>
     - definemap location_mods:
-        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.15].left[0.35]>
-        slot2: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.35].left[0.35]>
-        slot3: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.35].left[0.125]>
-        slot4: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.35].right[0.125]>
+        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].left[0.35]>
+        slot2: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.35].left[0.35]>
+        slot3: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.35].left[0.125]>
+        slot4: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.35].right[0.125]>
     - foreach <[tools]> as:tool:
         - define tool_type <[tool].before_last[_]>
         - define tool_tier <[tool].after_last[_]>
