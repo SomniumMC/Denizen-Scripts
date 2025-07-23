@@ -90,7 +90,8 @@ Tool_Management_Event_Main:
 
         on player clicks item in Tool_Management_GUI:
         - define item <context.item>
-        - narrate <context.clicked_inventory.name>
+        - if <context.clicked_inventory.script.name||null> != Tool_Management_GUI:
+            - determine passively cancelled
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
