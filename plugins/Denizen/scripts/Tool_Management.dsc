@@ -160,7 +160,7 @@ Tool_Bench_Display:
     definitions: tool_bench
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
-    - spawn item_display[item=<[tool_bench].flag[item]>] <[location].center.above[0.5]> save:repair_display
+    - spawn item_display[item=<[tool_bench].flag[item]>] <[location].center.above[1]> save:repair_display
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
 
 Tool_Bag_Event:
