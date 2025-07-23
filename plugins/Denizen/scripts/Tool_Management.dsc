@@ -81,12 +81,66 @@ Tool_Management_Event_Main:
         - flag <[tool_bench]> item:<[item]>
         - define ingredient_list <[repair_data].get[ingredients]>
         - define tool_list <[repair_data].get[tools]>
-        - foreach <[ingredient_list]> as:ingredient:
-            - define ingredient_material <[ingredient].before_last[-]>
-            - define ingredient_amount <[ingredient].after_last[-]>
-            - define ingredient_item <item[<[ingredient_material]>].with_single[quantity=<[ingredient_amount]>]>
-            - define ingredient_data <[ingredient_item].flag[ingredient_data].if_null[null]>
-            - define formatted_ingredients:->:<[ingredient_item]>
+        #- foreach <[ingredient_list]> as:ingredient:
+        #    - define ingredient_material <[ingredient].before_last[-]>
+        #    - define ingredient_amount <[ingredient].after_last[-]>
+        #    - define ingredient_item <item[<[ingredient_material]>].with_single[quantity=<[ingredient_amount]>]>
+        #    - define ingredient_data <[ingredient_item].flag[ingredient_data].if_null[null]>
+        #    - define formatted_ingredients:->:<[ingredient_item]>
+
+        # Recipe check to see if the player has the required ingredients
+        - define recipe_amount <[ingredient_list].size>
+        - foreach <[ingredient_list]> as:item:
+          - define quantity<[loop_index]> <[item].after_last[-]>
+          - define ingredient<[loop_index]> <[item].before_last[-]>
+        - choose <[recipe_amount]>:
+          - case 1:
+            - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]>:
+              - define success 1
+              - take item:<[ingredient1]> quantity:<[quantity1]>
+          - case 2:
+            - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]>:
+              - define success 1
+              - take item:<[ingredient1]> quantity:<[quantity1]>
+              - take item:<[ingredient2]> quantity:<[quantity2]>
+          - case 3:
+            - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]>:
+              - define success 1
+              - take item:<[ingredient1]> quantity:<[quantity1]>
+              - take item:<[ingredient2]> quantity:<[quantity2]>
+              - take item:<[ingredient3]> quantity:<[quantity3]>
+          - case 4:
+            - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]>:
+              - define success 1
+              - take item:<[ingredient1]> quantity:<[quantity1]>
+              - take item:<[ingredient2]> quantity:<[quantity2]>
+              - take item:<[ingredient3]> quantity:<[quantity3]>
+              - take item:<[ingredient4]> quantity:<[quantity4]>
+          - case 5:
+            - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]>:
+              - define success 1
+              - take item:<[ingredient1]> quantity:<[quantity1]>
+              - take item:<[ingredient2]> quantity:<[quantity2]>
+              - take item:<[ingredient3]> quantity:<[quantity3]>
+              - take item:<[ingredient4]> quantity:<[quantity4]>
+              - take item:<[ingredient5]> quantity:<[quantity5]>
+          - case 6:
+            - if <player.inventory.contains_item[<[ingredient1]>].quantity[<[quantity1]>]> && <player.inventory.contains_item[<[ingredient2]>].quantity[<[quantity2]>]> && <player.inventory.contains_item[<[ingredient3]>].quantity[<[quantity3]>]> && <player.inventory.contains_item[<[ingredient4]>].quantity[<[quantity4]>]> && <player.inventory.contains_item[<[ingredient5]>].quantity[<[quantity5]>]> && <player.inventory.contains_item[<[ingredient6]>].quantity[<[quantity6]>]>:
+              - define success 1
+              - take item:<[ingredient1]> quantity:<[quantity1]>
+              - take item:<[ingredient2]> quantity:<[quantity2]>
+              - take item:<[ingredient3]> quantity:<[quantity3]>
+              - take item:<[ingredient4]> quantity:<[quantity4]>
+              - take item:<[ingredient5]> quantity:<[quantity5]>
+              - take item:<[ingredient6]> quantity:<[quantity6]>
+        - if <[success]||0> == 1:
+            - take item:<[item]> quantity:1
+            - flag <[tool_bench]> item:<[item]>
+            - flag <[tool_bench]> item_recipe:<[repair_data]>
+            - inventory close
+            - run Tool_Bench_Display def.tool_bench:<[tool_bench]>
+
+
 
         on player clicks item in Tool_Management_GUI:
         - define item <context.item>
@@ -99,7 +153,14 @@ Tool_Management_Event_Main:
         - modifyblock <[tool_bench].flag[tool_bench.location]> air
         - remove <[tool_bench]>
 
-
+Tool_Bench_Display:
+    type: task
+    debug: false
+    definitions: tool_bench
+    script:
+    - define location <[tool_bench].flag[tool_bench.location]>
+    - spawn item_display[item=<[tool_bench].flag[item]>] <[location].center.above[0.5]> save:repair_display
+    - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
 
 Tool_Bag_Event:
     type: world
