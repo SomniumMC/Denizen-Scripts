@@ -195,7 +195,7 @@ Tool_Bench_Spawn_Clickers:
     - define recipe_data <[tool_bench].flag[item_recipe]>
     - define tools <[recipe_data].get[tools]>
     - definemap location_mods:
-        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.15].backward[0.15].left[0.35]>
+        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.05].backward[0.15].left[0.35]>
         slot2: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].left[0.35]>
         slot3: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].left[0.125]>
         slot4: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].right[0.125]>
@@ -208,7 +208,7 @@ Tool_Bench_Spawn_Clickers:
         - define tool_item <item[<[tool_material]>_<[tool_type]>]>
         - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>]> save:clicker
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.item:<entry[clicker].spawned_entity>
-        - spawn interaction[width=0.1;height=0.1] <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
+        - spawn interaction[width=0.2;height=0.2] <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.interaction:<entry[clicker_interaction].spawned_entity>
 
 
