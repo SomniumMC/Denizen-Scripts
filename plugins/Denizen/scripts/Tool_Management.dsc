@@ -182,6 +182,7 @@ Tool_Bench_Display_Cleanup:
     - foreach <[tool_bench].flag[tool_bench.clickers]> as:clicker_group:
         - remove <[clicker_group].get[item]>
         - remove <[clicker_group].get[number_display]>
+        - remove <[clicker_group].get[interaction]>
     - flag <[tool_bench]> tool_bench.clickers:!
 
 Tool_Bench_Spawn_Clickers:
@@ -194,10 +195,10 @@ Tool_Bench_Spawn_Clickers:
     - define recipe_data <[tool_bench].flag[item_recipe]>
     - define tools <[recipe_data].get[tools]>
     - definemap location_mods:
-        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].left[0.35]>
-        slot2: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.35].left[0.35]>
-        slot3: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.35].left[0.125]>
-        slot4: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.35].right[0.125]>
+        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.15].backward[0.15].left[0.35]>
+        slot2: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].left[0.35]>
+        slot3: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].left[0.125]>
+        slot4: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.25].backward[0.15].right[0.125]>
     - foreach <[tools]> as:tool:
         - define tool_type <[tool].before_last[_]>
         - define tool_tier <[tool].after_last[_]>
@@ -207,6 +208,8 @@ Tool_Bench_Spawn_Clickers:
         - define tool_item <item[<[tool_material]>_<[tool_type]>]>
         - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>]> save:clicker
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.item:<entry[clicker].spawned_entity>
+        - spawn interaction[width=0.1;height=0.1] <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
+        - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.interaction:<entry[clicker_interaction].spawned_entity>
 
 
 Tool_Bag_Event:
