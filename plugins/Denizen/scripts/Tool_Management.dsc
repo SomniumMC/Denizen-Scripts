@@ -206,7 +206,7 @@ Tool_Bench_Spawn_Clickers:
             - case 1:
                 - define tool_material copper
         - define tool_item <item[<[tool_material]>_<[tool_type]>]>
-        - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>]> save:clicker
+        - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>].above[0.1]> save:clicker
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.item:<entry[clicker].spawned_entity>
         - spawn interaction[width=0.2;height=0.2] <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.interaction:<entry[clicker_interaction].spawned_entity>
