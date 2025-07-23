@@ -379,7 +379,7 @@ Copper_Saw:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:minecraft:stone_cutter
+            item_model: string:minecraft:stonecutter
     flags:
         lore: <yellow>A saw made of copper.<n><light_purple>Tier 1 Sawing
         durability1: 100
