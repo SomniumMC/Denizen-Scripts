@@ -336,8 +336,8 @@ Tool_Management_Repair_List:
             - stick-2
         default_dura: 59
         tools:
-            - saw_1
-            - knife_1
+            - hammer_1
+            - chisel_1
 
 
 
