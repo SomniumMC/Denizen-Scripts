@@ -18,6 +18,7 @@ Tool_Management_Event_Main:
         on player right clicks Tool_Bench_Entity:
         - ratelimit <player> 5t
         - define tool_bench <context.entity>
+        - flag player tool_bench:<[tool_bench]>
         - define tool <player.item_in_hand>
         - define bench_state <[tool_bench].flag[state].if_null[null]>
         - if <[tool].script.name.if_null[null]> == config_wrench:
