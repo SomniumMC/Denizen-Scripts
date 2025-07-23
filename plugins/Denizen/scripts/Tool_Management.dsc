@@ -210,6 +210,8 @@ Tool_Bench_Spawn_Clickers:
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.item:<entry[clicker].spawned_entity>
         - spawn interaction[width=0.2;height=0.2] <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.interaction:<entry[clicker_interaction].spawned_entity>
+        - spawn text_display[text=<red><[tool_tier]>;scale=0.2,0.2,0.2] <[location_mods].get[slot<[loop_index]>].above[0.1]> save:number_display
+        - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.number_display:<entry[number_display].spawned_entity>
 
 
 Tool_Bag_Event:
