@@ -379,7 +379,7 @@ Copper_Saw:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:chisel
+            item_model: string:minecraft:stone_cutter
     flags:
         lore: <yellow>A saw made of copper.<n><light_purple>Tier 1 Sawing
         durability1: 100
@@ -392,7 +392,7 @@ Copper_Knife:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:chisel
+            item_model: string:weapons:stone_dagger
     flags:
         lore: <yellow>A knife made of copper.<n><light_purple>Tier 1 Cutting
         durability1: 100
