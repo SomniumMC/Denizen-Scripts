@@ -140,6 +140,7 @@ Tool_Management_Event_Main:
             #- take item:<[item]> quantity:1
             - inventory close
             - run Tool_Bench_Display def.tool_bench:<[tool_bench]>
+            - run Tool_Bench_Spawn_Clickers def.tool_bench:<[tool_bench]>
 
 
 
@@ -161,12 +162,12 @@ Tool_Bench_Display:
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
     - define item <[tool_bench].flag[item]>
-    - define player_yaw <player.location.yaw.round_to_precision[90]>
-    - spawn item_display[item=<[item]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[player_yaw].add[180]>]> save:repair_display
+    - define bench_yaw <[tool_bench].location.yaw.round_to_precision[90]>
+    - spawn item_display[item=<[item]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[bench_yaw].add[180]>]> save:repair_display
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
     - define target_dura <[tool_bench].flag[item_recipe].get[default_dura]>
     - define current_dura <[tool_bench].flag[item].flag[durability1].if_null[<[item].max_durability.sub[<[item].durability>]>]>
-    - spawn text_display[text=<[current_dura]>/<[target_dura]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[player_yaw].add[180]>].forward[0.45].right[0.25].below[0.25]> save:durability_text
+    - spawn text_display[text=<[current_dura]>/<[target_dura]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[bench_yaw].add[180]>].forward[0.45].right[0.25].below[0.25]> save:durability_text
     - flag <[tool_bench]> tool_bench.display.durability:<entry[durability_text].spawned_entity>
 
 
@@ -178,6 +179,35 @@ Tool_Bench_Display_Cleanup:
     - foreach <[tool_bench].flag[tool_bench.display]> as:display:
         - remove <[display]>
     - flag <[tool_bench]> tool_bench.display:!
+    - foreach <[tool_bench].flag[tool_bench.clickers]> as:clicker_group:
+        - remove <[clicker_group].get[item]>
+        - remove <[clicker_group].get[number_display]>
+    - flag <[tool_bench]> tool_bench.clickers:!
+
+Tool_Bench_Spawn_Clickers:
+    type: task
+    debug: false
+    definitions: tool_bench
+    script:
+    - define location <[tool_bench].flag[tool_bench.location]>
+    - define bench_yaw <[tool_bench].location.yaw.round_to_precision[90]>
+    - define recipe_data <[tool_bench].flag[item_recipe]>
+    - define tools <[recipe_data].get[tools]>
+    - definemap location_mods:
+        slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.15].left[0.35]>
+        slot2: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.35].left[0.35]>
+        slot3: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.35].left[0.125]>
+        slot4: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.5].backward[0.35].right[0.125]>
+    - foreach <[tools]> as:tool:
+        - define tool_type <[tool].before_last[_]>
+        - define tool_tier <[tool].after_last[_]>
+        - choose <[tool_tier]>:
+            - case 1:
+                - define tool_material copper
+        - define tool_item <item[<[tool_material]>_<[tool_type]>]>
+        - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>]> save:clicker
+        - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.item:<entry[clicker].spawned_entity>
+
 
 Tool_Bag_Event:
     type: world
