@@ -166,7 +166,7 @@ Tool_Bench_Display:
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
     - define target_dura <[tool_bench].flag[item_recipe].get[default_dura]>
     - define current_dura <[tool_bench].flag[item].flag[durability1].if_null[<[item].max_durability.sub[<[item].durability>]>]>
-    - spawn text_display[text=<[current_dura]>/<[target_dura]>] save:durability_text
+    - spawn text_display[text=<[current_dura]>/<[target_dura]>] <[location].center.above[0.85].with_yaw[<[player_yaw]>].forward[0.5]> save:durability_text
     - flag <[tool_bench]> tool_bench.display.durability:<entry[durability_text].spawned_entity>
 
 
