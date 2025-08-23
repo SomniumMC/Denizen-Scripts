@@ -192,11 +192,11 @@ Tool_Management_Event_Main:
             - case hammer:
                 - playsound <player.location> sound:block.anvil.use pitch:0.8
             - case saw:
-                - playsound <player.location> sound:ui.ui.stonecutter.take_result pitch:1.2
+                - playsound <player.location> sound:ui.stonecutter.take_result pitch:1.2
                 - wait 5t
-                - playsound <player.location> sound:ui.ui.stonecutter.take_result pitch:1.2
+                - playsound <player.location> sound:ui.stonecutter.take_result pitch:1.2
                 - wait 5t
-                - playsound <player.location> sound:ui.ui.stonecutter.take_result pitch:1.2
+                - playsound <player.location> sound:ui.stonecutter.take_result pitch:1.2
             - case cut:
                 - playsound <player.location> sound:item.axe.strip pitch:1.2
                 - wait 5t
