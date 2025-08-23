@@ -14,6 +14,7 @@ Tool_Management_Event_Main:
         - define tool_bench <entry[tool_bench_entity].spawned_entity>
         - flag <[tool_bench]> tool_bench.location:<[location]>
         - flag <[tool_bench]> tool_bench.model:<entry[tool_bench].spawned_entity>
+        - note <inventory[Tool_Bench_Inv]> as:tool_bench_inv_<[tool_bench].uuid>
 
         on player right clicks Tool_Bench_Entity:
         - ratelimit <player> 5t
@@ -143,17 +144,17 @@ Tool_Management_Event_Main:
             - flag <[tool_bench]> item:<[item]>
             - flag <[tool_bench]> item_recipe:<[repair_data]>
             #- take item:<[item]> quantity:1
+            - inventory set o:<[item]> destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> slot:1
             - inventory close
             - run Tool_Bench_Display def.tool_bench:<[tool_bench]>
             - run Tool_Bench_Spawn_Clickers def.tool_bench:<[tool_bench]>
 
 
 
-        
-
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
         - remove <[tool_bench].flag[tool_bench.model]>
+        - note remove as:tool_bench_<[tool_bench].uuid>
         - modifyblock <[tool_bench].flag[tool_bench.location]> air
         - remove <[tool_bench]>
 
@@ -214,6 +215,17 @@ Tool_Management_Event_Main:
         # Check if clickers are gone
         - if <[tool_bench_location].flag[tool_bench].get[clickers].keys.size> == 0:
             - run Tool_Bench_Display_Cleanup def.tool_bench:<[tool_bench_location]>
+            # Setting the tool into custom durability system
+            - if !<inventory[tool_bench_inv_<[tool_bench_location].uuid>].slot[1].has_flag[durability1]>:
+                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> durability:0
+                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> unbreakable:true
+                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> hides:unbreakable|attributes
+
+            - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> flag:durability1:<[tool_bench_location].flag[tool_bench].flag[item_recipe].get[default_dura]>
+            - run durability_update_task def.slot:1 def.inventory:tool_bench_inv_<[tool_bench_location].uuid> def.overwrite:0
+
+            - drop item:<inventory[tool_bench_inv_<[tool_bench_location].uuid>].slot[1]> location:<[tool_bench_location].above[1]>
+
             - flag <[tool_bench_location]> state:!
             - flag <[tool_bench_location]> item:!
             - flag <[tool_bench_location]> item_recipe:!
@@ -356,6 +368,12 @@ Tool_Bag_Inventory_Base:
     slots:
     - [] [] [] [] [] [] [] [] []
     - [] [] [] [] [] [] [] [] []
+
+Tool_Bench_Inv:
+    type: inventory
+    inventory: hopper
+    slots:
+    - [] [] [] [] []
 
 Tool_Bench:
     type: item

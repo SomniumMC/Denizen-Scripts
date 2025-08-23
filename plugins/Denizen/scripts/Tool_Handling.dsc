@@ -52,7 +52,7 @@ Durability_Update_Task:
       #  - narrate lost
     - if <[overwrite]||null> != null:
       - define loss <[overwrite]>
-    - if <[loss]> >= 1:
+    - if <[loss]> >= 1 || <[overwrite]> == 0:
       - inventory adjust slot:<[slot]> flag:durability1:-:<[loss]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
       - if <[item].flag[durability2]||null> == null:
         - inventory adjust slot:<[slot]> flag:durability2:<[item].flag[durability1]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
