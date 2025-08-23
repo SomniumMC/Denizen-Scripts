@@ -288,6 +288,8 @@ Tool_Bench_Spawn_Clickers:
         - choose <[tool_tier]>:
             - case 1:
                 - define tool_material copper
+            - case 2:
+                - define tool_material bronze
         - define tool_item <item[<[tool_material]>_<[tool_type]>]>
         # Clicker Display
         - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>].above[0.1]> save:clicker
