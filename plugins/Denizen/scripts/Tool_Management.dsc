@@ -432,18 +432,7 @@ Tool_Management_Dissasemble_GUI:
     - [GUINULL] [GUINULL] [GUINULL]
 
 ## Repair List
-Tool_Management_Repair_List:
-    type: data
-    debug: false
-    # Vanilla Tools
-    wooden_axe:
-        ingredients:
-            - oak_planks-3
-            - stick-2
-        default_dura: 59
-        tools:
-            - hammer_1
-            - file_1
+
 
 
 
@@ -516,3 +505,81 @@ Copper_File:
         lore: <yellow>A file made of copper.<n><light_purple>Tier 1 Filing
         durability1: 100
         tool: file_1
+
+Copper_Needle:
+    type: item
+    debug: false
+    display name: <gold>Copper Needle
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:needle
+    flags:
+        lore: <yellow>A needle made of copper.<n><light_purple>Tier 1 Sewing
+        durability1: 100
+        tool: sew_1
+
+Iron_Hammer:
+    type: item
+    debug: false
+    display name: <gold>Iron Hammer
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:iron_hammer
+    flags:
+        lore: <yellow>A hammer made of iron.<n><light_purple>Tier 2 Hammering
+        durability1: 250
+        tool: hammer_2
+
+Iron_Saw:
+    type: item
+    debug: false
+    display name: <gold>Iron Saw
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:minecraft:stonecutter
+    flags:
+        lore: <yellow>A saw made of iron.<n><light_purple>Tier 2 Sawing
+        durability1: 250
+        tool: saw_2
+
+Iron_Knife:
+    type: item
+    debug: false
+    display name: <gold>Iron Knife
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:weapons:stone_dagger
+    flags:
+        lore: <yellow>A knife made of iron.<n><light_purple>Tier 2 Cutting
+        durability1: 250
+        tool: cut_2
+
+Iron_File:
+    type: item
+    debug: false
+    display name: <gold>Iron File
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:chisel
+    flags:
+        lore: <yellow>A file made of iron.<n><light_purple>Tier 2 Filing
+        durability1: 250
+        tool: file_2
+
+Iron_Needle:
+    type: item
+    debug: false
+    display name: <gold>Iron Needle
+    material: brick
+    mechanisms:
+        components_patch:
+            item_model: string:tools:needle
+    flags:
+        lore: <yellow>A needle made of iron.<n><light_purple>Tier 2 Sewing
+        durability1: 250
+        tool: sew_2
