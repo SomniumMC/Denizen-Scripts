@@ -101,7 +101,7 @@ Vanilla_Equipment_Craft:
 
 update_item_task:
   type: task
-  debug: true
+  debug: false
   script:
   - wait 1t
   - define lore <empty>
