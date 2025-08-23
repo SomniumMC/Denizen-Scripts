@@ -211,6 +211,14 @@ Tool_Management_Event_Main:
         - flag <[tool_bench_location]> clickers:<-:<[tool_bench_location].flag[tool_bench].get[clickers].get[<[clicker_slot]>]>
 
 
+        # Check if clickers are gone
+        - if <[tool_bench_location].flag[tool_bench].get[clickers].size> == 0:
+            - run Tool_Bench_Display_Cleanup def.tool_bench:<[tool_bench_location]>
+            - flag <[tool_bench_location]> state:!
+            - flag <[tool_bench_location]> item:!
+            - flag <[tool_bench_location]> item_recipe:!
+
+
 Tool_Bench_Display:
     type: task
     debug: false
