@@ -35,7 +35,7 @@ Durability_Triggers:
 
 Durability_Update_Task:
   type: task
-  debug: false
+  debug: true
   definitions: slot|overwrite|inventory
   script:
   - define item <inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>
@@ -101,7 +101,7 @@ Vanilla_Equipment_Craft:
 
 update_item_task:
   type: task
-  debug: false
+  debug: true
   script:
   - wait 1t
   - define lore <empty>
