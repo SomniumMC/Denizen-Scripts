@@ -208,11 +208,11 @@ Tool_Management_Event_Main:
         - remove <[clicker_data].get[item]>
         - remove <[clicker_data].get[number_display]>
         - remove <[clicker_data].get[interaction]>
-        - flag <[tool_bench_location]> tool_bench.clickers:<-:<[tool_bench_location].flag[tool_bench].get[clickers].get[<[clicker_slot]>]>
+        - flag <[tool_bench_location]> tool_bench.clickers.<[clicker_slot]>:!
 
 
         # Check if clickers are gone
-        - if <[tool_bench_location].flag[tool_bench].get[clickers].size> == 0:
+        - if <[tool_bench_location].flag[tool_bench].get[clickers].keys.size> == 0:
             - run Tool_Bench_Display_Cleanup def.tool_bench:<[tool_bench_location]>
             - flag <[tool_bench_location]> state:!
             - flag <[tool_bench_location]> item:!
