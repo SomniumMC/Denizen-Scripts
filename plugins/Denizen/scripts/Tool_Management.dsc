@@ -70,7 +70,7 @@ Tool_Management_Event_Main:
         - inventory set slot:33 o:<item[red_concrete].with_single[display=<red>Disassemble Tool?]> destination:<player.open_inventory>
         - inventory adjust slot:32 flag:repair_data:<[repair_data]> destination:<player.open_inventory>
 
-        on player clicks item in Tool_Management_GUI:
+        on player clicks item in Tool_Management_GUI priority:-20:
         - define item <context.item>
         - if <context.clicked_inventory.script.name||null> != Tool_Management_GUI:
             - determine passively cancelled
