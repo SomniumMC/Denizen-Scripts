@@ -11,7 +11,7 @@ Tool_Management_Repair_List:
         default_dura: 59
         tools:
             - cut_1
-            - file_1
+            - saw_1
     wooden_pickaxe:
         ingredients:
             - oak_planks-2
@@ -19,7 +19,7 @@ Tool_Management_Repair_List:
         default_dura: 59
         tools:
             - cut_1
-            - file_1
+            - saw_1
     wooden_shovel:
         ingredients:
             - oak_planks-1
@@ -27,7 +27,7 @@ Tool_Management_Repair_List:
         default_dura: 59
         tools:
             - cut_1
-            - file_1
+            - saw_1
     wooden_hoe:
         ingredients:
             - oak_planks-1
@@ -35,7 +35,7 @@ Tool_Management_Repair_List:
         default_dura: 59
         tools:
             - cut_1
-            - file_1
+            - saw_1
     wooden_sword:
         ingredients:
             - oak_planks-1
@@ -43,7 +43,7 @@ Tool_Management_Repair_List:
         default_dura: 59
         tools:
             - cut_1
-            - file_1
+            - saw_1
     stone_axe:
         ingredients:
             - cobblestone-2
@@ -179,7 +179,7 @@ Tool_Management_Repair_List:
         default_dura: 64
         tools:
             - cut_1
-            - file_1
+            - saw_1
     ## Vanilla Armor
     leather_helmet:
         ingredients:
