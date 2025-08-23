@@ -186,14 +186,19 @@ Tool_Management_Event_Main:
             - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>]>
             - define selected_tool_data <[tool_bag_inv].slot[<[tool_bag].flag[slot]>]>
             # Reducing durability of tool
-            - run durability_update_task def.slot:<[tool_bag].flag[slot]> def.inventory:tool_bag_<player.inventory.slot[9].flag[id]> def.overwrite:1
+            - run durability_update_task def.slot:<[tool_bag].flag[slot]> def.inventory:tool_bag_<player.inventory.slot[9].flag[id]>
             - wait 1t
             - if <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].slot[<[tool_bag].flag[slot]>].material.name> == air:
                 - narrate "<red>Your current tool has broken!"
                 - inventory adjust slot:hand components_patch:[minecraft:item_model=string:tools:toolbag]
                 - inventory adjust slot:hand flag:tool:!
                 - inventory adjust slot:hand flag:slot:!
-        #- inventory adjust slot:hand
+        - else:
+            - define tool_item <player.item_in_hand>
+            - run durability_update_task def.slot:hand
+            - wait 1t
+            - if <player.item_in_hand.material.name> == air:
+                - narrate "<red>Your current tool has broken!"
 
         # Removing Clicker
 
