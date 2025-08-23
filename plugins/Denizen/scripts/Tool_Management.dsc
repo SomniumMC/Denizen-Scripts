@@ -189,6 +189,12 @@ Tool_Management_Event_Main:
             - define selected_tool_data <[tool_bag_inv].slot[<[tool_bag].flag[slot]>]>
             # Reducing durability of tool
             - run durability_update_task def.slot:<[tool_bag].flag[slot]> def.inventory:tool_bag_<player.inventory.slot[9].flag[id]> def.overwrite:1
+            - wait 1t
+            - if <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].slot[<[tool_bag].flag[slot]>].material.name> == air:
+                - narrate "<red>Your current tool has broken!"
+                - adjust def:tool_bag components_patch:[minecraft:item_model=string:tools:toolbag]
+                - adjust def:tool_bag flag:tool:!
+                - adjust def:tool_bag flag:slot:!
         #- inventory adjust slot:hand
 
 
