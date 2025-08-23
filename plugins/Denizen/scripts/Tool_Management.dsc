@@ -238,7 +238,7 @@ Tool_Bench_Display:
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
     - define item <[tool_bench].flag[tool_bench.item]>
-    - define bench_yaw <[tool_bench].location.yaw.round_to_precision[90]>
+    - define bench_yaw <[tool_bench].flag[tool_bench.model].location.yaw.round_to_precision[90]>
     - spawn item_display[item=<[item]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[bench_yaw].add[180]>]> save:repair_display
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
     - define target_dura <[tool_bench].flag[tool_bench.item_recipe].get[default_dura]>
@@ -267,7 +267,7 @@ Tool_Bench_Spawn_Clickers:
     definitions: tool_bench
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
-    - define bench_yaw <[tool_bench].location.yaw.round_to_precision[90]>
+    - define bench_yaw <[tool_bench].flag[tool_bench.model].location.yaw.round_to_precision[90]>
     - define recipe_data <[tool_bench].flag[tool_bench.item_recipe]>
     - define tools <[recipe_data].get[tools]>
     - definemap location_mods:
