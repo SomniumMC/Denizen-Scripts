@@ -22,6 +22,8 @@ Tool_Management_Event_Main:
         - flag player tool_bench:<[tool_bench]>
         - define tool <player.item_in_hand>
         - define bench_state <[tool_bench].flag[state].if_null[null]>
+        - if <[tool].material.name> == air:
+            - stop
         - if <[tool].script.name.if_null[null]> == config_wrench:
             - flag player tool_bench:<[tool_bench]> expire:30s
             - inventory open d:Tool_Management_Dissasemble_GUI
