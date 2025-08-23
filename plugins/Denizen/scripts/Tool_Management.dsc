@@ -162,7 +162,7 @@ Tool_Management_Event_Main:
         - ratelimit <player> 5t
         - define clicker <context.entity>
         - define clicker_slot <[clicker].flag[clicker_slot]>
-        - define tool_bench <[clicker].flag[tool_bench]>
+        - define tool_bench_location <[clicker].flag[tool_bench]>
         - define item <player.item_in_hand>
         - if !<[item].has_flag[tool]>:
             - determine cancelled
@@ -204,11 +204,11 @@ Tool_Management_Event_Main:
                 - narrate "<red>Your current tool has broken!"
 
         # Removing Clicker
-        - define clicker_data <[tool_bench].get[clickers].get[<[clicker_slot]>]>
+        - define clicker_data <[tool_bench_location].flag[tool_bench].get[clickers].get[<[clicker_slot]>]>
         - remove <[clicker_data].get[item]>
         - remove <[clicker_data].get[number_display]>
         - remove <[clicker_data].get[interaction]>
-        - flag <[tool_bench]> clickers:<-:<[tool_bench].get[clickers].get[<[clicker_slot]>]>
+        - flag <[tool_bench_location]> clickers:<-:<[tool_bench_location].flag[tool_bench].get[clickers].get[<[clicker_slot]>]>
 
 
 Tool_Bench_Display:
