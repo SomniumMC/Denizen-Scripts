@@ -177,8 +177,6 @@ Tool_Management_Event_Main:
         - if <[current_tool_tier]> < <[req_tool_tier]>:
             - narrate "<red>This tool is not strong enough to be used for this action."
             - determine cancelled
-
-        - remove <[clicker]>
         # Grabbing data and reducing durability of tool upon successful use of tool
         - if <[item].script.name||null> == tool_bag:
             - define tool_bag <player.item_in_hand>
@@ -192,10 +190,13 @@ Tool_Management_Event_Main:
             - wait 1t
             - if <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].slot[<[tool_bag].flag[slot]>].material.name> == air:
                 - narrate "<red>Your current tool has broken!"
-                - adjust def:tool_bag components_patch:[minecraft:item_model=string:tools:toolbag]
-                - adjust def:tool_bag flag:tool:!
-                - adjust def:tool_bag flag:slot:!
+                - inventory adjust slot:hand components_patch:[minecraft:item_model=string:tools:toolbag]
+                - inventory adjust slot:hand flag:tool:!
+                - inventory adjust slot:hand flag:slot:!
         #- inventory adjust slot:hand
+
+        # Removing Clicker
+
 
 
 
@@ -291,19 +292,22 @@ Tool_Bag_Event:
         - define slot <context.slot>
         - if <[inventory_item].script.name.if_null[null]> == tool_bag:
             - determine cancelled
-        - if <[click_type]> == left:
-            - if <[inventory_item].has_flag[tool]> || <[inventory_item].material.name> == air && <context.slot> != -998:
-                - playsound <player> sound_category:blocks sound:item.bundle.insert
-                - stop
-            - else:
-              - determine passively cancelled
-        - if <[click_type]> == right:
-            - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 && <context.clicked_inventory.script.name> == Tool_Bag_Inventory_Base:
-                - playsound <player> sound_category:blocks sound:entity.arrow.hit_player
-                - inventory close
-                - run Tool_Bag_Select def.tool:<[inventory_item]> def.slot:<[slot]>
-            - else:
-              - determine passively cancelled
+        - choose <[click_type]>:
+            - case left:
+                - if <[inventory_item].has_flag[tool]> || <[inventory_item].material.name> == air && <context.slot> != -998:
+                    - playsound <player> sound_category:blocks sound:item.bundle.insert
+                    - stop
+                - else:
+                  - determine passively cancelled
+            - case right:
+                - if <[inventory_item].has_flag[tool]> && <context.slot> != -998 && <context.clicked_inventory.script.name> == Tool_Bag_Inventory_Base:
+                    - playsound <player> sound_category:blocks sound:entity.arrow.hit_player
+                    - inventory close
+                    - run Tool_Bag_Select def.tool:<[inventory_item]> def.slot:<[slot]>
+                - else:
+                  - determine passively cancelled
+            - default:
+                - determine passively cancelled
 
 Tool_Bag_Select:
     type: task
