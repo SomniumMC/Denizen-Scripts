@@ -193,6 +193,7 @@ Tool_Management_Event_Main:
                 - inventory adjust slot:hand components_patch:[minecraft:item_model=string:tools:toolbag]
                 - inventory adjust slot:hand flag:tool:!
                 - inventory adjust slot:hand flag:slot:!
+        # Directly in hand
         - else:
             - define tool_item <player.item_in_hand>
             - run durability_update_task def.slot:hand
@@ -270,6 +271,7 @@ Tool_Bench_Spawn_Clickers:
         - flag <entry[clicker_interaction].spawned_entity> tool_tier:<[tool_tier]>
         - flag <entry[clicker_interaction].spawned_entity> tool_material:<[tool_material]>
         - flag <entry[clicker_interaction].spawned_entity> tool_bench:<[tool_bench]>
+        - flag <entry[clicker_interaction].spawned_entity> clicker_slot:slot<[loop_index]>
 
 
 Tool_Bag_Event:
