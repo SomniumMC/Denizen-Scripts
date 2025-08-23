@@ -35,7 +35,7 @@ Durability_Triggers:
 
 Durability_Update_Task:
   type: task
-  debug: true
+  debug: false
   definitions: slot|overwrite|inventory
   script:
   - define item <inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>
