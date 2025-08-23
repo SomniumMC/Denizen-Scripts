@@ -10,7 +10,7 @@ Tool_Management_Repair_List:
             - stick-1
         default_dura: 59
         tools:
-            - cut_1
+            - knife_1
             - saw_1
     wooden_pickaxe:
         ingredients:
@@ -18,7 +18,7 @@ Tool_Management_Repair_List:
             - stick-1
         default_dura: 59
         tools:
-            - cut_1
+            - knife_1
             - saw_1
     wooden_shovel:
         ingredients:
@@ -26,7 +26,7 @@ Tool_Management_Repair_List:
             - stick-1
         default_dura: 59
         tools:
-            - cut_1
+            - knife_1
             - saw_1
     wooden_hoe:
         ingredients:
@@ -34,7 +34,7 @@ Tool_Management_Repair_List:
             - stick-1
         default_dura: 59
         tools:
-            - cut_1
+            - knife_1
             - saw_1
     wooden_sword:
         ingredients:
@@ -42,7 +42,7 @@ Tool_Management_Repair_List:
             - stick-1
         default_dura: 59
         tools:
-            - cut_1
+            - knife_1
             - saw_1
     stone_axe:
         ingredients:
@@ -178,7 +178,7 @@ Tool_Management_Repair_List:
             - string-1
         default_dura: 64
         tools:
-            - cut_1
+            - knife_1
             - saw_1
     ## Vanilla Armor
     leather_helmet:
