@@ -217,6 +217,7 @@ Tool_Bench_Spawn_Clickers:
         - flag <entry[clicker_interaction].spawned_entity> tool_type:<[tool_type]>
         - flag <entry[clicker_interaction].spawned_entity> tool_tier:<[tool_tier]>
         - flag <entry[clicker_interaction].spawned_entity> tool_material:<[tool_material]>
+        - flag <entry[clicker_interaction].spawned_entity> tool_bench:<[tool_bench]>
 
 
 Tool_Bag_Event:
