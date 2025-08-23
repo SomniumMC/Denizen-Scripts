@@ -155,6 +155,43 @@ Tool_Management_Event_Main:
         - modifyblock <[tool_bench].flag[tool_bench.location]> air
         - remove <[tool_bench]>
 
+
+        on player right clicks Tool_Bench_Clicker:
+        - define clicker <context.entity>
+        - define item <player.item_in_hand>
+        - if !<[item].has_flag[tool]>:
+            - determine cancelled
+        # Getting variables from clicker data and player's held hand
+        - define req_tool_tier <[clicker].flag[tool_tier]>
+        - define req_tool_type <[clicker].flag[tool_type]>
+        - define current_tool_tier <[item].flag[tool].after_last[_]>
+        - define current_tool_type <[item].flag[tool].before_last[_]>
+
+        # Checking Tool data
+        - if <[current_tool_type]> != <[req_tool_type]>:
+            - narrate "<red>This tool cannot be used for this action."
+            - determine cancelled
+        - if <[current_tool_tier]> < <[req_tool_tier]>:
+            - narrate "<red>This tool is not strong enough to be used for this action."
+            - determine cancelled
+
+        - remove <[clicker]>
+        # Grabbing data and reducing durability of tool upon successful use of tool
+        - if <[item].script.name||null> == tool_bag:
+            - define tool_bag <player.item_in_hand>
+            - if <player.inventory.slot[9].script.name.if_null[null]> != tool_bag:
+                - narrate "<red>The tool bag is not in your last hotbar slot."
+                - determine cancelled
+            - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>]>
+            - define selected_tool_data <[tool_bag_inv].slot[<[tool_bag].flag[slot]>]>
+            # Reducing durability of tool
+            - run durability_update_task def:slot:<[tool_bag].flag[slot]> def:inventory:<[tool_bag_inv]> def:overwrite:1
+        #- inventory adjust slot:hand
+
+
+
+
+
 Tool_Bench_Display:
     type: task
     debug: false

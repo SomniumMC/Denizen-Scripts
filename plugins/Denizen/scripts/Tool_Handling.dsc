@@ -36,9 +36,9 @@ Durability_Triggers:
 Durability_Update_Task:
   type: task
   debug: false
-  definitions: slot|overwrite
+  definitions: slot|overwrite|inventory
   script:
-  - define item <player.inventory.slot[<[slot]>]>
+  - define item <inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>
   - if <[item].has_flag[durability1]>:
     - define loss 1
     - define enchants <[item].enchantment_map>
@@ -53,12 +53,12 @@ Durability_Update_Task:
     - if <[overwrite]||null> != null:
       - define loss <[overwrite]>
     - if <[loss]> >= 1:
-      - inventory adjust slot:<[slot]> flag:durability1:-:<[loss]> destination:<player.inventory>
+      - inventory adjust slot:<[slot]> flag:durability1:-:<[loss]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
       - if <[item].flag[durability2]||null> == null:
-        - inventory adjust slot:<[slot]> flag:durability2:<[item].flag[durability1]> destination:<player.inventory>
-      - run update_item_task def:<player>|<player.inventory.slot[<[slot]>]>|<[slot]>
+        - inventory adjust slot:<[slot]> flag:durability2:<[item].flag[durability1]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
+      - run update_item_task def:<inventory[<[inventory]>].if_null[<player.inventory>]>|<inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>|<[slot]>
     - if <[item].flag[durability1]> < 1:
-      - inventory set o:air slot:<[slot]> destination:<player.inventory>
+      - inventory set o:air slot:<[slot]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
       - playsound <player.location> sound:ENTITY.ITEM.BREAK sound_category:player
 
 Mending_Delta:
@@ -152,9 +152,9 @@ update_item_task:
     - if <[2].flag[food]> > 0:
       - define lore "<[lore]><n><gold>Replenishes <yellow><[2].flag[food]> <gold>hunger."
       - define test t
-  - inventory adjust slot:<[3]> lore:<[lore]> destination:<[1].inventory>
+  - inventory adjust slot:<[3]> lore:<[lore]> destination:<[1]>
   - if <[2].has_flag[durability1]> && <[2].has_flag[durability2].not>:
-    - inventory adjust slot:<[3]> flag:durability2:<[2].flag[durability1]> destination:<[1].inventory>
+    - inventory adjust slot:<[3]> flag:durability2:<[2].flag[durability1]> destination:<[1]>
 
 Attributes_Lore_Proc:
   type: procedure
