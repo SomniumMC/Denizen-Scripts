@@ -143,8 +143,8 @@ Tool_Management_Event_Main:
         - if <[success]||0> == 1:
             - flag <[tool_bench]> tool_bench.item:<[item]>
             - flag <[tool_bench]> tool_bench.item_recipe:<[repair_data]>
-            #- take item:<[item]> quantity:1
             - inventory set o:<[item]> destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> slot:1
+            - take item:<[item]> quantity:1
             - inventory close
             - run Tool_Bench_Display def.tool_bench:<[tool_bench]>
             - run Tool_Bench_Spawn_Clickers def.tool_bench:<[tool_bench]>
