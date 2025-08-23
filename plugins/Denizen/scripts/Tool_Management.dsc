@@ -197,7 +197,7 @@ Tool_Management_Event_Main:
                 - playsound <player.location> sound:ui.stonecutter.take_result pitch:1.2
                 - wait 5t
                 - playsound <player.location> sound:ui.stonecutter.take_result pitch:1.2
-            - case cut:
+            - case knife:
                 - playsound <player.location> sound:item.axe.strip pitch:1.2
                 - wait 5t
                 - playsound <player.location> sound:item.axe.strip pitch:1.2
@@ -209,7 +209,7 @@ Tool_Management_Event_Main:
                 - playsound <player.location> sound:item.book.page_turn pitch:1.5
                 - wait 7t
                 - playsound <player.location> sound:item.book.page_turn pitch:1.5
-            - case sew:
+            - case needle:
                 - playsound <player.location> sound:item.armor.equip_leather pitch:1.5
                 - wait 5t
                 - playsound <player.location> sound:item.armor.equip_leather pitch:1.5
