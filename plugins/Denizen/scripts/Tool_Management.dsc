@@ -50,6 +50,8 @@ Tool_Management_Event_Main:
             - choose <[tool_tier]>:
                 - case 1:
                     - define tool_material copper
+                - case 2:
+                    - define tool_material bronze
             - define tool_item <item[<[tool_material]>_<[tool_type]>].with_single[lore=<item[<[tool_material]>_<[tool_type]>].flag[lore]>]>
             - adjust def:tool_item flag:tool:<[tool]>
             - define new_tool_list:->:<[tool_item]>
@@ -140,6 +142,9 @@ Tool_Management_Event_Main:
               - take item:<[ingredient4]> quantity:<[quantity4]>
               - take item:<[ingredient5]> quantity:<[quantity5]>
               - take item:<[ingredient6]> quantity:<[quantity6]>
+        - if <[success]||0> != 1:
+            - narrate "<red>You do not have the required ingredients to repair this item."
+            - stop
         - if <[success]||0> == 1:
             - flag <[tool_bench]> tool_bench.item:<[item]>
             - flag <[tool_bench]> tool_bench.item_recipe:<[repair_data]>
@@ -148,7 +153,6 @@ Tool_Management_Event_Main:
             - inventory close
             - run Tool_Bench_Display def.tool_bench:<[tool_bench]>
             - run Tool_Bench_Spawn_Clickers def.tool_bench:<[tool_bench]>
-
 
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
@@ -519,67 +523,67 @@ Copper_Needle:
         durability1: 100
         tool: sew_1
 
-Iron_Hammer:
+Bronze_Hammer:
     type: item
     debug: false
-    display name: <gold>Iron Hammer
+    display name: <gold>Bronze Hammer
     material: brick
     mechanisms:
         components_patch:
             item_model: string:tools:iron_hammer
     flags:
-        lore: <yellow>A hammer made of iron.<n><light_purple>Tier 2 Hammering
+        lore: <yellow>A hammer made of bronze.<n><light_purple>Tier 2 Hammering
         durability1: 250
         tool: hammer_2
 
-Iron_Saw:
+Bronze_Saw:
     type: item
     debug: false
-    display name: <gold>Iron Saw
+    display name: <gold>Bronze Saw
     material: brick
     mechanisms:
         components_patch:
             item_model: string:minecraft:stonecutter
     flags:
-        lore: <yellow>A saw made of iron.<n><light_purple>Tier 2 Sawing
+        lore: <yellow>A saw made of bronze.<n><light_purple>Tier 2 Sawing
         durability1: 250
         tool: saw_2
 
-Iron_Knife:
+Bronze_Knife:
     type: item
     debug: false
-    display name: <gold>Iron Knife
+    display name: <gold>Bronze Knife
     material: brick
     mechanisms:
         components_patch:
             item_model: string:weapons:stone_dagger
     flags:
-        lore: <yellow>A knife made of iron.<n><light_purple>Tier 2 Cutting
+        lore: <yellow>A knife made of bronze.<n><light_purple>Tier 2 Cutting
         durability1: 250
         tool: cut_2
 
-Iron_File:
+Bronze_File:
     type: item
     debug: false
-    display name: <gold>Iron File
+    display name: <gold>Bronze File
     material: brick
     mechanisms:
         components_patch:
             item_model: string:tools:chisel
     flags:
-        lore: <yellow>A file made of iron.<n><light_purple>Tier 2 Filing
+        lore: <yellow>A file made of bronze.<n><light_purple>Tier 2 Filing
         durability1: 250
         tool: file_2
 
-Iron_Needle:
+Bronze_Needle:
     type: item
     debug: false
-    display name: <gold>Iron Needle
+    display name: <gold>Bronze Needle
     material: brick
     mechanisms:
         components_patch:
             item_model: string:tools:needle
     flags:
-        lore: <yellow>A needle made of iron.<n><light_purple>Tier 2 Sewing
+        lore: <yellow>A needle made of bronze.<n><light_purple>Tier 2 Sewing
         durability1: 250
         tool: sew_2
