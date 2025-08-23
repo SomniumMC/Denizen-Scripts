@@ -205,9 +205,9 @@ Tool_Management_Event_Main:
                 - playsound <player.location> sound:item.axe.strip pitch:1.2
             - case file:
                 - playsound <player.location> sound:item.book.page_turn pitch:1.5
-                - wait 5t
+                - wait 7t
                 - playsound <player.location> sound:item.book.page_turn pitch:1.5
-                - wait 5t
+                - wait 7t
                 - playsound <player.location> sound:item.book.page_turn pitch:1.5
             - case sew:
                 - playsound <player.location> sound:item.armor.equip_leather pitch:1.5
@@ -528,7 +528,7 @@ Copper_Knife:
     flags:
         lore: <yellow>A knife made of copper.<n><light_purple>Tier 1 Cutting
         durability1: 100
-        tool: cut_1
+        tool: knife_1
 
 Copper_File:
     type: item
@@ -554,7 +554,7 @@ Copper_Needle:
     flags:
         lore: <yellow>A needle made of copper.<n><light_purple>Tier 1 Sewing
         durability1: 100
-        tool: sew_1
+        tool: needle_1
 
 Bronze_Hammer:
     type: item
@@ -593,7 +593,7 @@ Bronze_Knife:
     flags:
         lore: <yellow>A knife made of bronze.<n><light_purple>Tier 2 Cutting
         durability1: 250
-        tool: cut_2
+        tool: knife_2
 
 Bronze_File:
     type: item
@@ -619,4 +619,4 @@ Bronze_Needle:
     flags:
         lore: <yellow>A needle made of bronze.<n><light_purple>Tier 2 Sewing
         durability1: 250
-        tool: sew_2
+        tool: needle_2
