@@ -206,12 +206,17 @@ Tool_Bench_Spawn_Clickers:
             - case 1:
                 - define tool_material copper
         - define tool_item <item[<[tool_material]>_<[tool_type]>]>
+        # Clicker Display
         - spawn item_display[item=<[tool_item]>;scale=0.25,0.25,0.25] <[location_mods].get[slot<[loop_index]>].above[0.1]> save:clicker
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.item:<entry[clicker].spawned_entity>
-        - spawn interaction[width=0.2;height=0.2] <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
+        - spawn Tool_Bench_Clicker <[location_mods].get[slot<[loop_index]>]> save:clicker_interaction
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.interaction:<entry[clicker_interaction].spawned_entity>
         - spawn text_display[text=<red><[tool_tier]>;scale=0.2,0.2,0.2] <[location_mods].get[slot<[loop_index]>].above[0.1].with_yaw[<[bench_yaw].add[180]>].forward[0.05].below[0.05].left[0.05]> save:number_display
         - flag <[tool_bench]> tool_bench.clickers.slot<[loop_index]>.number_display:<entry[number_display].spawned_entity>
+        # Clicker Data
+        - flag <entry[clicker_interaction].spawned_entity> tool_type:<[tool_type]>
+        - flag <entry[clicker_interaction].spawned_entity> tool_tier:<[tool_tier]>
+        - flag <entry[clicker_interaction].spawned_entity> tool_material:<[tool_material]>
 
 
 Tool_Bag_Event:
@@ -302,6 +307,14 @@ Tool_Bench_Entity:
     mechanisms:
         width: 1.1
         height: 1.1
+
+Tool_Bench_Clicker:
+    type: entity
+    debug: false
+    entity_type: interaction
+    mechanisms:
+        width: 0.2
+        height: 0.2
 
 Tool_Management_GUI:
     type: inventory
