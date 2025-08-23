@@ -70,6 +70,11 @@ Tool_Management_Event_Main:
         - inventory set slot:33 o:<item[red_concrete].with_single[display=<red>Disassemble Tool?]> destination:<player.open_inventory>
         - inventory adjust slot:32 flag:repair_data:<[repair_data]> destination:<player.open_inventory>
 
+        on player clicks item in Tool_Management_GUI:
+        - define item <context.item>
+        - if <context.clicked_inventory.script.name||null> != Tool_Management_GUI:
+            - determine passively cancelled
+
         on player clicks green_concrete in Tool_Management_GUI:
         - define tool_bench <player.flag[tool_bench]>
         - define tool_bench_location <[tool_bench].flag[tool_bench.location]>
@@ -144,10 +149,7 @@ Tool_Management_Event_Main:
 
 
 
-        on player clicks item in Tool_Management_GUI:
-        - define item <context.item>
-        - if <context.clicked_inventory.script.name||null> != Tool_Management_GUI:
-            - determine passively cancelled
+        
 
         on player clicks red_concrete in Tool_Management_Dissasemble_GUI:
         - define tool_bench <player.flag[tool_bench]>
