@@ -185,7 +185,7 @@ Tool_Management_Event_Main:
             - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>]>
             - define selected_tool_data <[tool_bag_inv].slot[<[tool_bag].flag[slot]>]>
             # Reducing durability of tool
-            - run durability_update_task def:slot:<[tool_bag].flag[slot]> def:inventory:<[tool_bag_inv]> def:overwrite:1
+            - run durability_update_task def:slot:<[tool_bag].flag[slot]> def:inventory:tool_bag_<player.inventory.slot[9].flag[id]> def:overwrite:1
         #- inventory adjust slot:hand
 
 
