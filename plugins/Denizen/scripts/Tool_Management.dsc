@@ -203,11 +203,11 @@ Tool_Management_Event_Main:
                 - narrate "<red>Your current tool has broken!"
 
         # Removing Clicker
-        - define clicker_data <[tool_bench].flag[clickers].get[<[clicker].flag[clicker_slot]>]>
+        - define clicker_data <[tool_bench].get[clickers].get[<[clicker].flag[clicker_slot]>]>
         - remove <[clicker_data].get[item]>
         - remove <[clicker_data].get[number_display]>
         - remove <[clicker_data].get[interaction]>
-        - flag <[tool_bench]> clickers:<-:<[tool_bench].flag[clickers].get[<[clicker].flag[clicker_slot]>]>
+        - flag <[tool_bench]> clickers:<-:<[tool_bench].get[clickers].get[<[clicker].flag[clicker_slot]>]>
 
 
 Tool_Bench_Display:
