@@ -84,8 +84,8 @@ Tool_Management_Event_Main:
         - if <[repair_data]> == null:
             - narrate "<red>An error has occured while trying to repair this item."
             - stop
-        - flag <[tool_bench]> state:repairing
-        - flag <[tool_bench]> item:<[item]>
+        - flag <[tool_bench]> tool_bench.state:repairing
+        - flag <[tool_bench]> tool_bench.item:<[item]>
         - define ingredient_list <[repair_data].get[ingredients]>
         - define tool_list <[repair_data].get[tools]>
         #- foreach <[ingredient_list]> as:ingredient:
@@ -141,8 +141,8 @@ Tool_Management_Event_Main:
               - take item:<[ingredient5]> quantity:<[quantity5]>
               - take item:<[ingredient6]> quantity:<[quantity6]>
         - if <[success]||0> == 1:
-            - flag <[tool_bench]> item:<[item]>
-            - flag <[tool_bench]> item_recipe:<[repair_data]>
+            - flag <[tool_bench]> tool_bench.item:<[item]>
+            - flag <[tool_bench]> tool_bench.item_recipe:<[repair_data]>
             #- take item:<[item]> quantity:1
             - inventory set o:<[item]> destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> slot:1
             - inventory close
@@ -163,7 +163,7 @@ Tool_Management_Event_Main:
         - ratelimit <player> 5t
         - define clicker <context.entity>
         - define clicker_slot <[clicker].flag[clicker_slot]>
-        - define tool_bench_location <[clicker].flag[tool_bench]>
+        - define tool_bench <[clicker].flag[tool_bench]>
         - define item <player.item_in_hand>
         - if !<[item].has_flag[tool]>:
             - determine cancelled
@@ -205,30 +205,30 @@ Tool_Management_Event_Main:
                 - narrate "<red>Your current tool has broken!"
 
         # Removing Clicker
-        - define clicker_data <[tool_bench_location].flag[tool_bench].get[clickers].get[<[clicker_slot]>]>
+        - define clicker_data <[tool_bench].flag[tool_bench].get[clickers].get[<[clicker_slot]>]>
         - remove <[clicker_data].get[item]>
         - remove <[clicker_data].get[number_display]>
         - remove <[clicker_data].get[interaction]>
-        - flag <[tool_bench_location]> tool_bench.clickers.<[clicker_slot]>:!
+        - flag <[tool_bench]> tool_bench.clickers.<[clicker_slot]>:!
 
 
         # Check if clickers are gone
-        - if <[tool_bench_location].flag[tool_bench].get[clickers].keys.size> == 0:
-            - run Tool_Bench_Display_Cleanup def.tool_bench:<[tool_bench_location]>
+        - if <[tool_bench].flag[tool_bench].get[clickers].keys.size> == 0:
+            - run Tool_Bench_Display_Cleanup def.tool_bench:<[tool_bench]>
             # Setting the tool into custom durability system
-            - if !<inventory[tool_bench_inv_<[tool_bench_location].uuid>].slot[1].has_flag[durability1]>:
-                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> durability:0
-                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> unbreakable:true
-                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> hides:unbreakable|attributes
+            - if !<inventory[tool_bench_inv_<[tool_bench].uuid>].slot[1].has_flag[durability1]>:
+                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> durability:0
+                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> unbreakable:true
+                - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> hides:unbreakable|attributes
 
-            - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench_location].uuid>]> flag:durability1:<[tool_bench_location].flag[tool_bench].flag[item_recipe].get[default_dura]>
-            - run durability_update_task def.slot:1 def.inventory:tool_bench_inv_<[tool_bench_location].uuid> def.overwrite:0
+            - inventory adjust slot:1 destination:<inventory[tool_bench_inv_<[tool_bench].uuid>]> flag:durability1:<[tool_bench].flag[tool_bench].get[item_recipe].get[default_dura]>
+            - run durability_update_task def.slot:1 def.inventory:tool_bench_inv_<[tool_bench].uuid> def.overwrite:0
 
-            - drop item:<inventory[tool_bench_inv_<[tool_bench_location].uuid>].slot[1]> location:<[tool_bench_location].above[1]>
+            - drop item:<inventory[tool_bench_inv_<[tool_bench].uuid>].slot[1]> location:<[tool_bench].above[1]>
 
-            - flag <[tool_bench_location]> state:!
-            - flag <[tool_bench_location]> item:!
-            - flag <[tool_bench_location]> item_recipe:!
+            - flag <[tool_bench]> tool_bench.state:!
+            - flag <[tool_bench]> tool_bench.item:!
+            - flag <[tool_bench]> tool_bench.item_recipe:!
 
 
 Tool_Bench_Display:
@@ -237,12 +237,12 @@ Tool_Bench_Display:
     definitions: tool_bench
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
-    - define item <[tool_bench].flag[item]>
+    - define item <[tool_bench].flag[tool_bench.item]>
     - define bench_yaw <[tool_bench].location.yaw.round_to_precision[90]>
     - spawn item_display[item=<[item]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[bench_yaw].add[180]>]> save:repair_display
     - flag <[tool_bench]> tool_bench.display.item:<entry[repair_display].spawned_entity>
-    - define target_dura <[tool_bench].flag[item_recipe].get[default_dura]>
-    - define current_dura <[tool_bench].flag[item].flag[durability1].if_null[<[item].max_durability.sub[<[item].durability>]>]>
+    - define target_dura <[tool_bench].flag[tool_bench.item_recipe].get[default_dura]>
+    - define current_dura <[tool_bench].flag[tool_bench.item].flag[durability1].if_null[<[item].max_durability.sub[<[item].durability>]>]>
     - spawn text_display[text=<[current_dura]>/<[target_dura]>;scale=0.5,0.5,0.5] <[location].center.above[0.85].with_yaw[<[bench_yaw].add[180]>].forward[0.45].right[0.25].below[0.25]> save:durability_text
     - flag <[tool_bench]> tool_bench.display.durability:<entry[durability_text].spawned_entity>
 
@@ -268,7 +268,7 @@ Tool_Bench_Spawn_Clickers:
     script:
     - define location <[tool_bench].flag[tool_bench.location]>
     - define bench_yaw <[tool_bench].location.yaw.round_to_precision[90]>
-    - define recipe_data <[tool_bench].flag[item_recipe]>
+    - define recipe_data <[tool_bench].flag[tool_bench.item_recipe]>
     - define tools <[recipe_data].get[tools]>
     - definemap location_mods:
         slot1: <[location].center.with_yaw[<[bench_yaw]>].above[1].down[0.05].backward[0.15].left[0.35]>
