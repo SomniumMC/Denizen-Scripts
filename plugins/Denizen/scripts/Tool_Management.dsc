@@ -529,6 +529,7 @@ Copper_Knife:
         lore: <yellow>A knife made of copper.<n><light_purple>Tier 1 Cutting
         durability1: 100
         tool: knife_1
+        damage_type: Slashing
 
 Copper_File:
     type: item
@@ -594,6 +595,7 @@ Bronze_Knife:
         lore: <yellow>A knife made of bronze.<n><light_purple>Tier 2 Cutting
         durability1: 250
         tool: knife_2
+        damage_type: Slashing
 
 Bronze_File:
     type: item
