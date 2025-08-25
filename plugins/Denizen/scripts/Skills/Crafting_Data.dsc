@@ -137,6 +137,45 @@ Crafting_Master_Data:
         - iron_nugget-2
         - copper_block-1
         - gold_ingot-1
+      crafting_tools:
+        copper_hammer-1:
+        - copper_ingot-2
+        - tool_rod-1
+        copper_saw-1:
+        - copper_ingot-2
+        - tool_rod-1
+        copper_knife-1:
+        - copper_ingot-1
+        - tool_rod-1
+        copper_file-1:
+        - copper_ingot-1
+        - tool_rod-1
+        copper_needle-1:
+        - copper_ingot-1
+        bronze_hammer-1:
+        - bronze_ingot-2
+        - tool_rod-1
+        bronze_saw-1:
+        - bronze_ingot-2
+        - tool_rod-1
+        bronze_knife-1:
+        - bronze_ingot-1
+        - tool_rod-1
+        bronze_file-1:
+        - bronze_ingot-1
+        - tool_rod-1
+        bronze_needle-1:
+        - bronze_ingot-1
+        tool_bench-1:
+        - anvil-1
+        - crafting_table-1
+        - iron_block-2
+        tool_bag-1:
+        - leather-2
+        - string-4
+        - iron_ingot-1
+        - copper_ingot-4
+
     refining:
       ingots:
         iron_ingot-16:

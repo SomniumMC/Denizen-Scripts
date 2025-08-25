@@ -1014,3 +1014,16 @@ Crafting_Icon_Concrete:
     category: concrete
   lore:
   - <white>Prepare materials for crafting solid concrete and powder
+
+Crafting_Icon_Crafting_Tools:
+  type: item
+  debug: false
+  material: crafting_table
+  display name: <red>Crafting & Repair Tools
+  flags:
+    category: crafting_tools
+  mechanisms:
+      components_patch:
+        item_model: string:tools:copper_hammer
+  lore:
+  - <white>Prepare tools for crafting and repairing equipment
