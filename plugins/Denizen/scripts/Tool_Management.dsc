@@ -498,7 +498,7 @@ Copper_Hammer:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:iron_hammer
+            item_model: string:tools:copper_hammer
     flags:
         lore: <yellow>A hammer made of copper.<n><light_purple>Tier 1 Hammering
         durability1: 100
@@ -511,7 +511,7 @@ Copper_Saw:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:minecraft:stonecutter
+            item_model: string:tools:copper_saw
     flags:
         lore: <yellow>A saw made of copper.<n><light_purple>Tier 1 Sawing
         durability1: 100
@@ -524,7 +524,7 @@ Copper_Knife:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:weapons:stone_dagger
+            item_model: string:tools:copper_knife
     flags:
         lore: <yellow>A knife made of copper.<n><light_purple>Tier 1 Cutting
         durability1: 100
@@ -538,7 +538,7 @@ Copper_File:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:chisel
+            item_model: string:tools:copper_file
     flags:
         lore: <yellow>A file made of copper.<n><light_purple>Tier 1 Filing
         durability1: 100
@@ -551,7 +551,7 @@ Copper_Needle:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:needle
+            item_model: string:tools:copper_needle
     flags:
         lore: <yellow>A needle made of copper.<n><light_purple>Tier 1 Sewing
         durability1: 100
@@ -564,7 +564,7 @@ Bronze_Hammer:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:iron_hammer
+            item_model: string:tools:bronze_hammer
     flags:
         lore: <yellow>A hammer made of bronze.<n><light_purple>Tier 2 Hammering
         durability1: 250
@@ -577,7 +577,7 @@ Bronze_Saw:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:minecraft:stonecutter
+            item_model: string:tools:bronze_saw
     flags:
         lore: <yellow>A saw made of bronze.<n><light_purple>Tier 2 Sawing
         durability1: 250
@@ -590,7 +590,7 @@ Bronze_Knife:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:weapons:stone_dagger
+            item_model: string:tools:bronze_knife
     flags:
         lore: <yellow>A knife made of bronze.<n><light_purple>Tier 2 Cutting
         durability1: 250
@@ -604,7 +604,7 @@ Bronze_File:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:chisel
+            item_model: string:tools:bronze_file
     flags:
         lore: <yellow>A file made of bronze.<n><light_purple>Tier 2 Filing
         durability1: 250
@@ -617,7 +617,7 @@ Bronze_Needle:
     material: brick
     mechanisms:
         components_patch:
-            item_model: string:tools:needle
+            item_model: string:tools:bronze_needle
     flags:
         lore: <yellow>A needle made of bronze.<n><light_purple>Tier 2 Sewing
         durability1: 250
