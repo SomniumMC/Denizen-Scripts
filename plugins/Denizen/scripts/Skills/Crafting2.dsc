@@ -463,6 +463,11 @@ Crafting_Recipe_Proc:
   - define ingredients <script[Crafting_Master_Data].data_key[<[path]>]>
   #- define tool <[ingredients].last.replace[_].with[ ].to_titlecase>
   - foreach <[ingredients].get[1].to[<[ingredients].size>]> as:text:
+    - if <[text].contains[*]>:
+      - choose <[text].before_last[-]>:
+        - case *planks:
+          - define item_name "Any Wood Plank x<[text].after_last[-]>"
+      - foreach next
     - if <item[<[text].before_last[-]>].display||null> == null:
       - define item_name "<item[<[text].before_last[-]>].material.name.replace[_].with[ ].to_titlecase> x<[text].after_last[-]>"
     - else:
