@@ -311,7 +311,7 @@ Crafting_Master_Data:
         - iron_ingot-4
         - stick-2
         Furniture_Kit_1x1_Chair-1:
-        - oak_planks-4
+        - *planks-4
         - stick-2
         Furniture_Kit_1x1_Table-1:
         - oak_planks-5
