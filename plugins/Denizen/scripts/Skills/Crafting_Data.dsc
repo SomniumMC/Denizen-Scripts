@@ -229,7 +229,7 @@ Crafting_Master_Data:
         - leather-5
         - string-3
         - iron_ingot-1
-        - oak_log-16
+        - *log-16
         Satchel_Fisher_Tier1-1:
         - leather-5
         - string-3
@@ -251,24 +251,24 @@ Crafting_Master_Data:
         - smooth_stone-4
         - lava_bucket-1
         Crafting_Tailoring_Station-1:
-        - oak_planks-5
+        - *planks-5
         - iron_ingot-2
         - white_wool-2
         - string-10
         Crafting_Carpentry_Bench-1:
-        - oak_planks-5
+        - *planks-5
         - iron_ingot-2
         - stick-2
         Crafting_Agriculture_Station-1:
-        - oak_planks-5
+        - *planks-5
         - composter-1
         - new_wheat-2
         Crafting_Masonry_Station-1:
-        - oak_planks-5
+        - *planks-5
         - stonecutter-1
         - stone-2
         furniture_assembly_bench-1:
-        - oak_planks-8
+        - *planks-8
         - iron_ingot-2
         - stonecutter-1
         - crafting_table-1
@@ -287,11 +287,11 @@ Crafting_Master_Data:
         - new_carrot-1
       furniture:
         cooking_counter-1:
-        - oak_planks-5
+        - *planks-5
         - andesite-2
         - crafting_table-1
         cooking_middle_counter-1:
-        - oak_planks-5
+        - *planks-5
         cooking_sink-1:
         - copper_block-1
         - iron_ingot-2
@@ -304,7 +304,7 @@ Crafting_Master_Data:
         - iron_ingot-1
         - charcoal-4
         cooking_storage_block-1:
-        - oak_planks-5
+        - *planks-5
         - chest-1
         - iron_ingot-4
         Furniture_Configurator-1:
@@ -314,19 +314,19 @@ Crafting_Master_Data:
         - *planks-4
         - stick-2
         Furniture_Kit_1x1_Table-1:
-        - oak_planks-5
+        - *planks-5
         - stick-4
         Furniture_Kit_1x2_Table-1:
-        - oak_planks-10
+        - *planks-10
         - stick-4
         Furniture_Kit_1x3_Table-1:
-        - oak_planks-15
+        - *planks-15
         - stick-4
         Furniture_Kit_2x2_Table-1:
-        - oak_planks-20
+        - *planks-20
         - stick-4
         Furniture_Kit_Decoration-1:
-        - oak_planks-5
+        - *planks-5
         - oak_slab-2
         Enchanting_Table-1:
         - iron_block-4
@@ -335,14 +335,14 @@ Crafting_Master_Data:
         - steel_ingot-2
         Jukebox-1:
         - amethyst_shard-4
-        - oak_planks-8
+        - *planks-8
         - redstone-1
       cooking_tools:
         bakeware-1:
         - brick-8
         cutting_board-1:
         - copper_ingot-1
-        - oak_planks-2
+        - *planks-2
         - stick-1
         juicer-1:
         - stone_pressure_plate-2
@@ -350,13 +350,13 @@ Crafting_Master_Data:
         - stone-3
         - stick-1
         mixing_bowl-1:
-        - oak_planks-8
+        - *planks-8
         - stick-1
         cooking_pot-1:
         - iron_ingot-3
         - stick-1
         roller-1:
-        - oak_log-1
+        - *log-1
         - stick-2
         sauce_pan-1:
         - iron_ingot-1
@@ -371,12 +371,12 @@ Crafting_Master_Data:
         - redstone-4
       alcohol_tools:
         Alcohol_Mixing_Tub-1:
-        - oak_planks-6
+        - *planks-6
         - stick-4
         - water_bucket-1
         - iron_ingot-2
         Alcohol_Fermentation_Barrel-1:
-        - oak_planks-8
+        - *planks-8
         - stick-4
         - barrel-1
         - iron_ingot-2

@@ -467,6 +467,8 @@ Crafting_Recipe_Proc:
       - choose <[text].before_last[-]>:
         - case *planks:
           - define item_name "Any Wood Plank x<[text].after_last[-]>"
+        - case *log:
+          - define item_name "Any Wood Log x<[text].after_last[-]>"
       - define ingredient_list:->:<[item_name].strip_color>
       - foreach next
     - if <item[<[text].before_last[-]>].display||null> == null:
