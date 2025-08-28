@@ -12,7 +12,7 @@ SomniData_Crystaline_Cavern:
     dungeon_core:
         type: dungeoncore
         pos:
-            - 23|25|-34
+            - 30|22|-34
         health: 10
         area: crystaline_cavern_mine
         somni: Crystaline_Cavern
