@@ -175,7 +175,6 @@ Crafting_Master_Data:
         - string-4
         - iron_ingot-1
         - copper_ingot-4
-
     refining:
       ingots:
         iron_ingot-16:
@@ -406,6 +405,8 @@ Crafting_Master_Data:
         - new_pumpkin-1
         seeds_apple-1:
         - new_apple-2
+        seeds_sweet_berry-1:
+        - new_sweet_berry-2
     masonry:
       masonry_blocks:
         packed_mud-16:
