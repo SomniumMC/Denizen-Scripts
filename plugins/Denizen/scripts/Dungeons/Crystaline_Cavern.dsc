@@ -21,7 +21,7 @@ Crystaline_Cavern_Surface_Protection:
     type: world
     debug: false
     events:
-        on player breaks block in:Crystaline_Cavern_Surface:
+        on player breaks block in:Crystaline_Cavern_Structure:
             - determine passively cancelled
             - narrate "<red><italic>You cannot break blocks here, go deeper down."
 
