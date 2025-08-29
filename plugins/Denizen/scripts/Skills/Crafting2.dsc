@@ -718,7 +718,7 @@ Crafting_Carpentry_Bench:
       1:
         type: shaped
         input:
-        - crafting_table|iron_axe|oak_log
+        - crafting_table|iron_axe|*_log
         - air|*planks|air
         - *planks|*planks|*planks
 
