@@ -95,6 +95,8 @@ Blueberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5003
+    components_patch:
+        item_model: string:cooking:food/blueberry
   display name: <white>Blueberry
   flags:
     food: 1
