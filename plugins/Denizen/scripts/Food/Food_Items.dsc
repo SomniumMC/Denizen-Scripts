@@ -2436,7 +2436,7 @@ New_Beetroot:
     mechanisms:
       custom_model_data: 603
       components_patch:
-        item_model: string:cooking:food/newbeetroot
+        item_model: string:minecraft:beetroot
     display name: <white>Beetroot
     flags:
       food: 1
@@ -2456,7 +2456,7 @@ New_Pumpkin:
     mechanisms:
       custom_model_data: 604
       components_patch:
-        item_model: string:cooking:food/newpumpkin
+        item_model: string:minecraft:pumpkin
     flags:
       Cooking_ID: New_Pumpkin
       Cooking_Tag: Vegetable
@@ -2474,7 +2474,7 @@ New_Netherwart:
     mechanisms:
       custom_model_data: 605
       components_patch:
-        item_model: string:cooking:food/new_netherwart
+        item_model: string:minecraft:nether_wart
     flags:
       Cooking_ID: New_Netherwart
       vegetable: true
@@ -2490,7 +2490,7 @@ New_Baked_Potato:
     mechanisms:
       custom_model_data: 606
       components_patch:
-        item_model: string:cooking:food/newbakedpotato
+        item_model: string:minecraft:baked_potato
     display name: <white>Baked Potato
     flags:
       food: 2
