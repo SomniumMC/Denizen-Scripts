@@ -57,7 +57,7 @@ Durability_Update_Task:
       - if <[item].flag[durability2]||null> == null:
         - inventory adjust slot:<[slot]> flag:durability2:<[item].flag[durability1]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
       - run update_item_task def:<inventory[<[inventory]>].if_null[<player.inventory>]>|<inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>|<[slot]>
-    - if <[item].flag[durability1].sub[<[loss]>]> < 1:
+    - if <[item].flag[durability1].sub[<[loss]>]> <= 0:
       - inventory set o:air slot:<[slot]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
       - playsound <player.location> sound:ENTITY.ITEM.BREAK sound_category:player
       - stop
