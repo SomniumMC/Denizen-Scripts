@@ -1448,7 +1448,7 @@ COOKING_RAW_CHICKEN:
     mechanisms:
       custom_model_data: 501
       components_patch:
-        item_model: string:minecraft:raw_chicken
+        item_model: string:minecraft:chicken
     display name: <white>Raw Chicken
     flags:
       food: 2
@@ -1612,7 +1612,7 @@ COOKING_RAW_BEEF:
     mechanisms:
       custom_model_data: 510
       components_patch:
-        item_model: string:minecraft:raw_beef
+        item_model: string:minecraft:beef
     display name: <white>Raw Beef
     flags:
       food: 2
@@ -1741,7 +1741,7 @@ COOKING_RAW_PORK:
     mechanisms:
       custom_model_data: 517
       components_patch:
-        item_model: string:minecraft:raw_pork
+        item_model: string:minecraft:porkchop
     display name: <white>Raw Pork
     flags:
       food: 2
@@ -1761,7 +1761,7 @@ COOKING_COOKED_PORK:
     mechanisms:
       custom_model_data: 518
       components_patch:
-        item_model: string:minecraft:cooked_pork
+        item_model: string:minecraft:cooked_porkchop
     display name: <white>Cooked Pork
     flags:
       Cooking_ID: cooked_pork
@@ -1883,7 +1883,7 @@ COOKING_RAW_FISH:
     mechanisms:
       custom_model_data: 525
       components_patch:
-        item_model: string:minecraft:raw_cod
+        item_model: string:minecraft:cod
     display name: <white>Raw Fish
     flags:
       food: 2
@@ -2084,7 +2084,7 @@ COOKING_RAW_RABBIT:
     mechanisms:
       custom_model_data: 536
       components_patch:
-        item_model: string:minecraft:raw_rabbit
+        item_model: string:minecraft:rabbit
     display name: <white>Raw Rabbit
     flags:
       food: 2
@@ -2104,7 +2104,7 @@ COOKING_COOKED_RABBIT:
     mechanisms:
       custom_model_data: 537
       components_patch:
-        item_model: string:cooking:food/cookingcookedrabbit
+        item_model: string:cooking:food/cooked_rabbit
     display name: <white>Cooked Rabbit
     flags:
       food: 3
@@ -2281,7 +2281,7 @@ COOKING_RAW_HORSE:
     mechanisms:
       custom_model_data: 547
       components_patch:
-        item_model: string:cooking:food/cookingrawhorse
+        item_model: string:cooking:food/rawhorse
     display name: <white>Raw Horse Meat
     flags:
       food: 2
@@ -2301,7 +2301,7 @@ COOKING_RAW_GOAT:
     mechanisms:
       custom_model_data: 548
       components_patch:
-        item_model: string:cooking:food/cookingrawgoat
+        item_model: string:cooking:food/rawgoat
     display name: <white>Raw Goat Meat
     flags:
       food: 2
@@ -2321,7 +2321,7 @@ COOKING_COOKED_HORSE:
     mechanisms:
       custom_model_data: 549
       components_patch:
-        item_model: string:cooking:food/cookingcookedhorse
+        item_model: string:cooking:food/cookedhorse
     display name: <white>Cooked Horse Meat
     flags:
       food: 3
@@ -2338,7 +2338,7 @@ COOKING_COOKED_GOAT:
     mechanisms:
       custom_model_data: 550
       components_patch:
-        item_model: string:cooking:food/cookingcookedgoat
+        item_model: string:cooking:food/cookedgoat
     display name: <white>Cooked Goat Meat
     flags:
       food: 3
