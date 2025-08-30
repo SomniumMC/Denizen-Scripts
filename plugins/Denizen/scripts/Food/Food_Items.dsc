@@ -3325,7 +3325,7 @@ Fresh_Water:
     mechanisms:
       custom_model_data: 802
       components_patch:
-        item_model: string:cooking:food/fresh_water
+        item_model: string:cooking:food/freshwater
     flags:
       food: 0
       drink: true
