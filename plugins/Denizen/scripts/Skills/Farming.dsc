@@ -414,6 +414,8 @@ Seeds_Wheat:
       seed: wheat
     mechanisms:
       custom_model_data: 1001
+      components_patch:
+        item_model: string:cooking:seeds/wheatseeds
     lore:
     - <green>Grain - Seeds
     - <empty>
@@ -427,6 +429,8 @@ Seeds_Carrot:
       seed: carrot
     mechanisms:
       custom_model_data: 1002
+      components_patch:
+        item_model: string:cooking:seeds/carrotseeds
     lore:
     - <green>Vegetable - Seeds
     - <empty>
@@ -440,6 +444,8 @@ Seeds_Potato:
       seed: potato
     mechanisms:
       custom_model_data: 1003
+      components_patch:
+        item_model: string:cooking:seeds/potatoseeds
     lore:
     - <green>Vegetable - Seeds
     - <empty>
@@ -453,6 +459,8 @@ Seeds_Pumpkin:
       seed: pumpkin
     mechanisms:
       custom_model_data: 1004
+      components_patch:
+        item_model: string:cooking:seeds/pumpkinseeds
     lore:
     - <green>Vegetable - Seeds
     - <empty>
@@ -466,6 +474,8 @@ Seeds_Melon:
       seed: melon
     mechanisms:
       custom_model_data: 1005
+      components_patch:
+        item_model: string:cooking:seeds/melonseeds
     lore:
     - <green>Fruit - Seeds
     - <empty>
@@ -479,6 +489,8 @@ Seeds_Beetroot:
       seed: beetroot
     mechanisms:
       custom_model_data: 1006
+      components_patch:
+        item_model: string:cooking:seeds/beetrootseeds
     lore:
     - <green>Vegetable - Seeds
     - <empty>
@@ -492,6 +504,8 @@ Seeds_Bamboo:
       seed: bamboo
     mechanisms:
       custom_model_data: 1007
+      components_patch:
+        item_model: string:cooking:seeds/bambooseeds
     lore:
     - <green>Vegetable - Seeds
     - <empty>
@@ -505,6 +519,8 @@ Seeds_Sweet_Berry:
       seed: sweet_berry
     mechanisms:
       custom_model_data: 1008
+      components_patch:
+        item_model: string:cooking:seeds/sweetberryseeds
     lore:
     - <green>Fruit - Seeds
     - <empty>
@@ -518,6 +534,8 @@ Seeds_Netherwart:
       seed: netherwart
     mechanisms:
       custom_model_data: 1009
+      components_patch:
+        item_model: string:cooking:seeds/netherwartseeds
     lore:
     - <green>Vegetable - Seeds
     - <empty>

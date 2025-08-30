@@ -81,6 +81,8 @@ Fish_Anchovy:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1101
+      components_patch:
+        item_model: string:cooking:fish/anchovy
     display name: <white>Anchovy
     flags:
       food: 2
@@ -100,6 +102,8 @@ Fish_Bass:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1102
+      components_patch:
+        item_model: string:cooking:fish/bass
     display name: <white>Bass
     flags:
       food: 2
@@ -119,6 +123,8 @@ Fish_Carp:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1103
+      components_patch:
+        item_model: string:cooking:fish/carp
     display name: <white>Carp
     flags:
       food: 2
@@ -138,6 +144,8 @@ Fish_Catfish:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1104
+      components_patch:
+        item_model: string:cooking:fish/catfish
     display name: <white>Catfish
     flags:
       food: 2
@@ -157,6 +165,8 @@ Fish_Charr:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1105
+      components_patch:
+        item_model: string:cooking:fish/charr
     display name: <white>Charr
     flags:
       food: 2
@@ -176,6 +186,8 @@ Fish_Clam:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1106
+      components_patch:
+        item_model: string:cooking:fish/clam
     display name: <white>Clam
     flags:
       food: 2
@@ -195,6 +207,8 @@ Fish_Crab:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1107
+      components_patch:
+        item_model: string:cooking:fish/crab
     display name: <white>Crab
     flags:
       food: 2
@@ -214,6 +228,8 @@ Fish_Crayfish:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1108
+      components_patch:
+        item_model: string:cooking:fish/crayfish
     display name: <white>Crayfish
     flags:
       food: 2
@@ -233,6 +249,8 @@ Fish_Eel:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1109
+      components_patch:
+        item_model: string:cooking:fish/eel
     display name: <white>Eel
     flags:
       food: 2
@@ -252,6 +270,8 @@ Fish_Grouper:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1110
+      components_patch:
+        item_model: string:cooking:fish/grouper
     display name: <white>Grouper
     flags:
       food: 2
@@ -271,6 +291,8 @@ Fish_Herring:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1111
+      components_patch:
+        item_model: string:cooking:fish/herring
     display name: <white>Herring
     flags:
       food: 2
@@ -290,6 +312,8 @@ Fish_Jellyfish:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1112
+      components_patch:
+        item_model: string:cooking:fish/jellyfish
     display name: <white>Jellyfish
     flags:
       food: 2
@@ -309,6 +333,8 @@ Fish_Octopus:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1113
+      components_patch:
+        item_model: string:cooking:fish/octopus
     display name: <white>Octopus
     flags:
       food: 2
@@ -328,6 +354,8 @@ Fish_Perch:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1114
+      components_patch:
+        item_model: string:cooking:fish/perch
     display name: <white>Perch
     flags:
       food: 2
@@ -347,6 +375,8 @@ Fish_Sardine:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1115
+      components_patch:
+        item_model: string:cooking:fish/sardine
     display name: <white>Sardine
     flags:
       food: 2
@@ -366,6 +396,8 @@ Fish_Scallop:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1116
+      components_patch:
+        item_model: string:cooking:fish/scallop
     display name: <white>Scallop
     flags:
       food: 2
@@ -385,6 +417,8 @@ Fish_Shrimp:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1117
+      components_patch:
+        item_model: string:cooking:fish/shrimp
     display name: <white>Shrimp
     flags:
       food: 2
@@ -404,6 +438,8 @@ Fish_Snapper:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1118
+      components_patch:
+        item_model: string:cooking:fish/snapper
     display name: <white>Snapper
     flags:
       food: 2
@@ -423,6 +459,8 @@ Fish_Tilapia:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1119
+      components_patch:
+        item_model: string:cooking:fish/tilapia
     display name: <white>Tilapia
     flags:
       food: 2
@@ -442,6 +480,8 @@ Fish_Trout:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1120
+      components_patch:
+        item_model: string:cooking:fish/trout
     display name: <white>Trout
     flags:
       food: 2
@@ -461,6 +501,8 @@ Fish_Tuna:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1121
+      components_patch:
+        item_model: string:cooking:fish/tuna
     display name: <white>Tuna
     flags:
       food: 2
@@ -480,6 +522,8 @@ Fish_Walleye:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 1122
+      components_patch:
+        item_model: string:cooking:fish/walleye
     display name: <white>Walleye
     flags:
       food: 2
