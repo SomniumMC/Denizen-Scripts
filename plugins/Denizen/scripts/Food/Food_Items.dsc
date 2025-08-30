@@ -1448,7 +1448,7 @@ COOKING_RAW_CHICKEN:
     mechanisms:
       custom_model_data: 501
       components_patch:
-        item_model: string:cooking:food/cookingrawchicken
+        item_model: string:minecraft:raw_chicken
     display name: <white>Raw Chicken
     flags:
       food: 2
@@ -1468,7 +1468,7 @@ COOKING_COOKED_CHICKEN:
     mechanisms:
       custom_model_data: 502
       components_patch:
-        item_model: string:cooking:food/cookingcookedchicken
+        item_model: string:minecraft:cooked_chicken
     display name: <white>Cooked Chicken
     flags:
       food: 3
@@ -1612,7 +1612,7 @@ COOKING_RAW_BEEF:
     mechanisms:
       custom_model_data: 510
       components_patch:
-        item_model: string:cooking:food/cookingrawbeef
+        item_model: string:minecraft:raw_beef
     display name: <white>Raw Beef
     flags:
       food: 2
@@ -1632,7 +1632,7 @@ COOKING_COOKED_BEEF:
     mechanisms:
       custom_model_data: 511
       components_patch:
-        item_model: string:cooking:food/cookingcookedbeef
+        item_model: string:minecraft:cooked_beef
     display name: <white>Cooked Steak
     flags:
       Cooking_ID: cooked_beef
@@ -1741,7 +1741,7 @@ COOKING_RAW_PORK:
     mechanisms:
       custom_model_data: 517
       components_patch:
-        item_model: string:cooking:food/cookingrawpork
+        item_model: string:minecraft:raw_pork
     display name: <white>Raw Pork
     flags:
       food: 2
@@ -1761,7 +1761,7 @@ COOKING_COOKED_PORK:
     mechanisms:
       custom_model_data: 518
       components_patch:
-        item_model: string:cooking:food/cookingcookedpork
+        item_model: string:minecraft:cooked_pork
     display name: <white>Cooked Pork
     flags:
       Cooking_ID: cooked_pork
@@ -2011,7 +2011,7 @@ COOKING_RAW_MUTTON:
     mechanisms:
       custom_model_data: 532
       components_patch:
-        item_model: string:cooking:food/cookingrawmutton
+        item_model: string:cooking:food/raw_mutton
     display name: <white>Raw Mutton
     flags:
       food: 2
@@ -2031,7 +2031,7 @@ COOKING_COOKED_MUTTON:
     mechanisms:
       custom_model_data: 533
       components_patch:
-        item_model: string:cooking:food/cookingcookedmutton
+        item_model: string:cooking:food/cooked_mutton
     display name: <white>Cooked Mutton
     flags:
       food: 3
@@ -2084,7 +2084,7 @@ COOKING_RAW_RABBIT:
     mechanisms:
       custom_model_data: 536
       components_patch:
-        item_model: string:cooking:food/cookingrawrabbit
+        item_model: string:minecraft:raw_rabbit
     display name: <white>Raw Rabbit
     flags:
       food: 2
@@ -2140,7 +2140,7 @@ New_RABBIT_STEW:
     mechanisms:
       custom_model_data: 539
       components_patch:
-        item_model: string:cooking:food/newrabbitstew
+        item_model: string:minecraft:rabbit_stew
     display name: <white>Rabbit Stew
     flags:
       food: 6
@@ -2176,7 +2176,7 @@ Cooking_Egg:
     mechanisms:
       custom_model_data: 541
       components_patch:
-        item_model: string:cooking:food/cookingegg
+        item_model: string:minecraft:egg
     Display name: <white>Bird Egg
     flags:
       food: 1
@@ -2193,7 +2193,7 @@ Mayonnaise:
     mechanisms:
       custom_model_data: 542
       components_patch:
-        item_model: string:cooking:ingredients/mayonnaise
+        item_model: string:cooking:ingredients/mayo
     display name: <white>Mayonnaise
     flags:
       Cooking_Tag: condiment
