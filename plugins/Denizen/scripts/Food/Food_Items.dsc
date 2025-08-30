@@ -12,6 +12,8 @@ Fresh_Milk:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 201
+      components_patch:
+        item_model: string:cooking:food/freshmilk
     display name: <white>Fresh Milk
     flags:
       food: 1
@@ -33,6 +35,8 @@ BUTTER:
     material: BRICK
     mechanisms:
       custom_model_data: 202
+      components_patch:
+        item_model: string:cooking:ingredients/butter
     display name: <white>Butter
     flags:
       food: 2
@@ -48,6 +52,8 @@ CREAM:
     material: BRICK
     mechanisms:
       custom_model_data: 203
+      components_patch:
+        item_model: string:cooking:ingredients/cream
     display name: <white>Cream
     flags:
       food: 1
@@ -63,6 +69,8 @@ CHEESE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 204
+      components_patch:
+        item_model: string:cooking:food/cheese
     flags:
       food: 2
       dairy: true
@@ -78,6 +86,8 @@ YOGURT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 205
+      components_patch:
+        item_model: string:cooking:food/yogurt
     flags:
       food: 2
       dairy: true
@@ -93,6 +103,8 @@ CHOCOLATE_YOGURT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 206
+      components_patch:
+        item_model: string:cooking:food/chocolateyogurt
     flags:
       food: 5
       dairy: true
@@ -109,6 +121,8 @@ APPLE_YOGURT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 207
+      components_patch:
+        item_model: string:cooking:food/appleyogurt
     flags:
       food: 4
       dairy: true
@@ -125,6 +139,8 @@ SWEET_BERRY_YOGURT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 208
+      components_patch:
+        item_model: string:cooking:food/sweetberryyogurt
     flags:
       food: 4
       dairy: true
@@ -141,6 +157,8 @@ PUMPKIN_YOGURT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 209
+      components_patch:
+        item_model: string:cooking:food/pumpkinyogurt
     flags:
       food: 4
       dairy: true
@@ -157,6 +175,8 @@ CARAMEL_YOGURT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 210
+      components_patch:
+        item_model: string:cooking:food/caramelyogurt
     flags:
       food: 6
       dairy: true
@@ -173,6 +193,8 @@ ICE_CREAM:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 211
+      components_patch:
+        item_model: string:cooking:food/icecream
     flags:
       food: 3
       dairy: true
@@ -188,6 +210,8 @@ CHOCOLATE_ICE_CREAM:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 212
+      components_patch:
+        item_model: string:cooking:food/chocolateicecream
     flags:
       food: 6
       dairy: true
@@ -204,6 +228,8 @@ CARAMEL_ICE_CREAM:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 213
+      components_patch:
+        item_model: string:cooking:food/caramelicecream
     flags:
       food: 7
       dairy: true
@@ -220,6 +246,8 @@ COOKIES_AND_MILK:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 214
+      components_patch:
+        item_model: string:cooking:food/cookiesandmilk
     display name: <white>Cookies And Milk
     flags:
       food: 3
@@ -239,6 +267,8 @@ New_MELON_SLICE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 301
+      components_patch:
+        item_model: string:cooking:food/newmelonslice
     display name: <white>Melon Slice
     flags:
       food: 1
@@ -256,6 +286,8 @@ New_GLOW_BERRY:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 302
+      components_patch:
+        item_model: string:cooking:food/newglowberry
     display name: <white>Glow Berries
     flags:
       food: 1
@@ -273,6 +305,8 @@ New_APPLE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 303
+      components_patch:
+        item_model: string:cooking:food/newapple
     display name: <white>Apple
     flags:
       food: 1
@@ -290,6 +324,8 @@ New_SWEET_BERRY:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 304
+      components_patch:
+        item_model: string:cooking:food/newsweetberry
     display name: <white>Sweet Berries
     flags:
       food: 1
@@ -307,6 +343,8 @@ APPLE_JUICE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 305
+      components_patch:
+        item_model: string:cooking:food/applejuice
     display name: <white>Apple Juice
     flags:
       food: 3
@@ -323,6 +361,8 @@ APPLE_SMOOTHIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 306
+      components_patch:
+        item_model: string:cooking:food/applesmoothie
     display name: <white>Apple Smoothie
     flags:
       food: 5
@@ -340,6 +380,8 @@ Apple_Jelly:
     display name: <white>Apple Jelly
     mechanisms:
       custom_model_data: 307
+      components_patch:
+        item_model: string:cooking:food/applejelly
     flags:
       food: 3
       fruit: true
@@ -356,6 +398,8 @@ CARAMEL_APPLE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 308
+      components_patch:
+        item_model: string:cooking:food/caramelapple
     display name: <white>Caramel Apple
     flags:
       food: 5
@@ -372,6 +416,8 @@ APPLE_SAUCE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 309
+      components_patch:
+        item_model: string:cooking:food/applesauce
     display name: <white>Applesauce
     flags:
       food: 4
@@ -389,6 +435,8 @@ MELON_JUICE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 310
+      components_patch:
+        item_model: string:cooking:food/melonjuice
     display name: <white>Melon Juice
     flags:
       food: 3
@@ -405,6 +453,8 @@ MELON_SMOOTHIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 311
+      components_patch:
+        item_model: string:cooking:food/melonsmoothie
     display name: <white>Melon Smoothie
     flags:
       food: 5
@@ -421,6 +471,8 @@ MELON_JELLY:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 312
+      components_patch:
+        item_model: string:cooking:food/melonjelly
     display name: <white>Melon Jelly
     flags:
       food: 3
@@ -438,6 +490,8 @@ SWEET_BERRY_JUICE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 313
+      components_patch:
+        item_model: string:cooking:food/sweetberryjuice
     display name: <white>Sweet Berry Juice
     flags:
       food: 3
@@ -454,6 +508,8 @@ SWEET_BERRY_SMOOTHIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 314
+      components_patch:
+        item_model: string:cooking:food/sweetberrysmoothie
     display name: <white>Sweet Berry Smoothie
     flags:
       food: 5
@@ -470,6 +526,8 @@ SWEET_BERRY_JELLY:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 315
+      components_patch:
+        item_model: string:cooking:food/sweetberryjelly
     display name: <white>Sweet Berry Jelly
     flags:
       food: 3
@@ -487,6 +545,8 @@ GLOW_BERRY_JUICE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 316
+      components_patch:
+        item_model: string:cooking:food/glowberryjuice
     display name: <white>Glowberry Juice
     flags:
       food: 3
@@ -504,6 +564,8 @@ FRUIT_PUNCH:
     display name: <white>Fruit Punch
     mechanisms:
       custom_model_data: 317
+      components_patch:
+        item_model: string:cooking:food/fruitpunch
     flags:
       food: 5
       fruit: true
@@ -520,6 +582,8 @@ FRUIT_SALAD:
     display name: <white>Fruit Salad
     mechanisms:
       custom_model_data: 318
+      components_patch:
+        item_model: string:cooking:food/fruitsalad
     flags:
       food: 3
       fruit: true
@@ -536,6 +600,8 @@ New_Golden_Apple:
     display name: <gold>Golden Apple
     mechanisms:
       custom_model_data: 319
+      components_patch:
+        item_model: string:cooking:food/newgoldenapple
     flags:
       food: 5
       fruit: true
@@ -550,6 +616,8 @@ New_Wheat:
     material: brick
     mechanisms:
       custom_model_data: 401
+      components_patch:
+        item_model: string:cooking:food/newwheat
     display name: <white>Wheat
     flags:
       Cooking_ID: New_Wheat
@@ -568,6 +636,8 @@ FLOUR:
     display name: <white>Flour
     mechanisms:
       custom_model_data: 402
+      components_patch:
+        item_model: string:cooking:ingredients/flour
     flags:
       grain: true
     lore:
@@ -581,6 +651,8 @@ DOUGH:
     material: BRICK
     mechanisms:
       custom_model_data: 403
+      components_patch:
+        item_model: string:cooking:ingredients/dough
     display name: <white>Dough
     flags:
       cooking_id: dough
@@ -596,6 +668,8 @@ BATTER:
     material: BRICK
     mechanisms:
       custom_model_data: 404
+      components_patch:
+        item_model: string:cooking:ingredients/batter
     display name: <white>Batter
     flags:
       grain: true
@@ -611,6 +685,8 @@ PASTA:
     material: BRICK
     mechanisms:
       custom_model_data: 405
+      components_patch:
+        item_model: string:cooking:ingredients/pasta
     display name: <white>Pasta
     flags:
       grain: true
@@ -642,6 +718,8 @@ New_COOKIE:
     material: dried_kelp
     mechanisms:
       custom_model_data: 407
+      components_patch:
+        item_model: string:cooking:food/newcookie
     display name: <white>Cookie
     flags:
       food: 1
@@ -658,6 +736,8 @@ Buttered_TOAST:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 408
+      components_patch:
+        item_model: string:cooking:food/butteredtoast
     display name: <white>Buttered Toast
     flags:
       food: 3
@@ -674,6 +754,8 @@ GRILLED_CHEESE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 409
+      components_patch:
+        item_model: string:cooking:food/grilledcheese
     display name: <white>Grilled Cheese
     flags:
       food: 8
@@ -690,6 +772,8 @@ SWEET_BERRY_JELLY_TOAST:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 410
+      components_patch:
+        item_model: string:cooking:food/sweetberryjellytoast
     display name: <white>Sweet Berry Toast
     flags:
       food: 7
@@ -706,6 +790,8 @@ MELON_JELLY_TOAST:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 411
+      components_patch:
+        item_model: string:cooking:food/melonjellytoast
     display name: <white>Melon Jelly Toast
     flags:
       food: 7
@@ -722,6 +808,8 @@ APPLE_JELLY_TOAST:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 412
+      components_patch:
+        item_model: string:cooking:food/applejellytoast
     display name: <white>Apple Jelly Toast
     flags:
       food: 7
@@ -738,6 +826,8 @@ CARROT_CAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 413
+      components_patch:
+        item_model: string:cooking:food/carrotcake
     display name: <white>Carrot Cake
     flags:
       food: 7
@@ -755,6 +845,8 @@ CARROT_BREAD:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 414
+      components_patch:
+        item_model: string:cooking:food/carrotbread
     display name: <white>Carrot Bread
     flags:
       food: 4
@@ -771,6 +863,8 @@ PUMPKIN_BREAD:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 415
+      components_patch:
+        item_model: string:cooking:food/pumpkinbread
     display name: <white>Pumpkin Bread
     flags:
       food: 4
@@ -787,6 +881,8 @@ PUMPKIN_CUPCAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 416
+      components_patch:
+        item_model: string:cooking:food/pumpkincupcake
     display name: <white>Pumpkin Cupcake
     flags:
       food: 1
@@ -803,6 +899,8 @@ CARROT_CUPCAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 417
+      components_patch:
+        item_model: string:cooking:food/carrotcupcake
     display name: <white>Carrot Cupcake
     flags:
       food: 1
@@ -819,6 +917,8 @@ SQUID_INK_PASTA:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 418
+      components_patch:
+        item_model: string:cooking:food/squidinkpasta
     display name: <white>Squid Ink Pasta
     flags:
       food: 7
@@ -834,6 +934,8 @@ MAC_N_CHEESE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 419
+      components_patch:
+        item_model: string:cooking:food/macncheese
     display name: <white>Mac n' Cheese
     flags:
       has_bowl: true
@@ -851,6 +953,8 @@ NOODLE_SOUP:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 420
+      components_patch:
+        item_model: string:cooking:food/noodlesoup
     display name: <white>Noodle Soup
     flags:
       food: 7
@@ -867,6 +971,8 @@ APPLE_PIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 421
+      components_patch:
+        item_model: string:cooking:food/applepie
     display name: <white>Apple Pie
     flags:
       food: 5
@@ -884,6 +990,8 @@ SWEET_BERRY_PIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 422
+      components_patch:
+        item_model: string:cooking:food/sweetberrypie
     display name: <white>Sweet Berry Pie
     flags:
       food: 5
@@ -901,6 +1009,8 @@ GLOW_BERRY_PIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 423
+      components_patch:
+        item_model: string:cooking:food/glowberrypie
     display name: <white>Glow Berry Pie
     flags:
       food: 5
@@ -918,6 +1028,8 @@ CHOCOLATE_CUPCAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 424
+      components_patch:
+        item_model: string:cooking:food/chocolatecupcake
     display name: <white>Chocolate Cupcake
     flags:
       food: 1
@@ -934,6 +1046,8 @@ CARAMEL_CUPCAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 425
+      components_patch:
+        item_model: string:cooking:food/caramelcupcake
     display name: <white>Caramel Cupcake
     flags:
       food: 2
@@ -950,6 +1064,8 @@ CHOCOLATE_CAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 426
+      components_patch:
+        item_model: string:cooking:food/chocolatecake
     display name: <white>Chocolate Cake
     flags:
       food: 10
@@ -966,6 +1082,8 @@ CHEESE_CAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 427
+      components_patch:
+        item_model: string:cooking:food/cheesecake
     display name: <white>Cheese Cake
     flags:
       food: 8
@@ -983,6 +1101,8 @@ PUMPKIN_CHEESE_CAKE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 428
+      components_patch:
+        item_model: string:cooking:food/pumpkincheesecake
     display name: <white>Pumpkin Cheese Cake
     flags:
       food: 9
@@ -1001,6 +1121,8 @@ CHOCOLATE_MUFFIN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 429
+      components_patch:
+        item_model: string:cooking:food/chocolatemuffin
     display name: <white>Chocolate Muffin
     flags:
       food: 2
@@ -1017,6 +1139,8 @@ CARROT_MUFFIN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 430
+      components_patch:
+        item_model: string:cooking:food/carrotmuffin
     display name: <white>Carrot Muffin
     flags:
       food: 2
@@ -1033,6 +1157,8 @@ PUMPKIN_MUFFIN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 431
+      components_patch:
+        item_model: string:cooking:food/pumpkinmuffin
     display name: <white>Pumpkin Muffin
     flags:
       food: 2
@@ -1049,6 +1175,8 @@ CARAMEL_MUFFIN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 432
+      components_patch:
+        item_model: string:cooking:food/caramelmuffin
     display name: <white>Caramel Muffin
     flags:
       food: 2
@@ -1065,6 +1193,8 @@ DONUT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 433
+      components_patch:
+        item_model: string:cooking:food/donut
     display name: <white>Donut
     flags:
       food: 5
@@ -1080,6 +1210,8 @@ CHOCOLATE_DONUT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 434
+      components_patch:
+        item_model: string:cooking:food/chocolatedonut
     display name: <white>Chocolate Donut
     flags:
       food: 7
@@ -1096,6 +1228,8 @@ JELLY_DONUT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 435
+      components_patch:
+        item_model: string:cooking:food/jellydonut
     display name: <white>Jelly Donut
     flags:
       food: 7
@@ -1113,6 +1247,8 @@ CRACKER:
     material: dried_kelp
     mechanisms:
       custom_model_data: 436
+      components_patch:
+        item_model: string:cooking:food/cracker
     display name: <white>Cracker
     flags:
       food: 1
@@ -1128,6 +1264,8 @@ SOFT_PRETZEL:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 437
+      components_patch:
+        item_model: string:cooking:food/softpretzel
     display name: <white>Soft Pretzel
     flags:
       food: 2
@@ -1143,6 +1281,8 @@ TORTILLA:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 438
+      components_patch:
+        item_model: string:cooking:food/tortilla
     display name: <white>Tortilla
     flags:
       food: 2
@@ -1158,6 +1298,8 @@ QUESADILLA:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 439
+      components_patch:
+        item_model: string:cooking:food/quesadilla
     display name: <white>Quesadilla
     flags:
       food: 5
@@ -1174,6 +1316,8 @@ BREAKFAST_BURRITO:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 440
+      components_patch:
+        item_model: string:cooking:food/breakfastburrito
     display name: <white>Breakfast Burrito
     flags:
       food: 11
@@ -1191,6 +1335,8 @@ SUGAR_COOKIE:
     material: dried_kelp
     mechanisms:
       custom_model_data: 441
+      components_patch:
+        item_model: string:cooking:food/sugarcookie
     display name: <white>Sugar Cookie
     flags:
       food: 2
@@ -1208,6 +1354,8 @@ SUNFLOWER_SEEDS:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 442
+      components_patch:
+        item_model: string:cooking:food/sunflowerseeds
     display name: <white>Burgerflower Seeds
     flags:
       food: 1
@@ -1225,6 +1373,8 @@ ROASTED_SUNFLOWER_SEEDS:
     display name: <white>Roasted Burgerflower Seeds
     mechanisms:
       custom_model_data: 443
+      components_patch:
+        item_model: string:cooking:food/roastedsunflowerseeds
     flags:
       food: 2
       grain: true
@@ -1240,6 +1390,8 @@ SEED_SOUP:
     display name: <white>Seed Soup
     mechanisms:
       custom_model_data: 444
+      components_patch:
+        item_model: string:cooking:food/seedsoup
     flags:
       food: 2
       has_bowl: true
@@ -1256,6 +1408,8 @@ Large_Cake:
     display name: <white>Large Cake
     mechanisms:
       custom_model_data: 445
+      components_patch:
+        item_model: string:cooking:food/largecake
     flags:
       food: 25
       grain: true
@@ -1293,6 +1447,8 @@ COOKING_RAW_CHICKEN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 501
+      components_patch:
+        item_model: string:cooking:food/cookingrawchicken
     display name: <white>Raw Chicken
     flags:
       food: 2
@@ -1311,6 +1467,8 @@ COOKING_COOKED_CHICKEN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 502
+      components_patch:
+        item_model: string:cooking:food/cookingcookedchicken
     display name: <white>Cooked Chicken
     flags:
       food: 3
@@ -1327,6 +1485,8 @@ GROUND_CHICKEN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 503
+      components_patch:
+        item_model: string:cooking:food/groundchicken
     display name: <white>Ground Chicken
     flags:
       food: 3
@@ -1343,6 +1503,8 @@ FRIED_CHICKEN:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 504
+      components_patch:
+        item_model: string:cooking:food/friedchicken
     display name: <white>Fried Chicken
     flags:
       food: 5
@@ -1359,6 +1521,8 @@ CHICKEN_JERKY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 505
+      components_patch:
+        item_model: string:cooking:food/chickenjerky
     display name: <white>Chicken Jerky
     flags:
       food: 1
@@ -1374,6 +1538,8 @@ CHICKEN_NUGGET:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 506
+      components_patch:
+        item_model: string:cooking:food/chickennugget
     display name: <white>Chicken Nugget
     flags:
       food: 2
@@ -1390,6 +1556,8 @@ CHICKEN_SANDWICH:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 507
+      components_patch:
+        item_model: string:cooking:food/chickensandwich
     display name: <white>Chicken Sandwich
     flags:
       food: 12
@@ -1406,6 +1574,8 @@ CHICKEN_POT_PIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 508
+      components_patch:
+        item_model: string:cooking:food/chickenpotpie
     display name: <white>Chicken Pot Pie
     flags:
       food: 7
@@ -1423,6 +1593,8 @@ CHICKEN_DINNER:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 509
+      components_patch:
+        item_model: string:cooking:food/chickendinner
     display name: <white>Chicken Dinner
     flags:
       food: 10
@@ -1439,6 +1611,8 @@ COOKING_RAW_BEEF:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 510
+      components_patch:
+        item_model: string:cooking:food/cookingrawbeef
     display name: <white>Raw Beef
     flags:
       food: 2
@@ -1457,6 +1631,8 @@ COOKING_COOKED_BEEF:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 511
+      components_patch:
+        item_model: string:cooking:food/cookingcookedbeef
     display name: <white>Cooked Steak
     flags:
       Cooking_ID: cooked_beef
@@ -1473,6 +1649,8 @@ GROUND_BEEF:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 512
+      components_patch:
+        item_model: string:cooking:food/groundbeef
     display name: <white>Ground Beef
     flags:
       food: 3
@@ -1489,6 +1667,8 @@ HAMBURGER:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 513
+      components_patch:
+        item_model: string:cooking:food/hamburger
     display name: <white>Hamburger
     flags:
       food: 9
@@ -1505,6 +1685,8 @@ CHEESEBURGER:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 514
+      components_patch:
+        item_model: string:cooking:food/cheeseburger
     display name: <white>Cheeseburger
     flags:
       food: 11
@@ -1523,6 +1705,8 @@ BACON_CHEESEBURGER:
     display name: <white>Bacon Cheeseburger
     mechanisms:
       custom_model_data: 515
+      components_patch:
+        item_model: string:cooking:food/baconcheeseburger
     flags:
       food: 13
       protein: true
@@ -1539,6 +1723,8 @@ BEEF_JERKY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 516
+      components_patch:
+        item_model: string:cooking:food/beefjerky
     display name: <white>Beef Jerky
     flags:
       food: 1
@@ -1554,6 +1740,8 @@ COOKING_RAW_PORK:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 517
+      components_patch:
+        item_model: string:cooking:food/cookingrawpork
     display name: <white>Raw Pork
     flags:
       food: 2
@@ -1572,6 +1760,8 @@ COOKING_COOKED_PORK:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 518
+      components_patch:
+        item_model: string:cooking:food/cookingcookedpork
     display name: <white>Cooked Pork
     flags:
       Cooking_ID: cooked_pork
@@ -1588,6 +1778,8 @@ GROUND_PORK:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 519
+      components_patch:
+        item_model: string:cooking:food/groundpork
     display name: <white>Ground Pork
     flags:
       food: 3
@@ -1604,6 +1796,8 @@ PORK_JERKY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 520
+      components_patch:
+        item_model: string:cooking:food/porkjerky
     display name: <white>Pork Jerky
     flags:
       food: 1
@@ -1619,6 +1813,8 @@ BAKED_HAM:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 521
+      components_patch:
+        item_model: string:cooking:food/bakedham
     display name: <white>Baked Ham
     flags:
       food: 5
@@ -1636,6 +1832,8 @@ HOT_DOG:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 522
+      components_patch:
+        item_model: string:cooking:food/hotdog
     display name: <white>Hot Dog
     flags:
       food: 9
@@ -1652,6 +1850,8 @@ BACON_AND_EGGS:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 523
+      components_patch:
+        item_model: string:cooking:food/baconandeggs
     display name: <white>Bacon And Eggs
     flags:
       food: 5
@@ -1667,6 +1867,8 @@ EPIC_BACON:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 524
+      components_patch:
+        item_model: string:cooking:food/epicbacon
     display name: <white>Epic Bacon
     flags:
       food: 11
@@ -1680,6 +1882,8 @@ COOKING_RAW_FISH:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 525
+      components_patch:
+        item_model: string:minecraft:raw_cod
     display name: <white>Raw Fish
     flags:
       food: 2
@@ -1699,6 +1903,8 @@ COOKING_COOKED_FISH:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 526
+      components_patch:
+        item_model: string:minecraft:cooked_cod
     display name: <white>Cooked Fish
     flags:
       Cooking_ID: cooked_fish
@@ -1715,6 +1921,8 @@ GROUND_FISH:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 527
+      components_patch:
+        item_model: string:cooking:food/groundfish
     display name: <white>Ground Fish
     flags:
       food: 3
@@ -1730,6 +1938,8 @@ FISH_STICKS:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 528
+      components_patch:
+        item_model: string:cooking:food/fishsticks
     display name: <white>Fish Sticks
     flags:
       food: 6
@@ -1746,6 +1956,8 @@ FISH_SANDWICH:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 529
+      components_patch:
+        item_model: string:cooking:food/fishsandwich
     display name: <white>Fish Sandwich
     flags:
       food: 9
@@ -1762,6 +1974,8 @@ FISH_JERKY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 530
+      components_patch:
+        item_model: string:cooking:food/fishjerky
     display name: <white>Fish Jerky
     flags:
       food: 1
@@ -1777,6 +1991,8 @@ FISH_AND_CHIPS:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 531
+      components_patch:
+        item_model: string:cooking:food/fishandchips
     display name: <white>Fish And Chips
     flags:
       food: 7
@@ -1794,6 +2010,8 @@ COOKING_RAW_MUTTON:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 532
+      components_patch:
+        item_model: string:cooking:food/cookingrawmutton
     display name: <white>Raw Mutton
     flags:
       food: 2
@@ -1812,6 +2030,8 @@ COOKING_COOKED_MUTTON:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 533
+      components_patch:
+        item_model: string:cooking:food/cookingcookedmutton
     display name: <white>Cooked Mutton
     flags:
       food: 3
@@ -1828,6 +2048,8 @@ MUTTON_JERKY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 534
+      components_patch:
+        item_model: string:cooking:food/muttonjerky
     display name: <white>Mutton Jerky
     flags:
       food: 1
@@ -1843,6 +2065,8 @@ GROUND_MUTTON:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 535
+      components_patch:
+        item_model: string:cooking:food/groundmutton
     display name: <white>Ground Mutton
     flags:
       food: 3
@@ -1859,6 +2083,8 @@ COOKING_RAW_RABBIT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 536
+      components_patch:
+        item_model: string:cooking:food/cookingrawrabbit
     display name: <white>Raw Rabbit
     flags:
       food: 2
@@ -1877,6 +2103,8 @@ COOKING_COOKED_RABBIT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 537
+      components_patch:
+        item_model: string:cooking:food/cookingcookedrabbit
     display name: <white>Cooked Rabbit
     flags:
       food: 3
@@ -1893,6 +2121,8 @@ GROUND_RABBIT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 538
+      components_patch:
+        item_model: string:cooking:food/groundrabbit
     display name: <white>Ground Rabbit
     flags:
       food: 3
@@ -1909,6 +2139,8 @@ New_RABBIT_STEW:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 539
+      components_patch:
+        item_model: string:cooking:food/newrabbitstew
     display name: <white>Rabbit Stew
     flags:
       food: 6
@@ -1926,6 +2158,8 @@ RABBIT_JERKY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 540
+      components_patch:
+        item_model: string:cooking:food/rabbitjerky
     display name: <white>Rabbit Jerky
     flags:
       food: 1
@@ -1941,6 +2175,8 @@ Cooking_Egg:
     material: egg
     mechanisms:
       custom_model_data: 541
+      components_patch:
+        item_model: string:cooking:food/cookingegg
     Display name: <white>Bird Egg
     flags:
       food: 1
@@ -1956,6 +2192,8 @@ Mayonnaise:
     material: BRICK
     mechanisms:
       custom_model_data: 542
+      components_patch:
+        item_model: string:cooking:ingredients/mayonnaise
     display name: <white>Mayonnaise
     flags:
       Cooking_Tag: condiment
@@ -1971,6 +2209,8 @@ BOILED_EGG:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 543
+      components_patch:
+        item_model: string:cooking:food/boiledegg
     display name: <white>Boiled Egg
     flags:
       food: 3
@@ -1986,6 +2226,8 @@ FRIED_EGG:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 544
+      components_patch:
+        item_model: string:cooking:food/friedegg
     display name: <white>Fried Egg
     flags:
       food: 3
@@ -2001,6 +2243,8 @@ SCRAMBLED_EGG:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 545
+      components_patch:
+        item_model: string:cooking:food/scrambledegg
     display name: <white>Scambled Egg
     flags:
       food: 3
@@ -2017,6 +2261,8 @@ POT_ROAST:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 546
+      components_patch:
+        item_model: string:cooking:food/potroast
     display name: <white>Pot Roast
     flags:
       food: 5
@@ -2034,6 +2280,8 @@ COOKING_RAW_HORSE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 547
+      components_patch:
+        item_model: string:cooking:food/cookingrawhorse
     display name: <white>Raw Horse Meat
     flags:
       food: 2
@@ -2052,6 +2300,8 @@ COOKING_RAW_GOAT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 548
+      components_patch:
+        item_model: string:cooking:food/cookingrawgoat
     display name: <white>Raw Goat Meat
     flags:
       food: 2
@@ -2070,6 +2320,8 @@ COOKING_COOKED_HORSE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 549
+      components_patch:
+        item_model: string:cooking:food/cookingcookedhorse
     display name: <white>Cooked Horse Meat
     flags:
       food: 3
@@ -2085,6 +2337,8 @@ COOKING_COOKED_GOAT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 550
+      components_patch:
+        item_model: string:cooking:food/cookingcookedgoat
     display name: <white>Cooked Goat Meat
     flags:
       food: 3
@@ -2100,6 +2354,8 @@ RAW_KEBAB:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 551
+      components_patch:
+        item_model: string:cooking:food/rawkebab
     display name: <white>Raw Kebab
     flags:
       food: 5
@@ -2119,6 +2375,8 @@ Cooked_KEBAB:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 552
+      components_patch:
+        item_model: string:cooking:food/cookedkebab
     display name: <white>Cooked Kebab
     flags:
       food: 6
@@ -2139,6 +2397,8 @@ New_POTATO:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 601
+      components_patch:
+        item_model: string:cooking:food/newpotato
     display name: <white>Potato
     flags:
       food: 1
@@ -2156,6 +2416,8 @@ New_CARROT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 602
+      components_patch:
+        item_model: string:cooking:food/newcarrot
     display name: <white>Carrot
     flags:
       food: 1
@@ -2173,6 +2435,8 @@ New_Beetroot:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 603
+      components_patch:
+        item_model: string:cooking:food/newbeetroot
     display name: <white>Beetroot
     flags:
       food: 1
@@ -2191,6 +2455,8 @@ New_Pumpkin:
     display name: <white>Pumpkin
     mechanisms:
       custom_model_data: 604
+      components_patch:
+        item_model: string:cooking:food/newpumpkin
     flags:
       Cooking_ID: New_Pumpkin
       Cooking_Tag: Vegetable
@@ -2207,6 +2473,8 @@ New_Netherwart:
     display name: <white>Redwart
     mechanisms:
       custom_model_data: 605
+      components_patch:
+        item_model: string:cooking:food/new_netherwart
     flags:
       Cooking_ID: New_Netherwart
       vegetable: true
@@ -2221,6 +2489,8 @@ New_Baked_Potato:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 606
+      components_patch:
+        item_model: string:cooking:food/newbakedpotato
     display name: <white>Baked Potato
     flags:
       food: 2
@@ -2237,6 +2507,8 @@ BUTTERED_BAKED_POTATO:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 607
+      components_patch:
+        item_model: string:cooking:food/butteredbakedpotato
     display name: <white>Buttered Baked Potato
     flags:
       food: 3
@@ -2253,6 +2525,8 @@ MASHED_POTATO:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 608
+      components_patch:
+        item_model: string:cooking:food/mashedpotato
     display name: <white>Mashed Potato
     flags:
       food: 3
@@ -2270,6 +2544,8 @@ POTATO_SALAD:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 609
+      components_patch:
+        item_model: string:cooking:food/potatosalad
     display name: <white>Potato Salad
     flags:
       food: 3
@@ -2287,6 +2563,8 @@ FRIES:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 610
+      components_patch:
+        item_model: string:cooking:food/fries
     display name: <white>Fries
     flags:
       food: 2
@@ -2302,6 +2580,8 @@ POTATO_CHIPS:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 611
+      components_patch:
+        item_model: string:cooking:food/potatochips
     display name: <white>Potato Chips
     flags:
       food: 2
@@ -2317,6 +2597,8 @@ POTATO_SOUP:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 612
+      components_patch:
+        item_model: string:cooking:food/potatosoup
     display name: <white>Potato Soup
     flags:
       food: 3
@@ -2333,6 +2615,8 @@ GLAZED_CARROT:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 613
+      components_patch:
+        item_model: string:cooking:food/glazedcarrot
     display name: <white>Glazed Carrots
     flags:
       food: 4
@@ -2349,6 +2633,8 @@ CARROT_SOUP:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 614
+      components_patch:
+        item_model: string:cooking:food/carrotsoup
     display name: <white>Carrot Soup
     flags:
       food: 3
@@ -2365,6 +2651,8 @@ PICKLED_BEETS:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 615
+      components_patch:
+        item_model: string:cooking:food/pickledbeets
     display name: <white>Pickled Beets
     flags:
       food: 3
@@ -2380,6 +2668,8 @@ New_PUMPKIN_PIE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 616
+      components_patch:
+        item_model: string:cooking:food/newpumpkinpie
     display name: <white>Pumpkin Pie
     flags:
       food: 5
@@ -2396,6 +2686,8 @@ PUMPKIN_SOUP:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 617
+      components_patch:
+        item_model: string:cooking:food/pumpkinsoup
     display name: <white>Pumpkin Soup
     flags:
       food: 3
@@ -2412,6 +2704,8 @@ New_Brown_Mushroom:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 618
+      components_patch:
+        item_model: string:cooking:food/newbrownmushroom
     display name: <white>Brown Mushroom
     flags:
       food: 1
@@ -2430,6 +2724,8 @@ New_Red_Mushroom:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 619
+      components_patch:
+        item_model: string:cooking:food/newredmushroom
     display name: <white>Red Mushroom
     flags:
       food: 1
@@ -2448,6 +2744,8 @@ New_Crimson_Fungus:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 620
+      components_patch:
+        item_model: string:cooking:food/newcrimsonfungus
     display name: <white>Crimson Fungus
     flags:
       food: 1
@@ -2466,6 +2764,8 @@ New_Warped_Fungus:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 621
+      components_patch:
+        item_model: string:cooking:food/newwarpedfungus
     display name: <white>Warped Fungus
     flags:
       food: 1
@@ -2484,6 +2784,8 @@ ROASTED_MUSHROOM:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 622
+      components_patch:
+        item_model: string:cooking:food/roastedmushroom
     display name: <white>Roasted Mushroom
     flags:
       food: 3
@@ -2499,6 +2801,8 @@ NEW_MUSHROOM_SOUP:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 623
+      components_patch:
+        item_model: string:cooking:food/newmushroomsoup
     display name: <white>Mushroom Soup
     flags:
       food: 2
@@ -2515,6 +2819,8 @@ STUFFED_MUSHROOM:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 624
+      components_patch:
+        item_model: string:cooking:food/stuffedmushroom
     display name: <white>Stuffed Mushroom
     flags:
       food: 7
@@ -2532,6 +2838,8 @@ MUSHROOM_STEAK:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 625
+      components_patch:
+        item_model: string:cooking:food/mushroomsteak
     display name: <white>Mushroom Steak
     flags:
       food: 7
@@ -2550,6 +2858,8 @@ MUSHROOM_OIL:
     material: BRICK
     mechanisms:
       custom_model_data: 626
+      components_patch:
+        item_model: string:cooking:ingredients/mushroomoil
     display name: <white>Mushroom Oil
     flags:
       vegetable: true
@@ -2565,6 +2875,8 @@ CREAM_OF_MUSHROOM:
     display name: <white>Cream of Mushroom
     mechanisms:
       custom_model_data: 627
+      components_patch:
+        item_model: string:cooking:food/creamofmushroom
     flags:
       food: 4
       has_bowl: true
@@ -2581,6 +2893,8 @@ New_Beetroot_Soup:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 628
+      components_patch:
+        item_model: string:cooking:food/newbeetrootsoup
     display name: <white>Beetroot Soup
     flags:
       food: 3
@@ -2597,6 +2911,8 @@ Netherwart_Soup:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 629
+      components_patch:
+        item_model: string:cooking:food/netherwartsoup
     display name: <white>Redwart Soup
     flags:
       food: 3
@@ -2614,6 +2930,8 @@ New_Golden_Carrot:
     display name: <gold>Golden Carrot
     mechanisms:
       custom_model_data: 630
+      components_patch:
+        item_model: string:cooking:food/newgoldencarrot
     flags:
       food: 5
       vegetable: true
@@ -2626,6 +2944,8 @@ New_Poisonous_Potato:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 631
+      components_patch:
+        item_model: string:cooking:food/newpoisonouspotato
     display name: <white>Poisonous Potato
     flags:
       food: 1
@@ -2642,6 +2962,8 @@ New_Kelp:
     display name: <white>Kelp
     mechanisms:
       custom_model_data: 632
+      components_patch:
+        item_model: string:cooking:food/newkelp
     flags:
       food: 1
       Cooking_ID: Kelp
@@ -2656,6 +2978,8 @@ New_Dried_Kelp:
     display name: <white>Dried Kelp
     mechanisms:
       custom_model_data: 633
+      components_patch:
+        item_model: string:cooking:food/newdriedkelp
     flags:
       food: 1
       vegetable: true
@@ -2670,6 +2994,8 @@ New_Sugar:
     material: BRICK
     mechanisms:
       custom_model_data: 701
+      components_patch:
+        item_model: string:cooking:ingredients/sugar
     display name: <white>Sugar
     flags:
       sugar: true
@@ -2688,6 +3014,8 @@ New_Cocoa_Beans:
     material: cocoa_beans
     mechanisms:
       custom_model_data: 702
+      components_patch:
+        item_model: string:minecraft:cocoa_beans
     display name: <white>Cocoa Beans
     flags:
       sugar: true
@@ -2702,6 +3030,8 @@ COCOA_POWDER:
     material: BRICK
     mechanisms:
       custom_model_data: 703
+      components_patch:
+        item_model: string:cooking:ingredients/cocoapowder
     display name: <white>Cocoa Powder
     flags:
       sugar: true
@@ -2716,6 +3046,8 @@ CHOCOLATE_BAR:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 704
+      components_patch:
+        item_model: string:cooking:food/chocolatebar
     display name: <white>Chocolate Bar
     flags:
       food: 4
@@ -2731,6 +3063,8 @@ HOT_CHOCOLATE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 705
+      components_patch:
+        item_model: string:cooking:food/hotchocolate
     display name: <white>Hot Chocolate
     flags:
       food: 4
@@ -2747,6 +3081,8 @@ CHOCOLATE_BACON:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 706
+      components_patch:
+        item_model: string:cooking:food/chocolatebacon
     display name: <white>Chocolate Bacon
     flags:
       food: 7
@@ -2763,6 +3099,8 @@ CHOCOLATE_PUDDING:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 707
+      components_patch:
+        item_model: string:cooking:food/chocolatepudding
     display name: <white>Chocolate Pudding
     flags:
       food: 4
@@ -2779,6 +3117,8 @@ CHOCOLATE_ROLL:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 708
+      components_patch:
+        item_model: string:cooking:food/chocolateroll
     display name: <white>Chocolate Roll
     flags:
       food: 5
@@ -2796,6 +3136,8 @@ CHOCOLATE_CARAMEL_FUDGE:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 709
+      components_patch:
+        item_model: string:cooking:food/chocolatecaramelfudge
     display name: <white>Chocolate Caramel Fudge
     flags:
       food: 8
@@ -2812,6 +3154,8 @@ CARAMEL:
     display name: <white>Caramel
     mechanisms:
       custom_model_data: 710
+      components_patch:
+        item_model: string:cooking:food/caramel
     flags:
       food: 3
       sugar: true
@@ -2828,6 +3172,8 @@ MARSHMALLOW:
     display name: <white>Marshmallow
     mechanisms:
       custom_model_data: 711
+      components_patch:
+        item_model: string:cooking:food/marshmallow
     flags:
       food: 1
       sugar: true
@@ -2842,6 +3188,8 @@ GUMMY_BEARS:
     material: dried_kelp
     mechanisms:
       custom_model_data: 712
+      components_patch:
+        item_model: string:cooking:food/gummybears
     display name: <white>Gummy Bears
     flags:
       food: 1
@@ -2858,6 +3206,8 @@ JELLY_BEANS:
     display name: <white>Jelly Beans
     mechanisms:
       custom_model_data: 713
+      components_patch:
+        item_model: string:cooking:food/jellybeans
     flags:
       food: 1
       sugar: true
@@ -2872,6 +3222,8 @@ MARSHMALLOW_CHICKS:
     material: dried_kelp
     mechanisms:
       custom_model_data: 714
+      components_patch:
+        item_model: string:cooking:food/marshmallowchicks
     display name: <white>Marshmallow Chickadees
     flags:
       food: 1
@@ -2887,6 +3239,8 @@ COTTON_CANDY:
     material: dried_kelp
     mechanisms:
       custom_model_data: 715
+      components_patch:
+        item_model: string:cooking:food/cottoncandy
     display name: <white>Cotton Candy
     flags:
       food: 1
@@ -2902,6 +3256,8 @@ SMORES:
     material: tropical_fish
     mechanisms:
       custom_model_data: 716
+      components_patch:
+        item_model: string:cooking:food/smores
     display name: <white>Smores
     flags:
       food: 7
@@ -2918,6 +3274,8 @@ TRAILMIX:
     material: dried_kelp
     mechanisms:
       custom_model_data: 717
+      components_patch:
+        item_model: string:cooking:food/trailmix
     display name: <white>Trailmix
     flags:
       food: 2
@@ -2935,6 +3293,8 @@ New_Sugar_Cane:
     material: sugar_cane
     mechanisms:
       custom_model_data: 718
+      components_patch:
+        item_model: string:cooking:food/newsugarcane
     display name: <white>Sugar Cane
     lore:
     - <gold>A shoot that can be cooked down into sugar.
@@ -2950,6 +3310,8 @@ COOKING_SALT:
     material: BRICK
     mechanisms:
       custom_model_data: 801
+      components_patch:
+        item_model: string:cooking:ingredients/salt
     display name: <white>Cooking Salt
     lore:
     - <gold>Salt made from the sea, or harvested.
@@ -2962,6 +3324,8 @@ Fresh_Water:
     material: TROPICAL_FISH
     mechanisms:
       custom_model_data: 802
+      components_patch:
+        item_model: string:cooking:food/fresh_water
     flags:
       food: 0
       drink: true
@@ -2982,6 +3346,8 @@ COOKING_OIL:
     material: BRICK
     mechanisms:
       custom_model_data: 803
+      components_patch:
+        item_model: string:cooking:ingredients/cooking_oil
     display name: <white>Cooking Oil
     lore:
     - <gold>Oil used to fry and cook dishes.
@@ -2994,6 +3360,8 @@ VINEGAR:
     material: BRICK
     mechanisms:
       custom_model_data: 804
+      components_patch:
+        item_model: string:cooking:ingredients/vinegar
     display name: <white>Vinegar
     lore:
     - <gold>A useful component in cooking, try making brine.
@@ -3006,6 +3374,8 @@ STOCK:
     material: BRICK
     mechanisms:
       custom_model_data: 805
+      components_patch:
+        item_model: string:cooking:ingredients/stock
     display name: <white>Stock
     lore:
     - <gold>Stock used in soups.

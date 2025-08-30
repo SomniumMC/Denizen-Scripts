@@ -2,35 +2,6 @@
 
 # First Extra'd: 6/9/2024
 
-#Ground_Meat_Recipes:
-#  type: world
-#  events:
-#    on player crafts ground_*:
-#    - define item <context.item>
-#    - determine passively cancelled
-#    - foreach <context.recipe> as:item:
-#      - if <[item].script.name||air> == mortar_and_pestle || <[item].material.name> == air:
-#        - foreach next
-#      - else:
-#        - take item:<[item]> from:<context.inventory>
-#    - give <context.item>
-#    #- define inventory <context.inventory>
-#    #- if <[inventory].contains_item[mortar_and_pestle]>:
-#    #  - stop
-#    #- else:
-#    #  - foreach <list[2|3|4|5|6|7|8|9|10]> as:slot:
-#    #    - if <[inventory].slot[<[slot]>].material.name> == air:
-#    #      - inventory set o:mortar_and_pestle slot:<[slot]> destination:<[inventory]>
-#    #      - foreach stop
-#    #- foreach <[inventory].find_all_items[mortar_and_pestle]> as:slot:
-#    #  - narrate <[slot]>
-#    #  - inventory set o:mortar_and_pestle slot:<[slot]> destination:<[inventory]>
-#    #- narrate "Nice <context.material>"
-#    #on player clicks item in inventory:
-#    #- narrate <context.slot>
-#    #- define inventory <context.inventory>
-#    #- inventory set o:mortar_and_pestle slot:<context.slot> destination:<[inventory]>
-
 Strawberry:
   type: item
   debug: false
@@ -40,6 +11,8 @@ Strawberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5000
+    components_patch:
+      item_model: string:cooking:food/strawberry
   display name: <white>Strawberry
   flags:
     food: 1
@@ -57,6 +30,8 @@ Blackberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5001
+    components_patch:
+      item_model: string:cooking:food/blackberry
   display name: <white>Blackberry
   flags:
     food: 1
@@ -76,6 +51,8 @@ Cranberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5002
+    components_patch:
+      item_model: string:cooking:food/cranberry
   display name: <white>Cranberry
   flags:
     food: 1
@@ -96,7 +73,7 @@ Blueberry:
   mechanisms:
     custom_model_data: 5003
     components_patch:
-        item_model: string:cooking:food/blueberry
+      item_model: string:cooking:food/blueberry
   display name: <white>Blueberry
   flags:
     food: 1
@@ -116,6 +93,8 @@ Gooseberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5004
+    components_patch:
+      item_model: string:cooking:food/gooseberry
   display name: <white>Gooseberry
   flags:
     food: 1
@@ -135,6 +114,8 @@ Mulberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5005
+    components_patch:
+      item_model: string:cooking:food/mulberry
   display name: <white>Mulberry
   flags:
     food: 1
@@ -153,6 +134,8 @@ Raspberry:
   material: dried_kelp
   mechanisms:
     custom_model_data: 5006
+    components_patch:
+      item_model: string:cooking:food/raspberry
   display name: <white>Raspberry
   flags:
     food: 1
@@ -171,6 +154,8 @@ Tomato:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5007
+    components_patch:
+      item_model: string:cooking:food/tomato
   display name: <white>Tomato
   flags:
     food: 1
@@ -189,6 +174,8 @@ Chili:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5008
+    components_patch:
+      item_model: string:cooking:food/chili
   display name: <white>Chili
   flags:
     food: 1
@@ -223,6 +210,8 @@ Cinnamon:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5009
+    components_patch:
+      item_model: string:cooking:food/cinnamon
   display name: <white>Cinnamon
   flags:
     food: 1
@@ -243,7 +232,9 @@ Ground_Cinnamon:
     Cooking_ID: Ground_Cinnamon
     Cooking_Tag: Spice
   mechanisms:
-      custom_model_data: 5001
+    custom_model_data: 5001
+    components_patch:
+      item_model: string:cooking:food/ground_cinnamon
   Lore:
   - <gold>A pile of ground cinnamon useful in all manner of dishes.
 
@@ -256,6 +247,8 @@ Vanilla_Bean:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5010
+    components_patch:
+      item_model: string:cooking:food/vanilla_bean
   display name: <white>Vanilla Bean
   flags:
     food: 1
@@ -275,7 +268,9 @@ Ground_Vanilla:
     Cooking_ID: Ground_Vanilla
     Cooking_Tag: Spice
   mechanisms:
-      custom_model_data: 5002
+    custom_model_data: 5002
+    components_patch:
+      item_model: string:cooking:food/ground_vanilla
   Lore:
   - <gold>A pile of ground vanila useful in all manner of dishes.
 
@@ -288,6 +283,8 @@ Ginger:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5011
+    components_patch:
+      item_model: string:cooking:food/ginger
   display name: <white>Ginger
   flags:
     food: 1
@@ -306,6 +303,8 @@ Corn:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5012
+    components_patch:
+      item_model: string:cooking:food/corn
   display name: <white>Corn
   flags:
     food: 1
@@ -328,7 +327,9 @@ Barley_Bundle:
     Cooking_ID: Barley
     Cooking_Tag: Raw_Grain
   mechanisms:
-      custom_model_data: 5003
+    custom_model_data: 5003
+    components_patch:
+      item_model: string:cooking:ingredients/barley
   Lore:
   - <gold>A bundle of barley, can be ground to barley flour or used elsewise.
 
@@ -344,7 +345,9 @@ Rye_Bundle:
     Cooking_ID: Rye
     Cooking_Tag: Raw_Grain
   mechanisms:
-      custom_model_data: 5004
+    custom_model_data: 5004
+    components_patch:
+      item_model: string:cooking:ingredients/rye
   Lore:
   - <gold>A bundle of rye, can be ground to rye flour or used elsewise.
 
@@ -357,10 +360,12 @@ Popcorn:
   material: tropical_fish
   mechanisms:
     custom_model_data: 5012
+    components_patch:
+      item_model: string:cooking:food/popcorn
   display name: <white>Popcorn
   flags:
     food: 1
-    Cooking_ID: Vanilla_Bean
+    Cooking_ID: Popcorn
     Cooking_Tag: Corn
     Vegetable: Corn
     Grain: Corn
