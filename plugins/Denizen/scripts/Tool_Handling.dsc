@@ -60,6 +60,9 @@ Durability_Update_Task:
     - if <[item].flag[durability1].sub[<[loss]>]> < 1:
       - inventory set o:air slot:<[slot]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
       - playsound <player.location> sound:ENTITY.ITEM.BREAK sound_category:player
+      - stop
+    - if <[item].flag[durability1].sub[<[loss]>]> <= 5:
+      - playsound <player.location> sound:ENTITY.ITEM.BREAK sound_category:player pitch:2
 
 Mending_Delta:
   type: world
