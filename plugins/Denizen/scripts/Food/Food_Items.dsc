@@ -268,7 +268,7 @@ New_MELON_SLICE:
     mechanisms:
       custom_model_data: 301
       components_patch:
-        item_model: string:cooking:food/newmelonslice
+        item_model: string:minecraft:melon_slice
     display name: <white>Melon Slice
     flags:
       food: 1
@@ -287,7 +287,7 @@ New_GLOW_BERRY:
     mechanisms:
       custom_model_data: 302
       components_patch:
-        item_model: string:cooking:food/newglowberry
+        item_model: string:minecraft:glow_berry
     display name: <white>Glow Berries
     flags:
       food: 1
@@ -306,7 +306,7 @@ New_APPLE:
     mechanisms:
       custom_model_data: 303
       components_patch:
-        item_model: string:cooking:food/newapple
+        item_model: string:minecraft:apple
     display name: <white>Apple
     flags:
       food: 1
@@ -325,7 +325,7 @@ New_SWEET_BERRY:
     mechanisms:
       custom_model_data: 304
       components_patch:
-        item_model: string:cooking:food/newsweetberry
+        item_model: string:minecraft:sweet_berry
     display name: <white>Sweet Berries
     flags:
       food: 1
@@ -617,7 +617,7 @@ New_Wheat:
     mechanisms:
       custom_model_data: 401
       components_patch:
-        item_model: string:cooking:food/newwheat
+        item_model: string:minecraft:wheat
     display name: <white>Wheat
     flags:
       Cooking_ID: New_Wheat
@@ -1409,7 +1409,7 @@ Large_Cake:
     mechanisms:
       custom_model_data: 445
       components_patch:
-        item_model: string:cooking:food/largecake
+        item_model: string:minecraft:cake
     flags:
       food: 25
       grain: true
@@ -2398,7 +2398,7 @@ New_POTATO:
     mechanisms:
       custom_model_data: 601
       components_patch:
-        item_model: string:cooking:food/newpotato
+        item_model: string:minecraft:potato
     display name: <white>Potato
     flags:
       food: 1
@@ -2417,7 +2417,7 @@ New_CARROT:
     mechanisms:
       custom_model_data: 602
       components_patch:
-        item_model: string:cooking:food/newcarrot
+        item_model: string:minecraft:carrot
     display name: <white>Carrot
     flags:
       food: 1
@@ -2705,7 +2705,7 @@ New_Brown_Mushroom:
     mechanisms:
       custom_model_data: 618
       components_patch:
-        item_model: string:cooking:food/newbrownmushroom
+        item_model: string:minecraft:brown_mushroom
     display name: <white>Brown Mushroom
     flags:
       food: 1
@@ -2725,7 +2725,7 @@ New_Red_Mushroom:
     mechanisms:
       custom_model_data: 619
       components_patch:
-        item_model: string:cooking:food/newredmushroom
+        item_model: string:minecraft:red_mushroom
     display name: <white>Red Mushroom
     flags:
       food: 1
@@ -2745,7 +2745,7 @@ New_Crimson_Fungus:
     mechanisms:
       custom_model_data: 620
       components_patch:
-        item_model: string:cooking:food/newcrimsonfungus
+        item_model: string:minecraft:crimson_fungus
     display name: <white>Crimson Fungus
     flags:
       food: 1
@@ -2765,7 +2765,7 @@ New_Warped_Fungus:
     mechanisms:
       custom_model_data: 621
       components_patch:
-        item_model: string:cooking:food/newwarpedfungus
+        item_model: string:minecraft:warped_fungus
     display name: <white>Warped Fungus
     flags:
       food: 1
@@ -2894,7 +2894,7 @@ New_Beetroot_Soup:
     mechanisms:
       custom_model_data: 628
       components_patch:
-        item_model: string:cooking:food/newbeetrootsoup
+        item_model: string:minecraft:beetroot_soup
     display name: <white>Beetroot Soup
     flags:
       food: 3
@@ -2931,7 +2931,7 @@ New_Golden_Carrot:
     mechanisms:
       custom_model_data: 630
       components_patch:
-        item_model: string:cooking:food/newgoldencarrot
+        item_model: string:minecraft:golden_carrot
     flags:
       food: 5
       vegetable: true
@@ -2945,7 +2945,7 @@ New_Poisonous_Potato:
     mechanisms:
       custom_model_data: 631
       components_patch:
-        item_model: string:cooking:food/newpoisonouspotato
+        item_model: string:minecraft:poisonous_potato
     display name: <white>Poisonous Potato
     flags:
       food: 1
@@ -2963,7 +2963,7 @@ New_Kelp:
     mechanisms:
       custom_model_data: 632
       components_patch:
-        item_model: string:cooking:food/newkelp
+        item_model: string:minecraft:kelp
     flags:
       food: 1
       Cooking_ID: Kelp
@@ -2979,7 +2979,7 @@ New_Dried_Kelp:
     mechanisms:
       custom_model_data: 633
       components_patch:
-        item_model: string:cooking:food/newdriedkelp
+        item_model: string:minecraft:dried_kelp
     flags:
       food: 1
       vegetable: true
