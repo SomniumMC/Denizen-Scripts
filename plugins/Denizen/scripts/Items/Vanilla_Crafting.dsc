@@ -286,6 +286,20 @@ Bulk_Sticks:
       - *log
       output_quantity: 16
 
+Bulk_Chests:
+  type: item
+  debug: false
+  material: chest
+  no_id: true
+  recipes:
+    1:
+      type: shaped
+      input:
+      - *log|*log|*log
+      - *log|air|*log
+      - *log|*log|*log
+      output_quantity: 4
+
 New_Paper:
   type: item
   debug: false
