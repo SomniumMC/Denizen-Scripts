@@ -328,7 +328,7 @@ Cooking_Category_Inventory:
         - adjust def:constructed_item flag:recipe:<[item]>
         - adjust def:constructed_item lore:<proc[Cooking_Lore_Proc].context[<[full_item]>|<[inventory_flag]>|<[quantity]>]>
         - adjust def:constructed_item custom_model_data:<[full_item].custom_model_data>
-        - adjust def:constructed_item components_patch:item_model=<[full_item].components_patch>
+        - adjust def:constructed_item components_patch:<[full_item].components_patch>
         - adjust def:constructed_item quantity:<[quantity]>
         - define temp_list:->:<[constructed_item]>
     - determine <[temp_list]>
