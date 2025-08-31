@@ -78,6 +78,33 @@ Crafting_Start_Event:
     #- narrate <[workbench]>
     - flag <player> crafting.workbench:<[workbench]>
     - inventory open d:Crafting_Station_Select_GUI
+    on player right clicks Crafting_Interaction priority:-10:
+    - ratelimit <player> 5t
+    - if <player.item_in_hand.script.name||null> == config_wrench:
+      - stop
+    - if !<context.entity.flag[workstation.home].has_flag[workstation.linked]>:
+      - narrate "<red>You must link this workstation to a workbench first! Use the <yellow>Config Wrench<red> to do so."
+      - stop
+    - define workstation <context.entity.flag[workstation.home]>
+    - define workbench <[workstation].flag[workstation.linked]>
+    #- narrate <[workbench]>
+    - flag <player> crafting.workbench:<[workbench]>
+    - flag <player> crafting.selstation.location:<[workstation]>
+    - choose <[workstation].flag[workstation.type]>:
+        - case smelter:
+          - define skill refining
+        - case anvil:
+          - define skill blacksmithing
+        - case tailoring_Station:
+          - define skill tailoring
+        - case carpentry_bench:
+          - define skill carpentry
+        - case agriculture_station:
+          - define skill farming
+        - case masonry_station:
+          - define skill masonry
+    - flag <player> crafting.skill:<[skill]>
+    - inventory open d:Crafting_Category_Select_GUI
     on player clicks item in Crafting_Station_Select_GUI:
     - define item <context.item>
     - if <context.slot> in <util.list_numbers[from=11;to=17].include[<util.list_numbers[from=20;to=26]>]> && <context.clicked_inventory.script.name> == Crafting_Station_Select_GUI:
