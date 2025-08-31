@@ -601,7 +601,7 @@ New_Golden_Apple:
     mechanisms:
       custom_model_data: 319
       components_patch:
-        item_model: string:cooking:food/newgoldenapple
+        item_model: string:minecraft:golden_apple
     flags:
       food: 5
       fruit: true
@@ -719,7 +719,7 @@ New_COOKIE:
     mechanisms:
       custom_model_data: 407
       components_patch:
-        item_model: string:cooking:food/newcookie
+        item_model: string:cooking:food/cookie
     display name: <white>Cookie
     flags:
       food: 1
@@ -2669,7 +2669,7 @@ New_PUMPKIN_PIE:
     mechanisms:
       custom_model_data: 616
       components_patch:
-        item_model: string:cooking:food/newpumpkinpie
+        item_model: string:minecraft:pumpkin_pie
     display name: <white>Pumpkin Pie
     flags:
       food: 5
@@ -2802,7 +2802,7 @@ NEW_MUSHROOM_SOUP:
     mechanisms:
       custom_model_data: 623
       components_patch:
-        item_model: string:cooking:food/newmushroomsoup
+        item_model: string:minecraft:mushroom_soup
     display name: <white>Mushroom Soup
     flags:
       food: 2
@@ -3173,7 +3173,7 @@ MARSHMALLOW:
     mechanisms:
       custom_model_data: 711
       components_patch:
-        item_model: string:cooking:food/marshmallow
+        item_model: string:cooking:food/marshmellows
     flags:
       food: 1
       sugar: true
@@ -3223,7 +3223,7 @@ MARSHMALLOW_CHICKS:
     mechanisms:
       custom_model_data: 714
       components_patch:
-        item_model: string:cooking:food/marshmallowchicks
+        item_model: string:cooking:food/marshmellowchicks
     display name: <white>Marshmallow Chickadees
     flags:
       food: 1
@@ -3347,7 +3347,7 @@ COOKING_OIL:
     mechanisms:
       custom_model_data: 803
       components_patch:
-        item_model: string:cooking:ingredients/cooking_oil
+        item_model: string:cooking:ingredients/cookingoil
     display name: <white>Cooking Oil
     lore:
     - <gold>Oil used to fry and cook dishes.
