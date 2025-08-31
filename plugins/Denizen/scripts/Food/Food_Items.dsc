@@ -2526,7 +2526,7 @@ MASHED_POTATO:
     mechanisms:
       custom_model_data: 608
       components_patch:
-        item_model: string:cooking:food/mashedpotato
+        item_model: string:cooking:food/mashedpotatoes
     display name: <white>Mashed Potato
     flags:
       food: 3
@@ -2616,7 +2616,7 @@ GLAZED_CARROT:
     mechanisms:
       custom_model_data: 613
       components_patch:
-        item_model: string:cooking:food/glazedcarrot
+        item_model: string:cooking:food/glazedcarrots
     display name: <white>Glazed Carrots
     flags:
       food: 4
@@ -2658,7 +2658,7 @@ PICKLED_BEETS:
       food: 3
       vegetable: true
     lore:
-    - <gold>beets pickled in a brine.
+    - <gold>Beets pickled in a brine.
 New_PUMPKIN_PIE:
     type: item
     debug: false
