@@ -393,6 +393,7 @@ Farming_Outputs:
     corn: corn_3
     barley: barley_bundle_3
     rye: rye_bundle_3
+    chili: chili_pepper_3
 
         #- if <player.item_in_hand.flag[seed]> == beetroot && <context.location.above.material.name> == air:
         #  - modifyblock <[crop_location]> beetroots
