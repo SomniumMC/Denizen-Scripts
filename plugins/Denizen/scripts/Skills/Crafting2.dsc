@@ -544,9 +544,6 @@ Crafting_Config_Event:
         - ratelimit <player> 5t
         - define wrench <context.item>
         - define interaction <context.entity>
-        - if <[wrench].flag[selected].if_null[null]> == null:
-          - narrate "<red>You must select a workbench first! <blue>Sneak + Right Click <red>a Workbench with the Config Wrench to select it."
-          - stop
         - if <player.is_sneaking>:
           - if <[wrench].flag[selected].if_null[<empty>]> != <empty>:
             - inventory adjust slot:hand destination:<player.inventory> flag:selected:<empty>
@@ -771,6 +768,7 @@ Crafting_MissingWorkbench:
     display name: <red><bold>Missing Workbench!
     lore:
       - <white>Please select a workbench in order to link the station
+      - <blue>Sneak + Right Click <white>a workbench with the wrench to select it
 
 Config_Wrench:
     type: item
