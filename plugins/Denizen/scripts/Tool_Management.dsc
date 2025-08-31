@@ -260,7 +260,7 @@ Tool_Management_Event_Main:
             - run durability_update_task def.slot:1 def.inventory:tool_bench_inv_<[tool_bench].uuid> def.overwrite:0
 
             - wait 10t
-            - ~drop item:<inventory[tool_bench_inv_<[tool_bench].uuid>].slot[1]> quantity:1 location:<[tool_bench].flag[tool_bench.location].above[1]>
+            - drop item:<inventory[tool_bench_inv_<[tool_bench].uuid>].slot[1]> quantity:1 location:<[tool_bench].flag[tool_bench.location].above[1]>
 
             - flag <[tool_bench]> tool_bench.state:!
             - flag <[tool_bench]> tool_bench.item:!
