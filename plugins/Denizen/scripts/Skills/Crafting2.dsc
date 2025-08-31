@@ -571,7 +571,7 @@ Crafting_Config_Event:
               - inventory close
               - narrate "<green>Linked <blue><[wrench].flag[craftstation].flag[workstation.model].item.display.strip_color>"
             - else if <[item].material.name> == ender_eye:
-              - if <[wrench].flag[craftstation].flag[workstation.linked]> =! <[wrench].flag[selected]>:
+              - if <[wrench].flag[craftstation].flag[workstation.linked]> != <[wrench].flag[selected]>:
                 - narrate "<red>This craftstation is not linked to the selected workbench!"
                 - stop
               - flag <[wrench].flag[craftstation].flag[workstation.linked]> workbench.links.<[wrench].flag[craftstation].flag[workstation.type]>:!
