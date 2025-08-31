@@ -544,6 +544,9 @@ Crafting_Config_Event:
         - ratelimit <player> 5t
         - define wrench <context.item>
         - define interaction <context.entity>
+        - if <[wrench].flag[selected].if_null[null]> == null:
+          - narrate "<red>You must select a workbench first! <blue>Sneak + Right Click <red>a Workbench with the Config Wrench to select it."
+          - stop
         - if <player.is_sneaking>:
           - if <[wrench].flag[selected].if_null[<empty>]> != <empty>:
             - inventory adjust slot:hand destination:<player.inventory> flag:selected:<empty>
@@ -568,6 +571,9 @@ Crafting_Config_Event:
               - inventory close
               - narrate "<green>Linked <blue><[wrench].flag[craftstation].flag[workstation.model].item.display.strip_color>"
             - else if <[item].material.name> == ender_eye:
+              - if <[wrench].flag[craftstation].flag[workstation.linked]> =! <[wrench].flag[selected]>:
+                - narrate "<red>This craftstation is not linked to the selected workbench!"
+                - stop
               - flag <[wrench].flag[craftstation].flag[workstation.linked]> workbench.links.<[wrench].flag[craftstation].flag[workstation.type]>:!
               - flag <[wrench].flag[craftstation]> workstation.linked:!
               - inventory close
