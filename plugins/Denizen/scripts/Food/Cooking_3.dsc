@@ -609,6 +609,17 @@ Cooking_Grass_Harvest:
             #  - drop <context.location> item:seeds_sweet_berry quantity:1
             #- case default:
             #  - determine cancelled
+        on player breaks dirt with:*_hoe bukkit_priority:HIGHEST:
+        - determine passively cancelled
+        - if <player.item_in_hand.script.name||null> == null:
+          - define max_dura <player.item_in_hand.max_durability>
+          - if <player.item_in_hand.durability> >= <[max_dura]>:
+            - take iteminhand quantity:1
+            - playsound sound:entity.item.break <player.location> sound_category:players
+            - stop
+        - foreach <player.item_in_hand.durability> as:item_durability:
+          - inventory adjust slot:hand durability:<[item_durability].add[1]>
+        - modifyblock <context.location> coarse_dirt
 
 Cooking_Sound_Bakeware:
     type: task
