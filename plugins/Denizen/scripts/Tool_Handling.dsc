@@ -38,7 +38,7 @@ Durability_Update_Task:
   debug: true
   definitions: slot|overwrite|inventory
   script:
-  - define item <inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>
+  - define item <inventory[<[inventory]||null>].if_null[<player.inventory>].slot[<[slot]>]>
   - if <[item].has_flag[durability1]>:
     - define loss 1
     - define enchants <[item].enchantment_map>
@@ -53,12 +53,12 @@ Durability_Update_Task:
     - if <[overwrite]||null> != null:
       - define loss <[overwrite]>
     - if <[loss]> >= 1 || <[overwrite].if_null[null]> == 0:
-      - inventory adjust slot:<[slot]> flag:durability1:-:<[loss]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
+      - inventory adjust slot:<[slot]> flag:durability1:-:<[loss]> destination:<inventory[<[inventory]||null>].if_null[<player.inventory>]>
       - if <[item].flag[durability2]||null> == null:
-        - inventory adjust slot:<[slot]> flag:durability2:<[item].flag[durability1]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
-      - run update_item_task def:<inventory[<[inventory]>].if_null[<player.inventory>]>|<inventory[<[inventory]>].if_null[<player.inventory>].slot[<[slot]>]>|<[slot]>
+        - inventory adjust slot:<[slot]> flag:durability2:<[item].flag[durability1]> destination:<inventory[<[inventory]||null>].if_null[<player.inventory>]>
+      - run update_item_task def:<inventory[<[inventory]||null>].if_null[<player.inventory>]>|<inventory[<[inventory]||null>].if_null[<player.inventory>].slot[<[slot]>]>|<[slot]>
     - if <[item].flag[durability1].sub[<[loss]>]> <= 0:
-      - inventory set o:air slot:<[slot]> destination:<inventory[<[inventory]>].if_null[<player.inventory>]>
+      - inventory set o:air slot:<[slot]> destination:<inventory[<[inventory]||null>].if_null[<player.inventory>]>
       - playsound <player.location> sound:ENTITY.ITEM.BREAK sound_category:player
       - stop
     - if <[item].flag[durability1].sub[<[loss]>]> <= 5:
