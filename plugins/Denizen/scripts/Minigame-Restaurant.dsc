@@ -918,18 +918,19 @@ Cooking_4_Craft:
               - define stored_ingredients:->:<[linked].get[location].flag[cooking_furniture.storage.item_stored]>-<[linked].get[location].flag[cooking_furniture.storage.stored_amount]>&<[linked].get[location]>
               #<map[item=<[linked].get[location].flag[cooking_furniture_.storage.item_stored]>;amount=<[linked].get[location].flag[cooking_furniture_.storage.stored_amount]>]>
         - foreach <[recipe]> as:item:
-          - if <[item].before_last[-]> in <[free_ingredients]>:
+          - if <[item].before_last[-]> in <[free_ingredients]||null>:
             - define recipe:<-:<[item]>
             - define recipe_amount:-:1
-          - foreach <[stored_ingredients]> as:data:
-            - if <[data].before_last[-]> == <[item].before_last[-]>:
-              - define storage_location <[data].after[&]>
-              - if <[data].after_last[-].before[&]> >= <[item].after_last[-]>:
+          - if <[stored_ingredients]||null> != null:
+            - foreach <[stored_ingredients]> as:data:
+              - if <[data].before_last[-]> == <[item].before_last[-]>:
+                - define storage_location <[data].after[&]>
+                - if <[data].after_last[-].before[&]> >= <[item].after_last[-]>:
 
-                - define recipe:<-:<[item]>
-                - define recipe_amount:-:1
-                - flag <[storage_location]> cooking_furniture.storage.stored_amount:-:<[item].after_last[-]>
-                - adjust <[storage_location].flag[cooking_furniture.model.text_display]> text:<[storage_location].flag[cooking_furniture.storage.stored_amount]>
+                  - define recipe:<-:<[item]>
+                  - define recipe_amount:-:1
+                  - flag <[storage_location]> cooking_furniture.storage.stored_amount:-:<[item].after_last[-]>
+                  - adjust <[storage_location].flag[cooking_furniture.model.text_display]> text:<[storage_location].flag[cooking_furniture.storage.stored_amount]>
 
         #- narrate <[stored_ingredients]>
         - foreach <[recipe]> as:item:

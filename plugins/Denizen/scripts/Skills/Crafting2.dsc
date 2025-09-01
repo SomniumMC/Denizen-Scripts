@@ -1002,7 +1002,7 @@ Crafting_Icon_Seeds:
   display name: <red>Seeds
   mechanisms:
       components_patch:
-        item_model: string:cooking:seeds/wheatseedsitem
+        item_model: string:cooking:seeds/wheatseeds
   flags:
     category: seeds
   lore:
