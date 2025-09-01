@@ -2802,7 +2802,7 @@ NEW_MUSHROOM_SOUP:
     mechanisms:
       custom_model_data: 623
       components_patch:
-        item_model: string:minecraft:mushroom_soup
+        item_model: string:minecraft:mushroom_stew
     display name: <white>Mushroom Soup
     flags:
       food: 2
