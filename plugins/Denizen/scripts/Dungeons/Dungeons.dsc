@@ -160,7 +160,7 @@ SomniBreakable:
     - flag <entry[interaction_entity].spawned_entity> breakable_type:<[breakable_type]>
     - flag <entry[interaction_entity].spawned_entity> table:<[table]>
     - look <entry[model_entity].spawned_entity> yaw:<[yaw].if_null[0]>
-    - adjust <entry[model_entity].spawned_entity> scale:<element[<[scale]>].if_null[1,1,1]>
+    - adjust <entry[model_entity].spawned_entity> scale:<element[<[scale]||null>].if_null[1,1,1]>
     #- mount <entry[interaction_entity].spawned_entity>|<entry[model_entity].spawned_entity>
 
 SomniChest:

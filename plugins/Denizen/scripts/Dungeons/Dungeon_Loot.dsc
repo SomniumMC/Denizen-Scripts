@@ -46,9 +46,6 @@ SomniLoot_Table:
         Tailored_leather_chestplate:
           weight: 100
           quantity: 1-1
-        Tailored_iron_chestplate:
-          weight: 50
-          quantity: 1-1
         steel_chestplate:
           weight: 10
           quantity: 1-1
