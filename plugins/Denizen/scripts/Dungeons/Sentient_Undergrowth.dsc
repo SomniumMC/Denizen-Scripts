@@ -221,6 +221,7 @@ SomniData_Sentient_Undergrowth:
       type: teleporter
       pos1: 41|11|-40
       note: sentientundergrowthteleporter
+      yaw: 90
     dungeon_core:
       type: dungeoncore
       pos:

@@ -228,10 +228,10 @@ SomniReturnPortal:
 SomniTeleporter:
     type: task
     debug: false
-    definitions: pos1|origin|note
+    definitions: pos1|origin|note|yaw
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
-    - spawn item_display[item=Somni_Teleporter] <[pos1].center> save:teleporter_entity
+    - spawn item_display[item=Somni_Teleporter] <[pos1].center.above[1].with_yaw[<[yaw].if_null[0]>]> save:teleporter_entity
     - note <[pos1].to_cuboid[<[pos1].above[1]>]> as:<[note]>
 
 SomniCrawl:
