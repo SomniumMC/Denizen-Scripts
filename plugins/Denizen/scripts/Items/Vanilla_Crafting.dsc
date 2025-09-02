@@ -300,16 +300,16 @@ Bulk_Chests:
       - *log|*log|*log
       output_quantity: 4
 
-New_Paper:
-  type: item
-  debug: false
-  material: paper
-  no_id: true
-  recipes:
-    1:
-      type: shapeless
-      input: new_sugar_cane|new_sugar_cane|new_sugar_cane
-      output_quantity: 3
+#New_Paper:
+#  type: item
+#  debug: false
+#  material: paper
+#  no_id: true
+#  recipes:
+#    1:
+#      type: shapeless
+#      input: new_sugar_cane|new_sugar_cane|new_sugar_cane
+#      output_quantity: 3
 
 Jellyfish_Slime:
   type: item
