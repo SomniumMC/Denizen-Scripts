@@ -231,7 +231,8 @@ SomniTeleporter:
     definitions: pos1|origin|note
     script:
     - define pos1 <proc[SomniLocationProc].context[<[pos1]>].unescaped.parsed>
-    - note <[pos1].to_cuboid[<[pos1].above[1]>]> as:sentientundergrowthteleporter
+    - spawn item_display[item=Somni_Teleporter] <[pos1].center> save:teleporter_entity
+    - note <[pos1].to_cuboid[<[pos1].above[1]>]> as:<[note]>
 
 SomniCrawl:
     type: task
@@ -627,6 +628,15 @@ Somni_Crawl_Marker:
     mechanisms:
       components_patch:
         item_model: string:dungeons:crawlmark
+
+Somni_Teleporter:
+    type: item
+    debug: false
+    material: string
+    display name: <red><bold>Somni Teleporter
+    mechanisms:
+      components_patch:
+        item_model: string:dungeons:portal
 
 Somni_Crawl_Interaction:
     type: entity
