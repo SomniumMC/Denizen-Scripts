@@ -65,6 +65,7 @@ SomniData_Sentient_Undergrowth:
       type: breakable
       pos1: 32|11|-8
       model: SU_Coin_Stack
+      scale: 2,2,2
       health: 5
       breakable_type: valuable
       table: currency
@@ -72,6 +73,7 @@ SomniData_Sentient_Undergrowth:
       type: breakable
       pos1: 31|1|-18
       model: SU_Coin_Stack
+      scale: 2,2,2
       health: 5
       breakable_type: valuable
       table: currency
@@ -79,6 +81,7 @@ SomniData_Sentient_Undergrowth:
       type: breakable
       pos1: 8|5|-40
       model: SU_Coin_Stack
+      scale: 2,2,2
       health: 5
       breakable_type: valuable
       table: currency
@@ -86,6 +89,7 @@ SomniData_Sentient_Undergrowth:
       type: breakable
       pos1: 43|11|-18
       model: SU_Coin_Stack
+      scale: 2,2,2
       health: 5
       breakable_type: valuable
       table: currency
