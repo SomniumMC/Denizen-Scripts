@@ -70,7 +70,7 @@ SomniData_Sentient_Undergrowth:
       table: trash
     SU_Coin_Pouch2:
       type: breakable
-      pos1: 33|1|-18
+      pos1: 31|1|-18
       model: SU_Coin_Pouch
       health: 5
       breakable_type: leather
@@ -190,6 +190,16 @@ SomniData_Sentient_Undergrowth:
     lootchestvaluables5:
       type: chest
       pos1: 38|22|-24
+      facing: west
+      table: su_valuables
+    lootchestvaluables6:
+      type: chest
+      pos1: 12|4|-13
+      facing: west
+      table: su_valuables
+    lootchestvaluables7:
+      type: chest
+      pos1: 12|4|-9
       facing: west
       table: su_valuables
     lootchestblocks1:
