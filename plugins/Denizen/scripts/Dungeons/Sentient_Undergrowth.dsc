@@ -194,12 +194,12 @@ SomniData_Sentient_Undergrowth:
       table: su_valuables
     lootchestvaluables6:
       type: chest
-      pos1: 12|4|-13
+      pos1: 12|5|-13
       facing: west
       table: su_valuables
     lootchestvaluables7:
       type: chest
-      pos1: 12|4|-9
+      pos1: 12|5|-9
       facing: west
       table: su_valuables
     lootchestblocks1:
