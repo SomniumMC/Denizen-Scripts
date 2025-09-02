@@ -12,3 +12,11 @@ connect_to_discord:
         - ~discordmessage id:mybot channel:1209227787358044170 "<player.name> has left the main server!"
         after player chats:
         - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
+
+discord_command:
+    type: command
+    name: discord
+    description: Posts the discord link to the chat.
+    usage: /discord
+    script:
+    - narrate "<gold>Join our discord! <blue>Link: <reset><element[https://discord.gg/QX2zHyNaMs]>"
