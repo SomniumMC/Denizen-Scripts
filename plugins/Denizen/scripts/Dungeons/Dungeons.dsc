@@ -442,7 +442,7 @@ SomniProtection:
         on player breaks block priority:-20 bukkit_priority:HIGHEST:
         - if <player.gamemode> == creative:
           - stop
-        - if <context.material.name> in <list[short_grass|tall_grass|fern|large_fern|cobweb|vine|ladder]>:
+        - if <context.material.name> in <list[short_grass|tall_grass|fern|large_fern|cobweb|vine|ladder|*leaves]>:
           - stop
         - foreach <context.location.areas> as:area_name:
           - if <cuboid[<[area_name]>].flag[protection]||null> == enabled:
