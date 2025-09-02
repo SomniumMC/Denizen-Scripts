@@ -61,33 +61,33 @@ SomniData_Sentient_Undergrowth:
       health: 5
       breakable_type: barrel
       table: trash
-    SU_Coin_Pouch1:
+    SU_Coin_Stack1:
       type: breakable
       pos1: 32|11|-8
-      model: SU_Coin_Pouch
+      model: SU_Coin_Stack
       health: 5
-      breakable_type: leather
+      breakable_type: valuable
       table: trash
-    SU_Coin_Pouch2:
+    SU_Coin_Stack2:
       type: breakable
       pos1: 31|1|-18
-      model: SU_Coin_Pouch
+      model: SU_Coin_Stack
       health: 5
-      breakable_type: leather
+      breakable_type: valuable
       table: trash
-    SU_Coin_Pouch3:
+    SU_Coin_Stack3:
       type: breakable
       pos1: 8|5|-40
-      model: SU_Coin_Pouch
+      model: SU_Coin_Stack
       health: 5
-      breakable_type: leather
+      breakable_type: valuable
       table: trash
-    SU_Coin_Pouch5:
+    SU_Coin_Stack5:
       type: breakable
       pos1: 43|11|-18
-      model: SU_Coin_Pouch
+      model: SU_Coin_Stack
       health: 5
-      breakable_type: leather
+      breakable_type: valuable
       table: trash
     SU_Skeleton_Hanging1:
       type: breakable
@@ -357,14 +357,14 @@ SU_Pot:
   - <red>Players should not have this item!
   - <green>This is just used as a model
 
-SU_Coin_Pouch:
+SU_Coin_Stack:
   type: item
   debug: false
   material: stick
-  display name: <red>Sentient Undergrowth Coin Pouch
+  display name: <red>Sentient Undergrowth Coin Stack
   mechanisms:
       components_patch:
-        item_model: string:materials:currency/coinpurse
+        item_model: string:materials:currency/coin_stack_small
   lore:
   - <red>Players should not have this item!
   - <green>This is just used as a model
