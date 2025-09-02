@@ -366,3 +366,12 @@ SomniLoot_Table:
         wooden_shovel:
           weight: 25
           quantity: 1-1
+      currency:
+        quantity: 1-4
+        items:
+          currency1:
+            weight: 100
+            quantity: 1-8
+          currency2:
+            weight: 10
+            quantity: 1-2

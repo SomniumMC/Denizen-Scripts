@@ -60,35 +60,35 @@ SomniData_Sentient_Undergrowth:
       model: SU_Pot
       health: 5
       breakable_type: barrel
-      table: trash
+      table: currency
     SU_Coin_Stack1:
       type: breakable
       pos1: 32|11|-8
       model: SU_Coin_Stack
       health: 5
       breakable_type: valuable
-      table: trash
+      table: currency
     SU_Coin_Stack2:
       type: breakable
       pos1: 31|1|-18
       model: SU_Coin_Stack
       health: 5
       breakable_type: valuable
-      table: trash
+      table: currency
     SU_Coin_Stack3:
       type: breakable
       pos1: 8|5|-40
       model: SU_Coin_Stack
       health: 5
       breakable_type: valuable
-      table: trash
+      table: currency
     SU_Coin_Stack5:
       type: breakable
       pos1: 43|11|-18
       model: SU_Coin_Stack
       health: 5
       breakable_type: valuable
-      table: trash
+      table: currency
     SU_Skeleton_Hanging1:
       type: breakable
       pos1: 44|11|-19
