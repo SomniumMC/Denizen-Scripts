@@ -68,6 +68,7 @@ SomniData_Sentient_Undergrowth:
       scale: 2,2,2
       health: 5
       breakable_type: valuable
+      translation: 0,0.5,0
       table: currency
     SU_Coin_Stack2:
       type: breakable
@@ -76,6 +77,7 @@ SomniData_Sentient_Undergrowth:
       scale: 2,2,2
       health: 5
       breakable_type: valuable
+      translation: 0,0.5,0
       table: currency
     SU_Coin_Stack3:
       type: breakable
@@ -84,6 +86,7 @@ SomniData_Sentient_Undergrowth:
       scale: 2,2,2
       health: 5
       breakable_type: valuable
+      translation: 0,0.5,0
       table: currency
     SU_Coin_Stack5:
       type: breakable
@@ -92,6 +95,7 @@ SomniData_Sentient_Undergrowth:
       scale: 2,2,2
       health: 5
       breakable_type: valuable
+      translation: 0,0.5,0
       table: currency
     SU_Skeleton_Hanging1:
       type: breakable
