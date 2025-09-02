@@ -245,6 +245,7 @@ SomniCrawl:
 
 SomniLocationProc:
     type: procedure
+    debug: false
     definitions: x|y|z
     script:
     #- narrate <location[testschempos3].right[<[x]>].up[<[y]>].backward[<[z]>].block>
