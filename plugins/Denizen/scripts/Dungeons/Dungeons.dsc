@@ -517,7 +517,7 @@ SomniProtectionClear:
       - adjust <mythicspawner[<[id]>]> disable
     - flag server somni.<[somni]>.broken_spawners:!
     # Clean up any invisible barrier blocks
-    - foreach <[area].blocks[barrier]> as:block:
+    - foreach <cuboid[<[area]>].blocks[barrier]> as:block:
       - modifyblock <[block]> air
 
 SomniReturnPortal_Event:
