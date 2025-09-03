@@ -30,7 +30,7 @@ protections_script:
         - if <player.location.in_region[satus]>:
             - if <player.gamemode> == survival:
               - determine cancelled
-        on player right clicks flower_pot:
+        on player right clicks potted*:
         - if <player.location.in_region[satus]>:
           - if <player.gamemode> == survival:
             - determine cancelled
