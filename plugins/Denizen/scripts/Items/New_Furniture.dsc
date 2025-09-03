@@ -287,8 +287,8 @@ Furniture_Config_Event:
             - define y_adjustment:-1
           - case 17:
             - define type:teleport
-            - define director:z
-            - define z_adjustment:1
+            - define director:x
+            - define x_adjustment:-1
 
           - case 38:
             - define type:yaw
@@ -418,7 +418,7 @@ Furniture_Config_GUI:
   gui: true
   slots:
   - [GUINULL] [GUINULL] [paper[display=<gold>Model<&sp>Scale;lore=<yellow><player.flag[furniture_entity].flag[furniture.furniture_model].scale.simple>]] [GUINULL] [<player.flag[furniture_entity].flag[furniture].get[item].with_single[lore=<empty>].with_single[display=<gold>Item<&sp>Model].if_null[<item[brick].with_single[display=<red>ERROR].with_single[lore=<red>An error has occured, please contact staff.<n>Make sure to explain what happened prior to issue.]>]>] [GUINULL] [paper[display=<gold>Model<&sp>Location]] [GUINULL] [GUINULL]
-  - [GUINULL] [] [] [] [GUINULL] [green_concrete[display=<red>Left]] [green_concrete[display=<green>Up]] [green_concrete[display=<blue>Right]] [GUINULL]
+  - [GUINULL] [] [] [] [red_concrete[display=<red>Backward]] [green_concrete[display=<red>Left]] [green_concrete[display=<green>Up]] [green_concrete[display=<blue>Right]] [green_concrete[display=<green>Forward]]
   - [GUINULL] [] [] [] [GUINULL] [GUINULL] [red_concrete[display=<green>Down]] [GUINULL] [GUINULL]
   - [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL] [GUINULL]
   - [paper[display=<gold>Model<&sp>Yaw(Rotation)]] [red_concrete[display=<red>Yaw 45 Decrease]] [green_concrete[display=<green>Yaw 45 Increase]] [GUINULL] [] [] [] [barrier[display=<red>Remove Decoration]] [GUINULL]
