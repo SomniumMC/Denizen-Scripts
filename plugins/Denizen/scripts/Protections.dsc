@@ -4,7 +4,7 @@
 
 protections_script:
     type: world
-    debug: false
+    debug: true
     events:
         on player right clicks item_frame:
         - if <player.location.in_region[satus]>:
