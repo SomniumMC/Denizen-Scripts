@@ -63,6 +63,7 @@ Alpha_Kit_Data:
     - fish_crab-1
     - currency1-32
     - coinpurse-1
+    - blue_bed-1
 
 IronSet_Kit_Data:
     type: data

@@ -19,4 +19,4 @@ discord_command:
     description: Posts the discord link to the chat.
     usage: /discord
     script:
-    - narrate "<gold>Join our discord! <blue>Link: <reset><element[https://discord.gg/QX2zHyNaMs]>"
+    - narrate "<gold>Join our discord! <blue>Link: <reset><element[discord.gg/QX2zHyNaMs]>"
