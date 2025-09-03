@@ -20,3 +20,11 @@ discord_command:
     usage: /discord
     script:
     - narrate "<gold>Join our discord! <blue>Link: <reset><element[discord.gg/QX2zHyNaMs]>"
+
+dynmap_command:
+    type: command
+    name: map
+    description: Posts the dynmap link to the chat.
+    usage: /map
+    script:
+    - narrate "<gold>View the dynmap! <blue>Link: <reset><element[dynmap.somniummc.com]>"
