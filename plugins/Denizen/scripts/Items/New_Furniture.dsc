@@ -292,7 +292,7 @@ Furniture_Config_Event:
           - case 24:
             - define type:teleport
             - define director:x
-            - define x_adjustment:-1
+            - define z_adjustment:-1
           - case 26:
             - define type:teleport
             - define director:z
