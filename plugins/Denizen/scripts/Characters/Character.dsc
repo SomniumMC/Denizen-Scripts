@@ -182,13 +182,13 @@ Character_RPC_Events:
                 - narrate "<red>Max Characters 25!"
                 - take slot:hand
                 - stop
-              - flag player character.rpc.name:<[contents].get[1].strip_color>
+              - flag player character.rpc.name:<[contents].get[1].strip_color.if_null[<red>Error]>
             - case Description:
               - if <context.book.book_pages.get[1].to_list.size> > 150:
                 - narrate "<red>Max Characters 150!"
                 - take slot:hand
                 - stop
-              - flag player character.rpc.description:<[contents].get[1].strip_color>
+              - flag player character.rpc.description:<[contents].get[1].strip_color.if_null[<red>Error]>
             - case Lore:
               - flag player character.rpc.lore:<context.book.book_pages>
             - case Age:
@@ -196,19 +196,19 @@ Character_RPC_Events:
                 - narrate "<red>Max Characters 4!"
                 - take slot:hand
                 - stop
-              - flag player character.rpc.age:<[contents].get[1].strip_color>
+              - flag player character.rpc.age:<[contents].get[1].strip_color.if_null[<red>Error]>
             - case Height:
               - if <context.book.book_pages.get[1].to_list.size> > 7:
                 - narrate "<red>Max Characters 5!"
                 - take slot:hand
                 - stop
-              - flag player character.rpc.height:<[contents].get[1].strip_color>
+              - flag player character.rpc.height:<[contents].get[1].strip_color.if_null[<red>Error]>
             - case Profession:
               - if <context.book.book_pages.get[1].to_list.size> > 22:
                 - narrate "<red>Max Characters 20!"
                 - take slot:hand
                 - stop
-              - flag player character.rpc.profession:<[contents].get[1].strip_color>
+              - flag player character.rpc.profession:<[contents].get[1].strip_color.if_null[<red>Error]>
               #- flag player character.rpc.submitted:true
               #- narrate "<green>Character Submitted!"
               #- take slot:hand
