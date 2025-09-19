@@ -137,6 +137,9 @@ NPC_Chat_Command:
         - narrate "<gray><italic>You have finished talking with them."
         - flag <player> chatting:!
         - stop
+    - if <player.flag[chatting.npc]> != <context.args.get[1]>:
+        - narrate "<red>You are not currently chatting with that NPC!"
+        - stop
     - define chat_data <server.flag[npc.<[npc]>.<context.args.get[2]>]>
     - define path <context.args.get[2]>
     - define type <[chat_data].get[type]>
