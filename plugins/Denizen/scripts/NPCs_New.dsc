@@ -42,7 +42,7 @@ NPC_Chat:
         - flag <player> chatting.option<[loop_index]>:<[option_data]> expire:1m
 
         - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
-    - narrate "0<&co> <element[<red>End Conversation].on_hover[<red>Click].on_click[/npcchat end].type[run_command]>"
+    - narrate "9<&co> <element[<red>End Conversation].on_hover[<red>Click].on_click[/npcchat end].type[run_command]>"
     - narrate <&sp.repeat[80].strikethrough>
     #- foreach <[data].keys.exclude[dialog]> as:option:
         #  - define option_data <[data].get[<[option]>]>
@@ -115,6 +115,9 @@ NPC_Hotbar_Chat:
         - define slot <context.new_slot>
         - define chatting_data <player.flag[chatting]>
         - define chatting_npc <player.flag[chatting.npc]>
+        - if <[slot]> == 9:
+            - execute as_player "npcchat end"
+            - stop
         - if <[chatting_data].get[option<[slot]>].if_null[null]> == null:
             - narrate "<red>Invalid Option!"
             - stop
