@@ -32,14 +32,17 @@ NPC_Chat:
     debug: false
     definitions: data|type|npc|npc_display|path
     script:
-    - flag <player> chatting:<[npc]> expire:1m
+    - flag <player> chatting.npc:<[npc]> expire:1m
+    - flag <player> chatting.path:<[path]> expire:1m
 
     - narrate <&sp.repeat[80].strikethrough>
     - narrate "<white><&lb><[npc_display]><white><&rb> <white>- <[data].get[message].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>"
     - foreach <[data].keys.exclude[message|type|response|teleport|inventory|shop|task|flag]> as:option:
         - define option_data <[data].get[<[option]>]>
+        - flag <player> chatting.option<[loop_index]>:<[option_data]> expire:1m
 
         - narrate "<[loop_index]><&co> <element[<[option_data].get[response].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>].on_hover[<red>Click].on_click[/npcchat <[npc]> <[path]>.option<[loop_index]>].type[run_command]>"
+    - narrate "0<&co> <element[<red>End Conversation].on_hover[<red>Click].on_click[/npcchat end].type[run_command]>"
     - narrate <&sp.repeat[80].strikethrough>
     #- foreach <[data].keys.exclude[dialog]> as:option:
         #  - define option_data <[data].get[<[option]>]>
@@ -99,6 +102,26 @@ NPC_Chat:
         #    - flag <player> shop_data:<script[NPC_ShopData_<[npc]>]>
         #    - inventory open d:NPC_Shop_GUI
 
+NPC_Hotbar_Chat:
+    type: world
+    debug: false
+    events:
+        on player holds item flagged:chatting:
+        - if <player.flag[chatting.npc].if_null[null]> == null:
+            - flag <player> chatting:!
+            - stop
+
+        - determine passively cancelled
+        - define slot <context.new_slot>
+        - define chatting_data <player.flag[chatting]>
+        - define chatting_npc <player.flag[chatting.npc]>
+        - if <[chatting_data].get[option<[slot]>].if_null[null]> == null:
+            - narrate "<red>Invalid Option!"
+            - stop
+        - else:
+            - execute as_player "npcchat <[chatting_npc]> <player.flag[chatting.path]>.option<[slot]>"
+        #- narrate "<red>You cannot swap items while chatting with an NPC!"
+
 NPC_Chat_Command:
     type: command
     debug: false
@@ -107,6 +130,10 @@ NPC_Chat_Command:
     usage: /npcchat npc chat_flag
     script:
     - define npc <context.args.get[1]>
+    - if <[npc]> == end:
+        - narrate "<gray><italic>You have finished talking with them."
+        - flag <player> chatting:!
+        - stop
     - define chat_data <server.flag[npc.<[npc]>.<context.args.get[2]>]>
     - define path <context.args.get[2]>
     - define type <[chat_data].get[type]>
@@ -114,10 +141,10 @@ NPC_Chat_Command:
     - define npc_display <npc[<[npc]>].name.parsed>
     - if <[chat_data]> == null:
         - narrate "<red>Options Expired!"
-        - flag <player> chatting:<empty>
+        - flag <player> chatting:!
         - stop
     - if <[type]> == end:
-        - flag <player> chatting:<empty>
+        - flag <player> chatting:!
         - narrate <&sp.repeat[80].strikethrough>
         - narrate "<&lb><[npc_display]><&rb> <white>- <[chat_data].get[message].separated_by[<n>].parsed.if_null[<red>ERROR - Please report to devs]>"
         - narrate "<gray><italic>You have finished talking with them."
@@ -126,12 +153,12 @@ NPC_Chat_Command:
     - if <[type]> == teleport:
         - teleport <player> <location[<[chat_data].get[location]>]>
         - narrate <[chat_data].get[message].separated_by[<n>].parsed.if_null[<empty>]>
-        - flag <player> chatting:<empty>
+        - flag <player> chatting:!
         - stop
     - if <[type]> == shop:
         - flag <player> shop_id:<[chat_data].deep_get[shop.id]>
         - inventory open d:NPC_Shop_GUI
-        - flag <player> chatting:<empty>
+        - flag <player> chatting:!
         - stop
     - if <[type]> == inventory:
         - inventory open d:<[chat_data].get[inventory]>
