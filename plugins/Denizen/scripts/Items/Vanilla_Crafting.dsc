@@ -18,7 +18,7 @@ Remove_Vanilla_Recipes:
           - minecraft:iron_ingot_from_iron_block
           - minecraft:lantern
           - minecraft:soul_lantern
-          - minecraft:chain
+          - minecraft:iron_chain
           - minecraft:bucket
           - minecraft:shears
           - minecraft:leather_helmet
@@ -188,7 +188,7 @@ Vanilla_Bucket:
 Vanilla_Chain:
     type: item
     debug: false
-    material: chain
+    material: iron_chain
     recipes:
       1:
         type: shaped
