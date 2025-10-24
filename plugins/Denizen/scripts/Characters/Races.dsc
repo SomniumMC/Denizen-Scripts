@@ -108,7 +108,8 @@ Race_Menu_Event:
           - define selection <player.open_inventory.slot[5].flag[race]>
           - narrate "<green>You are now a <player.flag[race.name].to_titlecase>!"
           - inventory close
-          - execute as_player "npcchat 0 welcome.option1.option1"
+          #- execute as_player "npcchat 0 welcome.option1.option1"
+          - run NPC_Chat def.npc:0 def.type:chatting def.data:<server.flag[npc.0.welcome.option1.option1]> def.npc_display:Nyomi def.path:welcome.option1.option1
         #on player opens Race_Select_Inventory:
         #- run Race_Menu_Update def:human
 
