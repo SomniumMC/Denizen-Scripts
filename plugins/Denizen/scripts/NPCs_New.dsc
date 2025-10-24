@@ -111,9 +111,9 @@ NPC_Chat_Command:
         - stop
     - if <[type]> == inventory:
         - inventory open d:<[chat_data].get[inventory]>
-        - if <[chat_data].get[message].if_null[null]> == null:
-            - stop
-        #- stop
+        #- if <[chat_data].get[message].if_null[null]> == null:
+        #    - stop
+        - stop
     - if <[type]> == task:
         - run <[chat_data].get[task]>
     - if <[type]> == flag:
