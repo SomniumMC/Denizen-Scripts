@@ -13,4 +13,6 @@ Chat_Event:
         - case global:
           - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
         - case local:
-          - narrate "<gray>[Local]|<player.name>: <context.message>" targets:<player.location.find_players_within[50]>
+          - define player <player>
+          - define character_name <player.flag[character.rpc.name]>
+          - narrate "<gray>[Local]|<[character_name]>: <context.message>" targets:<player.location.find_players_within[50]>
