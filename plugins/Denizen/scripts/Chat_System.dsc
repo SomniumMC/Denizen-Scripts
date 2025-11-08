@@ -7,12 +7,12 @@ Chat_Event:
   debug: false
   events:
     on player chats:
-      - determine passively cancelled
-      - define curr_channel <player.flag[chat_channel]>
-      - choose <[curr_channel]>:
-        - case global:
-          - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
-        - case local:
-          - define player <player>
-          - define character_name <player.flag[character.rpc.name]>
-          - narrate "<gray>[Local]|<[character_name]>: <context.message>" targets:<player.location.find_players_within[50]>
+        - determine passively cancelled
+        - define curr_channel <player.flag[chat_channel]>
+        - define player <player>
+        - define character_name <player.flag[character.rpc.name]>
+        - choose <[curr_channel]>:
+            - case global:
+                - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<[character_name]>/<player.name>: <context.message>"
+            - case local:
+                - narrate "<gray>[Local]|<white><[character_name]><bold>: <white><context.message>" targets:<player.location.find_players_within[50]>
