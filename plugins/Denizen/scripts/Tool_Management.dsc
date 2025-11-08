@@ -27,7 +27,7 @@ Tool_Management_Event_Main:
         - if <[tool].script.name.if_null[null]> == config_wrench:
             - flag player tool_bench:<[tool_bench]> expire:30s
             - inventory open d:Tool_Management_Dissasemble_GUI
-        - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].if_null[null]>
+        #- define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].if_null[null]>
         - if <[tool].script.name.if_null[null]> in <script[Tool_Management_Repair_List].list_keys.exclude[type|debug]>:
             - define repair_data <script[Tool_Management_Repair_List].data_key[<[tool].script.name>].if_null[null]>
         - else if <[tool].material.name> in <script[Tool_Management_Repair_List].list_keys.exclude[type|debug]>:
@@ -218,15 +218,15 @@ Tool_Management_Event_Main:
         # Grabbing data and reducing durability of tool upon successful use of tool
         - if <[item].script.name||null> == tool_bag:
             - define tool_bag <player.item_in_hand>
-            - if <player.inventory.slot[9].script.name.if_null[null]> != tool_bag:
-                - narrate "<red>The tool bag is not in your last hotbar slot."
-                - determine cancelled
-            - define tool_bag_inv <inventory[tool_bag_<player.inventory.slot[9].flag[id]>]>
+            #- if <player.inventory.slot[9].script.name.if_null[null]> != tool_bag:
+            #    - narrate "<red>The tool bag is not in your last hotbar slot."
+            #    - determine cancelled
+            - define tool_bag_inv <inventory[tool_bag_<[tool_bag].flag[id]>]>
             - define selected_tool_data <[tool_bag_inv].slot[<[tool_bag].flag[slot]>]>
             # Reducing durability of tool
-            - run durability_update_task def.slot:<[tool_bag].flag[slot]> def.inventory:tool_bag_<player.inventory.slot[9].flag[id]>
+            - run durability_update_task def.slot:<[tool_bag].flag[slot]> def.inventory:tool_bag_<[tool_bag].flag[id]>
             - wait 1t
-            - if <inventory[tool_bag_<player.inventory.slot[9].flag[id]>].slot[<[tool_bag].flag[slot]>].material.name> == air:
+            - if <inventory[tool_bag_<[tool_bag].flag[id]>].slot[<[tool_bag].flag[slot]>].material.name> == air:
                 - narrate "<red>Your current tool has broken!"
                 - inventory adjust slot:hand components_patch:[minecraft:item_model=string:tools:toolbag]
                 - inventory adjust slot:hand flag:tool:!
