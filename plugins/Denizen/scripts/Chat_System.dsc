@@ -9,6 +9,8 @@ Chat_Event:
     on player chats:
         - determine passively cancelled
         - define curr_channel <player.flag[chat_channel]>
+        - if <[curr_channel].if_null[null]> == null:
+            - define curr_channel global
         - define player <player>
         - define character_name <player.flag[character.rpc.name]>
         - choose <[curr_channel]>:
