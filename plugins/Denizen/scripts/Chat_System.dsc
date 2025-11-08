@@ -13,10 +13,10 @@ Chat_Event:
             - flag <player> chat_channel:global
             - define curr_channel global
         - define player <player>
-        - define character_name <player.flag[character.rpc.name]>
+        - define character_name <player.flag[character.rpc.name].if_null[<red>Character Name Missing]>
         - choose <[curr_channel]>:
             - case global:
-                - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<[character_name].if_null[ ]>/<player.name>: <context.message>"
-                - narrate "<red>[Global]|<white><[character_name].if_null[<red>Character Name Missing]>/<player.name><bold>: <white><context.message>" targets:<server.online_players>
+                - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<[character_name]>/<player.name>: <context.message>"
+                - narrate "<red>[Global]|<white><[character_name]>/<player.name><bold>: <white><context.message>" targets:<server.online_players>
             - case local:
-                - narrate "<gray>[Local]|<white><[character_name].if_null[<red>Character Name Missing]><bold>: <white><context.message>" targets:<player.location.find_players_within[50]>
+                - narrate "<gray>[Local]|<white><[character_name]><bold>: <white><context.message>" targets:<player.location.find_players_within[50]>
