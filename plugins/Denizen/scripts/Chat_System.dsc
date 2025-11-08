@@ -9,5 +9,8 @@ Chat_Event:
     on player chats:
       - determine passively cancelled
       - define curr_channel <player.flag[chat_channel]>
-      - if <[curr_channel]> == global:
+      - choose <[curr_channel]>:
+        - case global:
           - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
+        - case local:
+          - narrate "<gray>[Local]|<player.name>: <context.message>" targets:<player.location.find_players_within[50]>
