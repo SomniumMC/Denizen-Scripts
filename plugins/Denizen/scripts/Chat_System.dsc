@@ -7,7 +7,7 @@ Chat_Event:
   debug: false
   events:
     on player chats:
+      - determine passively cancelled
       - define curr_channel <player.flag[chat_channel]>
       - if <[curr_channel]> == global:
           - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
-      - determine cancelled
