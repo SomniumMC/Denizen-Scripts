@@ -12,8 +12,8 @@ connect_to_discord:
         - ~discordmessage id:mybot channel:1209227787358044170 "<player.name> has joined the main server!"
         on player quits:
         - ~discordmessage id:mybot channel:1209227787358044170 "<player.name> has left the main server!"
-        after player chats:
-        - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
+        #after player chats:
+        #- ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<player.name>: <context.message>"
 
 discord_command:
     type: command
