@@ -14,5 +14,6 @@ Chat_Event:
         - choose <[curr_channel]>:
             - case global:
                 - ~discordmessage id:mybot channel:1209227787358044170 "[OOC]|<[character_name]>/<player.name>: <context.message>"
+                - narrate "<red>[Global]|<white><[character_name]>/<player.name><bold>: <white><context.message>" targets:<server.online_players>
             - case local:
                 - narrate "<gray>[Local]|<white><[character_name]><bold>: <white><context.message>" targets:<player.location.find_players_within[50]>
