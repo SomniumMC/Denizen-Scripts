@@ -49,7 +49,7 @@ NPC_Hotbar_Chat:
     type: world
     debug: false
     events:
-        on player holds item flagged:chatting:
+        on player holds item flagged:chatting priority:-25:
         - if <player.flag[chatting.npc].if_null[null]> == null:
             - flag <player> chatting:!
             - stop
