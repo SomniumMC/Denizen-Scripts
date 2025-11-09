@@ -68,6 +68,29 @@ NPC_Hotbar_Chat:
             - execute as_player "npcchat <[chatting_npc]> <player.flag[chatting.path]>.option<[slot]>"
         #- narrate "<red>You cannot swap items while chatting with an NPC!"
 
+NPC_Number_Chat:
+    type: world
+    debug: false
+    events:
+        on player chats:
+        - if <player.flag[chatting.npc].if_null[null]> == null:
+            - flag <player> chatting:!
+            - stop
+        - if <context.message.is_integer>:
+            - determine cancelled passively
+            - define number <context.message>
+            - define chatting_data <player.flag[chatting]>
+            - define chatting_npc <player.flag[chatting.npc]>
+            - if <[number]> == 9:
+                - execute as_player "npcchat end"
+                - stop
+            - if <[chatting_data].get[option<[number]>].if_null[null]> == null:
+                - narrate "<red>Invalid Option!"
+                - stop
+            - else:
+                - execute as_player "npcchat <[chatting_npc]> <player.flag[chatting.path]>.option<[number]>"
+
+
 NPC_Chat_Command:
     type: command
     debug: false
