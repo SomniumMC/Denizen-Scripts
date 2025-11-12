@@ -28,6 +28,8 @@ Channel_Command:
     usage: /channel <&lt>global/local<&gt>
     tab_completions:
         1: global|local
+    aliases:
+        - ch
     script:
     - define selected_channel <context.args.get[1].to_lowercase>
     - choose <[selected_channel]>:
