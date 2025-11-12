@@ -26,7 +26,7 @@ Channel_Command:
     name: channel
     description: Switches your chat channel between Global and Local.
     usage: /channel <&lt>global/local<&gt>
-    tab_completions:
+    tab completions:
         1: global|local
     aliases:
         - ch
