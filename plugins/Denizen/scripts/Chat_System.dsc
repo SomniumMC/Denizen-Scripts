@@ -20,3 +20,22 @@ Chat_Event:
                 - narrate "<red>[Global]|<white><[character_name]>/<player.name><bold>: <white><context.message>" targets:<server.online_players>
             - case local:
                 - narrate "<gray>[Local]|<white><[character_name]><bold>: <white><context.message>" targets:<player.location.find_players_within[50]>
+
+Channel_Command:
+    type: command
+    name: channel
+    description: Switches your chat channel between Global and Local.
+    usage: /channel <&lt>global/local<&gt>
+    tab_completions:
+        1: global|local
+    script:
+    - define selected_channel <context.args.get[1].to_lowercase>
+    - choose <[selected_channel]>:
+        - case global:
+            - flag <player> chat_channel:global
+            - narrate "<gold>You have switched your chat channel to <yellow>Global<gold>."
+        - case local:
+            - flag <player> chat_channel:local
+            - narrate "<gold>You have switched your chat channel to <yellow>Local<gold>."
+        - default:
+            - narrate "<red>Invalid channel! Please specify either <yellow>global<red> or <yellow>local<red>."
