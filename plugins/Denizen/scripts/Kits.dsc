@@ -64,6 +64,7 @@ Alpha_Kit_Data:
     - currency1-32
     - coinpurse-1
     - blue_bed-1
+    - Server_Guide-1
 
 IronSet_Kit_Data:
     type: data
