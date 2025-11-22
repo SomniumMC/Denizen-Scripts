@@ -2,6 +2,7 @@
 
 Guide_Book_Update:
     type: world
+    debug: false
     events:
       on player right clicks block with:Server_Guide:
       - define new_model <item[Server_Guide]>
@@ -12,6 +13,7 @@ Guide_Book_Update:
 
 Server_Guide:
     type: item
+    debug: false
     material: written_book
     display name: <light_purple><bold>Server Guide
     mechanisms:
@@ -24,6 +26,7 @@ Server_Guide:
     book: Server_Guide_Bookscript
 Server_Guide_Bookscript:
     type: book
+    debug: false
     title: <gold><bold>Server Guide
     author: <gray><italic>Falsen Prophet
     signed: true
@@ -50,6 +53,7 @@ Server_Guide_Bookscript:
 
 Server_Guide_Command:
     type: command
+    debug: false
     name: guide
     description: Gives a guide book for the server!
     usage: /guide
