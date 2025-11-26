@@ -213,11 +213,11 @@ Crafting_Recipe_Task:
     - if <[crafted_item].has_flag[durability1]>:
       - if !<[crafted_item].has_flag[durability2]>:
         - adjust def:crafted_item flag:durability2:<[crafted_item].flag[durability1].round_up>
-    - give item:<[crafted_item]> quantity:<[item].flag[recipe].after_last[-]>
+    #- give item:<[crafted_item]> quantity:<[item].flag[recipe].after_last[-]>
     #- flag <player> crafting.item:<[crafted_item]>
     #- inventory close
 
-    #- run Crafting_Station_Push
+    - run Crafting_Station_Push
 
 Crafting_Station_Push:
   type: task
