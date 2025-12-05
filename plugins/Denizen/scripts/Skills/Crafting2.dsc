@@ -161,7 +161,6 @@ Crafting_Recipe_Task:
   - define path <[item].flag[path]>
   - define recipe <script[Crafting_Master_Data].data_key[<[path]>]>
   - define recipe_amount <[recipe].size>
-  - define tool <[recipe].last>
   - foreach <[recipe]> as:item:
     - define quantity<[loop_index]> <[item].after_last[-]>
     - define ingredient<[loop_index]> <[item].before_last[-]>
