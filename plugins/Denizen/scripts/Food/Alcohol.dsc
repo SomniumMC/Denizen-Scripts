@@ -564,6 +564,7 @@ Alcohol_Fermenter_Event:
             - if <[fluid]> == empty:
                 - flag <[location]> fermenting:!
                 - drop item:Alcohol_Fermentation_Barrel <[location].center>
+                - remove <[location].flag[fermenting.model]>
             - else:
                 - narrate "<red>Cannot break the fermenter while it is in use!"
                 - determine cancelled
