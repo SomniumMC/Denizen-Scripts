@@ -352,6 +352,7 @@ Farming_Seeds:
       - barley
       - rye
       - chili
+      - cabbage
     bark:
       - cinnamon
     bush:
@@ -394,6 +395,7 @@ Farming_Outputs:
     barley: barley_bundle_3
     rye: rye_bundle_3
     chili: chili_3
+    cabbage: cabbage_3
 
         #- if <player.item_in_hand.flag[seed]> == beetroot && <context.location.above.material.name> == air:
         #  - modifyblock <[crop_location]> beetroots
@@ -781,6 +783,20 @@ Seeds_Chili:
     - <green>Vegetable - Seeds
     - <empty>
     - <gold>A set of seeds used to grow a chili crop.
+Seeds_Cabbage:
+    type: item
+    debug: false
+    material: brick
+    display name: <white>Cabbage Seeds
+    flags:
+      seed: cabbage
+    mechanisms:
+      custom_model_data: 1010
+    lore:
+    - <green>Vegetable - Seeds
+    - <empty>
+    - <gold>A set of seeds used to grow a cabbage crop.
+
 #Crops Stages
 ## Players should not have access to these as these are just the display representations of the crop stages
 
@@ -1190,3 +1206,39 @@ Crop_Chili_3:
     display name: <light_purple>Chili Stage 3
     mechanisms:
       custom_model_data: 1050
+
+Crop_Cabbage_0:
+    type: item
+    debug: false
+    material: rabbit_foot
+    display name: <light_purple>Cabbage Stage 0
+    mechanisms:
+      components_patch:
+        item_model: string:crops:item/cabbage_0
+
+Crop_Cabbage_1:
+    type: item
+    debug: false
+    material: rabbit_foot
+    display name: <light_purple>Cabbage Stage 1
+    mechanisms:
+      components_patch:
+        item_model: string:crops:item/cabbage_1
+
+Crop_Cabbage_2:
+    type: item
+    debug: false
+    material: rabbit_foot
+    display name: <light_purple>Cabbage Stage 2
+    mechanisms:
+      components_patch:
+        item_model: string:crops:item/cabbage_2
+
+Crop_Cabbage_3:
+    type: item
+    debug: false
+    material: rabbit_foot
+    display name: <light_purple>Cabbage Stage 3
+    mechanisms:
+      components_patch:
+        item_model: string:crops:item/cabbage_3

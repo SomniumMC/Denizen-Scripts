@@ -308,8 +308,8 @@ Corn:
   display name: <white>Corn
   flags:
     food: 1
-    Cooking_ID: Vanilla_Bean
-    Cooking_Tag: Corn
+    Cooking_ID: Corn
+    Cooking_Tag: Raw_Grain
     Vegetable: Corn
     Grain: Corn
   Lore:
@@ -366,8 +366,26 @@ Popcorn:
   flags:
     food: 1
     Cooking_ID: Popcorn
-    Cooking_Tag: Corn
     Vegetable: Corn
     Grain: Corn
   Lore:
   - <gold>Popped CORN. POPPED CORN! The CORN POPPED! If you eat corn it will also become pooped corn.
+
+Cabbage:
+  type: item
+  debug: false
+  data:
+    cooking_tag:
+      type: ingredient
+  material: tropical_fish
+  mechanisms:
+    components_patch:
+      item_model: string:cooking:food/cabbage
+  display name: <white>Cabbage
+  flags:
+    food: 1
+    Cooking_ID: Cabbage
+    Cooking_Tag: Raw_Vegetable
+    Vegetable: Cabbage
+  Lore:
+  - <gold>Green vegetable surrounded by leafy layers.

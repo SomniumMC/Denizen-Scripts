@@ -607,21 +607,17 @@ Cooking_Grass_Harvest:
           - inventory adjust slot:hand durability:<[item_durability].add[1]>
         - modifyblock <context.location> dirt
         - if <util.random_chance[10]>:
-            - drop <context.location> item:<item[seeds_<script[Farming_Seeds].data_key[vanilla].random>]> quantity:1
-            #- case 2:
-            #  - drop <context.location> item:seeds_carrot quantity:1
-            #- case 3:
-            #  - drop <context.location> item:seeds_potato quantity:1
-            #- case 4:
-            #  - drop <context.location> item:seeds_pumpkin quantity:1
-            #- case 5:
-            #  - drop <context.location> item:seeds_melon quantity:1
-            #- case 6:
-            #  - drop <context.location> item:seeds_beetroot quantity:1
-            #- case 7:
-            #  - drop <context.location> item:seeds_sweet_berry quantity:1
-            #- case default:
-            #  - determine cancelled
+          - choose <script[Farming_Seeds].list_keys.exclude[debug|type].random>:
+            - case vanilla:
+              - drop <context.location> item:<item[seeds_<script[Farming_Seeds].data_key[vanilla].random>]> quantity:1
+            - case tree:
+              - drop <context.location> item:<item[seeds_<script[Farming_Seeds].data_key[tree].random>]> quantity:1
+            - case ground:
+              - drop <context.location> item:<item[seeds_<script[Farming_Seeds].data_key[ground].random>]> quantity:1
+            - case bark:
+              - drop <context.location> item:<item[seeds_<script[Farming_Seeds].data_key[bark].random>]> quantity:1
+            - case bush:
+              - drop <context.location> item:<item[seeds_<script[Farming_Seeds].data_key[bush].random>]> quantity:1
         on player breaks dirt with:*_hoe bukkit_priority:HIGHEST:
         - determine passively cancelled
         - if <player.item_in_hand.script.name||null> == null:
